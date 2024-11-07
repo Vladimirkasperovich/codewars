@@ -21,7 +21,7 @@ function encode(string) {
 	const vowel = ['a', 'e', 'i', 'o', 'u']
 	return string.replace(/[aeiop]/g, (str) => {
 		const findIndex = vowel.indexOf(str);
-		if (findIndex !== -1){
+		if (findIndex !== -1) {
 			str = findIndex + 1;
 		}
 		return str;
@@ -40,3 +40,16 @@ function decode(string) {
 // console.log(encode('How are you today?')) //'H4w 1r2 y45 t4d1y?'
 // console.log(encode('This is an encoding test.')) //'Th3s 3s 1n 2nc4d3ng t2st.'
 // console.log(decode('h2ll4')) //'hello'
+
+function highestRank(arr) {
+	const mapa = {};
+	for (const current of arr) {
+		mapa[current] = (mapa[current] || 0) + 1;
+	}
+	return +Object.entries(mapa).sort((a,b) => b[1] - a[1] || b[0] - a[0])[0][0]
+	
+}
+
+console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12])) //12
+console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12, 10])) //12
+console.log(highestRank([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10])) //3
