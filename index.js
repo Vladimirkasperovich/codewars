@@ -54,11 +54,26 @@ function highestRank(arr) {
 // console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12, 10])) //12
 // console.log(highestRank([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10])) //3
 
-String.prototype.camelCase = function () {
-	const arr = this.split(' ');
-	return arr
-		.map((el) => el.replace(/^\w/, (s) => s.toUpperCase()))
-		.join('')
-	
-}
+// String.prototype.camelCase = function () {
+// 	const arr = this.split(' ');
+// 	return arr
+// 		.map((el) => el.replace(/^\w/, (s) => s.toUpperCase()))
+// 		.join('')
+//
+// }
 // console.log('test case'.camelCase())
+
+function partsSums(ls) {
+	// your code
+	let sum = ls.reduce((acc, sum) => acc + sum, 0);
+	let result = [sum];
+	
+	for (let i = 0; i < ls.length; i++) {
+		sum -= ls[i];
+		result.push(sum)
+	}
+	return result;
+}
+
+console.log(partsSums([0, 1, 3, 6, 10])) // [20, 20, 19, 16, 10, 0]
+console.log(partsSums([1, 2, 3, 4, 5, 6])) //[21, 20, 18, 15, 11, 6, 0]
