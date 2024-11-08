@@ -46,10 +46,19 @@ function highestRank(arr) {
 	for (const current of arr) {
 		mapa[current] = (mapa[current] || 0) + 1;
 	}
-	return +Object.entries(mapa).sort((a,b) => b[1] - a[1] || b[0] - a[0])[0][0]
+	return +Object.entries(mapa).sort((a, b) => b[1] - a[1] || b[0] - a[0])[0][0]
 	
 }
 
-console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12])) //12
-console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12, 10])) //12
-console.log(highestRank([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10])) //3
+// console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12])) //12
+// console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12, 10])) //12
+// console.log(highestRank([12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10])) //3
+
+String.prototype.camelCase = function () {
+	const arr = this.split(' ');
+	return arr
+		.map((el) => el.replace(/^\w/, (s) => s.toUpperCase()))
+		.join('')
+	
+}
+// console.log('test case'.camelCase())
