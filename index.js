@@ -71,9 +71,22 @@ function partsSums(ls) {
 	for (let i = 0; i < ls.length; i++) {
 		sum -= ls[i];
 		result.push(sum)
+		console.log(result)
 	}
 	return result;
 }
 
-console.log(partsSums([0, 1, 3, 6, 10])) // [20, 20, 19, 16, 10, 0]
-console.log(partsSums([1, 2, 3, 4, 5, 6])) //[21, 20, 18, 15, 11, 6, 0]
+// console.log(partsSums([0, 1, 3, 6, 10])) // [20, 20, 19, 16, 10, 0]
+// console.log(partsSums([1, 2, 3, 4, 5, 6])) //[21, 20, 18, 15, 11, 6, 0]
+
+function comp(array1, array2) {
+	//your code here
+	if (array1 === null || array2 === null) return false;
+	array1.sort((a, b) => a - b);
+	array2.sort((a, b) => a - b);
+	return array1.map((el) => el * el).every((val, i) => val === array2[i]);
+}
+
+console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [231, 14641, 20736, 361, 25921, 361, 20736, 361]))
+console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 36100, 25921, 361, 20736, 361]))
+console.log(comp([], []))
