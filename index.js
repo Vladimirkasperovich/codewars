@@ -87,6 +87,19 @@ function comp(array1, array2) {
 	return array1.map((el) => el * el).every((val, i) => val === array2[i]);
 }
 
-console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [231, 14641, 20736, 361, 25921, 361, 20736, 361]))
-console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 36100, 25921, 361, 20736, 361]))
-console.log(comp([], []))
+// console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [231, 14641, 20736, 361, 25921, 361, 20736, 361]))
+// console.log(comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 36100, 25921, 361, 20736, 361]))
+// console.log(comp([], []))
+// return masked string
+
+function maskify(cc) {
+	return cc.length <= 4 ? cc : '#'.repeat(cc.length - 4) + cc.slice(-4)
+}
+
+// console.log(maskify('4556364607935616')) //'############5616'
+// console.log(maskify('64607935616')) //'#######5616'
+// console.log(maskify('1')) //1
+// console.log(maskify('')) //''
+// console.log(maskify('11111')) //#1111
+// console.log(maskify('Skippy')) //##ippy
+// console.log(maskify('Nananananananananananananananana Batman!')) //####################################man!
