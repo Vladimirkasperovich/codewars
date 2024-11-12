@@ -108,6 +108,25 @@ function openOrSenior(data) {
 	return data.map(el => el[0] >= 55 && el[1] > 7 ? 'Senior' : 'Open')
 }
 
-console.log(openOrSenior([[45, 12], [55, 21], [19, -2], [104, 20]])) //['Open', 'Senior', 'Open', 'Senior']
-console.log(openOrSenior([[3, 12], [55, 1], [91, -2], [53, 23]])) //['Open', 'Open', 'Open', 'Open']
-console.log(openOrSenior([[59, 12], [55, -1], [12, -2], [12, 12]])) //['Senior', 'Open', 'Open', 'Open']
+// console.log(openOrSenior([[45, 12], [55, 21], [19, -2], [104, 20]])) //['Open', 'Senior', 'Open', 'Senior']
+// console.log(openOrSenior([[3, 12], [55, 1], [91, -2], [53, 23]])) //['Open', 'Open', 'Open', 'Open']
+// console.log(openOrSenior([[59, 12], [55, -1], [12, -2], [12, 12]])) //['Senior', 'Open', 'Open', 'Open']
+
+function checkExam(array1, array2) {
+	let count = 0;
+	for (let i = 0; i < array2.length; i++) {
+		if(array2[i] === array1[i]){
+			count += 4;
+		}else if (array2[i] === ''){
+			count += 0;
+		}else{
+			count -= 1;
+		}
+	}
+	return count < 0 ? 0 : count;
+}
+
+// console.log(checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"])) //6
+// console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""])) //7
+// console.log(checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"])) //16
+// console.log(checkExam(["b", "c", "b", "a"], ["", "a", "a", "c"])) //0
