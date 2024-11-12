@@ -115,11 +115,11 @@ function openOrSenior(data) {
 function checkExam(array1, array2) {
 	let count = 0;
 	for (let i = 0; i < array2.length; i++) {
-		if(array2[i] === array1[i]){
+		if (array2[i] === array1[i]) {
 			count += 4;
-		}else if (array2[i] === ''){
+		} else if (array2[i] === '') {
 			count += 0;
-		}else{
+		} else {
 			count -= 1;
 		}
 	}
@@ -130,3 +130,22 @@ function checkExam(array1, array2) {
 // console.log(checkExam(["a", "a", "c", "b"], ["a", "a", "b", ""])) //7
 // console.log(checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"])) //16
 // console.log(checkExam(["b", "c", "b", "a"], ["", "a", "a", "c"])) //0
+
+function goodVsEvil(good, evil) {
+	const getWorth = (side, coefficient) => {
+		return side.split(' ').reduce((acc, cur, index) => {
+			return acc + (+cur * coefficient[index])
+		}, 1)
+	}
+	
+	const goodResult = getWorth(good, [1, 2, 3, 3, 4, 10]);
+	const evilResult = getWorth(evil, [1, 2, 2, 2, 3, 5, 10]);
+	
+	if (goodResult > evilResult) return 'Battle Result: Good triumphs over Evil';
+	else if (evilResult > goodResult) return 'Battle Result: Evil eradicates all trace of Good';
+	else return 'Battle Result: No victor on this battle field';
+}
+
+// console.log(goodVsEvil('1 1 1 1 1 1', '1 1 1 1 1 1 1')) //'Battle Result: Evil eradicates all trace of Good'
+// console.log(goodVsEvil('0 0 0 0 0 10', '0 1 1 1 1 0 0')) //'Battle Result: Good triumphs over Evil'
+// console.log(goodVsEvil('1 0 0 0 0 0', '1 0 0 0 0 0 0')) //'Battle Result: No victor on this battle field'
