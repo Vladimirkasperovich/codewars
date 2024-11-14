@@ -13,27 +13,27 @@ const quickSort = (arr) => {
 	}
 	
 	return [...quickSort(less), temp, ...quickSort(greater)];
-}
+};
 
 // console.log(quickSort([10,9,8,7,6,5,4,3,2,1]))
 
 function encode(string) {
-	const vowel = ['a', 'e', 'i', 'o', 'u']
+	const vowel = ["a", "e", "i", "o", "u"];
 	return string.replace(/[aeiop]/g, (str) => {
 		const findIndex = vowel.indexOf(str);
 		if (findIndex !== -1) {
 			str = findIndex + 1;
 		}
 		return str;
-	})
+	});
 }
 
 function decode(string) {
-	const chars = ['a', 'e', 'i', 'o', 'u']
+	const chars = ["a", "e", "i", "o", "u"];
 	return string.replace(/[12345]/g, (str) => {
 		str = chars[str - 1];
-		return str
-	})
+		return str;
+	});
 }
 
 // console.log(encode('hello')) //'h2ll4'
@@ -46,7 +46,7 @@ function highestRank(arr) {
 	for (const current of arr) {
 		mapa[current] = (mapa[current] || 0) + 1;
 	}
-	return +Object.entries(mapa).sort((a, b) => b[1] - a[1] || b[0] - a[0])[0][0]
+	return +Object.entries(mapa).sort((a, b) => b[1] - a[1] || b[0] - a[0])[0][0];
 	
 }
 
@@ -70,8 +70,8 @@ function partsSums(ls) {
 	
 	for (let i = 0; i < ls.length; i++) {
 		sum -= ls[i];
-		result.push(sum)
-		console.log(result)
+		result.push(sum);
+		console.log(result);
 	}
 	return result;
 }
@@ -93,7 +93,7 @@ function comp(array1, array2) {
 // return masked string
 
 function maskify(cc) {
-	return cc.length <= 4 ? cc : '#'.repeat(cc.length - 4) + cc.slice(-4)
+	return cc.length <= 4 ? cc : "#".repeat(cc.length - 4) + cc.slice(-4);
 }
 
 // console.log(maskify('4556364607935616')) //'############5616'
@@ -105,7 +105,7 @@ function maskify(cc) {
 // console.log(maskify('Nananananananananananananananana Batman!')) //####################################man!
 
 function openOrSenior(data) {
-	return data.map(el => el[0] >= 55 && el[1] > 7 ? 'Senior' : 'Open')
+	return data.map(el => el[0] >= 55 && el[1] > 7 ? "Senior" : "Open");
 }
 
 // console.log(openOrSenior([[45, 12], [55, 21], [19, -2], [104, 20]])) //['Open', 'Senior', 'Open', 'Senior']
@@ -117,7 +117,7 @@ function checkExam(array1, array2) {
 	for (let i = 0; i < array2.length; i++) {
 		if (array2[i] === array1[i]) {
 			count += 4;
-		} else if (array2[i] === '') {
+		} else if (array2[i] === "") {
 			count += 0;
 		} else {
 			count -= 1;
@@ -133,23 +133,35 @@ function checkExam(array1, array2) {
 
 function goodVsEvil(good, evil) {
 	const getWorth = (side, coefficient) => {
-		return side.split(' ').reduce((acc, cur, index) => {
-			return acc + (+cur * coefficient[index])
-		}, 1)
-	}
+		return side.split(" ").reduce((acc, cur, index) => {
+			return acc + (+cur * coefficient[index]);
+		}, 1);
+	};
 	
 	const goodResult = getWorth(good, [1, 2, 3, 3, 4, 10]);
 	const evilResult = getWorth(evil, [1, 2, 2, 2, 3, 5, 10]);
 	
-	if (goodResult > evilResult) return 'Battle Result: Good triumphs over Evil';
-	else if (evilResult > goodResult) return 'Battle Result: Evil eradicates all trace of Good';
-	else return 'Battle Result: No victor on this battle field';
+	if (goodResult > evilResult) return "Battle Result: Good triumphs over Evil";
+	else if (evilResult > goodResult) return "Battle Result: Evil eradicates all trace of Good";
+	else return "Battle Result: No victor on this battle field";
 }
 
 // console.log(goodVsEvil('1 1 1 1 1 1', '1 1 1 1 1 1 1')) //'Battle Result: Evil eradicates all trace of Good'
 // console.log(goodVsEvil('0 0 0 0 0 10', '0 1 1 1 1 0 0')) //'Battle Result: Good triumphs over Evil'
 // console.log(goodVsEvil('1 0 0 0 0 0', '1 0 0 0 0 0 0')) //'Battle Result: No victor on this battle field'
 
-function foo(){
-
+function per(n) {
+	const res = [];
+	while (n >= 10) {
+		n = n.toString().split("").reduce((acc, cur) => acc * +cur, 1);
+		res.push(n)
+	}
+	return res;
 }
+
+console.log(per(1)); //[]
+console.log(per(10)); //[0]
+console.log(per(69)); //[54,20,0]
+console.log(per(277777788888899)); //[4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]
+
+
