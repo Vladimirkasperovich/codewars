@@ -154,14 +154,15 @@ function per(n) {
 	const res = [];
 	while (n >= 10) {
 		n = n.toString().split("").reduce((acc, cur) => acc * +cur, 1);
-		res.push(n)
+		res.push(n);
 	}
 	return res;
 }
 
-console.log(per(1)); //[]
-console.log(per(10)); //[0]
-console.log(per(69)); //[54,20,0]
-console.log(per(277777788888899)); //[4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]
+// console.log(per(1)); //[]
+// console.log(per(10)); //[0]
+// console.log(per(69)); //[54,20,0]
+// console.log(per(277777788888899)); //[4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]
 
-
+const toNumberArray = stringarray => stringarray.map(Number);
+// console.log(toNumberArray(["1.1","2.2","3.3"]));
