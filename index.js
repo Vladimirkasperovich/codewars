@@ -165,4 +165,12 @@ function per(n) {
 // console.log(per(277777788888899)); //[4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]
 
 const toNumberArray = stringarray => stringarray.map(Number);
+
 // console.log(toNumberArray(["1.1","2.2","3.3"]));
+
+const divCon = x => x.reduce((acc, cur) => typeof cur === 'number' ? acc + cur : acc - Number(cur),0)
+
+
+// console.log(divCon([9, 3, "7", "3"])); //2
+// console.log(divCon(["5", "0", 9, 3, 2, 1, "9", 6, 7])); //14
+// console.log(divCon(["3", 6, 6, 0, "5", 8, 5, "6", 2, "0"])); //13
