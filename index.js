@@ -213,9 +213,29 @@ function sortReindeer(reindeerNames) {
 	});
 }
 
-console.log(sortReindeer([
-	"Dasher Tonoyan", "Dancer Moore", "Prancer Chua", "Vixen Hall",
-	"Comet Karavani", "Cupid Foroutan", "Donder Jonker", "Blitzen Claus"
-]));
+// console.log(sortReindeer([
+// 	"Dasher Tonoyan", "Dancer Moore", "Prancer Chua", "Vixen Hall",
+// 	"Comet Karavani", "Cupid Foroutan", "Donder Jonker", "Blitzen Claus"
+// ]));
 
 //["Prancer Chua", "Blitzen Claus", "Cupid Foroutan", "Vixen Hall",	"Donder Jonker", "Comet Karavani", "DancerMoore","Dasher Tonoyan']
+
+function missingWord(nums, str) {
+	// Jenny needs your help...
+	const numsArr = nums.sort((a, b) => a - b);
+	const string = str.toLowerCase().replace(/ /g, "");
+	let res = "";
+	for (const elem of numsArr) {
+		if (string[elem]) {
+			res += string[elem];
+		}
+		
+	}
+	
+	return res.length === 3 ? res : "No mission today";
+	
+}
+
+// console.log(missingWord([5, 0, 3], "I love you")); //ivy
+// console.log(missingWord([29, 31, 8], "The quick brown fox jumps over the lazy dog")); //bay
+// console.log(missingWord([12, 4, 6], "Good Morning")); //"No mission today"
