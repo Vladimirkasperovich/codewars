@@ -239,3 +239,25 @@ function missingWord(nums, str) {
 // console.log(missingWord([5, 0, 3], "I love you")); //ivy
 // console.log(missingWord([29, 31, 8], "The quick brown fox jumps over the lazy dog")); //bay
 // console.log(missingWord([12, 4, 6], "Good Morning")); //"No mission today"
+
+function remember(str) {
+	const mapa = {};
+	const result = [];
+	
+	for (const char of str) {
+		mapa[char] = (mapa[char] || 0) + 1;
+		if (mapa[char] === 2) {
+			result.push(char);
+		}
+	}
+	
+	return result;
+}
+
+console.log(remember("apple")); //[p]
+console.log(remember("apPle")); //[]
+console.log(remember("pippi")); //["p", "i"]
+console.log(remember("Pippi")); //["p", "i"]
+console.log(remember("limbojackassin the garden")); //["a", "s", "i", " ", "e", "n"]
+console.log(remember("11pinguin")); //["1", "i", "n"]
+
