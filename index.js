@@ -204,3 +204,18 @@ function modifyMultiply(str, loc, num) {
 
 // console.log(modifyMultiply("This is a string", 3, 5)); //"string-string-string-string-string"
 // console.log(modifyMultiply("Creativity is the process of having original ideas that have value. It is a process; it's not random.", 8, 10)); //"that-that-that-that-that-that-that-that-that-that"
+
+function sortReindeer(reindeerNames) {
+	return reindeerNames.sort((a, b) => {
+		const lastNameA = a.split(" ").slice(-1)[0];
+		const lastNameB = b.split(" ").slice(-1)[0];
+		return lastNameA.localeCompare(lastNameB);
+	});
+}
+
+console.log(sortReindeer([
+	"Dasher Tonoyan", "Dancer Moore", "Prancer Chua", "Vixen Hall",
+	"Comet Karavani", "Cupid Foroutan", "Donder Jonker", "Blitzen Claus"
+]));
+
+//["Prancer Chua", "Blitzen Claus", "Cupid Foroutan", "Vixen Hall",	"Donder Jonker", "Comet Karavani", "DancerMoore","Dasher Tonoyan']
