@@ -263,9 +263,30 @@ function remember(str) {
 
 function sumOfMinimums(arr) {
 	// your code here
-   return arr.reduce((acc, cur) =>  acc + Math.min(...cur),0)
+	return arr.reduce((acc, cur) => acc + Math.min(...cur), 0);
 }
 
-console.log(sumOfMinimums([[7, 9, 8, 6, 2], [6, 3, 5, 4, 3], [5, 8, 7, 4, 5]])); //9
-console.log(sumOfMinimums([[11, 12, 14, 54], [67, 89, 90, 56], [7, 9, 4, 3], [9, 8, 6, 7]]));//76
+// console.log(sumOfMinimums([[7, 9, 8, 6, 2], [6, 3, 5, 4, 3], [5, 8, 7, 4, 5]])); //9
+// console.log(sumOfMinimums([[11, 12, 14, 54], [67, 89, 90, 56], [7, 9, 4, 3], [9, 8, 6, 7]]));//76
 
+function rowWeights(array) {
+	//your code here
+	if (array.length === 1) return  [...array, 0]
+	const teamOne = [];
+	const teamTwo = [];
+	array.forEach((el, index) => {
+		if (index % 2 === 0) {
+			teamOne.push(el);
+		} else {
+			teamTwo.push(el);
+		}
+	});
+	
+	return [teamOne.reduce((acc,cur) => acc + cur), teamTwo.reduce((acc,cur) => acc + cur)];
+}
+
+console.log(rowWeights([80]));//[80,0]
+console.log(rowWeights([100, 50])); //[100,50]
+console.log(rowWeights([50, 60, 70, 80]));//[120,140]
+console.log(rowWeights([13, 27, 49]));//[62,27]
+console.log(rowWeights([70, 58, 75, 34, 91]));//[236,92]
