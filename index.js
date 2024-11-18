@@ -271,22 +271,14 @@ function sumOfMinimums(arr) {
 
 function rowWeights(array) {
 	//your code here
-	if (array.length === 1) return  [...array, 0]
-	const teamOne = [];
-	const teamTwo = [];
-	array.forEach((el, index) => {
-		if (index % 2 === 0) {
-			teamOne.push(el);
-		} else {
-			teamTwo.push(el);
-		}
-	});
+	const r1 = array.filter((_, i) => i % 2 === 0).reduce((acc, current) => acc + current, 0);
+	const r2 = array.filter((_, i) => i % 2 !== 0).reduce((acc, current) => acc + current, 0);
 	
-	return [teamOne.reduce((acc,cur) => acc + cur), teamTwo.reduce((acc,cur) => acc + cur)];
+	return [r1, r2];
 }
 
-console.log(rowWeights([80]));//[80,0]
-console.log(rowWeights([100, 50])); //[100,50]
-console.log(rowWeights([50, 60, 70, 80]));//[120,140]
-console.log(rowWeights([13, 27, 49]));//[62,27]
+// console.log(rowWeights([80]));//[80,0]
+// console.log(rowWeights([100, 50])); //[100,50]
+// console.log(rowWeights([50, 60, 70, 80]));//[120,140]
+// console.log(rowWeights([13, 27, 49]));//[62,27]
 console.log(rowWeights([70, 58, 75, 34, 91]));//[236,92]
