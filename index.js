@@ -283,7 +283,30 @@ function rowWeights(array) {
 // console.log(rowWeights([13, 27, 49]));//[62,27]
 // console.log(rowWeights([70, 58, 75, 34, 91]));//[236,92]
 
-function noOdds( values ){
+function noOdds(values) {
 	// Return all non-odd values
-	return values.filter(el => el % 2 === 0)
+	return values.filter(el => el % 2 === 0);
 }
+
+function upArray(arr) {
+	// ...
+	if (arr.length === 0 || arr.some(n => n < 0 || n > 9)) return null;
+	let index = arr.length - 1;
+	while (index >= 0) {
+		if (arr[index] === 9) {
+			arr[index] = 0;
+			index--;
+		} else {
+			arr[index] += 1;
+			return arr;
+		}
+	}
+	arr.unshift(1);
+	return arr;
+}
+
+// console.log(upArray([4, 3, 2, 5])); //[4,3,2,6]
+// console.log(upArray([2, 3, 9, 9])); //[2,4,0,0]
+// console.log(upArray([9, 9])); //[1,0,0]
+// console.log(upArray([0, 7])); //[0,8]
+// console.log(upArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); //[1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,1]
