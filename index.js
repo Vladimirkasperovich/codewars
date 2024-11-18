@@ -254,10 +254,18 @@ function remember(str) {
 	return result;
 }
 
-console.log(remember("apple")); //[p]
-console.log(remember("apPle")); //[]
-console.log(remember("pippi")); //["p", "i"]
-console.log(remember("Pippi")); //["p", "i"]
-console.log(remember("limbojackassin the garden")); //["a", "s", "i", " ", "e", "n"]
-console.log(remember("11pinguin")); //["1", "i", "n"]
+// console.log(remember("apple")); //[p]
+// console.log(remember("apPle")); //[]
+// console.log(remember("pippi")); //["p", "i"]
+// console.log(remember("Pippi")); //["p", "i"]
+// console.log(remember("limbojackassin the garden")); //["a", "s", "i", " ", "e", "n"]
+// console.log(remember("11pinguin")); //["1", "i", "n"]
+
+function sumOfMinimums(arr) {
+	// your code here
+   return arr.reduce((acc, cur) =>  acc + Math.min(...cur),0)
+}
+
+console.log(sumOfMinimums([[7, 9, 8, 6, 2], [6, 3, 5, 4, 3], [5, 8, 7, 4, 5]])); //9
+console.log(sumOfMinimums([[11, 12, 14, 54], [67, 89, 90, 56], [7, 9, 4, 3], [9, 8, 6, 7]]));//76
 
