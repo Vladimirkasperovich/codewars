@@ -310,3 +310,24 @@ function upArray(arr) {
 // console.log(upArray([9, 9])); //[1,0,0]
 // console.log(upArray([0, 7])); //[0,8]
 // console.log(upArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); //[1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,1]
+
+function isSortedAndHow(array) {
+	const start = array[0];
+	const end = array[array.length - 1];
+	
+	for (let i = 1; i < array.length; i++) {
+		const current = array[i];
+		if (start > current && start > end) {
+			return "yes, descending";
+		} else if (start < current && start < end) {
+			return "yes, ascending";
+		} else {
+			return "no";
+		}
+	}
+	
+}
+
+console.log(isSortedAndHow([1, 2])); //'yes, ascending'
+console.log(isSortedAndHow([15, 7, 3, -8])); //'yes, descending'
+console.log(isSortedAndHow([4, 2, 30])); //'no'
