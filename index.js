@@ -366,3 +366,13 @@ function fizzbuzz(n) {
 }
 
 // console.log(fizzbuzz(30)); //[1,2,'Fizz',4,'Buzz','Fizz',7,8,'Fizz','Buzz']
+
+function reverse(str){
+	//WRITE SOME MAGIC
+	return str.split(' ')
+		.map((el, i) =>  i % 2 !== 0 ? el.split('').reverse().join('') : el)
+		.join(' ')
+}
+
+console.log(reverse("Reverse this string, please!")); //"Reverse siht string, !esaelp"
+console.log(reverse("I really don't like reversing strings!")); //"I yllaer don't ekil reversing !sgnirts"
