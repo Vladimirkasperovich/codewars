@@ -367,12 +367,39 @@ function fizzbuzz(n) {
 
 // console.log(fizzbuzz(30)); //[1,2,'Fizz',4,'Buzz','Fizz',7,8,'Fizz','Buzz']
 
-function reverse(str){
+function reverse(str) {
 	//WRITE SOME MAGIC
-	return str.split(' ')
-		.map((el, i) =>  i % 2 !== 0 ? el.split('').reverse().join('') : el)
-		.join(' ')
+	return str.split(" ")
+		.map((el, i) => i % 2 !== 0 ? el.split("").reverse().join("") : el)
+		.join(" ");
 }
 
-console.log(reverse("Reverse this string, please!")); //"Reverse siht string, !esaelp"
-console.log(reverse("I really don't like reversing strings!")); //"I yllaer don't ekil reversing !sgnirts"
+// console.log(reverse("Reverse this string, please!")); //"Reverse siht string, !esaelp"
+// console.log(reverse("I really don't like reversing strings!")); //"I yllaer don't ekil reversing !sgnirts"
+
+const numbers = [1, 2, 3, 4, 5];
+Array.prototype.square = function () {
+	return this.map(el => el * el);
+};
+Array.prototype.cube = function () {
+	return this.map(el => el * el * el);
+};
+Array.prototype.sum = function () {
+	return this.reduce((acc, cur) => acc + cur, 0);
+};
+Array.prototype.average = function () {
+	if (!this.length) return NaN;
+	return this.reduce((acc, cur) => acc + cur, 0) / this.length;
+};
+Array.prototype.even = function () {
+	return this.filter((el) => el % 2 === 0);
+};
+Array.prototype.odd = function () {
+	return this.filter((el) => el % 2 !== 0);
+};
+console.log(numbers.square());
+console.log(numbers.cube());
+console.log(numbers.sum());
+console.log(numbers.average());
+console.log(numbers.even());
+console.log(numbers.odd());
