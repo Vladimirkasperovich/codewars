@@ -377,29 +377,56 @@ function reverse(str) {
 // console.log(reverse("Reverse this string, please!")); //"Reverse siht string, !esaelp"
 // console.log(reverse("I really don't like reversing strings!")); //"I yllaer don't ekil reversing !sgnirts"
 
-const numbers = [1, 2, 3, 4, 5];
-Array.prototype.square = function () {
-	return this.map(el => el * el);
-};
-Array.prototype.cube = function () {
-	return this.map(el => el * el * el);
-};
-Array.prototype.sum = function () {
-	return this.reduce((acc, cur) => acc + cur, 0);
-};
-Array.prototype.average = function () {
-	if (!this.length) return NaN;
-	return this.reduce((acc, cur) => acc + cur, 0) / this.length;
-};
-Array.prototype.even = function () {
-	return this.filter((el) => el % 2 === 0);
-};
-Array.prototype.odd = function () {
-	return this.filter((el) => el % 2 !== 0);
-};
-console.log(numbers.square());
-console.log(numbers.cube());
-console.log(numbers.sum());
-console.log(numbers.average());
-console.log(numbers.even());
-console.log(numbers.odd());
+// const numbers = [1, 2, 3, 4, 5];
+// Array.prototype.square = function () {
+// 	return this.map(el => el * el);
+// };
+// Array.prototype.cube = function () {
+// 	return this.map(el => el * el * el);
+// };
+// Array.prototype.sum = function () {
+// 	return this.reduce((acc, cur) => acc + cur, 0);
+// };
+// Array.prototype.average = function () {
+// 	if (!this.length) return NaN;
+// 	return this.reduce((acc, cur) => acc + cur, 0) / this.length;
+// };
+// Array.prototype.even = function () {
+// 	return this.filter((el) => el % 2 === 0);
+// };
+// Array.prototype.odd = function () {
+// 	return this.filter((el) => el % 2 !== 0);
+// };
+// console.log(numbers.square());
+// console.log(numbers.cube());
+// console.log(numbers.sum());
+// console.log(numbers.average());
+// console.log(numbers.even());
+// console.log(numbers.odd());
+
+function matrixAddition(a, b) {
+	//TODO
+	const result = [];
+	for (let i = 0; i < a.length; i++) {
+		const temp = []
+		for (let j = 0; j < a[i].length; j++) {
+			temp.push(a[i][j] + b[i][j]);
+		}
+		result.push(temp)
+	}
+	return result;
+}
+
+// console.log(matrixAddition(
+// 	[[1, 2, 3],
+// 		[3, 2, 1],
+// 		[1, 1, 1]
+// 	],
+// 	[[2, 2, 1],
+// 		[3, 2, 3],
+// 		[1, 1, 3]
+// 	]
+// ));
+//[ [3, 4, 4],
+// [6, 4, 4],
+// 	[2, 2, 4] ]
