@@ -335,11 +335,11 @@ function isSortedAndHow(array) {
 function adjacentElementsProduct(array) {
 	const result = [];
 	for (let i = 0; i < array.length; i++) {
-		if (i < array.length -1){
-			result.push(array[i] *= array[i + 1])
+		if (i < array.length - 1) {
+			result.push(array[i] *= array[i + 1]);
 		}
 	}
-	return Math.max(...result)
+	return Math.max(...result);
 }
 
 // console.log(adjacentElementsProduct([5, 8])); //40
@@ -347,3 +347,22 @@ function adjacentElementsProduct(array) {
 // console.log(adjacentElementsProduct([1, 5, 10, 9])); //90
 // console.log(adjacentElementsProduct([4, 12, 3, 1, 5])); //48
 // console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4])); //6
+
+// Return an array
+function fizzbuzz(n) {
+	const result = [];
+	for (let i = 1; i <= n; i++) {
+		if (i % 3 === 0 && i % 5 === 0) {
+			result.push("FizzBuzz");
+		} else if (i % 3 === 0) {
+			result.push("Fizz");
+		} else if (i % 5 === 0) {
+			result.push("Buzz");
+		} else {
+			result.push(i);
+		}
+	}
+	return result;
+}
+
+// console.log(fizzbuzz(30)); //[1,2,'Fizz',4,'Buzz','Fizz',7,8,'Fizz','Buzz']
