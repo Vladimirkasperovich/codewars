@@ -314,17 +314,17 @@ function upArray(arr) {
 function isSortedAndHow(array) {
 	const start = array[0];
 	const end = array[array.length - 1];
-	
-	for (let i = 1; i < array.length; i++) {
-		const current = array[i];
-		if (start > current && start > end) {
-			return "yes, descending";
-		} else if (start < current && start < end) {
-			return "yes, ascending";
-		} else {
-			return "no";
-		}
-	}
+	//
+	// for (let i = 1; i < array.length; i++) {
+	// 	const current = array[i];
+	// 	if (start > current && start > end) {
+	// 		return "yes, descending";
+	// 	} else if (start < current && start < end) {
+	// 		return "yes, ascending";
+	// 	} else {
+	// 		return "no";
+	// 	}
+	// }
 	
 }
 
@@ -408,11 +408,11 @@ function matrixAddition(a, b) {
 	//TODO
 	const result = [];
 	for (let i = 0; i < a.length; i++) {
-		const temp = []
+		const temp = [];
 		for (let j = 0; j < a[i].length; j++) {
 			temp.push(a[i][j] + b[i][j]);
 		}
-		result.push(temp)
+		result.push(temp);
 	}
 	return result;
 }
@@ -430,3 +430,13 @@ function matrixAddition(a, b) {
 //[ [3, 4, 4],
 // [6, 4, 4],
 // 	[2, 2, 4] ]
+
+function capitalize(s) {
+	const even = s.split("").map((char, index) => index % 2 === 0 ? char.toUpperCase() : char).join("");
+	const odd = s.split("").map((char, index) => index % 2 !== 0 ? char.toUpperCase() : char).join("");
+	return [even, odd];
+}
+// console.log(capitalize("abcdef"));//['AbCdEf', 'aBcDeF']
+// console.log(capitalize("codewars"));//['CoDeWaRs', 'cOdEwArS']
+// console.log(capitalize("abracadabra"));// ['AbRaCaDaBrA', 'aBrAcAdAbRa']
+// console.log(capitalize("codewarriors"));//['CoDeWaRrIoRs', 'cOdEwArRiOrS']
