@@ -514,26 +514,20 @@ function countDevelopers(list) {
 
 function decipherThis(str) {
 //have fun!
-	return str.split(" ")
-		.map((word) => {
-			word = word.replace(/^\d+/, (s) => String.fromCharCode(s));
-			if (word.length > 2) {
-				const chars = word.split("");
-				const secondChar = chars[1];
-				const lastChar = chars[chars.length - 1];
-				chars[1] = lastChar;
-				chars[chars.length - 1] = secondChar;
-				word = chars.join('')
-			}
-			return word;
-		}).join(' ');
+// 	return str.split(" ")
+// 		.map((word) => {
+// 			word = word.replace(/^\d+/, (s) => String.fromCharCode(s));
+// 			if (word.length > 2) {
+// 				const chars = word.split("");
+// 				const secondChar = chars[1];
+// 				const lastChar = chars[chars.length - 1];
+// 				chars[1] = lastChar;
+// 				chars[chars.length - 1] = secondChar;
+// 				word = chars.join('')
+// 			}
+// 			return word;
+// 		}).join(' ');
 }
 
-console.log(decipherThis("72olle 103doo 100ya")); //'Hello good day'
-console.log(decipherThis("82yade 115te 103o")); //'Ready set go'
-// console.log(decipherThis()); //
-// console.log(decipherThis()); //
-// console.log(decipherThis()); //
-// console.log(decipherThis()); //
-// console.log(decipherThis()); //
-// console.log(decipherThis()); //
+// console.log(decipherThis("72olle 103doo 100ya")); //'Hello good day'
+// console.log(decipherThis("82yade 115te 103o")); //'Ready set go'
