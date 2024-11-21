@@ -551,3 +551,12 @@ function greetDevelopers(list) {
 }
 
 // console.log(greetDevelopers(list1));
+
+function getFirstPython(list) {
+	// Thank you for checking out my kata :)
+	const dev = list.find(d => d.language === "Python");
+	return dev ? `${dev.firstName}, ${dev.country}` : "There will be no Python developers";
+}
+
+// console.log(getFirstPython(list1));//'Victoria, Puerto Rico'
+// console.log(getFirstPython(list2));//'There will be no Python developers'
