@@ -579,8 +579,7 @@ const encryptThis = (text) => {
 		char[0] = char[0].charCodeAt(0);
 		if (word.length > 2) {
 			const secondChar = char[1];
-			const lastChar = char[char.length - 1];
-			char[1] = lastChar;
+			char[1] = char[char.length - 1];
 			char[char.length - 1] = secondChar;
 		}
 		return char.join('');
