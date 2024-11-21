@@ -531,3 +531,11 @@ function decipherThis(str) {
 
 // console.log(decipherThis("72olle 103doo 100ya")); //'Hello good day'
 // console.log(decipherThis("82yade 115te 103o")); //'Ready set go'
+
+function isRubyComing(list) {
+	// thank you for checking out my kata :)
+	return list.some((l) => l.language === 'Ruby')
+}
+
+// console.log(isRubyComing(list1)); //true
+// console.log(isRubyComing(list2)); //false
