@@ -560,3 +560,15 @@ function getFirstPython(list) {
 
 // console.log(getFirstPython(list1));//'Victoria, Puerto Rico'
 // console.log(getFirstPython(list2));//'There will be no Python developers'
+
+function removeRotten(bagOfFruits) {
+	// ...
+	if (!bagOfFruits) return []
+	return bagOfFruits.map((fruit) => {
+		fruit = fruit.replace(/rotten/g, "");
+		return fruit.toLowerCase();
+	});
+}
+
+// console.log(removeRotten(["apple", "rottenBanana", "apple"])); //["apple","banana","apple"]
+// console.log(removeRotten(null));
