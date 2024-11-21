@@ -534,8 +534,20 @@ function decipherThis(str) {
 
 function isRubyComing(list) {
 	// thank you for checking out my kata :)
-	return list.some((l) => l.language === 'Ruby')
+	return list.some((l) => l.language === "Ruby");
 }
 
 // console.log(isRubyComing(list1)); //true
 // console.log(isRubyComing(list2)); //false
+
+function greetDevelopers(list) {
+	// thank you for checking out my kata :)
+	return list.map(developer => {
+		return {
+			...developer,
+			greeting: `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`
+		};
+	});
+}
+
+// console.log(greetDevelopers(list1));
