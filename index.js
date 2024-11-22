@@ -613,62 +613,21 @@ function allContinents(list) {
 	// thank you for checking out the Coding Meetup kata :)
 	const mapa = {};
 	list.forEach((el) => {mapa[el.continent] = el.continent; });
-	return ["Africa", "Americas", "Asia", "Europe", "Oceania"].every(el => el === mapa[el])
+	return ["Africa", "Americas", "Asia", "Europe", "Oceania"].every(el => el === mapa[el]);
 }
 
-var list1 = [
-	{
-		firstName: "Fatima",
-		lastName: "A.",
-		country: "Algeria",
-		continent: "Africa",
-		age: 25,
-		language: "JavaScript"
-	},
-	{
-		firstName: "Agustín",
-		lastName: "M.",
-		country: "Chile",
-		continent: "Americas",
-		age: 37,
-		language: "C"
-	},
-	{
-		firstName: "Jing",
-		lastName: "X.",
-		country: "China",
-		continent: "Asia",
-		age: 39,
-		language: "Ruby"
-	},
-	{
-		firstName: "Laia",
-		lastName: "P.",
-		country: "Andorra",
-		continent: "Europe",
-		age: 55,
-		language: "Ruby"
-	},
-	{
-		firstName: "Oliver",
-		lastName: "Q.",
-		country: "Australia",
-		continent: "Oceania",
-		age: 65,
-		language: "PHP"
-	}
-];
+// console.log(allContinents(list1)); //true
+// console.log(allContinents(list2)); //false
 
-var list2 = [
-	{
-		firstName: "Fatima",
-		lastName: "A.",
-		country: "Algeria",
-		continent: "Africa",
-		age: 25,
-		language: "JavaScript"
-	}
-];
+function autocomplete(input, dictionary) {
+	const searchInput = input.replace(/[^a-zA-Z]/g, "").toLowerCase();
+	if (!searchInput) return [];
+	
+	const filteredWord = dictionary.filter((word) =>
+		word.toLowerCase().startsWith(searchInput)
+	);
+	
+	return filteredWord.length > 5 ? filteredWord.slice(0, 5) : filteredWord;
+}
 
-console.log(allContinents(list1)); //true
-console.log(allContinents(list2)); //false
+// console.log(autocomplete("ai", ["airplane", "airport", "airborn", "aims", "aiks", "ailas", "apple", "ball"])); //['airplane','airport']
