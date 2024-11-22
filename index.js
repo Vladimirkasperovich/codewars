@@ -595,9 +595,17 @@ const encryptThis = (text) => {
 function bingo(ticket, win) {
 	return ticket
 		.filter((t) => t[0].split("").some(val => val.charCodeAt(0) === t[1]))
-		.length >=win  ? 'Winner!' : 'Loser!'
+		.length >= win ? "Winner!" : "Loser!";
 }
 
 // console.log(bingo([["ABC", 65], ["HGR", 74], ["BYHT", 74]], 2)); //'Loser!'
 // console.log(bingo([["ABC", 65], ["HGR", 74], ["BYHT", 74]], 1)); //'Winner!'
 // console.log(bingo([["HGTYRE", 74], ["BE", 66], ["JKTY", 74]], 3)); //'Loser!'
+
+function findSenior(list) {
+	const maxAge = Math.max(...list.map(el => el.age))
+	return list.filter((currentDev) => currentDev.age === maxAge)
+}
+
+// console.log(findSenior(list1));
+
