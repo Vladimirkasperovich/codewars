@@ -676,9 +676,27 @@ function isAgeDiverse(list) {
 	
 	const pivot = ["teens", "twenties", "thirties", "forties", "fifties", "sixties", "seventies", "eighties", "nineties", "centenarian "];
 	
-	return pivot.every((el) => seen.has(el))
+	return pivot.every((el) => seen.has(el));
 	
 }
 
 
 // console.log(isAgeDiverse(list1));
+
+function getLengthOfMissingArray(arrayOfArrays) {
+	if (!arrayOfArrays || arrayOfArrays.length === 0) return 0;
+	if (arrayOfArrays.some(arr => !arr || arr.length === 0)) return 0;
+	const sortedLengths = arrayOfArrays.map(arr => arr.length).sort((a, b) => a - b);
+	for (let i = 1; i < sortedLengths.length; i++) {
+		if (sortedLengths[i] !== sortedLengths[i - 1] + 1) {
+			return sortedLengths[i - 1] + 1;
+		}
+	}
+	return 0;
+}
+
+
+// console.log(getLengthOfMissingArray([[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]])); //3
+// console.log(getLengthOfMissingArray([ [ 5, 2, 9 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));//2
+// console.log(getLengthOfMissingArray([ [ null ], [ null, null, null ] ])); //2
+// console.log(getLengthOfMissingArray([ [ 'a', 'a', 'a' ], [ 'a', 'a' ], [ 'a', 'a', 'a', 'a' ], [ 'a' ], [ 'a', 'a', 'a', 'a', 'a', 'a' ]])); //5
