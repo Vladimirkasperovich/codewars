@@ -646,3 +646,39 @@ function findOddNames(list) {
 }
 
 // console.log(findOddNames(list1));
+
+function isAgeDiverse(list) {
+	const seen = new Set();
+	list.forEach((dev) => {
+		const {age} = dev;
+		if (age < 20) {
+			seen.add("teens");
+		} else if (age < 30) {
+			seen.add("twenties");
+		} else if (age < 40) {
+			seen.add("thirties");
+		} else if (age < 50) {
+			seen.add("forties");
+		} else if (age < 60) {
+			seen.add("fifties");
+		} else if (age < 70) {
+			seen.add("sixties");
+		} else if (age < 80) {
+			seen.add("seventies");
+		} else if (age < 90) {
+			seen.add("eighties");
+		} else if (age < 100) {
+			seen.add("nineties");
+		} else {
+			seen.add("centenarian ");
+		}
+	});
+	
+	const pivot = ["teens", "twenties", "thirties", "forties", "fifties", "sixties", "seventies", "eighties", "nineties", "centenarian "];
+	
+	return pivot.every((el) => seen.has(el))
+	
+}
+
+
+// console.log(isAgeDiverse(list1));
