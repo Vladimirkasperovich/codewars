@@ -708,11 +708,11 @@ function numberOfPairs(gloves) {
 		mapa[glove] = (mapa[glove] || 0) + 1;
 	});
 	
-	 let pairs = 0;
-	 Object.values(mapa).forEach((count) => {
-		 pairs += Math.floor(count / 2)
-	 })
-	 return pairs;
+	let pairs = 0;
+	Object.values(mapa).forEach((count) => {
+		pairs += Math.floor(count / 2);
+	});
+	return pairs;
 }
 
 // console.log(numberOfPairs(["red", "green", "red", "blue", "blue"])); //2
@@ -720,3 +720,23 @@ function numberOfPairs(gloves) {
 // console.log(numberOfPairs(["red", "red"])); //1
 // console.log(numberOfPairs(["red", "green", "blue"])); //0
 // console.log(numberOfPairs(["gray", "black", "purple", "purple", "gray", "black"])); //3
+
+
+const getInput = (input) => {
+	const filteredArr = input.filter((el) => !el.expired);
+	const sortedArr = filteredArr.sort((a, b) => a.order - b.order);
+	let str = "";
+	sortedArr.forEach((item) => {
+		const reversedChar = item.value.split("").reverse().join("");
+		str += reversedChar;
+	});
+	return Array.from(new Set(str)).join('')
+};
+
+const input = [
+	{value: "abcd", order: 4, expired: false},
+	{value: "qwer", order: 2, expired: true},
+	{value: "xyz1", order: 1, expired: false},
+	{value: "abx2", order: 3, expired: false}
+];
+console.log(getInput(input));
