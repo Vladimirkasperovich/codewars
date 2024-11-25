@@ -700,3 +700,23 @@ function getLengthOfMissingArray(arrayOfArrays) {
 // console.log(getLengthOfMissingArray([ [ 5, 2, 9 ], [ 4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9 ]]));//2
 // console.log(getLengthOfMissingArray([ [ null ], [ null, null, null ] ])); //2
 // console.log(getLengthOfMissingArray([ [ 'a', 'a', 'a' ], [ 'a', 'a' ], [ 'a', 'a', 'a', 'a' ], [ 'a' ], [ 'a', 'a', 'a', 'a', 'a', 'a' ]])); //5
+
+function numberOfPairs(gloves) {
+	//My hands are freezing
+	const mapa = {};
+	gloves.forEach((glove) => {
+		mapa[glove] = (mapa[glove] || 0) + 1;
+	});
+	
+	 let pairs = 0;
+	 Object.values(mapa).forEach((count) => {
+		 pairs += Math.floor(count / 2)
+	 })
+	 return pairs;
+}
+
+// console.log(numberOfPairs(["red", "green", "red", "blue", "blue"])); //2
+// console.log(numberOfPairs(["red", "red", "red", "red", "red", "red"])); //3
+// console.log(numberOfPairs(["red", "red"])); //1
+// console.log(numberOfPairs(["red", "green", "blue"])); //0
+// console.log(numberOfPairs(["gray", "black", "purple", "purple", "gray", "black"])); //3
