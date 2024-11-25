@@ -631,3 +631,18 @@ function autocomplete(input, dictionary) {
 }
 
 // console.log(autocomplete("ai", ["airplane", "airport", "airborn", "aims", "aiks", "ailas", "apple", "ball"])); //['airplane','airport']
+
+function findOddNames(list) {
+	return list.filter((developer) => {
+		const charName = developer.firstName.split("");
+		const temp = charName.reduce((acc, val) => {
+			const a = val.charCodeAt(0);
+			return acc + a;
+		}, 0);
+		if (temp % 2 !== 0) {
+			return developer;
+		}
+	});
+}
+
+// console.log(findOddNames(list1));
