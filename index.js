@@ -730,7 +730,7 @@ const getInput = (input) => {
 		const reversedChar = item.value.split("").reverse().join("");
 		str += reversedChar;
 	});
-	return Array.from(new Set(str)).join('')
+	return Array.from(new Set(str)).join("");
 };
 
 const input = [
@@ -739,4 +739,26 @@ const input = [
 	{value: "xyz1", order: 1, expired: false},
 	{value: "abx2", order: 3, expired: false}
 ];
-console.log(getInput(input));
+
+// console.log(getInput(input));
+
+function sumConsecutives(s) {
+	// your code
+	const result = [];
+	let sum = s[0];
+	for (let i = 1; i <= s.length; i++) {
+			if (s[i] === s[i - 1]){
+				sum += s[i]
+			}else{
+				result.push(sum);
+				sum = s[i]
+			}
+	}
+	
+	return result;
+}
+
+// console.log(sumConsecutives([1, 4, 4, 4, 0, 4, 3, 3, 1])); //[1,12,0,4,6,1]
+// // console.log(sumConsecutives([1, 1, 7, 7, 3])); //[2,14,3]
+// // console.log(sumConsecutives([-5, -5, 7, 7, 12, 0])); //[-10,14,12,0]
+// console.log(sumConsecutives([3, 3, 3, 3, 1])); //[12, 1]
