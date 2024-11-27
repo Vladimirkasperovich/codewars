@@ -747,12 +747,12 @@ function sumConsecutives(s) {
 	const result = [];
 	let sum = s[0];
 	for (let i = 1; i <= s.length; i++) {
-			if (s[i] === s[i - 1]){
-				sum += s[i]
-			}else{
-				result.push(sum);
-				sum = s[i]
-			}
+		if (s[i] === s[i - 1]) {
+			sum += s[i];
+		} else {
+			result.push(sum);
+			sum = s[i];
+		}
 	}
 	
 	return result;
@@ -762,3 +762,22 @@ function sumConsecutives(s) {
 // // console.log(sumConsecutives([1, 1, 7, 7, 3])); //[2,14,3]
 // // console.log(sumConsecutives([-5, -5, 7, 7, 12, 0])); //[-10,14,12,0]
 // console.log(sumConsecutives([3, 3, 3, 3, 1])); //[12, 1]
+
+function twosDifference(input) {
+	const res = [];
+	for (let i = 0; i < input.length; i++) {
+		for (let j = i + 1; j < input.length; j++) {
+			if (input[j] - input[i] === 2){
+				// res.push([input[i], input[j]])
+				console.log(input[i], input[j]);
+			}
+		}
+	}
+	return res;
+}
+
+console.log(twosDifference([1, 2, 3, 4])); //[[1,3],[2,4]]
+console.log(twosDifference([1, 3, 4, 6])); //[[1,3],[4,6]]
+console.log(twosDifference([4, 1, 2, 3])); //[[1, 3], [2, 4]]
+console.log(twosDifference([1, 23, 3, 4, 7])); //[[1, 3]]
+console.log(twosDifference([4, 3, 1, 5, 6])); // [[1, 3], [3, 5], [4, 6]]
