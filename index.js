@@ -773,9 +773,18 @@ function getEvenNumbers(numbersArray) {
 }
 
 function evenNumbers(array, number) {
-	return array.filter((el) => el % 2 === 0).slice(-number)
+	return array.filter((el) => el % 2 === 0).slice(-number);
 }
 
 // console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)); //[4, 6, 8]
 // console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2)); //[-8, 26]
 // console.log(evenNumbers([6, -25, 3, 7, 5, 5, 7, -3, 23], 1)); //[6]
+
+function minSum(arr) {
+	return arr.sort((a, b) => a - b)
+		.reduce((acc, cur) => acc + cur * arr.pop(), 0);
+}
+
+// console.log(minSum([5, 4, 2, 3])); //22
+// console.log(minSum([12, 6, 10, 26, 3, 24])); //342
+// console.log(minSum([9, 2, 8, 7, 5, 4, 0, 6])); //74
