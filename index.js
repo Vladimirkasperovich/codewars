@@ -800,6 +800,21 @@ function cubeOdd(arr) {
 	return sum;
 }
 
-console.log(cubeOdd([1, 2, 3, 4])); //28
-console.log(cubeOdd([-3, -2, 2, 3])); //0
-console.log(cubeOdd(["a", 12, 9, "z", 42])); //undefined
+// console.log(cubeOdd([1, 2, 3, 4])); //28
+// console.log(cubeOdd([-3, -2, 2, 3])); //0
+// console.log(cubeOdd(["a", 12, 9, "z", 42])); //undefined
+
+function findDeletedNumber(arr, mixArr) {
+	let elem = 0;
+	for (const element of arr) {
+		if (!mixArr.includes(element)) {
+			elem = element;
+		}
+	}
+	return elem;
+}
+
+// console.log(findDeletedNumber([1, 2, 3, 4, 5], [3, 4, 1, 5])); //2
+// console.log(findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 9, 7, 4, 6, 2, 3, 8])); //5
+// console.log(findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [5, 7, 6, 9, 4, 8, 1, 2, 3])); //0
+
