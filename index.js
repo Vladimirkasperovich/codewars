@@ -788,3 +788,18 @@ function minSum(arr) {
 // console.log(minSum([5, 4, 2, 3])); //22
 // console.log(minSum([12, 6, 10, 26, 3, 24])); //342
 // console.log(minSum([9, 2, 8, 7, 5, 4, 0, 6])); //74
+
+function cubeOdd(arr) {
+	let sum = 0;
+	for (const arrElement of arr) {
+		if (typeof arrElement !== "number") return undefined;
+		if (arrElement % 2 !== 0) {
+			sum += (arrElement * arrElement * arrElement);
+		}
+	}
+	return sum;
+}
+
+console.log(cubeOdd([1, 2, 3, 4])); //28
+console.log(cubeOdd([-3, -2, 2, 3])); //0
+console.log(cubeOdd(["a", 12, 9, "z", 42])); //undefined
