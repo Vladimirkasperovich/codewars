@@ -818,3 +818,16 @@ function findDeletedNumber(arr, mixArr) {
 // console.log(findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 9, 7, 4, 6, 2, 3, 8])); //5
 // console.log(findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [5, 7, 6, 9, 4, 8, 1, 2, 3])); //0
 
+function toWeirdCase(string) {
+	return string.split(" ").map(el => {
+		return el.split("")
+			.map((el, index) => index % 2 === 0 ? el.toUpperCase() : el.toLowerCase())
+			.join("");
+	}).join(" ");
+}
+
+// console.log(toWeirdCase("This is a test")); //'ThIs Is A TeSt'
+// console.log(toWeirdCase("")); //''
+// console.log(toWeirdCase("unique")); //'UnIqUe'
+// console.log(toWeirdCase("UPPER CASE")); //'UpPeR CaSe'
+// console.log(toWeirdCase("lower case")); //'LoWeR CaSe'
