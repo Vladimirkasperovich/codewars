@@ -846,9 +846,22 @@ function nthSmallest(arr, pos) {
 	return arr.sort((a, b) => a - b)[pos - 1];
 }
 
-console.log(nthSmallest([3, 1, 2], 2)); //2
-console.log(nthSmallest([15, 20, 7, 10, 4, 3], 3)); //7
-console.log(nthSmallest([-5, -1, -6, -18], 4)); //-1
-console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5)); //-2
-console.log(nthSmallest([2, 169, 13, -5, 0, -1], 4)); //2
-console.log(nthSmallest([2, 1, 3, 3, 1, 2], 3)); //2
+// console.log(nthSmallest([3, 1, 2], 2)); //2
+// console.log(nthSmallest([15, 20, 7, 10, 4, 3], 3)); //7
+// console.log(nthSmallest([-5, -1, -6, -18], 4)); //-1
+// console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5)); //-2
+// console.log(nthSmallest([2, 169, 13, -5, 0, -1], 4)); //2
+// console.log(nthSmallest([2, 1, 3, 3, 1, 2], 3)); //2
+
+
+function maxTriSum(numbers) {
+	return [...new Set(numbers)]
+		.sort((a, b) => b - a)
+		.slice(0, 3)
+		.reduce((acc, cur) => acc + cur, 0);
+	
+}
+
+// console.log(maxTriSum([3, 2, 6, 8, 2, 3])); //17
+// console.log(maxTriSum([2, 9, 13, 10, 5, 2, 9, 5])); //32
+// console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4])); //18
