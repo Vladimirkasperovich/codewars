@@ -877,46 +877,23 @@ function outed(meet, boss) {
 			count += happyCount;
 		}
 	});
-	const total = count / arr.length
+	const total = count / arr.length;
 	return total <= 5 ? "Get Out Now!" : "Nice Work Champ!";
 }
 
-console.log(outed({
-	"tim": 0,
-	"jim": 2,
-	"randy": 0,
-	"sandy": 7,
-	"andy": 0,
-	"katie": 5,
-	"laura": 1,
-	"saajid": 2,
-	"alex": 3,
-	"john": 2,
-	"mr": 0
-}, "laura")); //'Get Out Now!'
-console.log(outed({
-	"tim": 1,
-	"jim": 3,
-	"randy": 9,
-	"sandy": 6,
-	"andy": 7,
-	"katie": 6,
-	"laura": 9,
-	"saajid": 9,
-	"alex": 9,
-	"john": 9,
-	"mr": 8
-}, "katie")); //'Nice Work Champ!'
-console.log(outed({
-	"tim": 2,
-	"jim": 4,
-	"randy": 0,
-	"sandy": 5,
-	"andy": 8,
-	"katie": 6,
-	"laura": 2,
-	"saajid": 2,
-	"alex": 3,
-	"john": 2,
-	"mr": 8
-}, "john")); ////'Get Out Now!'
+function deepCount(a) {
+	let count = 0;
+	a.forEach((el) => {
+		count++
+		if (Array.isArray(el)){
+			count += deepCount(el)
+		}
+	})
+	return count
+}
+
+// console.log(deepCount([])); //0
+// console.log(deepCount([1, 2, 3])); //3
+// console.log(deepCount(["x", "y", ["z"]])); //4
+// console.log(deepCount([1, 2, [3, 4, [5]]])); //7
+// console.log(deepCount([[[[[[[[[]]]]]]]]])); //8
