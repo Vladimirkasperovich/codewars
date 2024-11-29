@@ -865,3 +865,58 @@ function maxTriSum(numbers) {
 // console.log(maxTriSum([3, 2, 6, 8, 2, 3])); //17
 // console.log(maxTriSum([2, 9, 13, 10, 5, 2, 9, 5])); //32
 // console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4])); //18
+
+function outed(meet, boss) {
+	const arr = Object.entries(meet);
+	let count = 0;
+	arr.forEach((employee) => {
+		const [name, happyCount] = employee;
+		if (name === boss) {
+			count += happyCount * 2;
+		} else {
+			count += happyCount;
+		}
+	});
+	const total = count / arr.length
+	return total <= 5 ? "Get Out Now!" : "Nice Work Champ!";
+}
+
+console.log(outed({
+	"tim": 0,
+	"jim": 2,
+	"randy": 0,
+	"sandy": 7,
+	"andy": 0,
+	"katie": 5,
+	"laura": 1,
+	"saajid": 2,
+	"alex": 3,
+	"john": 2,
+	"mr": 0
+}, "laura")); //'Get Out Now!'
+console.log(outed({
+	"tim": 1,
+	"jim": 3,
+	"randy": 9,
+	"sandy": 6,
+	"andy": 7,
+	"katie": 6,
+	"laura": 9,
+	"saajid": 9,
+	"alex": 9,
+	"john": 9,
+	"mr": 8
+}, "katie")); //'Nice Work Champ!'
+console.log(outed({
+	"tim": 2,
+	"jim": 4,
+	"randy": 0,
+	"sandy": 5,
+	"andy": 8,
+	"katie": 6,
+	"laura": 2,
+	"saajid": 2,
+	"alex": 3,
+	"john": 2,
+	"mr": 8
+}, "john")); ////'Get Out Now!'
