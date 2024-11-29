@@ -831,3 +831,13 @@ function toWeirdCase(string) {
 // console.log(toWeirdCase("unique")); //'UnIqUe'
 // console.log(toWeirdCase("UPPER CASE")); //'UpPeR CaSe'
 // console.log(toWeirdCase("lower case")); //'LoWeR CaSe'
+
+function myLanguages(results) {
+	return Object.keys(results)
+		.filter((el) => results[el] >= 60)
+		.sort((a,b) => results[b] - results[a])
+}
+
+// console.log(myLanguages({"Java": 10, "Ruby": 80, "Python": 65})); //["Ruby", "Python"]
+// console.log(myLanguages({"Hindi": 60, "Greek": 71, "Dutch": 93})); //["Dutch", "Greek", "Hindi"]
+// console.log(myLanguages({"C++": 50, "ASM": 10, "Haskell": 20})); //[]
