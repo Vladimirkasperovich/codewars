@@ -835,9 +835,20 @@ function toWeirdCase(string) {
 function myLanguages(results) {
 	return Object.keys(results)
 		.filter((el) => results[el] >= 60)
-		.sort((a,b) => results[b] - results[a])
+		.sort((a, b) => results[b] - results[a]);
 }
 
 // console.log(myLanguages({"Java": 10, "Ruby": 80, "Python": 65})); //["Ruby", "Python"]
 // console.log(myLanguages({"Hindi": 60, "Greek": 71, "Dutch": 93})); //["Dutch", "Greek", "Hindi"]
 // console.log(myLanguages({"C++": 50, "ASM": 10, "Haskell": 20})); //[]
+
+function nthSmallest(arr, pos) {
+	return arr.sort((a, b) => a - b)[pos - 1];
+}
+
+console.log(nthSmallest([3, 1, 2], 2)); //2
+console.log(nthSmallest([15, 20, 7, 10, 4, 3], 3)); //7
+console.log(nthSmallest([-5, -1, -6, -18], 4)); //-1
+console.log(nthSmallest([-102, -16, -1, -2, -367, -9], 5)); //-2
+console.log(nthSmallest([2, 169, 13, -5, 0, -1], 4)); //2
+console.log(nthSmallest([2, 1, 3, 3, 1, 2], 3)); //2
