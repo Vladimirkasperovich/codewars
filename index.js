@@ -884,12 +884,12 @@ function outed(meet, boss) {
 function deepCount(a) {
 	let count = 0;
 	a.forEach((el) => {
-		count++
-		if (Array.isArray(el)){
-			count += deepCount(el)
+		count++;
+		if (Array.isArray(el)) {
+			count += deepCount(el);
 		}
-	})
-	return count
+	});
+	return count;
 }
 
 // console.log(deepCount([])); //0
@@ -897,3 +897,67 @@ function deepCount(a) {
 // console.log(deepCount(["x", "y", ["z"]])); //4
 // console.log(deepCount([1, 2, [3, 4, [5]]])); //7
 // console.log(deepCount([[[[[[[[[]]]]]]]]])); //8
+
+
+const checkBrackets = (brackets) => {
+	const mapa = {"{": "}", "[": "]", "(": ")"};
+	const stack = [];
+	for (const bracket of brackets) {
+		if (mapa[bracket]) {
+			stack.push(bracket);
+		} else {
+			const lastOpening = stack.pop();
+			if (mapa[lastOpening] !== bracket) return false;
+		}
+	}
+	return !stack.length;
+};
+
+// console.log(checkBrackets("()")); // true
+// console.log(checkBrackets("{}[]()")); // true
+// console.log(checkBrackets("([{}])")); // true
+
+
+function boredom(staff) {
+	const countMisses = {
+		"accounts": 1,
+		"finance": 2,
+		"canteen": 10,
+		"regulation": 3,
+		"trading": 6,
+		"change": 6,
+		"IS": 8,
+		"retail": 5,
+		"cleaning": 4,
+		"pissing about": 25
+	};
+	const count = Object.entries(staff).reduce((acc, val) => acc + countMisses[val[1]], 0);
+	if (count <= 80) {
+		return "kill me now";
+	}else if (count < 100 && count > 80 ){
+		return "i can handle this"
+	}else {
+		return 'party time!!'
+	}
+}
+
+// console.log(boredom({ tim: 'accounts', jim: 'accounts',
+// 	randy: 'pissing about', sandy: 'finance', andy: 'change',
+// 	katie: 'IS', laura: 'IS', saajid: 'canteen', alex: 'pissing about',
+// 	john: 'retail', mr: 'pissing about' }));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
