@@ -963,7 +963,7 @@ function last(x) {
 	return arrWords.sort((a, b) => {
 		const lastCharA = a[a.length - 1];
 		const lastCharB = b[b.length - 1];
-		return lastCharA.localeCompare(lastCharB)
+		return lastCharA.localeCompare(lastCharB);
 	});
 }
 
@@ -971,9 +971,14 @@ function last(x) {
 // console.log(last("what time are we climbing up the volcano")); //['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']
 // console.log(last("take me to semynak")); //['take', 'me', 'semynak', 'to']
 
+function isIntArray(arr) {
+	if (!Array.isArray(arr)) return false;
+	return arr.every((el) => typeof el === "number" && Number.isInteger(el));
+}
 
-
-
+console.log(isIntArray([])); //true
+console.log(isIntArray([1, 2, 3, 4])); //true
+console.log(isIntArray([1, 2, 3, NaN])); //false
 
 
 
