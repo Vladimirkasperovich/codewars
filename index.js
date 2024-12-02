@@ -952,13 +952,24 @@ function maxProduct(numbers, size) {
 	return sortedArray.slice(0, size).reduce((acc, cur) => acc * cur, 1);
 }
 
-console.log(maxProduct([4, 3, 5], 2)); //20
-console.log(maxProduct([10, 8, 7, 9], 3)); //720
-console.log(maxProduct([8, 6, 4, 6], 3)); //288
-console.log(maxProduct([10, 2, 3, 8, 1, 10, 4], 5)); //9600
-console.log(maxProduct([13, 12, -27, -302, 25, 37, 133, 155, -14], 5)); //247895375
+// console.log(maxProduct([4, 3, 5], 2)); //20
+// console.log(maxProduct([10, 8, 7, 9], 3)); //720
+// console.log(maxProduct([8, 6, 4, 6], 3)); //288
+// console.log(maxProduct([10, 2, 3, 8, 1, 10, 4], 5)); //9600
+// console.log(maxProduct([13, 12, -27, -302, 25, 37, 133, 155, -14], 5)); //247895375
 
+function last(x) {
+	const arrWords = x.split(" ");
+	return arrWords.sort((a, b) => {
+		const lastCharA = a[a.length - 1];
+		const lastCharB = b[b.length - 1];
+		return lastCharA.localeCompare(lastCharB)
+	});
+}
 
+// console.log(last("man i need a taxi up to ubud")); // ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']
+// console.log(last("what time are we climbing up the volcano")); //['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']
+// console.log(last("take me to semynak")); //['take', 'me', 'semynak', 'to']
 
 
 
