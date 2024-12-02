@@ -934,10 +934,10 @@ function boredom(staff) {
 	const count = Object.entries(staff).reduce((acc, val) => acc + countMisses[val[1]], 0);
 	if (count <= 80) {
 		return "kill me now";
-	}else if (count < 100 && count > 80 ){
-		return "i can handle this"
-	}else {
-		return 'party time!!'
+	} else if (count < 100 && count > 80) {
+		return "i can handle this";
+	} else {
+		return "party time!!";
 	}
 }
 
@@ -947,7 +947,16 @@ function boredom(staff) {
 // 	john: 'retail', mr: 'pissing about' }));
 
 
+function maxProduct(numbers, size) {
+	const sortedArray = numbers.sort((a, b) => b - a);
+	return sortedArray.slice(0, size).reduce((acc, cur) => acc * cur, 1);
+}
 
+console.log(maxProduct([4, 3, 5], 2)); //20
+console.log(maxProduct([10, 8, 7, 9], 3)); //720
+console.log(maxProduct([8, 6, 4, 6], 3)); //288
+console.log(maxProduct([10, 2, 3, 8, 1, 10, 4], 5)); //9600
+console.log(maxProduct([13, 12, -27, -302, 25, 37, 133, 155, -14], 5)); //247895375
 
 
 
