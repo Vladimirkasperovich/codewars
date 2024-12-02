@@ -976,10 +976,26 @@ function isIntArray(arr) {
 	return arr.every((el) => typeof el === "number" && Number.isInteger(el));
 }
 
-console.log(isIntArray([])); //true
-console.log(isIntArray([1, 2, 3, 4])); //true
-console.log(isIntArray([1, 2, 3, NaN])); //false
+// console.log(isIntArray([])); //true
+// console.log(isIntArray([1, 2, 3, 4])); //true
+// console.log(isIntArray([1, 2, 3, NaN])); //false
 
+function mineLocation(field) {
+	const resultArr = [];
+	for (let i = 0; i < field.length; i++) {
+		let currentArr = field[i];
+		const indexInsideArr = currentArr.findIndex((el) => el === 1);
+		if (indexInsideArr !== -1){
+			resultArr.push(i, indexInsideArr)
+		}
+		
+	}
+	return resultArr;
+}
+
+console.log(mineLocation([[1, 0], [0, 0]])); //[0,0]
+console.log(mineLocation([[1, 0, 0], [0, 0, 0], [0, 0, 0]])); //[0,0]
+console.log(mineLocation([[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 0]])); //[2,2]
 
 
 
