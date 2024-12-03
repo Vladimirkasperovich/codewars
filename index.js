@@ -1016,3 +1016,22 @@ console.log(extraPerfect(7));
 console.log(extraPerfect(28));
 console.log(extraPerfect(39));
 */
+
+function getMatrix(number) {
+	if (!number) return [];
+	const resultArr = [];
+	for (let i = 0; i < number; i++) {
+		const arr = [];
+		for (let j = 0; j < number; j++) {
+				arr.push(i === j ? 1 : 0);
+		}
+		resultArr.push(arr);
+	}
+	
+	return resultArr;
+}
+
+// console.log(getMatrix(0)); //[]
+// console.log(getMatrix(1)); //[[1]]
+// console.log(getMatrix(2)); //[[1, 0], [0, 1]]
+// console.log(getMatrix(5)); //[[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 1]]
