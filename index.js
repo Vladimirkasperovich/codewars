@@ -985,20 +985,34 @@ function mineLocation(field) {
 	for (let i = 0; i < field.length; i++) {
 		let currentArr = field[i];
 		const indexInsideArr = currentArr.findIndex((el) => el === 1);
-		if (indexInsideArr !== -1){
-			resultArr.push(i, indexInsideArr)
+		if (indexInsideArr !== -1) {
+			resultArr.push(i, indexInsideArr);
 		}
 		
 	}
 	return resultArr;
 }
 
-console.log(mineLocation([[1, 0], [0, 0]])); //[0,0]
-console.log(mineLocation([[1, 0, 0], [0, 0, 0], [0, 0, 0]])); //[0,0]
-console.log(mineLocation([[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 0]])); //[2,2]
+// console.log(mineLocation([[1, 0], [0, 0]])); //[0,0]
+// console.log(mineLocation([[1, 0, 0], [0, 0, 0], [0, 0, 0]])); //[0,0]
+// console.log(mineLocation([[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 1, 0], [0, 0, 0, 0]])); //[2,2]
 
 
+function extraPerfect(n) {
+	const resultArr = [];
+	for (let i = 1; i <= n; i++) {
+		if (i % 2 !== 0) {
+			resultArr.push(i);
+			
+		}
+	}
+	return resultArr;
+}
 
-
-
-
+/*
+console.log(extraPerfect(3));
+console.log(extraPerfect(5));
+console.log(extraPerfect(7));
+console.log(extraPerfect(28));
+console.log(extraPerfect(39));
+*/
