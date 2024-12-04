@@ -1023,7 +1023,7 @@ function getMatrix(number) {
 	for (let i = 0; i < number; i++) {
 		const arr = [];
 		for (let j = 0; j < number; j++) {
-				arr.push(i === j ? 1 : 0);
+			arr.push(i === j ? 1 : 0);
 		}
 		resultArr.push(arr);
 	}
@@ -1037,8 +1037,8 @@ function getMatrix(number) {
 // console.log(getMatrix(5)); //[[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0, 0, 0, 0, 1]]
 
 function largest(n, array) {
-	if (!n) return []
-	return array.sort((a,b) => a - b).slice(-n);
+	if (!n) return [];
+	return array.sort((a, b) => a - b).slice(-n);
 }
 
 // console.log(largest(2, [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]));
@@ -1047,3 +1047,53 @@ function largest(n, array) {
 // console.log(largest(3, [5, 1, 5, 2, 3, 1, 2, 3, 5]));
 // console.log(largest(7, [9, 1, 50, 22, 3, 13, 2, 63, 5]));
 // console.log(largest(0, [1, 2, 3, 4, 8, 7, 6, 5]));
+
+function solve(arr) {
+	const mapa = {};
+	arr.forEach((num) => {
+		mapa[num] = (mapa[num] || 0) + 1;
+	});
+	return [...arr].sort((a, b) => {
+		const A = mapa[a];
+		const B = mapa[b];
+		if (A !== B) {
+			return B - A;
+		}
+		return a - b;
+	});
+}
+
+// console.log(solve([2, 3, 5, 3, 7, 9, 5, 3, 7]));
+
+function longestRepetition(s) {
+	if (!s) return ["", 0];
+	let maxChar = s[0];
+	let maxCount = 0;
+	let currentChar = s[0];
+	let currentCount = 1;
+	for (let i = 1; i < s.length; i++) {
+		if (s[i] === currentChar) {
+			currentCount++;
+		} else {
+			if (currentCount > maxCount) {
+				maxCount = currentCount;
+				maxChar = currentChar;
+			}
+			currentChar = s[i];
+			currentCount = 1;
+		}
+	}
+	if (currentCount > maxCount) {
+		maxCount = currentCount;
+		maxChar = currentChar;
+	}
+	return [maxChar, maxCount];
+}
+
+// console.log(longestRepetition("aaaabb")); //["a",4]
+// console.log(longestRepetition("bbbaaabaaaa")); //["a",4]
+// console.log(longestRepetition("cbdeuuu900")); //["u",3]
+// console.log(longestRepetition("abbbbb")); //["b",5]
+// console.log(longestRepetition("aabb")); //["a",2]
+// console.log(longestRepetition("")); //["",0]
+// console.log(longestRepetition("ba")); //["b",1]
