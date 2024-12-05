@@ -1130,6 +1130,24 @@ function getMissingElement(arr) {
 // console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); //3
 
 const sortme = (names) => {
-	 return names.sort()
+	return names.sort();
+};
+
+// console.log(sortme(['one', 'two', 'three' ])); //["one", "three", "two"]
+
+function reverse1(arr) {
+	let start = 0;
+	let end = arr.length - 1;
+	while (start < end) {
+		let temp = arr[start];
+		arr[start] = arr[end]
+		arr[end] = temp
+		start++;
+		end--;
+	}
+	
 }
-console.log(sortme(['one', 'two', 'three' ])); //["one", "three", "two"]
+
+// console.log(reverse1([1, 2, 3, 4, 5]));//[5,4,3,2,1]
+// console.log(reverse1(["hello", "world", "how", "are", "you", "?"]));//['?','you','are','how','world','hello']
+// console.log(reverse1([{a: 1}, {b: 2}]));//[{b:2},{a:1}]]
