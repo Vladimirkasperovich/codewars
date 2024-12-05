@@ -1107,7 +1107,7 @@ function calc(x) {
 	const totalSumOfNumbers1 = resultString.split("").reduce((acc, cur) => acc + Number(cur), 0);
 	const totalSumOfNumbers2 = resultString.replace(/7/g, "1").split("").reduce((acc, cur) => acc + Number(cur), 0);
 	
-	return totalSumOfNumbers1 - totalSumOfNumbers2
+	return totalSumOfNumbers1 - totalSumOfNumbers2;
 }
 
 // console.log(calc("ABC"));
@@ -1116,3 +1116,15 @@ function calc(x) {
 // console.log(calc("aaaaaddddr"));//30
 // console.log(calc("jfmgklf8hglbe"));//6
 // console.log(calc("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"));//96
+
+function getMissingElement(arr) {
+	const sortedArray = arr.sort((a, b) => a - b);
+	for (let i = 0; i < sortedArray.length; i++) {
+		if (sortedArray[i] !== i) {
+			return i;
+		}
+	}
+}
+
+// console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); //8
+// console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); //3
