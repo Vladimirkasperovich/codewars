@@ -1097,3 +1097,22 @@ function longestRepetition(s) {
 // console.log(longestRepetition("aabb")); //["a",2]
 // console.log(longestRepetition("")); //["",0]
 // console.log(longestRepetition("ba")); //["b",1]
+
+function calc(x) {
+	let resultString = "";
+	for (const element of x) {
+		const charAsciiFormat = element.charCodeAt(0);
+		resultString += charAsciiFormat;
+	}
+	const totalSumOfNumbers1 = resultString.split("").reduce((acc, cur) => acc + Number(cur), 0);
+	const totalSumOfNumbers2 = resultString.replace(/7/g, "1").split("").reduce((acc, cur) => acc + Number(cur), 0);
+	
+	return totalSumOfNumbers1 - totalSumOfNumbers2
+}
+
+// console.log(calc("ABC"));
+// console.log(calc("abcdef"));//6
+// console.log(calc("ifkhchlhfd"));//6
+// console.log(calc("aaaaaddddr"));//30
+// console.log(calc("jfmgklf8hglbe"));//6
+// console.log(calc("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"));//96
