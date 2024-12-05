@@ -1140,8 +1140,8 @@ function reverse1(arr) {
 	let end = arr.length - 1;
 	while (start < end) {
 		let temp = arr[start];
-		arr[start] = arr[end]
-		arr[end] = temp
+		arr[start] = arr[end];
+		arr[end] = temp;
 		start++;
 		end--;
 	}
@@ -1151,3 +1151,18 @@ function reverse1(arr) {
 // console.log(reverse1([1, 2, 3, 4, 5]));//[5,4,3,2,1]
 // console.log(reverse1(["hello", "world", "how", "are", "you", "?"]));//['?','you','are','how','world','hello']
 // console.log(reverse1([{a: 1}, {b: 2}]));//[{b:2},{a:1}]]
+
+function findDup(array) {
+	const seen = {};
+	array.forEach((integer) => {
+		seen[integer] = (seen[integer] || 0) + 1;
+	});
+	const resultArr = Object.entries(seen).filter((int) => Number(int[1]) > 1);
+	return Number(resultArr[0][0])
+}
+
+// console.log(findDup([1, 2, 3, 1]));//1
+// console.log(findDup([5, 4, 3, 2, 1, 1]));//1
+// console.log(findDup([1, 3, 2, 5, 4, 5, 7, 6]));//5
+// console.log(findDup([8, 2, 6, 3, 7, 2, 5, 1, 4]));//2
+// console.log(findDup([1, 1]));//1
