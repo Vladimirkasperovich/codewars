@@ -1200,3 +1200,21 @@ function hasUniqueChars(str) {
 // console.log(hasUniqueChars("abcse"));//true
 // console.log(hasUniqueChars("aA"));//true
 // console.log(hasUniqueChars("apr"));//true
+
+function solve1(s) {
+	const consonantsGroup = s.replace(/[aeiou]/g, " ").split(" ");
+	const groupCount = consonantsGroup.map((char) => {
+		return char.split("").reduce((acc, cur) => acc + (cur.charCodeAt(0) - 96), 0);
+	});
+	return Math.max(...groupCount)
+	
+}
+
+// console.log(solve1("zodiac"), 26);
+// console.log(solve1("chruschtschov"),80);
+// console.log(solve1("khrushchev"),38);
+// console.log(solve1("strength"), 57);
+// console.log(solve1("catchphrase"),73);
+// console.log(solve1("twelfthstreet"),103);
+// console.log(solve1("mischtschenkoana"),80);
+// console.log(solve1("az"),26);
