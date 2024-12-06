@@ -1179,11 +1179,24 @@ function shorterReverseLonger(a, b) {
 // console.log(shorterReverseLonger("fghi",  "abcde"));//"fghi edcba fghi"
 
 function solution(value) {
-	const slicedString = `0000${value}`.slice(-5)
-	return `Value is ${slicedString}`
+	const slicedString = `0000${value}`.slice(-5);
+	return `Value is ${slicedString}`;
 }
 
 // console.log(solution(5), "Value is 00005");
 // console.log(solution(1204), "Value is 01204");
 // console.log(solution(109), "Value is 00109");
 // console.log(solution(0), "Value is 00000");
+
+function hasUniqueChars(str) {
+	const seen = {};
+	for (const seenElement of str) {
+		seen[seenElement] = (seen[seenElement] || 0) + 1;
+	}
+	return !Object.entries(seen).some(el => el[1] >= 2);
+}
+
+// console.log(hasUniqueChars("aa"));//false
+// console.log(hasUniqueChars("abcse"));//true
+// console.log(hasUniqueChars("aA"));//true
+// console.log(hasUniqueChars("apr"));//true
