@@ -1158,7 +1158,7 @@ function findDup(array) {
 		seen[integer] = (seen[integer] || 0) + 1;
 	});
 	const resultArr = Object.entries(seen).filter((int) => Number(int[1]) > 1);
-	return Number(resultArr[0][0])
+	return Number(resultArr[0][0]);
 }
 
 // console.log(findDup([1, 2, 3, 1]));//1
@@ -1167,13 +1167,23 @@ function findDup(array) {
 // console.log(findDup([8, 2, 6, 3, 7, 2, 5, 1, 4]));//2
 // console.log(findDup([1, 1]));//1
 
-function shorterReverseLonger(a,b){
-	const resultString = a.length < b.length
-		? a + b.split('').reverse().join('') + a :
-		b + a.split('').reverse().join('') + b;
-	return resultString
+function shorterReverseLonger(a, b) {
+	return a.length < b.length ?
+		a + b.split("").reverse().join("") + a
+		:
+		b + a.split("").reverse().join("") + b;
 }
 
 // console.log(shorterReverseLonger("first", "abcde"));//"abcde tsrif abcde"
 // console.log(shorterReverseLonger("hello", "bau" ));//"bau olleh bau"
 // console.log(shorterReverseLonger("fghi",  "abcde"));//"fghi edcba fghi"
+
+function solution(value) {
+	const slicedString = `0000${value}`.slice(-5)
+	return `Value is ${slicedString}`
+}
+
+// console.log(solution(5), "Value is 00005");
+// console.log(solution(1204), "Value is 01204");
+// console.log(solution(109), "Value is 00109");
+// console.log(solution(0), "Value is 00000");
