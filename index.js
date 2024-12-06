@@ -1166,3 +1166,14 @@ function findDup(array) {
 // console.log(findDup([1, 3, 2, 5, 4, 5, 7, 6]));//5
 // console.log(findDup([8, 2, 6, 3, 7, 2, 5, 1, 4]));//2
 // console.log(findDup([1, 1]));//1
+
+function shorterReverseLonger(a,b){
+	const resultString = a.length < b.length
+		? a + b.split('').reverse().join('') + a :
+		b + a.split('').reverse().join('') + b;
+	return resultString
+}
+
+// console.log(shorterReverseLonger("first", "abcde"));//"abcde tsrif abcde"
+// console.log(shorterReverseLonger("hello", "bau" ));//"bau olleh bau"
+// console.log(shorterReverseLonger("fghi",  "abcde"));//"fghi edcba fghi"
