@@ -1269,3 +1269,29 @@ function hamming(a, b) {
 // console.log(hamming("hamming and cheese", "Hamming and Cheese"), 2);
 // console.log(hamming("espresso", "Expresso"), 2);
 // console.log(hamming("old father, old artificer", "of my soul the uncreated "), 24);
+
+function validate(n) {
+	const digits = [...String(n)].map(Number);
+	const length = digits.length;
+	
+	const transformed = digits.map((digit, index) => {
+		const isEvenLength = length % 2 === 0;
+		const doubleIndex = isEvenLength ? index % 2 === 0 : index % 2 !== 0;
+		if (doubleIndex) {
+			const doubled = digit * 2;
+			return doubled > 9 ? doubled - 9 : doubled;
+		}
+		return digit;
+	});
+	
+	const sum = transformed.reduce((acc, cur) => acc + cur, 0);
+	return sum % 10 === 0;
+	
+}
+
+console.log(validate(123), false);
+console.log(validate(1), false);
+console.log(validate(2121), true);
+console.log(validate(1230), true);
+console.log(validate(891), true);
+console.log(validate(12345));
