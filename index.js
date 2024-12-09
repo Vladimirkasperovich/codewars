@@ -1237,3 +1237,12 @@ function modifiedSum(a, n) {
 
 // console.log(modifiedSum([1, 2, 3], 3), 30);
 // console.log(modifiedSum([1, 2], 5), 30);
+
+function lostSheep(friday, saturday, total) {
+	const fridayCountSheep = friday.reduce((acc, cur) => acc + cur, 0);
+	const saturdayCountSheep = saturday.reduce((acc, cur) => acc + cur, 0);
+	return total - (fridayCountSheep + saturdayCountSheep) ;
+}
+
+// console.log(lostSheep([1, 2], [3, 4], 15), 5);
+// console.log(lostSheep([3, 1, 2], [4, 5], 21), 6);
