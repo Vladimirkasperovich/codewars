@@ -1241,8 +1241,31 @@ function modifiedSum(a, n) {
 function lostSheep(friday, saturday, total) {
 	const fridayCountSheep = friday.reduce((acc, cur) => acc + cur, 0);
 	const saturdayCountSheep = saturday.reduce((acc, cur) => acc + cur, 0);
-	return total - (fridayCountSheep + saturdayCountSheep) ;
+	return total - (fridayCountSheep + saturdayCountSheep);
 }
 
 // console.log(lostSheep([1, 2], [3, 4], 15), 5);
 // console.log(lostSheep([3, 1, 2], [4, 5], 21), 6);
+
+function hamming(a, b) {
+	let count = 0;
+	for (let i = 0; i < a.length; i++) {
+		const currentCharA = a[i];
+		const currentCharB = b[i];
+		if (currentCharA !== currentCharB) {
+			count++;
+		}
+	}
+	return count;
+}
+
+// console.log(hamming("", ""), 0);
+// console.log(hamming("a", "a"), 0);
+// console.log(hamming("a", "b"), 1);
+// console.log(hamming("I like turtles", "I like turkeys"), 3);
+// console.log(hamming("Hello World", "Hello World"), 0);
+// console.log(hamming("hello world", "hello tokyo"), 4);
+// console.log(hamming("a man a plan a canal", "a man a plan sobanal"), 3);
+// console.log(hamming("hamming and cheese", "Hamming and Cheese"), 2);
+// console.log(hamming("espresso", "Expresso"), 2);
+// console.log(hamming("old father, old artificer", "of my soul the uncreated "), 24);
