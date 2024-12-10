@@ -1289,9 +1289,19 @@ function validate(n) {
 	
 }
 
-console.log(validate(123), false);
-console.log(validate(1), false);
-console.log(validate(2121), true);
-console.log(validate(1230), true);
-console.log(validate(891), true);
-console.log(validate(12345));
+// console.log(validate(123), false);
+// console.log(validate(1), false);
+// console.log(validate(2121), true);
+// console.log(validate(1230), true);
+// console.log(validate(891), true);
+// console.log(validate(12345));
+
+function solve2(str) {
+	const arrayWithoutSpaces = [...str].filter((el) => el !== " ");
+	return str.replace(/\S/g, _ => arrayWithoutSpaces.pop());
+}
+
+// console.log(solve2("codewars"));//"srawedoc"
+// console.log(solve2("your code"));//"edoc ruoy"
+// console.log(solve2("your code rocks"));//"skco redo cruoy"
+// console.log(solve2("i love codewars"));//"s rawe docevoli"
