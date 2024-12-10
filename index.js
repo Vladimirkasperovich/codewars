@@ -1361,3 +1361,17 @@ function tripledouble(num1, num2) {
 // console.log(tripledouble(666789, 12345667), 1);
 // console.log(tripledouble(10560002, 100), 1);
 // console.log(tripledouble(1112, 122), 0);
+
+
+const flutten = (arr) => {
+	const result = [];
+	for (const item of arr) {
+		if (Array.isArray(item)) {
+			result.push(...flutten(item));
+		} else {
+			result.push(item);
+		}
+	}
+	return result;
+};
+// console.log(flutten([1, 2, 3, [4, [5]], 6, [7]]));
