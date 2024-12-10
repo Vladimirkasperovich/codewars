@@ -1316,3 +1316,12 @@ function isFlush(cards) {
 // console.log(isFlush(["AD", "4S", "10H", "KC", "5S"]), false);
 // console.log(isFlush(["QD", "4D", "10D", "KD", "5D"]), true);
 // console.log(isFlush(["10D", "4D", "QD", "KD", "5D"]), true);
+
+function processArray(arr, callback) {
+	const resultArray = [];
+	for (let i = 0; i < arr.length; i++) {
+		resultArray.push(callback(arr[i]))
+	}
+	return resultArray
+}
+
