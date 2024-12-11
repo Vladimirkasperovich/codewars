@@ -1374,4 +1374,13 @@ const flutten = (arr) => {
 	}
 	return result;
 };
+
 // console.log(flutten([1, 2, 3, [4, [5]], 6, [7]]));
+
+function betweenExtremes(numbers) {
+	const sortedArr = [...numbers].sort((a, b) => a - b);
+	return sortedArr[sortedArr.length - 1] - sortedArr[0]
+}
+
+// console.log(betweenExtremes([21, 34, 54, 43, 26, 12]), 42);
+// console.log(betweenExtremes([-1, -41, -77, -100]), 99);
