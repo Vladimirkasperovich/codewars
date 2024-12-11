@@ -1406,3 +1406,27 @@ function validParentheses(parenStr) {
 // console.log(validParentheses("(()())()"));
 // console.log(validParentheses("())(()"));
 // console.log(validParentheses(")()"));
+
+function stringify(list) {
+	if (list === null) return 'null'
+	let str = '';
+	for (const key in list) {
+		if (key === 'data'){
+			str = list[key] + ' ->'
+		}else if (key === 'next'){
+			str += ` ${stringify(list[key])}`
+		}
+	}
+	return str
+}
+
+// class Node {
+// 	constructor(data, next = null) {
+// 		this.data = data;
+// 		this.next = next;
+// 	}
+// }
+//
+// console.log(stringify(new Node(1, new Node(2, new Node(3)))), "1 -> 2 -> 3 -> null");
+// console.log(stringify(new Node(0, new Node(1, new Node(4, new Node(9, new Node(16)))))), "0 -> 1 -> 4 -> 9 -> 16 -> null");
+// console.log(stringify(null), "null");
