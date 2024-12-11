@@ -1408,16 +1408,16 @@ function validParentheses(parenStr) {
 // console.log(validParentheses(")()"));
 
 function stringify(list) {
-	if (list === null) return 'null'
-	let str = '';
+	if (list === null) return "null";
+	let str = "";
 	for (const key in list) {
-		if (key === 'data'){
-			str = list[key] + ' ->'
-		}else if (key === 'next'){
-			str += ` ${stringify(list[key])}`
+		if (key === "data") {
+			str = list[key] + " ->";
+		} else if (key === "next") {
+			str += ` ${stringify(list[key])}`;
 		}
 	}
-	return str
+	return str;
 }
 
 // class Node {
@@ -1430,3 +1430,14 @@ function stringify(list) {
 // console.log(stringify(new Node(1, new Node(2, new Node(3)))), "1 -> 2 -> 3 -> null");
 // console.log(stringify(new Node(0, new Node(1, new Node(4, new Node(9, new Node(16)))))), "0 -> 1 -> 4 -> 9 -> 16 -> null");
 // console.log(stringify(null), "null");
+
+function findDuple(arr) {
+	const seen = {};
+	for (const item of arr) {
+		seen[item] = (seen[item] || 0) + 1;
+	}
+	return +Object.entries(seen).find(el => el[1] === 2)[0]
+}
+
+// console.log(findDuple([1, 2, 2, 3]), 2);
+// console.log(findDuple([1, 3, 2, 5, 4, 5, 7, 6]), 5);
