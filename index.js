@@ -1436,8 +1436,22 @@ function findDuple(arr) {
 	for (const item of arr) {
 		seen[item] = (seen[item] || 0) + 1;
 	}
-	return +Object.entries(seen).find(el => el[1] === 2)[0]
+	return +Object.entries(seen).find(el => el[1] === 2)[0];
 }
 
 // console.log(findDuple([1, 2, 2, 3]), 2);
 // console.log(findDuple([1, 3, 2, 5, 4, 5, 7, 6]), 5);
+
+function removeParentheses(s) {
+	while (s.includes("(")) {
+		s = s.replace(/\([^()]*\)/, ""); // Remove innermost parentheses
+	}
+	return s;
+}
+
+// console.log(removeParentheses("example(unwanted thing)example"));//"exampleexample"
+// console.log(removeParentheses("example (unwanted thing) example"));// "example  example"
+// console.log(removeParentheses("a (bc d)e"));// "a e"
+// console.log(removeParentheses("a(b(c))"));//"a"
+// console.log(removeParentheses("hello example (words(more words) here) something"));//"hello example  something"
+// console.log(removeParentheses("(first group) (second group) (third group)"));// "  "
