@@ -1379,8 +1379,30 @@ const flutten = (arr) => {
 
 function betweenExtremes(numbers) {
 	const sortedArr = [...numbers].sort((a, b) => a - b);
-	return sortedArr[sortedArr.length - 1] - sortedArr[0]
+	return sortedArr[sortedArr.length - 1] - sortedArr[0];
 }
 
 // console.log(betweenExtremes([21, 34, 54, 43, 26, 12]), 42);
 // console.log(betweenExtremes([-1, -41, -77, -100]), 99);
+
+function validParentheses(parenStr) {
+	const brackets = {"{": "}", "[": "]", "(": ")"};
+	const stack = [];
+	for (const bracket of parenStr) {
+		if (brackets[bracket]) {
+			stack.push(bracket);
+		} else {
+			const lastRemoved = stack.pop();
+			if (brackets[lastRemoved] !== bracket) {
+				return false;
+			}
+		}
+	}
+	return !stack.length;
+}
+
+// console.log(validParentheses("()"));
+// console.log(validParentheses("((()))"));
+// console.log(validParentheses("(()())()"));
+// console.log(validParentheses("())(()"));
+// console.log(validParentheses(")()"));
