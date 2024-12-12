@@ -1463,7 +1463,7 @@ function validateWord(s) {
 		seen[item] = (seen[item] || 0) + 1;
 	}
 	
-	return [...new Set(Object.values(seen))].length === 1
+	return [...new Set(Object.values(seen))].length === 1;
 }
 
 // console.log(validateWord("abcabc"), true);
@@ -1483,3 +1483,24 @@ function validateWord(s) {
 // let l = new Array();
 //
 // console.log(l.remove_(integer_list, values_list), [2, 2, 4]);
+
+function repeats(arr) {
+	const seen = {};
+	
+	arr.forEach((item) => {
+		seen[item] = (seen[item] || 0) + 1;
+	});
+	
+	return Object.entries(seen).reduce((acc, cur) => {
+		if (cur[1] === 1){
+			acc += Number(cur[0])
+		}
+		return acc
+	}, 0);
+}
+
+// console.log(repeats([4, 5, 7, 5, 4, 8]), 15);
+// console.log(repeats([9, 10, 19, 13, 19, 13]), 19);
+// console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11]), 12);
+// console.log(repeats([5, 17, 18, 11, 13, 18, 11, 13]), 22);
+// console.log(repeats([5, 10, 19, 13, 10, 13]), 24);
