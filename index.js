@@ -1455,3 +1455,21 @@ function removeParentheses(s) {
 // console.log(removeParentheses("a(b(c))"));//"a"
 // console.log(removeParentheses("hello example (words(more words) here) something"));//"hello example  something"
 // console.log(removeParentheses("(first group) (second group) (third group)"));// "  "
+
+function validateWord(s) {
+	const seen = {};
+	
+	for (const item of s.toLowerCase()) {
+		seen[item] = (seen[item] || 0) + 1;
+	}
+	
+	return [...new Set(Object.values(seen))].length === 1
+}
+
+// console.log(validateWord("abcabc"), true);
+// console.log(validateWord("Abcabc"), true);
+// console.log(validateWord("abc123"), true);
+// console.log(validateWord("abcabcd"), false);
+// console.log(validateWord("abc!abc!"), true);
+// console.log(validateWord("abc:abc"), false);
+// console.log(validateWord("jgygpgyvee?bcuoci*$4iy*kac6gstqaejjjypppvvve???bbbcuuuoooii**$$$444kkkaa666ssstttqqq"), false);
