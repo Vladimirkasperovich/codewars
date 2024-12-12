@@ -1473,3 +1473,13 @@ function validateWord(s) {
 // console.log(validateWord("abc!abc!"), true);
 // console.log(validateWord("abc:abc"), false);
 // console.log(validateWord("jgygpgyvee?bcuoci*$4iy*kac6gstqaejjjypppvvve???bbbcuuuoooii**$$$444kkkaa666ssstttqqq"), false);
+
+// Array.prototype.remove_ = function(integer_list, values_list){
+// 	//your code here
+// 	return integer_list.filter((item) => !values_list.includes(item))
+// }
+// let integer_list = [1, 1, 2, 3, 1, 2, 3, 4];
+// let values_list = [1, 3];
+// let l = new Array();
+//
+// console.log(l.remove_(integer_list, values_list), [2, 2, 4]);
