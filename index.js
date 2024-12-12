@@ -1518,3 +1518,36 @@ function count(n) {
 }
 
 // console.log(count(50));
+
+function closedBrackets(s) {
+	let minOpen = 0;
+	let maxOpen = 0;
+	
+	for (const char of s) {
+		if (char === "(") {
+			minOpen++;
+			maxOpen++;
+		} else if (char === ")") {
+			minOpen = Math.max(0, minOpen - 1);
+			maxOpen--;
+		} else if (char === "J") {
+			minOpen = Math.max(0, minOpen - 1);
+			maxOpen++;
+		}
+		if (maxOpen < 0){
+			return false
+		}
+	}
+	return  minOpen === 0
+}
+
+// console.log(closedBrackets("(J))"), true);
+// console.log(closedBrackets("("), false);
+// console.log(closedBrackets(""), true);
+// console.log(closedBrackets("()J("), false);
+// console.log(closedBrackets("J"), true);
+// console.log(closedBrackets(")("), false);
+// console.log(closedBrackets("()"), true);
+// console.log(closedBrackets("J)(J"), true);
+// console.log(closedBrackets("(J()J(()(J"), false);
+// console.log(closedBrackets("J(JJ()J((J"), false);
