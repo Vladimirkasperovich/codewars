@@ -1492,10 +1492,10 @@ function repeats(arr) {
 	});
 	
 	return Object.entries(seen).reduce((acc, cur) => {
-		if (cur[1] === 1){
-			acc += Number(cur[0])
+		if (cur[1] === 1) {
+			acc += Number(cur[0]);
 		}
-		return acc
+		return acc;
 	}, 0);
 }
 
@@ -1504,3 +1504,17 @@ function repeats(arr) {
 // console.log(repeats([16, 0, 11, 4, 8, 16, 0, 11]), 12);
 // console.log(repeats([5, 17, 18, 11, 13, 18, 11, 13]), 22);
 // console.log(repeats([5, 10, 19, 13, 10, 13]), 24);
+
+function count(n) {
+	if (n === 0 || n === 1) return 1;
+	
+	let sum = 0;
+	
+	for (let i = 2; i <= n; i++) {
+		sum += Math.log10(i);
+	}
+	
+	return Math.floor(sum) + 1;
+}
+
+// console.log(count(50));
