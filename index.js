@@ -1586,3 +1586,21 @@ function addLetters(...letters) {
 // console.log(addLetters("z", "a"));     // 'a'
 // console.log(addLetters("y", "c", "b"));// 'd'
 // console.log(addLetters());             // 'z'
+
+function formatWords(words) {
+	if (!words || !words.length) return "";
+	words = words.filter(word => word);
+	if (words.length === 0) return "";
+	if (words.length === 1) return words[0];
+	const lastWord = words.pop();
+	return words.length ? `${words.join(", ")} and ${lastWord}` : lastWord;
+}
+
+console.log(formatWords(["one", "two", "three", "four"]), "one, two, three and four");
+console.log(formatWords(["one"]), "one");
+console.log(formatWords(["one", "", "three"]), "one and three");
+console.log(formatWords(["", "", "three"]), "three");
+console.log(formatWords(["one", "two", ""]), "one and two");
+console.log(formatWords([]), "");
+console.log(formatWords(null), "");
+console.log(formatWords([""]), "");
