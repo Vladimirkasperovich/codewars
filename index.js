@@ -1570,3 +1570,19 @@ function menFromBoys(arr) {
 // console.log(menFromBoys([-17, -45, -15, -33, -85, -56, -86, -30]), [-86, -56, -30, -15, -17, -33, -45, -85]);
 // console.log(menFromBoys([12, 89, -38, -78]), [-78, -38, 12, 89]);
 // console.log(menFromBoys([ 72, 76, 76, 82, 100, 91, 85 ]),[ 72, 76, 76, 82, 100, 91, 85 ]);
+
+function addLetters(...letters) {
+	if (!letters.length) return "z";
+	const sumOfChar = letters.reduce((acc, cur) => acc + cur.charCodeAt(0) - 96, 0);
+	const resultCode = ((sumOfChar - 1) % 26) + 1;
+	return String.fromCharCode(resultCode + 96);
+	
+}
+
+// console.log(addLetters("a", "b", "c")); // 'f'
+// console.log(addLetters("z"));          // 'z'
+// console.log(addLetters("a", "b"));     // 'c'
+// console.log(addLetters("c"));          // 'c'
+// console.log(addLetters("z", "a"));     // 'a'
+// console.log(addLetters("y", "c", "b"));// 'd'
+// console.log(addLetters());             // 'z'
