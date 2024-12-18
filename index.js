@@ -1646,14 +1646,28 @@ function matchArrays(v, r) {
 // 	[2, 3, 4, 5, 6]), 4);
 
 
-
 function search(budget, prices) {
 	const filteredPrices = prices.filter((price) => budget >= price);
 	filteredPrices.sort((a, b) => a - b);
 	
-	return filteredPrices.join(',')
+	return filteredPrices.join(",");
 }
 
 // console.log(search(3, [6, 1, 2, 9, 2]), "1,2,2");
 // console.log(search(14, [7, 3, 23, 9, 14, 20, 7]), "3,7,7,9,14");
 // console.log(search(0, [6, 1, 2, 9, 2]), "");
+
+function dominator(arr) {
+	const seen = {};
+	arr.forEach((item) => {
+		seen[item] = (seen[item] || 0) + 1;
+	});
+	const halfArrayLength = Math.floor(arr.length / 2)
+	const counted =Object.entries(seen).filter((item) => item[1] >= 2 && item[1] > halfArrayLength)
+	return counted.length ? +counted[0][0] : -1
+}
+
+console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]), 3);
+console.log(dominator([1, 2, 3, 4, 5]), -1);
+console.log(dominator([1, 1, 1, 2, 2, 2]), -1);
+console.log(dominator([1, 1, 1, 2, 2, 2, 2]), 2);
