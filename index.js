@@ -1617,8 +1617,8 @@ function countLettersAndDigits(input) {
 	let lettersAndDigitsCount = 0;
 	
 	for (const inputElement of input) {
-		if (/[a-zA-Z\d]/.test(inputElement)){
-			lettersAndDigitsCount++
+		if (/[a-zA-Z\d]/.test(inputElement)) {
+			lettersAndDigitsCount++;
 		}
 	}
 	
@@ -1632,3 +1632,15 @@ function countLettersAndDigits(input) {
 // console.log(countLettersAndDigits("12345f%%%t5t&/6"), 10);
 // console.log(countLettersAndDigits("aBcDeFg090"), 10);
 // console.log(countLettersAndDigits("u_n_d_e_r__S_C_O_R_E"), 10);
+
+function matchArrays(v, r) {
+	return v.filter((item) => r.includes(item)).length;
+}
+
+// console.log(matchArrays(
+// 	["Perl", "Closure", "JavaScript"],
+// 	["Go", "C++", "Erlang"]), 0);
+// console.log(matchArrays(["incapsulation", "OOP", "array"],
+// 	["time", "propert", "paralelism", "OOP"]), 1);
+// console.log(matchArrays([1, 2, 3, 4, 5],
+// 	[2, 3, 4, 5, 6]), 4);
