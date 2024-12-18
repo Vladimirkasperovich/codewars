@@ -1644,3 +1644,16 @@ function matchArrays(v, r) {
 // 	["time", "propert", "paralelism", "OOP"]), 1);
 // console.log(matchArrays([1, 2, 3, 4, 5],
 // 	[2, 3, 4, 5, 6]), 4);
+
+
+
+function search(budget, prices) {
+	const filteredPrices = prices.filter((price) => budget >= price);
+	filteredPrices.sort((a, b) => a - b);
+	
+	return filteredPrices.join(',')
+}
+
+// console.log(search(3, [6, 1, 2, 9, 2]), "1,2,2");
+// console.log(search(14, [7, 3, 23, 9, 14, 20, 7]), "3,7,7,9,14");
+// console.log(search(0, [6, 1, 2, 9, 2]), "");
