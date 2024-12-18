@@ -1606,9 +1606,29 @@ function formatWords(words) {
 // console.log(formatWords([""]), "");
 
 function broken(x) {
-	return [...x].map((el) => el === "1" ? "0" : "1").join('');
+	return [...x].map((el) => el === "1" ? "0" : "1").join("");
 }
 
 // console.log(broken("1"), "0");
 // console.log(broken("10000000101101111110011001000"), "01111111010010000001100110111");
 // console.log(broken("100010"), "011101");
+
+function countLettersAndDigits(input) {
+	let lettersAndDigitsCount = 0;
+	
+	for (const inputElement of input) {
+		if (/[a-zA-Z\d]/.test(inputElement)){
+			lettersAndDigitsCount++
+		}
+	}
+	
+	return lettersAndDigitsCount;
+}
+
+// console.log(countLettersAndDigits("hel2!lo"), 6);
+// console.log(countLettersAndDigits("n!!_ice!!123"), 7);
+// console.log(countLettersAndDigits("1"), 1);
+// console.log(countLettersAndDigits("?"), 0);
+// console.log(countLettersAndDigits("12345f%%%t5t&/6"), 10);
+// console.log(countLettersAndDigits("aBcDeFg090"), 10);
+// console.log(countLettersAndDigits("u_n_d_e_r__S_C_O_R_E"), 10);
