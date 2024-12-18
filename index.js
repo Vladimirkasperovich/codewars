@@ -1667,7 +1667,7 @@ function dominator(arr) {
 	return counted.length ? +counted[0][0] : -1
 }
 
-console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]), 3);
-console.log(dominator([1, 2, 3, 4, 5]), -1);
-console.log(dominator([1, 1, 1, 2, 2, 2]), -1);
-console.log(dominator([1, 1, 1, 2, 2, 2, 2]), 2);
+// console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]), 3);
+// console.log(dominator([1, 2, 3, 4, 5]), -1);
+// console.log(dominator([1, 1, 1, 2, 2, 2]), -1);
+// console.log(dominator([1, 1, 1, 2, 2, 2, 2]), 2);
