@@ -1671,3 +1671,22 @@ function dominator(arr) {
 // console.log(dominator([1, 2, 3, 4, 5]), -1);
 // console.log(dominator([1, 1, 1, 2, 2, 2]), -1);
 // console.log(dominator([1, 1, 1, 2, 2, 2, 2]), 2);
+
+function compoundArray(a, b) {
+	const result = [];
+	const maxLength = Math.max(a.length,b.length)
+	for (let i = 0; i < maxLength; i++) {
+	  if (i < a.length){
+			result.push(a[i])
+	  }
+		if (i < b.length){
+			result.push(b[i])
+		}
+	}
+	return result
+}
+
+// console.log(compoundArray([11, 12], [21, 22, 23, 24]));//[11, 21, 12, 22, 23, 24]
+// console.log(compoundArray([2147483647,2147483646,2147483645,2147483644,2147483643], [9]));//[2147483647,9,2147483646,2147483645,2147483644,2147483643]
+// console.log(compoundArray([214,215,216,217,218], []));//, [214,215,216,217,218]
+// console.log(compoundArray([], [314,315,316,317,318]));//, [314,315,316,317,318]
