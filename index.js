@@ -1662,9 +1662,9 @@ function dominator(arr) {
 	arr.forEach((item) => {
 		seen[item] = (seen[item] || 0) + 1;
 	});
-	const halfArrayLength = Math.floor(arr.length / 2)
-	const counted =Object.entries(seen).filter((item) => item[1] >= 2 && item[1] > halfArrayLength)
-	return counted.length ? +counted[0][0] : -1
+	const halfArrayLength = Math.floor(arr.length / 2);
+	const counted = Object.entries(seen).filter((item) => item[1] >= 2 && item[1] > halfArrayLength);
+	return counted.length ? +counted[0][0] : -1;
 }
 
 // console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3]), 3);
@@ -1674,19 +1674,34 @@ function dominator(arr) {
 
 function compoundArray(a, b) {
 	const result = [];
-	const maxLength = Math.max(a.length,b.length)
+	const maxLength = Math.max(a.length, b.length);
 	for (let i = 0; i < maxLength; i++) {
-	  if (i < a.length){
-			result.push(a[i])
-	  }
-		if (i < b.length){
-			result.push(b[i])
+		if (i < a.length) {
+			result.push(a[i]);
+		}
+		if (i < b.length) {
+			result.push(b[i]);
 		}
 	}
-	return result
+	return result;
 }
 
 // console.log(compoundArray([11, 12], [21, 22, 23, 24]));//[11, 21, 12, 22, 23, 24]
 // console.log(compoundArray([2147483647,2147483646,2147483645,2147483644,2147483643], [9]));//[2147483647,9,2147483646,2147483645,2147483644,2147483643]
 // console.log(compoundArray([214,215,216,217,218], []));//, [214,215,216,217,218]
 // console.log(compoundArray([], [314,315,316,317,318]));//, [314,315,316,317,318]
+
+function makeLatinSquare(n) {
+	const result = [];
+	for (let i = 0; i < n; i++) {
+		const row = [];
+		for (let j = 0; j < n; j++) {
+		   row.push((i + j) % n + 1)
+		}
+		result.push(row)
+	}
+	return result;
+}
+
+console.log(makeLatinSquare(4));
+
