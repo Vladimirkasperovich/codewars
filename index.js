@@ -1696,12 +1696,27 @@ function makeLatinSquare(n) {
 	for (let i = 0; i < n; i++) {
 		const row = [];
 		for (let j = 0; j < n; j++) {
-		   row.push((i + j) % n + 1)
+			row.push((i + j) % n + 1);
 		}
-		result.push(row)
+		result.push(row);
 	}
 	return result;
 }
 
-console.log(makeLatinSquare(4));
+// console.log(makeLatinSquare(4));
 
+function solveArray(arr) {
+	let int = arr[0];
+	arr.forEach((item) => {
+		if (int > 0 && item * -1 === int){
+			int = item
+		}
+	});
+	return int;
+}
+
+console.log(solveArray([1, -1, 2, -2, 3]), 3);
+console.log(solveArray([-3, 1, 2, 3, -1, -4, -2]), -4);
+console.log(solveArray([1, -1, 2, -2, 3, 3]), 3);
+console.log(solveArray([-110, 110, -38, -38, -62, 62, -38, -38, -38]), -38);
+console.log(solveArray([-9, -105, -9, -9, -9, -9, 105]), -9);
