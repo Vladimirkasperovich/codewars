@@ -1756,3 +1756,18 @@ function getNewNotes(salary, bills) {
 // console.log(getNewNotes(10000, [1800, 500, 1200, 655, 150]), 1139);
 // console.log(getNewNotes(2300, [590, 1500, 45, 655, 150]), 0);
 // console.log(getNewNotes(5300, [1190, 1010, 1045, 55, 10, 19, 55]), 383);
+
+
+function reduceByRules(numbers, rules) {
+	let result = numbers[0];
+	let ruleIndex = 0;
+	
+	for (let i = 1; i < numbers.length; i++) {
+		result = rules[ruleIndex](result, numbers[i]);
+		ruleIndex = (ruleIndex + 1) % rules.length;
+	}
+	return result;
+}
+
+console.log(reduceByRules([2.0, 2.0, 3.0, 4.0], [(a, b) => a + b,
+	(a, b) => a - b]), 5.0);
