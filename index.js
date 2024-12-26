@@ -1732,7 +1732,7 @@ function uniteUnique(...args) {
 	args.forEach((item) => {
 		result.push(...item);
 	});
-	return [...new Set(result)]
+	return [...new Set(result)];
 }
 
 // console.log(uniteUnique([1, 2], [3, 4]), [1, 2, 3, 4]);
@@ -1742,6 +1742,17 @@ function uniteUnique(...args) {
 // console.log(uniteUnique([], [4, "a", 2]), [4, "a", 2]);
 // console.log(uniteUnique([], [4, "a", 2], []), [4, "a", 2]);
 // console.log(uniteUnique([]), []);
-console.log(uniteUnique([], []), []);
-console.log(uniteUnique([], [1, 2]), [1, 2]);
-console.log(uniteUnique([], [1, 2, 1, 2], [2, 1, 1, 2, 1]), [1, 2]);
+
+function getNewNotes(salary, bills) {
+	const sumOfBills = bills.reduce((acc, cur) => acc + cur, 0);
+	const sumOfNotes = Math.floor((salary - sumOfBills) / 5);
+	return sumOfNotes > 0 ? sumOfNotes : 0;
+}
+
+// console.log(getNewNotes(2000, [500, 160, 400]), 188);
+// console.log(getNewNotes(1260, [500, 50, 100]), 122);
+// console.log(getNewNotes(3600, [1800, 350, 460, 500, 15]), 95);
+// console.log(getNewNotes(1995, [1500, 19, 44]), 86);
+// console.log(getNewNotes(10000, [1800, 500, 1200, 655, 150]), 1139);
+// console.log(getNewNotes(2300, [590, 1500, 45, 655, 150]), 0);
+// console.log(getNewNotes(5300, [1190, 1010, 1045, 55, 10, 19, 55]), 383);
