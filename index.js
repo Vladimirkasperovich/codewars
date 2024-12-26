@@ -1810,3 +1810,70 @@ function choreAssignment(chores) {
 // console.log(choreAssignment([5, 8, 3, 5, 3, 10, 5, 3, 10, 2, 4, 8, 7, 3, 9, 6]), [10, 11, 11, 11, 11, 12, 12, 13]);
 // console.log(choreAssignment([9, 2, 10, 10, 5, 5, 8, 7, 4, 2, 8, 3, 6, 8, 7, 3, 6, 2]), [11, 11, 11, 12, 12, 12, 12, 12, 12]);
 // console.log(choreAssignment([1, 6, 5, 5, 1, 10, 10, 9, 2, 10, 3, 9, 5, 4, 5, 6, 1, 9, 1, 8]), [10, 10, 11, 11, 11, 11, 11, 11, 12, 12]);
+
+const getUserPersonalCode = (birthDay) => {
+	const cleanedDate = birthDay.replace(/-/g, "");
+	const sumOfDigits = [...cleanedDate].reduce((sum, digit) => sum + Number(digit), 0);
+	
+	const secondNumber = sumOfDigits < 10
+		? sumOfDigits
+		: [...String(sumOfDigits)].reduce((sum, digit) => sum + Number(digit), 0);
+	
+	const firstDateDigit = Number(cleanedDate[0]);
+	
+	const adjustedDifference = sumOfDigits - firstDateDigit * 2;
+	
+	const finalDigit = adjustedDifference < 10
+		? ""
+		: [...String(adjustedDifference)].reduce((sum, digit) => sum + Number(digit), 0);
+	
+	let personalCode = String(sumOfDigits)
+		+ String(secondNumber)
+		+ String(adjustedDifference)
+		+ String(finalDigit);
+	
+	personalCode = personalCode.replace(/0/g, "");
+	
+	return personalCode;
+	
+	
+};
+
+const getUserStatus = (dateOfBirth = "24-06-2002") => {
+	const statusMap = {
+		4: "Молодая душа",
+		5: "Индиго",
+		6: "Норма",
+		7: "Тысячник"
+	};
+	
+	const status = getUserPersonalCode(dateOfBirth);
+	return statusMap[status.length];
+};
+// console.log(getUserStatus());
+
+const getZodiacElement = (dateOfBirth = "24-06-2002") => {
+	const element = 'Овен'
+	const elementSign = {
+		Овен: "Огонь",
+		Лев: "Огонь",
+		Стрелец: "Огонь",
+		Рак: "Вода",
+		Скорпион: "Вода",
+		Рыбы: "Вода",
+		Близнецы: "Воздух",
+		Весы: "Воздух",
+		Водолей: "Воздух",
+		Телец: "Земля",
+		Дева: "Земля",
+		Козерог: "Земля",
+	};
+	
+	return elementSign[element]
+};
+const getPersonEnergy = (dateOfBirth = "24-06-2002") => {
+	const yearOfBirth = dateOfBirth.split('-')[2]
+	return Number(yearOfBirth) % 2 === 0 ? "Янь" : "Инь"
+}
+console.log(getPersonEnergy());
+
