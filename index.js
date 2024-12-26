@@ -1769,5 +1769,24 @@ function reduceByRules(numbers, rules) {
 	return result;
 }
 
-console.log(reduceByRules([2.0, 2.0, 3.0, 4.0], [(a, b) => a + b,
-	(a, b) => a - b]), 5.0);
+// console.log(reduceByRules([2.0, 2.0, 3.0, 4.0], [(a, b) => a + b,
+// 	(a, b) => a - b]), 5.0);
+
+function shortForm(str) {
+	const vowels = "aeiouAEIOU";
+	const result = [];
+	for (let i = 1; i < str.length - 1; i++) {
+		const currentChar = str[i];
+		if (!vowels.includes(currentChar)) {
+			result.push(currentChar)
+		}
+	}
+	
+	result.unshift(str[0])
+	result.push(str[str.length - 1])
+	
+	return result.join('')
+	
+}
+
+// console.log(shortForm("assAult"), "asslt");
