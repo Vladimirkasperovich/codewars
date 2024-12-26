@@ -1718,10 +1718,30 @@ function solveArray(arr) {
 const killcount = (counselors, jason) => {
 	const result = [];
 	counselors.forEach((elem) => {
-		if (elem[1] < jason){
-			result.push(elem[0])
+		if (elem[1] < jason) {
+			result.push(elem[0]);
 		}
-	})
-	return result
+	});
+	return result;
 };
-console.log(killcount([["Mike", 7], ["Alysa", 3]], 7));
+
+// console.log(killcount([["Mike", 7], ["Alysa", 3]], 7));
+
+function uniteUnique(...args) {
+	const result = [];
+	args.forEach((item) => {
+		result.push(...item);
+	});
+	return [...new Set(result)]
+}
+
+// console.log(uniteUnique([1, 2], [3, 4]), [1, 2, 3, 4]);
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]), [1, 3, 2, 5, 4]);
+// console.log(uniteUnique([4, 3, 2, 2]), [4, 3, 2]);
+// console.log(uniteUnique([4, "a", 2], []), [4, "a", 2]);
+// console.log(uniteUnique([], [4, "a", 2]), [4, "a", 2]);
+// console.log(uniteUnique([], [4, "a", 2], []), [4, "a", 2]);
+// console.log(uniteUnique([]), []);
+console.log(uniteUnique([], []), []);
+console.log(uniteUnique([], [1, 2]), [1, 2]);
+console.log(uniteUnique([], [1, 2, 1, 2], [2, 1, 1, 2, 1]), [1, 2]);
