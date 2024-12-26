@@ -1706,23 +1706,22 @@ function makeLatinSquare(n) {
 // console.log(makeLatinSquare(4));
 
 function solveArray(arr) {
-	const positive = [];
-	const negative = [];
-	
-	arr.forEach((item) => {
-		if (item < 0) {
-			negative.push(item);
-		} else {
-			positive.push(item);
-		}
-	});
-	
-	return positive.find((elem) => !negative.includes(-elem)) ||
-		negative.find((elem) => !positive.includes(-elem));
+	return arr.find((elem) => !arr.includes(-elem));
 }
 
-console.log(solveArray([1, -1, 2, -2, 3]), 3);
-console.log(solveArray([-3, 1, 2, 3, -1, -4, -2]), -4);
-console.log(solveArray([1, -1, 2, -2, 3, 3]), 3);
-console.log(solveArray([-110, 110, -38, -38, -62, 62, -38, -38, -38]), -38);
-console.log(solveArray([-9, -105, -9, -9, -9, -9, 105]), -9);
+// console.log(solveArray([1, -1, 2, -2, 3]), 3);
+// console.log(solveArray([-3, 1, 2, 3, -1, -4, -2]), -4);
+// console.log(solveArray([1, -1, 2, -2, 3, 3]), 3);
+// console.log(solveArray([-110, 110, -38, -38, -62, 62, -38, -38, -38]), -38);
+// console.log(solveArray([-9, -105, -9, -9, -9, -9, 105]), -9);
+
+const killcount = (counselors, jason) => {
+	const result = [];
+	counselors.forEach((elem) => {
+		if (elem[1] < jason){
+			result.push(elem[0])
+		}
+	})
+	return result
+};
+console.log(killcount([["Mike", 7], ["Alysa", 3]], 7));
