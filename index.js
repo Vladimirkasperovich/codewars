@@ -1706,13 +1706,19 @@ function makeLatinSquare(n) {
 // console.log(makeLatinSquare(4));
 
 function solveArray(arr) {
-	let int = arr[0];
+	const positive = [];
+	const negative = [];
+	
 	arr.forEach((item) => {
-		if (int > 0 && item * -1 === int){
-			int = item
+		if (item < 0) {
+			negative.push(item);
+		} else {
+			positive.push(item);
 		}
 	});
-	return int;
+	
+	return positive.find((elem) => !negative.includes(-elem)) ||
+		negative.find((elem) => !positive.includes(-elem));
 }
 
 console.log(solveArray([1, -1, 2, -2, 3]), 3);
