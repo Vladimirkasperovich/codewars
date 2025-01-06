@@ -1853,7 +1853,7 @@ const getUserStatus = (dateOfBirth = "24-06-2002") => {
 // console.log(getUserStatus());
 
 const getZodiacElement = (dateOfBirth = "24-06-2002") => {
-	const element = 'Овен'
+	const element = "Овен";
 	const elementSign = {
 		Овен: "Огонь",
 		Лев: "Огонь",
@@ -1866,14 +1866,31 @@ const getZodiacElement = (dateOfBirth = "24-06-2002") => {
 		Водолей: "Воздух",
 		Телец: "Земля",
 		Дева: "Земля",
-		Козерог: "Земля",
+		Козерог: "Земля"
 	};
 	
-	return elementSign[element]
+	return elementSign[element];
 };
 const getPersonEnergy = (dateOfBirth = "24-06-2002") => {
-	const yearOfBirth = dateOfBirth.split('-')[2]
-	return Number(yearOfBirth) % 2 === 0 ? "Янь" : "Инь"
-}
-console.log(getPersonEnergy());
+	const yearOfBirth = dateOfBirth.split("-")[2];
+	return Number(yearOfBirth) % 2 === 0 ? "Янь" : "Инь";
+};
 
+// console.log(getPersonEnergy());
+
+
+function findMissingNumbers(arr) {
+	const minInteger = Math.min(...arr);
+	const maxInteger = Math.max(...arr);
+	const result = [];
+	
+	for (let i = minInteger; i < maxInteger; i++) {
+		if (!arr.includes(i)) result.push(i)
+	}
+	
+	return result
+}
+
+console.log(findMissingNumbers([-3, -2, 1, 4]), [-1, 0, 2, 3]);
+console.log(findMissingNumbers([-1, 0, 1, 2, 3, 4]), []);
+console.log(findMissingNumbers([]), []);
