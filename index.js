@@ -1891,6 +1891,18 @@ function findMissingNumbers(arr) {
 	return result
 }
 
-console.log(findMissingNumbers([-3, -2, 1, 4]), [-1, 0, 2, 3]);
-console.log(findMissingNumbers([-1, 0, 1, 2, 3, 4]), []);
-console.log(findMissingNumbers([]), []);
+// console.log(findMissingNumbers([-3, -2, 1, 4]), [-1, 0, 2, 3]);
+// console.log(findMissingNumbers([-1, 0, 1, 2, 3, 4]), []);
+// console.log(findMissingNumbers([]), []);
+
+
+function factory(x){
+	return function (arr) {
+		return arr.map((item) => item * x)
+	}
+}
+
+// const myArray = [1, 2, 3];
+//
+// const threes = factory(3);
+// console.log(threes(myArray), [3, 6, 9]);
