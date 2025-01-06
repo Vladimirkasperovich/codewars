@@ -1928,3 +1928,10 @@ function arrMultiply(arr) {
 // console.log(arrMultiply(["2", "-3"]), "-6");
 // console.log(arrMultiply(["9", "0"]), "0");
 
+function sortByLanguage(list) {
+	return list.sort((a, b) => {
+		const languageComparison = a.language.localeCompare(b.language);
+		if (languageComparison === 0) return a.firstName.localeCompare(b.firstName);
+		else return languageComparison;
+	});
+}
