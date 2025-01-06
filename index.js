@@ -1915,6 +1915,16 @@ function commonGround(s1, s2) {
 	return filteredString.length === 0 ? "death" : filteredString;
 }
 
-console.log(commonGround("eat chicken", "eat chicken and rice"), "eat chicken");
-console.log(commonGround("eat a burger and drink a coke", "drink a coke"), "drink a coke");
-console.log(commonGround("i like turtles", "what are you talking about"), "death");
+// console.log(commonGround("eat chicken", "eat chicken and rice"), "eat chicken");
+// console.log(commonGround("eat a burger and drink a coke", "drink a coke"), "drink a coke");
+// console.log(commonGround("i like turtles", "what are you talking about"), "death");
+
+
+function arrMultiply(arr) {
+	return arr.reduce((acc, cur) => acc * +cur, 1).toString();
+}
+
+// console.log(arrMultiply(["3", "5"]), "15");
+// console.log(arrMultiply(["2", "-3"]), "-6");
+// console.log(arrMultiply(["9", "0"]), "0");
+
