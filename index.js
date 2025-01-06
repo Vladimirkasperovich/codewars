@@ -1885,10 +1885,10 @@ function findMissingNumbers(arr) {
 	const result = [];
 	
 	for (let i = minInteger; i < maxInteger; i++) {
-		if (!arr.includes(i)) result.push(i)
+		if (!arr.includes(i)) result.push(i);
 	}
 	
-	return result
+	return result;
 }
 
 // console.log(findMissingNumbers([-3, -2, 1, 4]), [-1, 0, 2, 3]);
@@ -1896,13 +1896,25 @@ function findMissingNumbers(arr) {
 // console.log(findMissingNumbers([]), []);
 
 
-function factory(x){
+function factory(x) {
 	return function (arr) {
-		return arr.map((item) => item * x)
-	}
+		return arr.map((item) => item * x);
+	};
 }
 
 // const myArray = [1, 2, 3];
 //
 // const threes = factory(3);
 // console.log(threes(myArray), [3, 6, 9]);
+
+function commonGround(s1, s2) {
+	const filteredString = s2.split(" ")
+		.filter((el) => s1.includes(el) && el)
+		.join(" ");
+	
+	return filteredString.length === 0 ? "death" : filteredString;
+}
+
+console.log(commonGround("eat chicken", "eat chicken and rice"), "eat chicken");
+console.log(commonGround("eat a burger and drink a coke", "drink a coke"), "drink a coke");
+console.log(commonGround("i like turtles", "what are you talking about"), "death");
