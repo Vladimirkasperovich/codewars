@@ -1967,8 +1967,37 @@ function consecutive(array) {
 // const mapa = [["top left", "top middle", "top right"], ["middle left", "center", "middle right"], ["bottom left", "bottom middle", "bottom right"]];
 
 function fire(x, y) {
-	return mapa[y][x]
+	return mapa[y][x];
 }
 
 // console.log(fire(0, 0));
 // console.log(fire(1, 2));
+
+function boatLoader(a) {
+	const validAnimals = a.filter(animal => /^[a-zA-Z]$/.test(animal));
+	validAnimals.sort((a, b) => {
+		const diff = a.toLowerCase().localeCompare(b.toLowerCase());
+		if (diff === 0) {
+			return a < b ? -1 : 1;
+		}
+		return diff;
+	});
+	
+	const pairs = [];
+	const countMap = {};
+	
+	for (const animal of validAnimals) {
+		countMap[animal] = (countMap[animal] || 0) + 1;
+	}
+	
+	for (const [animal, count] of Object.entries(countMap)) {
+		if (count >= 2) {
+			pairs.push([animal, animal]);
+		}
+	}
+	
+	return pairs;
+}
+
+// console.log(boatLoader(["g", "c", "h", "c", "g", "m"])); //[['c','c'],['g','g']]
+// console.log(boatLoader(["a", "d", "G", "V", "X", "F", "g", "h", "s", "r", "a", "g", "n", "s", "e", "r", "j", "a", "f", "D", "F", "G", "R", "H", "C", "X", "B", "N", "G", "U", "G", "F", "p", "s", "r", "g", "a"])); //[["a","a"],["F","F"],["G","G"],["g","g"],["r","r"],["s","s"],["X","X"]],
