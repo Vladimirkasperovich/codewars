@@ -1935,3 +1935,19 @@ function sortByLanguage(list) {
 		else return languageComparison;
 	});
 }
+
+function getLosAngelesPoints(results) {
+	let totalPoints = 0;
+	
+	results.forEach(([teamName, score]) => {
+		if (/^Los Angeles [A-Z][a-z]+$/.test(teamName)) {
+			const points = parseInt(score.split(':')[0], 10);
+			totalPoints += points;
+		}
+	});
+	
+	return totalPoints;
+}
+
+
+
