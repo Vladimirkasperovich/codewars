@@ -1955,13 +1955,20 @@ function consecutive(array) {
 	const result = [];
 	
 	for (let i = minInt; i <= maxInt; i++) {
-		result.push(i)
+		result.push(i);
 	}
 	
-	return result.filter((item) => !array.includes(item)).length
+	return result.filter((item) => !array.includes(item)).length;
 	
 }
 
 // console.log(consecutive([4, 8, 6])); //2
 
+// const mapa = [["top left", "top middle", "top right"], ["middle left", "center", "middle right"], ["bottom left", "bottom middle", "bottom right"]];
 
+function fire(x, y) {
+	return mapa[y][x]
+}
+
+// console.log(fire(0, 0));
+// console.log(fire(1, 2));
