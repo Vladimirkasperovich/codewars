@@ -1941,7 +1941,7 @@ function getLosAngelesPoints(results) {
 	
 	results.forEach(([teamName, score]) => {
 		if (/^Los Angeles [A-Z][a-z]+$/.test(teamName)) {
-			const points = parseInt(score.split(':')[0], 10);
+			const points = parseInt(score.split(":")[0], 10);
 			totalPoints += points;
 		}
 	});
@@ -1949,5 +1949,19 @@ function getLosAngelesPoints(results) {
 	return totalPoints;
 }
 
+function consecutive(array) {
+	const minInt = Math.min(...array);
+	const maxInt = Math.max(...array);
+	const result = [];
+	
+	for (let i = minInt; i <= maxInt; i++) {
+		result.push(i)
+	}
+	
+	return result.filter((item) => !array.includes(item)).length
+	
+}
+
+// console.log(consecutive([4, 8, 6])); //2
 
 
