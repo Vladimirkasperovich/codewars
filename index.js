@@ -2012,7 +2012,7 @@ function deepSort(arr, asc) {
 		}, 0);
 	}
 	
-
+	
 	const sorted = arr.slice().sort((a, b) => {
 		const aSum = Array.isArray(a) ? sum(a) : a;
 		const bSum = Array.isArray(b) ? sum(b) : b;
@@ -2028,3 +2028,12 @@ function deepSort(arr, asc) {
 // console.log(deepSort([2, [1, 1], [1, 1], 2], true), [2, [1, 1], [1, 1], 2]);
 
 
+Array.prototype.remove = function (pred) {
+	const arrayCp = this.splice(0, this.length);
+
+	return arrayCp.filter((item) => {
+		return pred(item) ? true : !this.push(item);
+	})
+};
+// const array = [1, 2, 3, 4, 5];
+// console.log(array.remove((i) => i % 2 === 0));
