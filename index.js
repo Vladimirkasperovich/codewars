@@ -2030,10 +2030,30 @@ function deepSort(arr, asc) {
 
 Array.prototype.remove = function (pred) {
 	const arrayCp = this.splice(0, this.length);
-
+	
 	return arrayCp.filter((item) => {
 		return pred(item) ? true : !this.push(item);
-	})
+	});
 };
 // const array = [1, 2, 3, 4, 5];
 // console.log(array.remove((i) => i % 2 === 0));
+
+function deepReverse(list) {
+	const result = [];
+	
+	for (const listItem of list) {
+		if (!Array.isArray(listItem)){
+			result.push(listItem)
+		}else{
+			result.push(deepReverse(listItem))
+		}
+	}
+	return result.reverse()
+}
+
+// console.log(deepReverse([1, 2])); // [2,1]
+// console.log(deepReverse([[6, 5], [4, 3]])); // [[3,4],[5,6]]
+// console.log(deepReverse([[9, 8, 7], [6, 5, 4], [3, 2, 1]])); // [[1,2,3],[4,5,6],[7,8,9]]
+// console.log(deepReverse([[100, 101], [102, 103, 104], [105, 106, 107], [108, 109, 110]])); // [[110,109,108],[107,106,105],[104,103,102],[101,100]]
+// console.log(deepReverse([[50, 51, [52, 53]], [[54, 55], 56, 57]])); // [[57,56,[55,54]],[[53,52],51,50]]
+// console.log(deepReverse([1000, 1001, 1002, 1003, [1004, [1005, 1006, 1007, [1008, 1009, 1010]]], [1011], [1012, 1013, 1014], [1015, 1016, 1017]])); // [[1017,1016,1015],[1014,1013,1012],[1011],[[[1010,1009,1008],1007,1006,1005],1004],1003,1002,1001,1000] ))
