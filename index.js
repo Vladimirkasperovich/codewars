@@ -2001,3 +2001,30 @@ function boatLoader(a) {
 
 // console.log(boatLoader(["g", "c", "h", "c", "g", "m"])); //[['c','c'],['g','g']]
 // console.log(boatLoader(["a", "d", "G", "V", "X", "F", "g", "h", "s", "r", "a", "g", "n", "s", "e", "r", "j", "a", "f", "D", "F", "G", "R", "H", "C", "X", "B", "N", "G", "U", "G", "F", "p", "s", "r", "g", "a"])); //[["a","a"],["F","F"],["G","G"],["g","g"],["r","r"],["s","s"],["X","X"]],
+
+function deepSort(arr, asc) {
+	function sum(arr) {
+		return arr.reduce((acc, item) => {
+			if (Array.isArray(item)) {
+				return acc + sum(item);
+			}
+			return acc + item;
+		}, 0);
+	}
+	
+
+	const sorted = arr.slice().sort((a, b) => {
+		const aSum = Array.isArray(a) ? sum(a) : a;
+		const bSum = Array.isArray(b) ? sum(b) : b;
+		return asc ? aSum - bSum : bSum - aSum;
+	});
+	
+	return sorted.map(item => (Array.isArray(item) ? deepSort(item, asc) : item));
+}
+
+
+// console.log(deepSort([1, 2, 3, 4], true), [1, 2, 3, 4]);
+// console.log(deepSort([1, 2, 3, 4]), [4, 3, 2, 1]);
+// console.log(deepSort([2, [1, 1], [1, 1], 2], true), [2, [1, 1], [1, 1], 2]);
+
+
