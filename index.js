@@ -2042,13 +2042,13 @@ function deepReverse(list) {
 	const result = [];
 	
 	for (const listItem of list) {
-		if (!Array.isArray(listItem)){
-			result.push(listItem)
-		}else{
-			result.push(deepReverse(listItem))
+		if (!Array.isArray(listItem)) {
+			result.push(listItem);
+		} else {
+			result.push(deepReverse(listItem));
 		}
 	}
-	return result.reverse()
+	return result.reverse();
 }
 
 // console.log(deepReverse([1, 2])); // [2,1]
@@ -2058,9 +2058,29 @@ function deepReverse(list) {
 // console.log(deepReverse([[50, 51, [52, 53]], [[54, 55], 56, 57]])); // [[57,56,[55,54]],[[53,52],51,50]]
 // console.log(deepReverse([1000, 1001, 1002, 1003, [1004, [1005, 1006, 1007, [1008, 1009, 1010]]], [1011], [1012, 1013, 1014], [1015, 1016, 1017]])); // [[1017,1016,1015],[1014,1013,1012],[1011],[[[1010,1009,1008],1007,1006,1005],1004],1003,1002,1001,1000] ))
 
-const smallEnough = (a, limit) => a.every((item) => item <= limit)
+const smallEnough = (a, limit) => a.every((item) => item <= limit);
 
 // console.log(smallEnough([66, 101], 200), true);
 // console.log(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100), false);
 // console.log(smallEnough([101, 45, 75, 105, 99, 107], 107), true);
 // console.log(smallEnough([80, 117, 115, 104, 45, 85, 112, 115], 120), true);
+
+function array10() {
+	
+	const chars = ["A", "B", "C", "D"];
+	const result = [];
+	
+	for (let i = 0; i < 10; i++) {
+		const row = [...chars];
+		while (row.length < 10) {
+			row.push(chars[Math.floor(Math.random() * chars.length)]);
+		}
+		row.sort(() => Math.random() - 0.5);
+		
+		result.push(row);
+	}
+	
+	return result;
+}
+
+// console.log(array10());
