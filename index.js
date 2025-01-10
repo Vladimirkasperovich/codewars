@@ -2090,3 +2090,23 @@ function arrayLowerCase(arr) {
 }
 
 // console.log(arrayLowerCase(["Red", "Green", 1]), ["red", "green"]);
+
+const calc2 = (arr) => {
+	return arr.map((item, index) => {
+		if (item > 0) {
+			item = item ** 2;
+		}
+		if ((index + 1) % 3 === 0) {
+			item = item *= 3;
+		}
+		if ((index + 1) % 5 === 0) {
+			item = item *= -1;
+		}
+		return item;
+	}).reduce((acc, cur) => acc + cur, 0)
+	
+};
+
+// console.log(calc2([0, 2, 1, -6, -3, 3]), 31);
+// console.log(calc2([0]), 0);
+// console.log(calc2([1, 1, 1, 1, 1]), 5);
