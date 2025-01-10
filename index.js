@@ -2084,3 +2084,9 @@ function array10() {
 }
 
 // console.log(array10());
+
+function arrayLowerCase(arr) {
+	return arr.map((item) => typeof item === "string" ? item.toLowerCase() : item);
+}
+
+// console.log(arrayLowerCase(["Red", "Green", 1]), ["red", "green"]);
