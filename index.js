@@ -2189,3 +2189,30 @@ const timeLimit = (fn, t) => {
 
 // const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
 // limited(50).catch(console.log); // "Time Limit Exceeded" at t=100ms
+
+class MinStack {
+	constructor() {
+		this.stack = [];
+		this.minStack = [];
+	}
+	
+	pop() {
+		const removedValue = this.stack.pop();
+		if (removedValue === this.getMin()) {
+			this.minStack.pop();
+		}
+		return removedValue;
+	}
+	
+	push(value) {
+		this.stack.push(value);
+		if (this.minStack.length === 0 || value <= this.getMin()) {
+			this.minStack.push(value);
+		}
+	}
+	
+	getMin() {
+		return this.minStack[this.minStack.length - 1];
+	}
+	
+}
