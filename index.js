@@ -2133,18 +2133,38 @@ function oper(fct, s) {
 
 function List() {
 	this.countSpecDigits = function (integersList, digitsList) {
-		const string = integersList.join("").replace(/[^0-9]/g, '');
+		const string = integersList.join("").replace(/[^0-9]/g, "");
 		const result = digitsList.map((digit) => [digit, 0]);
 		for (const char of string) {
-			const digit = Number(char)
+			const digit = Number(char);
 			const index = digitsList.indexOf(digit);
-			if (index !== -1){
-				result[index][1] += 1
+			if (index !== -1) {
+				result[index][1] += 1;
 			}
 		}
-		return result
+		return result;
 	};
 }
 
 // const list = new List;
 // console.log(list.countSpecDigits([-18, -31, 81, -19, 111, -888], [1, 8, 4]));
+
+function solve3(a, b) {
+	const seen = b.reduce((acc, cur) => {
+		acc[cur] = 0;
+		return acc;
+	}, {});
+	
+	a.forEach((item) => {
+		if (seen.hasOwnProperty(item)) {
+			seen[item] += 1;
+		}
+	});
+	
+	return b.map(digit => seen[digit] || 0)
+	
+}
+
+// console.log(solve3(["abc", "abc", "xyz", "abcd", "cde"], ["abc", "cde", "uap"]), [2, 1, 0]);
+// console.log(solve3(["abc", "xyz", "abc", "xyz", "cde"], ["abc", "cde", "xyz"]), [2, 1, 2]);
+// console.log(solve3(["quick", "brown", "fox", "is", "quick"], ["quick", "abc", "fox"]), [2, 0, 1]);
