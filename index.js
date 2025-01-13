@@ -2161,10 +2161,31 @@ function solve3(a, b) {
 		}
 	});
 	
-	return b.map(digit => seen[digit] || 0)
+	return b.map(digit => seen[digit] || 0);
 	
 }
 
 // console.log(solve3(["abc", "abc", "xyz", "abcd", "cde"], ["abc", "cde", "uap"]), [2, 1, 0]);
 // console.log(solve3(["abc", "xyz", "abc", "xyz", "cde"], ["abc", "cde", "xyz"]), [2, 1, 2]);
 // console.log(solve3(["quick", "brown", "fox", "is", "quick"], ["quick", "abc", "fox"]), [2, 0, 1]);
+
+const timeLimit = (fn, t) => {
+	return async (...args) => {
+		return new Promise(async (resolve, reject) => {
+			const timeout = setTimeout(() => {
+				reject("Time Limit Exceeded");
+			}, t);
+			
+			try {
+				const result = await fn(...args);
+				resolve(result);
+			} catch (err) {
+				reject(err);
+			}
+			clearTimeout(timeout);
+		});
+	};
+};
+
+// const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
+// limited(50).catch(console.log); // "Time Limit Exceeded" at t=100ms
