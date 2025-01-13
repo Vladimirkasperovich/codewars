@@ -2103,10 +2103,30 @@ const calc2 = (arr) => {
 			item = item *= -1;
 		}
 		return item;
-	}).reduce((acc, cur) => acc + cur, 0)
+	}).reduce((acc, cur) => acc + cur, 0);
 	
 };
 
 // console.log(calc2([0, 2, 1, -6, -3, 3]), 31);
 // console.log(calc2([0]), 0);
 // console.log(calc2([1, 1, 1, 1, 1]), 5);
+
+
+function vertMirror(strng) {
+	return strng.split("\n").map((item) => item.split("").reverse().join("")).join("\n");
+	
+}
+
+function horMirror(strng) {
+	return strng
+		.split('\n')
+		.reverse()
+		.join('\n')
+}
+
+function oper(fct, s) {
+	return fct(s)
+}
+
+// console.log(vertMirror("abcd\nefgh\nijkl\nmnop")); //"dcba\nhgfe\nlkji\nponm"
+// console.log(horMirror("abcd\nefgh\nijkl\nmnop")); //"mnop\nijkl\nefgh\nabcd"
