@@ -2119,14 +2119,32 @@ function vertMirror(strng) {
 
 function horMirror(strng) {
 	return strng
-		.split('\n')
+		.split("\n")
 		.reverse()
-		.join('\n')
+		.join("\n");
 }
 
 function oper(fct, s) {
-	return fct(s)
+	return fct(s);
 }
 
 // console.log(vertMirror("abcd\nefgh\nijkl\nmnop")); //"dcba\nhgfe\nlkji\nponm"
 // console.log(horMirror("abcd\nefgh\nijkl\nmnop")); //"mnop\nijkl\nefgh\nabcd"
+
+function List() {
+	this.countSpecDigits = function (integersList, digitsList) {
+		const string = integersList.join("").replace(/[^0-9]/g, '');
+		const result = digitsList.map((digit) => [digit, 0]);
+		for (const char of string) {
+			const digit = Number(char)
+			const index = digitsList.indexOf(digit);
+			if (index !== -1){
+				result[index][1] += 1
+			}
+		}
+		return result
+	};
+}
+
+// const list = new List;
+// console.log(list.countSpecDigits([-18, -31, 81, -19, 111, -888], [1, 8, 4]));
