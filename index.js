@@ -2156,7 +2156,7 @@ function solve3(a, b) {
 	}, {});
 	
 	a.forEach((item) => {
-		if (seen.hasOwnProperty(item)) {
+		if (item in seen) {
 			seen[item] += 1;
 		}
 	});
@@ -2216,3 +2216,19 @@ class MinStack {
 	}
 	
 }
+
+const findDupleInt = (arr) => {
+	const seen = {};
+	let result;
+	
+	for (const arrElement of arr) {
+		seen[arrElement] = (seen[arrElement] || 0) + 1;
+		if (seen[arrElement] === 2) {
+			result = arrElement;
+		}
+	}
+	return result;
+};
+
+// console.log(findDupleInt([1, 2, 2, 3]), 2);
+// console.log(findDupleInt([1, 3, 2, 5, 4, 5, 7, 6]), 5);
