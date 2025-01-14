@@ -2235,11 +2235,11 @@ const findDupleInt = (arr) => {
 
 
 const getCount = (words) => {
-	if (typeof words !== "string") return { vowels: 0, consonants: 0 };
+	if (typeof words !== "string") return {vowels: 0, consonants: 0};
 	const cleanedWords = words.replace(/[^a-z]/gi, "");
 	const vowels = (cleanedWords.match(/[aeiou]/gi) || []).length;
 	const consonants = (cleanedWords.match(/[bcdfghjklmnpqrstvwxyz]/gi) || []).length;
-	return { vowels, consonants };
+	return {vowels, consonants};
 };
 // console.log(getCount("Test"), {vowels: 1, consonants: 3});
 // console.log(getCount("Here is some text"), {vowels: 6, consonants: 8});
@@ -2248,3 +2248,14 @@ const getCount = (words) => {
 // console.log(getCount("aeiou"), {vowels: 5, consonants: 0});
 // console.log(getCount(undefined), {vowels: 5, consonants: 0});
 // console.log(getCount(), {vowels: 5, consonants: 0});
+
+const getFirstPythonDev = (arr) => {
+	const isFoundDeveloper = arr.find((developer) => developer.language === "Python");
+	return isFoundDeveloper ?
+		(`${isFoundDeveloper.firstName}, ${isFoundDeveloper.country}`)
+		:
+		(`There will be no Python developers`);
+};
+// console.log(getFirstPython(list1), "There will be no Python developers");
+// console.log(getFirstPython(list2), "There will be no Python developers");
+// console.log(getFirstPython(list3), "Victoria, Puerto Rico");
