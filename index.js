@@ -2281,13 +2281,26 @@ function findAdmin(list, lang) {
 // console.log(findAdmin(list1, "Python"), []);
 
 function isSameLanguage(list) {
-	return list.every((d) => d.language === list[0].language)
+	return list.every((d) => d.language === list[0].language);
 }
+
 // console.log(isSameLanguage(list1), true);
 // console.log(isSameLanguage(list2), false);
 
 function getAverageAge(list) {
-	return Math.round(list.reduce((acc,cur) => acc + cur.age, 0) / list.length)
+	return Math.round(list.reduce((acc, cur) => acc + cur.age, 0) / list.length);
 }
+
 // console.log(getAverageAge(list1), 50);
 // console.log(getAverageAge(list2), 21);
+
+
+function multipleSplit(string, delimiters = []) {
+	const reg = new RegExp('['+delimiters.join('\\')+']', 'g');
+	return string.split(reg).filter((str) => !!str)
+}
+
+// console.log(multipleSplit("Hi everybody!", [" ", "!"]), ["Hi", "everybody"]);
+// console.log(multipleSplit("(1+2)*6-3^9", ["+", "-", "(", ")", "^", "*"]), ["1", "2", "6", "3", "9"]);
+// console.log(multipleSplit("Solve_this|kata-very\\quickly!", ["!", "|", "\\", "_", "-"]), ["Solve", "this", "kata", "very", "quickly"]);
+// console.log(multipleSplit(""));
