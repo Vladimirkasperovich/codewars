@@ -2279,3 +2279,15 @@ function findAdmin(list, lang) {
 // console.log(findAdmin(list1, "JavaScript"));
 // console.log(findAdmin(list1, "Ruby"), []);
 // console.log(findAdmin(list1, "Python"), []);
+
+function isSameLanguage(list) {
+	const mapa = {};
+	
+	list.forEach((item) => {
+		mapa[item.language] = item.language;
+	});
+	
+	return Object.entries(mapa).length === 1
+}
+// console.log(isSameLanguage(list1), true);
+// console.log(isSameLanguage(list2), false);
