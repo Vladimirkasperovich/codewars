@@ -2281,13 +2281,13 @@ function findAdmin(list, lang) {
 // console.log(findAdmin(list1, "Python"), []);
 
 function isSameLanguage(list) {
-	const mapa = {};
-	
-	list.forEach((item) => {
-		mapa[item.language] = item.language;
-	});
-	
-	return Object.entries(mapa).length === 1
+	return list.every((d) => d.language === list[0].language)
 }
 // console.log(isSameLanguage(list1), true);
 // console.log(isSameLanguage(list2), false);
+
+function getAverageAge(list) {
+	return Math.round(list.reduce((acc,cur) => acc + cur.age, 0) / list.length)
+}
+// console.log(getAverageAge(list1), 50);
+// console.log(getAverageAge(list2), 21);
