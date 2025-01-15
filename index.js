@@ -2259,3 +2259,49 @@ const getFirstPythonDev = (arr) => {
 // console.log(getFirstPython(list1), "There will be no Python developers");
 // console.log(getFirstPython(list2), "There will be no Python developers");
 // console.log(getFirstPython(list3), "Victoria, Puerto Rico");
+
+function orderFood(list) {
+	const obj = {};
+	
+	list.forEach((item) => {
+		obj[item.meal] = (obj[item.meal] || 0) + 1;
+	});
+	
+	return obj;
+}
+
+var list1 = [{
+	"firstName": "Noah",
+	"lastName": "M.",
+	"country": "Switzerland",
+	"continent": "Europe",
+	"age": 19,
+	"language": "C",
+	"meal": "vegetarian"
+}, {
+	"firstName": "Anna",
+	"lastName": "R.",
+	"country": "Liechtenstein",
+	"continent": "Europe",
+	"age": 52,
+	"language": "JavaScript",
+	"meal": "standard"
+}, {
+	"firstName": "Ramona",
+	"lastName": "R.",
+	"country": "Paraguay",
+	"continent": "Americas",
+	"age": 29,
+	"language": "Ruby",
+	"meal": "vegan"
+}, {
+	"firstName": "George",
+	"lastName": "B.",
+	"country": "England",
+	"continent": "Europe",
+	"age": 81,
+	"language": "C",
+	"meal": "vegetarian"
+}];
+
+// console.log((orderFood(list1))); //{ vegetarian: 2, standard: 1, vegan: 1 };
