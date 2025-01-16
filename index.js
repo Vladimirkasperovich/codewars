@@ -2311,23 +2311,40 @@ function isLanguageDiverse(list) {
 		seen[item.language] = (seen[item.language] || 0) + 1;
 	}
 	const count = Object.values(seen);
-	const max = Math.max(...count)
-	const min = Math.min(...count)
-	return max <= 2 * min
+	const max = Math.max(...count);
+	const min = Math.min(...count);
+	return max <= 2 * min;
 }
+
 // console.log(isLanguageDiverse(list1), false);
 // console.log(isLanguageDiverse(list2), false);
 // console.log(isLanguageDiverse(list3), true);
 // console.log(isLanguageDiverse(list4), true);
 
 function addUsername(list) {
-	const currenYear = new Date().getFullYear()
+	const currenYear = new Date().getFullYear();
 	return list.map((item) => {
-		const lastName = item.lastName[0].toLowerCase()
+		const lastName = item.lastName[0].toLowerCase();
 		const year = currenYear - item.age;
-		item['userName'] = (item.firstName.toLowerCase() + lastName + year)
-		return item
-	})
+		item["userName"] = (item.firstName.toLowerCase() + lastName + year);
+		return item;
+	});
 }
 
 // console.log(addUsername(list1));
+
+function askForMissingDetails(list) {
+	return list.filter((item) => {
+		let firstName = ''
+		for (const itemKey in item) {
+			if(item[itemKey] === null){
+				item['question'] = `Hi, could you please provide your ${itemKey}.`
+				firstName = item.firstName
+			}
+		}
+		return item.firstName === firstName
+	});
+}
+
+// console.log(askForMissingDetails(list1));
+// console.log(askForMissingDetails(list2));
