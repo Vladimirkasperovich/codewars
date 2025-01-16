@@ -2296,11 +2296,26 @@ function getAverageAge(list) {
 
 
 function multipleSplit(string, delimiters = []) {
-	const reg = new RegExp('['+delimiters.join('\\')+']', 'g');
-	return string.split(reg).filter((str) => !!str)
+	const reg = new RegExp("[" + delimiters.join("\\") + "]", "g");
+	return string.split(reg).filter((str) => !!str);
 }
 
 // console.log(multipleSplit("Hi everybody!", [" ", "!"]), ["Hi", "everybody"]);
 // console.log(multipleSplit("(1+2)*6-3^9", ["+", "-", "(", ")", "^", "*"]), ["1", "2", "6", "3", "9"]);
 // console.log(multipleSplit("Solve_this|kata-very\\quickly!", ["!", "|", "\\", "_", "-"]), ["Solve", "this", "kata", "very", "quickly"]);
 // console.log(multipleSplit(""));
+
+function isLanguageDiverse(list) {
+	const seen = {};
+	for (const item of list) {
+		seen[item.language] = (seen[item.language] || 0) + 1;
+	}
+	const count = Object.values(seen);
+	const max = Math.max(...count)
+	const min = Math.min(...count)
+	return max <= 2 * min
+}
+// console.log(isLanguageDiverse(list1), false);
+// console.log(isLanguageDiverse(list2), false);
+// console.log(isLanguageDiverse(list3), true);
+// console.log(isLanguageDiverse(list4), true);
