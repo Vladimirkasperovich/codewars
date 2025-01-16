@@ -2319,3 +2319,15 @@ function isLanguageDiverse(list) {
 // console.log(isLanguageDiverse(list2), false);
 // console.log(isLanguageDiverse(list3), true);
 // console.log(isLanguageDiverse(list4), true);
+
+function addUsername(list) {
+	const currenYear = new Date().getFullYear()
+	return list.map((item) => {
+		const lastName = item.lastName[0].toLowerCase()
+		const year = currenYear - item.age;
+		item['userName'] = (item.firstName.toLowerCase() + lastName + year)
+		return item
+	})
+}
+
+// console.log(addUsername(list1));
