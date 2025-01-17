@@ -2335,16 +2335,37 @@ function addUsername(list) {
 
 function askForMissingDetails(list) {
 	return list.filter((item) => {
-		let firstName = ''
+		let firstName = "";
 		for (const itemKey in item) {
-			if(item[itemKey] === null){
-				item['question'] = `Hi, could you please provide your ${itemKey}.`
-				firstName = item.firstName
+			if (item[itemKey] === null) {
+				item["question"] = `Hi, could you please provide your ${itemKey}.`;
+				firstName = item.firstName;
 			}
 		}
-		return item.firstName === firstName
+		return item.firstName === firstName;
 	});
 }
 
 // console.log(askForMissingDetails(list1));
 // console.log(askForMissingDetails(list2));
+
+function pairZeros(arr) {
+	let count = 0;
+	return arr.filter((elem) => {
+		if (elem === 0) {
+			if (count === 0) {
+				count++;
+				return true;
+			} else {
+				count--;
+				return false;
+			}
+		}
+		return  true
+	});
+}
+
+// console.log(pairZeros([1]), [1]);
+// console.log(pairZeros([0, 0]), [0]);
+// console.log(pairZeros([0, 0, 0]), [0, 0]);
+// console.log(pairZeros([1, 0, 1, 0, 2, 0, 0, 3, 0]), [1, 0, 1, 2, 0, 3, 0]);
