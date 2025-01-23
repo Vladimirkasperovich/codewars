@@ -2361,7 +2361,7 @@ function pairZeros(arr) {
 				return false;
 			}
 		}
-		return  true
+		return true;
 	});
 }
 
@@ -2371,7 +2371,20 @@ function pairZeros(arr) {
 // console.log(pairZeros([1, 0, 1, 0, 2, 0, 0, 3, 0]), [1, 0, 1, 2, 0, 3, 0]);
 
 const factory23 = (x) => {
-	return (arr) => arr.map((item) => item * x)
-}
+	return (arr) => arr.map((item) => item * x);
+};
 // const threes = factory23(5)
 // console.log(threes([1, 2, 3]));
+
+const findDuple18 = (arr) => {
+	arr.sort();
+	for (let i = 0; i < arr.length; i++) {
+		const currentInt = arr[i];
+		const nextInt = arr[i + 1];
+		if (currentInt === nextInt){
+			return currentInt
+		}
+	}
+};
+// console.log(findDuple18([1, 2, 2, 3])); //2
+// console.log(findDuple18([1, 3, 2, 5, 4, 5, 7, 6])); //5
