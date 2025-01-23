@@ -2369,3 +2369,9 @@ function pairZeros(arr) {
 // console.log(pairZeros([0, 0]), [0]);
 // console.log(pairZeros([0, 0, 0]), [0, 0]);
 // console.log(pairZeros([1, 0, 1, 0, 2, 0, 0, 3, 0]), [1, 0, 1, 2, 0, 3, 0]);
+
+const factory23 = (x) => {
+	return (arr) => arr.map((item) => item * x)
+}
+// const threes = factory23(5)
+// console.log(threes([1, 2, 3]));
