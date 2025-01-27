@@ -2392,9 +2392,9 @@ const findDuple18 = (arr) => {
 function countNumber(n, x) {
 	let count = 0;
 	for (let i = 1; i <= n; i++) {
-		if (x % i === 0 && x / i <= n) count += 1
+		if (x % i === 0 && x / i <= n) count += 1;
 	}
-	return count
+	return count;
 }
 
 // console.log(countNumber(5, 5), 2);
@@ -2402,3 +2402,14 @@ function countNumber(n, x) {
 // console.log(countNumber(6,12),4);
 // console.log(countNumber(100000,1000000000),16);
 // console.log(countNumber(9,484),0);
+
+
+function sectSort(...args) {
+	const arr = args.shift();
+	const sortedArr = arr.splice(...args).sort((a, b) => a - b);
+	arr.splice(args[0], 0, ...sortedArr)
+	return arr
+}
+
+console.log(sectSort([1, 2, 5, 7, 4, 6, 3, 9, 8], 2));//, [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(sectSort([9, 7, 4, 2, 5, 3, 1, 8, 6], 2, 5)); //[9, 7, 1, 2, 3, 4, 5, 8, 6]
