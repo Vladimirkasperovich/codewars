@@ -2381,10 +2381,24 @@ const findDuple18 = (arr) => {
 	for (let i = 0; i < arr.length; i++) {
 		const currentInt = arr[i];
 		const nextInt = arr[i + 1];
-		if (currentInt === nextInt){
-			return currentInt
+		if (currentInt === nextInt) {
+			return currentInt;
 		}
 	}
 };
 // console.log(findDuple18([1, 2, 2, 3])); //2
 // console.log(findDuple18([1, 3, 2, 5, 4, 5, 7, 6])); //5
+
+function countNumber(n, x) {
+	let count = 0;
+	for (let i = 1; i <= n; i++) {
+		if (x % i === 0 && x / i <= n) count += 1
+	}
+	return count
+}
+
+// console.log(countNumber(5, 5), 2);
+// console.log(countNumber(10,5),2);
+// console.log(countNumber(6,12),4);
+// console.log(countNumber(100000,1000000000),16);
+// console.log(countNumber(9,484),0);
