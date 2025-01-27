@@ -2407,9 +2407,19 @@ function countNumber(n, x) {
 function sectSort(...args) {
 	const arr = args.shift();
 	const sortedArr = arr.splice(...args).sort((a, b) => a - b);
-	arr.splice(args[0], 0, ...sortedArr)
-	return arr
+	arr.splice(args[0], 0, ...sortedArr);
+	return arr;
 }
 
-console.log(sectSort([1, 2, 5, 7, 4, 6, 3, 9, 8], 2));//, [1, 2, 3, 4, 5, 6, 7, 8, 9]
-console.log(sectSort([9, 7, 4, 2, 5, 3, 1, 8, 6], 2, 5)); //[9, 7, 1, 2, 3, 4, 5, 8, 6]
+// console.log(sectSort([1, 2, 5, 7, 4, 6, 3, 9, 8], 2));//, [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// console.log(sectSort([9, 7, 4, 2, 5, 3, 1, 8, 6], 2, 5)); //[9, 7, 1, 2, 3, 4, 5, 8, 6]
+
+function arrayCenter(a) {
+	const min = Math.min(...a);
+	const avg = a.reduce((acc, cur) => acc + cur, 0) / a.length;
+	return a.filter(num => Math.abs(num - avg) < min);
+}
+
+// console.log(arrayCenter([8, 3, 4, 5, 2, 8]), [4, 5]);
+// console.log(arrayCenter([1, 3, 2, 1]), [1, 2, 1]);
+// console.log(arrayCenter([10, 11, 12, 13, 14]), [10, 11, 12, 13, 14]);
