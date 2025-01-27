@@ -2423,3 +2423,19 @@ function arrayCenter(a) {
 // console.log(arrayCenter([8, 3, 4, 5, 2, 8]), [4, 5]);
 // console.log(arrayCenter([1, 3, 2, 1]), [1, 2, 1]);
 // console.log(arrayCenter([10, 11, 12, 13, 14]), [10, 11, 12, 13, 14]);
+
+function password(str) {
+  const hasUpperCase = str.split('').some((item) => /[A-Z]/.test(item))
+  const hasLowerCase = str.split('').some((item) => /[a-z]/.test(item))
+  const hasNumber = str.split('').some((item) => /[0-9]/.test(item))
+	const passwordLength = str.length >= 8
+	return hasUpperCase && hasLowerCase && hasNumber && passwordLength
+}
+
+console.log(password("Abcd1234"), true);
+console.log(password("Abcd123"), false);
+console.log(password("abcd1234"), false);
+console.log(password("AbcdefGhijKlmnopQRsTuvwxyZ1234567890"), true);
+console.log(password("ABCD1234"), false);
+console.log(password("Ab1!@#$%^&*()-_+={}[]|\:;?/>.<,"), true);
+console.log(password("!@#$%^&*()-_+={}[]|\:;?/>.<,"), false);
