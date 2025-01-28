@@ -2497,7 +2497,7 @@ function bump(x) {
 
 
 function digits(n) {
-	return n.toString().length
+	return n.toString().length;
 }
 
 // console.log(digits(0), 1);
@@ -2508,15 +2508,22 @@ function digits(n) {
 // console.log(digits(9876543210),10);
 // console.log(digits(9007199254740991),16);
 
-const greet = (name) => `Hello ${name.toLowerCase().replace(/^\w/, (f) => f.toUpperCase())}!`
+const greet = (name) => `Hello ${name.toLowerCase().replace(/^\w/, (f) => f.toUpperCase())}!`;
+
 // console.log(greet("BILLY"));
 
 
-
-function sortGiftCode(code){
-	return code.split('').sort().join('')
+function sortGiftCode(code) {
+	return code.split("").sort().join("");
 }
 
-console.log(sortGiftCode('abcdef'), 'abcdef');
-console.log(sortGiftCode('pqksuvy'), 'kpqsuvy');
-console.log(sortGiftCode('zyxwvutsrqponmlkjihgfedcba'), 'abcdefghijklmnopqrstuvwxyz');
+// console.log(sortGiftCode('abcdef'), 'abcdef');
+// console.log(sortGiftCode('pqksuvy'), 'kpqsuvy');
+// console.log(sortGiftCode('zyxwvutsrqponmlkjihgfedcba'), 'abcdefghijklmnopqrstuvwxyz');
+
+const filterString = (value) => Number(value.replace(/[a-z]/g, ""));
+
+
+console.log(filterString("123"), 123);
+console.log(filterString("a1b2c3"), 123);
+console.log(filterString("aa1bb2cc3dd"), 123);
