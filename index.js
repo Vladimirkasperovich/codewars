@@ -2509,5 +2509,14 @@ function digits(n) {
 // console.log(digits(9007199254740991),16);
 
 const greet = (name) => `Hello ${name.toLowerCase().replace(/^\w/, (f) => f.toUpperCase())}!`
-
 // console.log(greet("BILLY"));
+
+
+
+function sortGiftCode(code){
+	return code.split('').sort().join('')
+}
+
+console.log(sortGiftCode('abcdef'), 'abcdef');
+console.log(sortGiftCode('pqksuvy'), 'kpqsuvy');
+console.log(sortGiftCode('zyxwvutsrqponmlkjihgfedcba'), 'abcdefghijklmnopqrstuvwxyz');
