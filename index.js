@@ -2507,3 +2507,7 @@ function digits(n) {
 // console.log(digits(128685), 6);
 // console.log(digits(9876543210),10);
 // console.log(digits(9007199254740991),16);
+
+const greet = (name) => `Hello ${name.toLowerCase().replace(/^\w/, (f) => f.toUpperCase())}!`
+
+// console.log(greet("BILLY"));
