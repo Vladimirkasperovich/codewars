@@ -2454,15 +2454,15 @@ function alphabetWar(fight) {
 		d: 2,
 		z: 1
 	};
-	let sumOfLeftSide = 0
-	let sumOfRightSide = 0
+	let sumOfLeftSide = 0;
+	let sumOfRightSide = 0;
 	
 	for (const char of fight) {
 		if (leftSide[char]) {
-			sumOfLeftSide += leftSide[char]
+			sumOfLeftSide += leftSide[char];
 		}
 		if (rightSide[char]) {
-			sumOfRightSide += rightSide[char]
+			sumOfRightSide += rightSide[char];
 		}
 	}
 	
@@ -2481,12 +2481,12 @@ function alphabetWar(fight) {
 // console.log(alphabetWar("wwwwww"), "Left side wins!");
 
 
-function bump(x){
-	const seenBumps = {n:0}
+function bump(x) {
+	const seenBumps = {n: 0};
 	for (const bumps of x) {
-	 if (bumps in seenBumps) seenBumps[bumps] += 1;
+		if (bumps in seenBumps) seenBumps[bumps] += 1;
 	}
-	return seenBumps["n"] <= 15 ? "Woohoo!" : "Car Dead"
+	return seenBumps["n"] <= 15 ? "Woohoo!" : "Car Dead";
 }
 
 // console.log(bump("n"), "Woohoo!");
@@ -2494,3 +2494,16 @@ function bump(x){
 // console.log(bump("nnn_n__n_n___nnnnn___n__nnn__"), "Woohoo!");
 // console.log(bump("_nnnnnnn_n__n______nn__nn_nnn"), "Car Dead");
 // console.log(bump("______n___n_"), "Woohoo!");
+
+
+function digits(n) {
+	return n.toString().length
+}
+
+// console.log(digits(0), 1);
+// console.log(digits(9), 1);
+// console.log(digits(66), 2);
+// console.log(digits(12345),5);
+// console.log(digits(128685), 6);
+// console.log(digits(9876543210),10);
+// console.log(digits(9007199254740991),16);
