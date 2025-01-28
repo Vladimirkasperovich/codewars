@@ -2479,3 +2479,18 @@ function alphabetWar(fight) {
 // console.log(alphabetWar("zdqmwpbs"), "Let's fight again!");
 // console.log(alphabetWar("zzzzs"), "Right side wins!");
 // console.log(alphabetWar("wwwwww"), "Left side wins!");
+
+
+function bump(x){
+	const seenBumps = {n:0}
+	for (const bumps of x) {
+	 if (bumps in seenBumps) seenBumps[bumps] += 1;
+	}
+	return seenBumps["n"] <= 15 ? "Woohoo!" : "Car Dead"
+}
+
+// console.log(bump("n"), "Woohoo!");
+// console.log(bump("__nn_nnnn__n_n___n____nn__nnn"), "Woohoo!");
+// console.log(bump("nnn_n__n_n___nnnnn___n__nnn__"), "Woohoo!");
+// console.log(bump("_nnnnnnn_n__n______nn__nn_nnn"), "Car Dead");
+// console.log(bump("______n___n_"), "Woohoo!");
