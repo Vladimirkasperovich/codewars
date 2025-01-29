@@ -2530,7 +2530,7 @@ const filterString = (value) => Number(value.replace(/[a-z]/g, ""));
 
 function inAscOrder(arr) {
 	const sortedArr = [...arr].sort((a, b) => a - b);
-	return arr.every((item, index) => item === sortedArr[index])
+	return arr.every((item, index) => item === sortedArr[index]);
 	
 }
 
@@ -2538,3 +2538,17 @@ function inAscOrder(arr) {
 // console.log(inAscOrder([1, 2, 3, 4, 5]), true);
 // console.log(inAscOrder([1, 6, 10, 18, 2, 4, 20]), false);
 // console.log(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1]), false);
+
+function solution123(digits) {
+	let maxNum = 0;
+	for (let i = 0; i <= digits.length - 5; i++) {
+		const currentNum = Number(digits.slice(i, i + 5));
+		if (currentNum > maxNum){
+			maxNum = currentNum
+		}
+	}
+	return maxNum
+}
+
+// console.log(solution123("1234567898765"), 98765);
+// console.log(solution123("731674765"), 74765);
