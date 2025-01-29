@@ -2543,12 +2543,25 @@ function solution123(digits) {
 	let maxNum = 0;
 	for (let i = 0; i <= digits.length - 5; i++) {
 		const currentNum = Number(digits.slice(i, i + 5));
-		if (currentNum > maxNum){
-			maxNum = currentNum
+		if (currentNum > maxNum) {
+			maxNum = currentNum;
 		}
 	}
-	return maxNum
+	return maxNum;
 }
 
 // console.log(solution123("1234567898765"), 98765);
 // console.log(solution123("731674765"), 74765);
+
+function reverseNumber(n) {
+	const str = Math.abs(n).toString().split("").reverse().join("");
+	return n < 0 ? -Number(str) : Number(str);
+}
+
+// console.log(reverseNumber(123), 321);
+// console.log(reverseNumber(-123), -321);
+// console.log(reverseNumber(1000), 1);
+// console.log(reverseNumber(4321234), 4321234);
+// console.log(reverseNumber(5), 5);
+// console.log(reverseNumber(0), 0);
+// console.log(reverseNumber(98989898), 89898989);
