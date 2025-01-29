@@ -2524,6 +2524,17 @@ function sortGiftCode(code) {
 const filterString = (value) => Number(value.replace(/[a-z]/g, ""));
 
 
-console.log(filterString("123"), 123);
-console.log(filterString("a1b2c3"), 123);
-console.log(filterString("aa1bb2cc3dd"), 123);
+// console.log(filterString("123"), 123);
+// console.log(filterString("a1b2c3"), 123);
+// console.log(filterString("aa1bb2cc3dd"), 123);
+
+function inAscOrder(arr) {
+	const sortedArr = [...arr].sort((a, b) => a - b);
+	return arr.every((item, index) => item === sortedArr[index])
+	
+}
+
+// console.log(inAscOrder([1, 2, 4, 7, 19]), true);
+// console.log(inAscOrder([1, 2, 3, 4, 5]), true);
+// console.log(inAscOrder([1, 6, 10, 18, 2, 4, 20]), false);
+// console.log(inAscOrder([9, 8, 7, 6, 5, 4, 3, 2, 1]), false);
