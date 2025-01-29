@@ -2565,3 +2565,9 @@ function reverseNumber(n) {
 // console.log(reverseNumber(5), 5);
 // console.log(reverseNumber(0), 0);
 // console.log(reverseNumber(98989898), 89898989);
+
+function sumEvenNumbers(input) {
+	return !input.length ? 0 : input.filter((item) => item % 2 === 0).reduce((acc, cur) => acc + cur, 0);
+}
+
+// console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 30);
