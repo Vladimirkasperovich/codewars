@@ -2598,12 +2598,17 @@ function cleanString(s) {
 	for (const char of s) {
 		if (char === "#") {
 			stack.pop();
-		}else{
-			stack.push(char)
+		} else {
+			stack.push(char);
 		}
 	}
-	return stack.join('')
+	return stack.join("");
 }
 
 // console.log(cleanString("abc#d##c"), "ac");
 // console.log(cleanString("abc####d##c#"), "");
+
+const validPhoneNumber = (phoneNumber) => {
+	return /^\(\d{3}\) \d{3}-\d{4}$/.test(phoneNumber);
+};
+console.log(validPhoneNumber("(123) 456-7890"), true);
