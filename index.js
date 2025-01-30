@@ -2571,3 +2571,23 @@ function sumEvenNumbers(input) {
 }
 
 // console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 30);
+
+function parse(data) {
+	let count = 0;
+	const result = [];
+	
+	for (const element of data) {
+		if (element === "i") {
+			count += 1;
+		} else if (element === "d") {
+			count -= 1;
+		} else if (element === "s") {
+			count *= count;
+		} else if (element === "o") {
+			result.push(count);
+		}
+	}
+	return result;
+}
+
+// console.log(parse("iiisdosodddddiso"), [8, 64]);
