@@ -2591,3 +2591,19 @@ function parse(data) {
 }
 
 // console.log(parse("iiisdosodddddiso"), [8, 64]);
+
+function cleanString(s) {
+	const stack = [];
+	
+	for (const char of s) {
+		if (char === "#") {
+			stack.pop();
+		}else{
+			stack.push(char)
+		}
+	}
+	return stack.join('')
+}
+
+// console.log(cleanString("abc#d##c"), "ac");
+// console.log(cleanString("abc####d##c#"), "");
