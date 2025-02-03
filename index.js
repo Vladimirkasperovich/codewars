@@ -2650,3 +2650,12 @@ function meeting(x) {
 // console.log(meeting(["X", "O", "X"]), 1);
 // console.log(meeting(["O", "X", "X", "X", "X"]), 0);
 // console.log(meeting(["X", "X", "X", "X", "X"]), "None available!");
+
+const sortme123 = (names) => {
+	return names.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: "base"}))
+	
+};
+// console.log(sortme123(["Hello", "there", "I'm", "fine"]), ["fine", "Hello", "I'm", "there"]);
+// console.log(sortme123(["C", "d", "a", "B"]), ["a", "B", "C", "d"]);
+// console.log(sortme123(["CodeWars"]), ["CodeWars"]);
+// console.log(sortme123([]), []);
