@@ -2641,3 +2641,12 @@ function lastSurvivor(letters, coords) {
 // console.log(lastSurvivor("kbc", [0, 1]), "b");
 // console.log(lastSurvivor("zbk", [2, 1]), "z");
 // console.log(lastSurvivor("c", []), "c");
+
+function meeting(x) {
+	const firstFounded = x.findIndex((el) => el === "O");
+	return firstFounded >= 0 ? firstFounded : "None available!";
+}
+
+// console.log(meeting(["X", "O", "X"]), 1);
+// console.log(meeting(["O", "X", "X", "X", "X"]), 0);
+// console.log(meeting(["X", "X", "X", "X", "X"]), "None available!");
