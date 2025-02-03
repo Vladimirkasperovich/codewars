@@ -2628,5 +2628,16 @@ function countLanguages(list) {
 	list.forEach((item) => {
 		seenLanguages[item.language] = (seenLanguages[item.language] || 0) + 1;
 	});
-	return seenLanguages
+	return seenLanguages;
 }
+
+function lastSurvivor(letters, coords) {
+	const array = letters.split("");
+	coords.forEach((index) => array.splice(index, 1));
+	return array.join("");
+}
+
+// console.log(lastSurvivor("abc", [1, 1]), "a");
+// console.log(lastSurvivor("kbc", [0, 1]), "b");
+// console.log(lastSurvivor("zbk", [2, 1]), "z");
+// console.log(lastSurvivor("c", []), "c");
