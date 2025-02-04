@@ -2661,11 +2661,19 @@ const sortme123 = (names) => {
 // console.log(sortme123([]), []);
 
 const hasDuplicate = (nums) => {
-  const seenInt = {}
+	const seenInt = {};
 	nums.forEach((int) => {
-		seenInt[int] = (seenInt[int] || 0) + 1
-	})
-	return Object.values(seenInt).some((el) => el >= 2)
+		seenInt[int] = (seenInt[int] || 0) + 1;
+	});
+	return Object.values(seenInt).some((el) => el >= 2);
 };
 // console.log(hasDuplicate([1, 2, 3, 3])); //true
 // console.log(hasDuplicate([1, 2, 3, 4])); //false
+
+const isAnagram = (s, t) => {
+	const firstStr = s.split("").sort().join("");
+	const secondStr = t.split("").sort().join("");
+	return firstStr === secondStr;
+};
+// console.log(isAnagram("racecar", "carrace")); //true
+// console.log(isAnagram("jar", "jam")); //false
