@@ -2652,10 +2652,20 @@ function meeting(x) {
 // console.log(meeting(["X", "X", "X", "X", "X"]), "None available!");
 
 const sortme123 = (names) => {
-	return names.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: "base"}))
+	return names.sort((a, b) => a.localeCompare(b, undefined, {sensitivity: "base"}));
 	
 };
 // console.log(sortme123(["Hello", "there", "I'm", "fine"]), ["fine", "Hello", "I'm", "there"]);
 // console.log(sortme123(["C", "d", "a", "B"]), ["a", "B", "C", "d"]);
 // console.log(sortme123(["CodeWars"]), ["CodeWars"]);
 // console.log(sortme123([]), []);
+
+const hasDuplicate = (nums) => {
+  const seenInt = {}
+	nums.forEach((int) => {
+		seenInt[int] = (seenInt[int] || 0) + 1
+	})
+	return Object.values(seenInt).some((el) => el >= 2)
+};
+// console.log(hasDuplicate([1, 2, 3, 3])); //true
+// console.log(hasDuplicate([1, 2, 3, 4])); //false
