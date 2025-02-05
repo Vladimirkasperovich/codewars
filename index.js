@@ -2696,13 +2696,27 @@ const groupAnagrams = (strs) => {
 	const seenWords = {};
 	strs.forEach((item) => {
 		const sorted = item.split("").sort().join("");
-		if (!seenWords[sorted]){
-			seenWords[sorted] = []
+		if (!seenWords[sorted]) {
+			seenWords[sorted] = [];
 		}
-		seenWords[sorted].push(item)
+		seenWords[sorted].push(item);
 	});
-	return Object.values(seenWords)
+	return Object.values(seenWords);
 };
 // console.log(groupAnagrams(["act", "pots", "tops", "cat", "stop", "hat"])); //[["hat"],["act", "cat"],["stop", "pots", "tops"]]
 // console.log(groupAnagrams(["x"])); //[["x"]]
 // console.log(groupAnagrams([""])); //[[""]]
+
+const topKFrequent = (nums, k) => {
+	const seenNums = {};
+	nums.forEach((integer) => {
+		seenNums[integer] = (seenNums[integer] || 0) + 1;
+	});
+	
+	return Object.keys(seenNums)
+		.sort((a,b) => seenNums[b] - seenNums[a])
+		.slice(0,k)
+		.map(Number)
+};
+// console.log(topKFrequent([1, 2, 2, 3, 3, 3], 2));//[2,3]
+// console.log(topKFrequent([7, 7], 1));//[7]
