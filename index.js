@@ -2677,3 +2677,32 @@ const isAnagram = (s, t) => {
 };
 // console.log(isAnagram("racecar", "carrace")); //true
 // console.log(isAnagram("jar", "jam")); //false
+const twoSum = (nums, target) => {
+	const result = [];
+	for (let i = 0; i < nums.length; i++) {
+		for (let j = i + 1; j < nums.length; j++) {
+			if ((nums[i] + nums[j]) === target) {
+				result.push(i, j);
+			}
+		}
+	}
+	return result;
+};
+// console.log(twoSum([3, 4, 5, 6], 7)); //[0,1]
+// console.log(twoSum([4, 5, 6], 10)); //[0,2]
+// console.log(twoSum([5, 5], 10)); //[0,1]
+
+const groupAnagrams = (strs) => {
+	const seenWords = {};
+	strs.forEach((item) => {
+		const sorted = item.split("").sort().join("");
+		if (!seenWords[sorted]){
+			seenWords[sorted] = []
+		}
+		seenWords[sorted].push(item)
+	});
+	return Object.values(seenWords)
+};
+// console.log(groupAnagrams(["act", "pots", "tops", "cat", "stop", "hat"])); //[["hat"],["act", "cat"],["stop", "pots", "tops"]]
+// console.log(groupAnagrams(["x"])); //[["x"]]
+// console.log(groupAnagrams([""])); //[[""]]
