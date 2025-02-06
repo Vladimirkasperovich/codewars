@@ -2714,9 +2714,30 @@ const topKFrequent = (nums, k) => {
 	});
 	
 	return Object.keys(seenNums)
-		.sort((a,b) => seenNums[b] - seenNums[a])
-		.slice(0,k)
-		.map(Number)
+		.sort((a, b) => seenNums[b] - seenNums[a])
+		.slice(0, k)
+		.map(Number);
 };
 // console.log(topKFrequent([1, 2, 2, 3, 3, 3], 2));//[2,3]
 // console.log(topKFrequent([7, 7], 1));//[7]
+
+const encode1 = (strs) => {
+	return strs.map(s => s.length + "#" + s).join("");
+};
+
+
+const decode2 = (str) => {
+	let res = [];
+	let i = 0;
+	
+	while (i < str.length) {
+		let j = i;
+		while (str[j] !== "#") j++; // Find the separator
+		let length = parseInt(str.slice(i, j), 10); // Extract the length
+		res.push(str.slice(j + 1, j + 1 + length)); // Extract the word
+		i = j + 1 + length; // Move to the next word
+	}
+	
+	return res;
+};
+// console.log(decode2(encode1(["neet", "code", "love", "you"])));
