@@ -2740,4 +2740,32 @@ const decode2 = (str) => {
 	
 	return res;
 };
+
 // console.log(decode2(encode1(["neet", "code", "love", "you"])));
+
+function productExceptSelf(nums) {
+	const left = new Array(nums.length).fill(1);
+	const right = new Array(nums.length).fill(1);
+	const output = new Array(nums.length).fill(1);
+	
+	let count = 1;
+	for (let i = 1; i < nums.length; i++) {
+		count *= nums[i - 1];
+		left[i] = count;
+	}
+	count = 1;
+
+	for (let i = nums.length - 2; i >= 0; i--) {
+		count *= nums[i + 1];
+		right[i] = count;
+	}
+
+
+	for (let i = 0; i < nums.length; i++) {
+		output[i] = left[i] * right[i];
+	}
+	return output;
+	
+}
+
+// console.log(productExceptSelf([1, 2, 4, 6]));//[48,24,12,8]
