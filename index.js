@@ -2754,13 +2754,13 @@ function productExceptSelf(nums) {
 		left[i] = count;
 	}
 	count = 1;
-
+	
 	for (let i = nums.length - 2; i >= 0; i--) {
 		count *= nums[i + 1];
 		right[i] = count;
 	}
-
-
+	
+	
 	for (let i = 0; i < nums.length; i++) {
 		output[i] = left[i] * right[i];
 	}
@@ -2769,3 +2769,29 @@ function productExceptSelf(nums) {
 }
 
 // console.log(productExceptSelf([1, 2, 4, 6]));//[48,24,12,8]
+
+
+function isValidSudoku(board) {
+	const rows = new Array(9).fill(null).map(() => new Set());
+	const cols = new Array(9).fill(null).map(() => new Set());
+	const boxes = new Array(9).fill(null).map(() => new Set());
+	
+	for (let i = 0; i < 9; i++) {
+		for (let j = 0; j < 9; j++) {
+			const numElement = board[i][j];
+			if (numElement === ".") continue;
+			const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
+			
+			if (rows[i].has(numElement) || cols[j].has(numElement) || boxes[boxIndex].has(numElement)) {
+				return false;
+			}
+			
+			rows[i].add(numElement);
+			cols[j].add(numElement);
+			boxes[boxIndex].add(numElement);
+		}
+	}
+	return true
+	
+}
+
