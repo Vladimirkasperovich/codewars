@@ -2814,3 +2814,16 @@ const isPalindrome = (s) => {
 };
 // console.log(isPalindrome("Was it a car or a cat I saw?"));//true
 // console.log(isPalindrome("tab a cat"));//false
+
+const twoSum111 = (numbers, target) => {
+	let left = 0;
+	let right = numbers.length - 1;
+	while(left < right){
+		const sum = numbers[left] + numbers[right]
+		if (sum === target) return [left + 1, right + 1]
+		if (sum < target) left++
+		else right--
+	}
+	return []
+};
+console.log(twoSum111([1, 2, 3, 4], 3)); //[1,2]
