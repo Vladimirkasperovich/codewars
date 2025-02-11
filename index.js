@@ -2796,12 +2796,21 @@ function isValidSudoku(board) {
 }
 
 function strJoin(...args) {
-	const array = []
+	const array = [];
 	for (let i = 1; i < args.length; i++) {
-		  array.push(args[i])
+		array.push(args[i]);
 	}
-	return array.join(args[0])
+	return array.join(args[0]);
 }
 
 // console.log(strJoin(".", "a", "b", "c")); //a.b.c
 // console.log(strJoin("-", "a", "b", "c", "d", "e", "f")); //a-b-c-d-e-f
+
+
+const isPalindrome = (s) => {
+	const formatedStr = s.toLowerCase().replace(/\W/g, "");
+	const reversedStr = formatedStr.split("").reverse().join("").replace(/\W/g, "");
+	return formatedStr === reversedStr;
+};
+// console.log(isPalindrome("Was it a car or a cat I saw?"));//true
+// console.log(isPalindrome("tab a cat"));//false
