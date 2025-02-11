@@ -2791,7 +2791,17 @@ function isValidSudoku(board) {
 			boxes[boxIndex].add(numElement);
 		}
 	}
-	return true
+	return true;
 	
 }
 
+function strJoin(...args) {
+	const array = []
+	for (let i = 1; i < args.length; i++) {
+		  array.push(args[i])
+	}
+	return array.join(args[0])
+}
+
+// console.log(strJoin(".", "a", "b", "c")); //a.b.c
+// console.log(strJoin("-", "a", "b", "c", "d", "e", "f")); //a-b-c-d-e-f
