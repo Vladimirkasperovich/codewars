@@ -2818,12 +2818,28 @@ const isPalindrome = (s) => {
 const twoSum111 = (numbers, target) => {
 	let left = 0;
 	let right = numbers.length - 1;
-	while(left < right){
-		const sum = numbers[left] + numbers[right]
-		if (sum === target) return [left + 1, right + 1]
-		if (sum < target) left++
-		else right--
+	while (left < right) {
+		const sum = numbers[left] + numbers[right];
+		if (sum === target) return [left + 1, right + 1];
+		if (sum < target) left++;
+		else right--;
 	}
-	return []
+	return [];
 };
-console.log(twoSum111([1, 2, 3, 4], 3)); //[1,2]
+// console.log(twoSum111([1, 2, 3, 4], 3)); //[1,2]
+
+const square = (x) => x * x;
+const time2 = (x) => x * 2;
+const sum = (a, b) => a + b;
+
+const compose = (...fns) => {
+	return (...args) => {
+		return fns.reduceRight((prevResult, curFn) => {
+			return curFn(prevResult);
+		}, fns.pop()(...args));
+	};
+};
+
+// console.log(compose(square, time2)(2) === square(time2(2)));
+// console.log(compose(square, time2, sum)(3, 4));
+// console.log(compose(square, time2, sum)(3, 4) === square(time2(sum(3, 4))));
