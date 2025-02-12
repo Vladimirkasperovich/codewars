@@ -2843,3 +2843,46 @@ const compose = (...fns) => {
 // console.log(compose(square, time2)(2) === square(time2(2)));
 // console.log(compose(square, time2, sum)(3, 4));
 // console.log(compose(square, time2, sum)(3, 4) === square(time2(sum(3, 4))));
+
+
+function callLimit(fn, limit) {
+	let callsCount = 0;
+	const wrapper = (...args) => {
+		if (callsCount >= limit) return;
+		callsCount += 1;
+		fn(...args);
+	};
+	
+	wrapper.reset = () => {
+		callsCount = 0;
+	};
+	
+	return wrapper
+}
+
+function log(title, message) {
+	console.log(title + ": " + message);
+}
+
+// const logLimited = callLimit(log, 3);
+//
+// logLimited("title", "desc");
+// //output title: desc
+//
+// logLimited("title2", "desc");
+// //output title2: desc
+//
+// logLimited("title3", "desc");
+// //output title3: desc
+//
+// logLimited("title4", "desc");
+// //не сработает
+// logLimited("title5", "desc");
+// //не сработает
+//
+//
+// logLimited.reset();
+// logLimited("title4", "desc");
+// logLimited("title5", "desc");
+// logLimited("title6", "desc");
+// logLimited("title7", "desc");
