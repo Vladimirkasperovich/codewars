@@ -2857,12 +2857,12 @@ function callLimit(fn, limit) {
 		callsCount = 0;
 	};
 	
-	return wrapper
+	return wrapper;
 }
 
-function log(title, message) {
-	console.log(title + ": " + message);
-}
+// function log(title, message) {
+// 	console.log(title + ": " + message);
+// }
 
 // const logLimited = callLimit(log, 3);
 //
@@ -2886,3 +2886,24 @@ function log(title, message) {
 // logLimited("title5", "desc");
 // logLimited("title6", "desc");
 // logLimited("title7", "desc");
+
+
+const isValid = (s) => {
+	const seenBrackets = {"(": ")", "{": "}", "[": "]"};
+	const stack = [];
+	
+	for (const bracket of s) {
+		if (seenBrackets[bracket]){
+			stack.push(bracket)
+		}else{
+			const lastRemoved = stack.pop()
+			if (seenBrackets[lastRemoved] !== bracket){
+				return false
+			}
+		}
+	}
+	return stack.length === 0
+};
+// console.log(isValid("[]")); //true
+// console.log(isValid("([{}])")); //true
+// console.log(isValid("[(])")); //false
