@@ -2893,17 +2893,31 @@ const isValid = (s) => {
 	const stack = [];
 	
 	for (const bracket of s) {
-		if (seenBrackets[bracket]){
-			stack.push(bracket)
-		}else{
-			const lastRemoved = stack.pop()
-			if (seenBrackets[lastRemoved] !== bracket){
-				return false
+		if (seenBrackets[bracket]) {
+			stack.push(bracket);
+		} else {
+			const lastRemoved = stack.pop();
+			if (seenBrackets[lastRemoved] !== bracket) {
+				return false;
 			}
 		}
 	}
-	return stack.length === 0
+	return stack.length === 0;
 };
+
 // console.log(isValid("[]")); //true
 // console.log(isValid("([{}])")); //true
 // console.log(isValid("[(])")); //false
+
+const someFn = () => {
+	
+	for (let i = []; i.length < 3; i.push(1)) {
+		const val =[...i]
+			setTimeout(() => {
+				console.log(val);
+			}, i.length * 1000);
+		}
+	
+	
+};
+// console.log(someFn());
