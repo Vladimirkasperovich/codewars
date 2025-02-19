@@ -2925,8 +2925,31 @@ const someFn = () => {
 
 
 function rowSumOddNumbers(n) {
-	return n ** 3
+	return n ** 3;
 }
 
 // console.log(rowSumOddNumbers(1)); //1
 // console.log(rowSumOddNumbers(42)); //74088
+
+function productArray(numbers) {
+	const n = numbers.length;
+	const left = new Array(n).fill(1);
+	const right = new Array(n).fill(1);
+	const result = new Array(n).fill(1);
+	
+	for (let i = 1; i < n; i++) {
+		left[i] = left[i - 1] * numbers[i - 1];
+	}
+	for (let i = n - 2; i >= 0; i--) {
+		right[i] = right[i + 1] * numbers[i + 1];
+	}
+	for (let i = 0; i < n; i++) {
+		result[i] = left[i] * right[i];
+	}
+	return result;
+}
+
+// console.log(productArray([12, 20]), [20, 12]);
+// console.log(productArray([3, 27, 4, 2]), [216, 24, 162, 324]);
+// console.log(productArray([13, 10, 5, 2, 9]), [900, 1170, 2340, 5850, 1300]);
+// console.log(productArray([16, 17, 4, 3, 5, 2]), [2040, 1920, 8160, 10880, 6528, 16320]);
