@@ -2984,7 +2984,29 @@ function smaller(nums) {
 // console.log(smaller([5, 4, 7, 9, 2, 4, 4, 5, 6]), [4, 1, 5, 5, 0, 0, 0, 0, 0]);
 const checkEnglishChars = (words) => {
 	const list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	return list.split('').every((char) => words.includes(char))
+	return list.split("").every((char) => words.includes(char));
 	
 };
 // console.log(checkEnglishChars("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+
+const baz = (brackets) => {
+	const exampleBrackets = {"{": "}", "(": ")", "[": "]"};
+	const stack = [];
+	for (const bracket of brackets) {
+		if (exampleBrackets[bracket]) {
+			stack.push(bracket);
+		} else if (Object.values(exampleBrackets).includes(bracket)) {
+			const lastRemoved = stack.pop();
+			if (exampleBrackets[lastRemoved] !== bracket) {
+				return false;
+			}
+		}
+	}
+	return stack.length === 0;
+};
+
+// console.log(baz("{}")); //true
+// console.log(baz("}")); //false
+// console.log(baz("{[}]")); //false
+// console.log(baz("[{[]}()]")); //true
+// console.log(baz("{qw}e")); //true
