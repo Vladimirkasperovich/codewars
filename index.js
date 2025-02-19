@@ -2953,3 +2953,15 @@ function productArray(numbers) {
 // console.log(productArray([3, 27, 4, 2]), [216, 24, 162, 324]);
 // console.log(productArray([13, 10, 5, 2, 9]), [900, 1170, 2340, 5850, 1300]);
 // console.log(productArray([16, 17, 4, 3, 5, 2]), [2040, 1920, 8160, 10880, 6528, 16320]);
+
+function checkThreeAndTwo(array) {
+	const seenElem = {};
+	array.forEach((elem) => {
+		seenElem[elem] = (seenElem[elem] || 0) + 1;
+	});
+	return Object.values(seenElem).every((item) => item === 2 || item === 3);
+}
+
+// console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]), true);
+// console.log(checkThreeAndTwo(["a", "c", "a", "c", "b"]), false);
+// console.log(checkThreeAndTwo(["a", "a", "a", "a", "a"]), false);
