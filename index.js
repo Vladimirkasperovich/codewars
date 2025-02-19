@@ -2912,12 +2912,21 @@ const isValid = (s) => {
 const someFn = () => {
 	
 	for (let i = []; i.length < 3; i.push(1)) {
-		const val =[...i]
-			setTimeout(() => {
-				console.log(val);
-			}, i.length * 1000);
-		}
+		const val = [...i];
+		setTimeout(() => {
+			console.log(val);
+		}, i.length * 1000);
+	}
 	
 	
 };
+
 // console.log(someFn());
+
+
+function rowSumOddNumbers(n) {
+	return n ** 3
+}
+
+// console.log(rowSumOddNumbers(1)); //1
+// console.log(rowSumOddNumbers(42)); //74088
