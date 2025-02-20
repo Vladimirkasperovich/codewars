@@ -3010,3 +3010,13 @@ const baz = (brackets) => {
 // console.log(baz("{[}]")); //false
 // console.log(baz("[{[]}()]")); //true
 // console.log(baz("{qw}e")); //true
+
+function findLongest(array) {
+	return array.reduce((longest, current) =>
+		String(current).length > String(longest).length ? current : longest
+	);
+}
+
+// console.log(findLongest([1, 10, 100]), 100);
+// console.log(findLongest([9000, 8, 800]), 9000);
+// console.log(findLongest([8, 900, 500]), 900);
