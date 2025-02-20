@@ -3020,3 +3020,21 @@ function findLongest(array) {
 // console.log(findLongest([1, 10, 100]), 100);
 // console.log(findLongest([9000, 8, 800]), 9000);
 // console.log(findLongest([8, 900, 500]), 900);
+
+function switcheroo(x) {
+	let result = "";
+	for (const char of x) {
+		if (char === "a") {
+			result += "b";
+		} else if (char === "b") {
+			result += "a";
+		} else {
+			result += char;
+		}
+	}
+	return result
+}
+
+// console.log(switcheroo("abc"), "bac");
+// console.log(switcheroo("aaabcccbaaa"), "bbbacccabbb");
+// console.log(switcheroo("ccccc"), "ccccc");
