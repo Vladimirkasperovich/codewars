@@ -3057,7 +3057,7 @@ function pyramid(n) {
 	const array = [];
 	for (let i = 0; i < n; i++) {
 		const result = new Array(i + 1).fill(1);
-		array.push(result)
+		array.push(result);
 	}
 	return array;
 }
@@ -3066,3 +3066,19 @@ function pyramid(n) {
 // console.log(pyramid(1), [[1]]);
 // console.log(pyramid(2), [[1], [1, 1]]);
 // console.log(pyramid(3), [[1], [1, 1], [1, 1, 1]]);
+
+const palindromeChainLength = (n) => {
+	let count = 0;
+	while (true) {
+		const reversed = +(String(n).split("").reverse().join(""));
+		if (n === reversed) return count;
+		n += reversed;
+		count++
+	}
+};
+
+// console.log(palindromeChainLength(1), 0);
+// console.log(palindromeChainLength(88), 0);
+// console.log(palindromeChainLength(87), 4);
+// console.log(palindromeChainLength(89), 24);
+// console.log(palindromeChainLength(10), 1);
