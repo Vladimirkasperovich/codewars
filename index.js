@@ -3051,3 +3051,18 @@ function stringMerge(string1, string2, letter) {
 // console.log(stringMerge("12345654321", "123456789", "6"));//, "123456789"
 // console.log(stringMerge("JiOdIdA4", "oopopopoodddasdfdfsd", "d"));//, "JiOdddasdfdfsd"
 // console.log(stringMerge("incredible", "people", "e")); //, "increople"
+
+
+function pyramid(n) {
+	const array = [];
+	for (let i = 0; i < n; i++) {
+		const result = new Array(i + 1).fill(1);
+		array.push(result)
+	}
+	return array;
+}
+
+// console.log(pyramid(0), []);
+// console.log(pyramid(1), [[1]]);
+// console.log(pyramid(2), [[1], [1, 1]]);
+// console.log(pyramid(3), [[1], [1, 1], [1, 1, 1]]);
