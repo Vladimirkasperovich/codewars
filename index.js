@@ -3150,11 +3150,11 @@ function findMissing(arr1, arr2) {
 		seen[num] = (seen[num] || 0) + 1;
 	}
 	
-	for (const num of arr1){
-		if (!seen[num]){
+	for (const num of arr1) {
+		if (!seen[num]) {
 			return (num);
-		}else {
-			seen[num]--
+		} else {
+			seen[num]--;
 		}
 	}
 }
@@ -3164,3 +3164,22 @@ function findMissing(arr1, arr2) {
 // console.log(findMissing([7], []), 7);
 // console.log(findMissing([4, 3, 3, 61, 8, 8], [8, 61, 8, 3, 4]), 3);
 // console.log(findMissing([0, 0, 0, 0, 0], [0, 0, 0, 0]), 0);
+
+/*Для заданного массива чисел и индекса вернуть либо индекс наименьшего числа, которое больше элемента с указанным индексом, либо, -1 если такого индекса нет (или, где это применимо, Nothing аналогичное пустое значение).*/
+
+function leastLarger(array, index) {
+	const element = array[index];
+	let minLarger = Infinity
+	let lastIndex = -1
+	array.forEach((item, i) => {
+		if (item > element && item < minLarger){
+			minLarger = item
+			lastIndex = i
+		}
+	})
+	return lastIndex
+}
+
+// console.log(leastLarger([4, 1, 3, 5, 6], 0), 3);
+// console.log(leastLarger([4, 1, 3, 5, 6], 4), -1);
+// console.log(leastLarger([1, 3, 5, 2, 4], 0), 3);
