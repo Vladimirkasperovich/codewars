@@ -3129,3 +3129,17 @@ function oddOnesOut(nums) {
 // console.log(oddOnesOut([42, 72, 32, 4, 94, 82, 67, 67]), [67, 67]);
 // console.log(oddOnesOut([100, 100, 5, 5, 100, 50, 68, 50, 68, 50, 68, 5, 100]), [100, 100, 100, 100]);
 // console.log(oddOnesOut([82, 86, 71, 58, 44, 79, 50, 44, 79, 67, 82, 82, 55, 50]), [44, 79, 50, 44, 79, 50]);
+
+
+Array.prototype.findUnique = function () {
+	const arr = this;
+	const seenItem = {};
+	arr.forEach((item) => {
+		seenItem[item] = (seenItem[item] || 0) + 1;
+	});
+	
+	return arr.filter((item) => seenItem[item] === 1);
+};
+//
+// const arr = [10, 5, 10, 0, 6, 6, 7, 2, 9, 9];
+// console.log(arr.findUnique()); // [5, 0, 7, 2]
