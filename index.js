@@ -3101,7 +3101,7 @@ function zipWith(fn, a0, a1) {
 	const length = Math.min(a0.length, a1.length);
 	
 	for (let i = 0; i < length; i++) {
-		result.push(fn(a0[i], a1[i]))
+		result.push(fn(a0[i], a1[i]));
 	}
 	return result;
 }
@@ -3115,3 +3115,17 @@ function zipWith(fn, a0, a1) {
 // console.log(zipWith(function (a, b) { return a + b; }, [0, 1, 2, 3], [0, 1, 2, 3]), [0, 2, 4, 6]);
 // console.log(zipWith((a, b) => a + b, [0, 1, 2, 3], [0, 1, 2, 3]), [0, 2, 4, 6]);
 
+function oddOnesOut(nums) {
+	const seen = {};
+	for (const elem of nums) {
+		seen[elem] = (seen[elem] || 0) + 1;
+	}
+	
+	return nums.filter((item) => seen[item] % 2 === 0);
+}
+
+// console.log(oddOnesOut([1, 2, 3, 1, 3, 3]), [1, 1]);
+// console.log(oddOnesOut([75, 68, 75, 47, 68]), [75, 68, 75, 68]);
+// console.log(oddOnesOut([42, 72, 32, 4, 94, 82, 67, 67]), [67, 67]);
+// console.log(oddOnesOut([100, 100, 5, 5, 100, 50, 68, 50, 68, 50, 68, 5, 100]), [100, 100, 100, 100]);
+// console.log(oddOnesOut([82, 86, 71, 58, 44, 79, 50, 44, 79, 67, 82, 82, 55, 50]), [44, 79, 50, 44, 79, 50]);
