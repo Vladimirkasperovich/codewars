@@ -3169,17 +3169,48 @@ function findMissing(arr1, arr2) {
 
 function leastLarger(array, index) {
 	const element = array[index];
-	let minLarger = Infinity
-	let lastIndex = -1
+	let minLarger = Infinity;
+	let lastIndex = -1;
 	array.forEach((item, i) => {
-		if (item > element && item < minLarger){
-			minLarger = item
-			lastIndex = i
+		if (item > element && item < minLarger) {
+			minLarger = item;
+			lastIndex = i;
 		}
-	})
-	return lastIndex
+	});
+	return lastIndex;
 }
 
 // console.log(leastLarger([4, 1, 3, 5, 6], 0), 3);
 // console.log(leastLarger([4, 1, 3, 5, 6], 4), -1);
 // console.log(leastLarger([1, 3, 5, 2, 4], 0), 3);
+
+export function containsDuplicate(nums) {
+	const seen = {};
+	nums.forEach((item) => {
+		seen[item] = (seen[item] || 0) + 1;
+	});
+	
+	return Object.values(seen).some(item => item >= 2)
+}
+
+// console.log(containsDuplicate([1, 2, 3, 1])); //true
+// console.log(containsDuplicate([1, 2, 3, 4])); //false
+
+const tree = {
+	value: 1,
+	children: [
+		{
+			value: 2,
+			children: [
+				{
+					value: 3,
+					children: [],
+				},
+			],
+		},
+		{
+			value: 4,
+			children: [],
+		},
+	],
+};
