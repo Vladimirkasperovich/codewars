@@ -3085,34 +3085,33 @@ const palindromeChainLength = (n) => {
 
 function countWins(winnerList, country) {
 	return winnerList.reduce((acc, cur) => {
-		if(cur.country === country) acc += 1;
-		return acc
+		if (cur.country === country) acc += 1;
+		return acc;
 		
 	}, 0);
 }
 
-// const winnerList1 = [
-// 	{season: "1996–97", team: "Borussia Dortmund", country: "Germany"},
-// 	{season: "1997–98", team: "Real Madrid", country: "Spain"},
-// 	{season: "1998–99", team: "Manchester United", country: "England"},
-// 	{season: "1999–00", team: "Real Madrid", country: "Spain"},
-// 	{season: "2000–01", team: "Bayern Munich", country: "Germany"},
-// 	{season: "2001–02", team: "Real Madrid", country: "Spain"},
-// 	{season: "2002–03", team: "Milan", country: "Italy"},
-// 	{season: "2003–04", team: "Porto", country: "Portugal"},
-// 	{season: "2004–05", team: "Liverpool", country: "England"},
-// 	{season: "2005–06", team: "Barcelona", country: "Spain"},
-// 	{season: "2006–07", team: "Milan", country: "Italy"},
-// 	{season: "2007–08", team: "Manchester United", country: "England"},
-// 	{season: "2008–09", team: "Barcelona", country: "Spain"},
-// 	{season: "2009–10", team: "Internazionale", country: "Italy"},
-// 	{season: "2010–11", team: "Barcelona", country: "Spain"},
-// 	{season: "2011–12", team: "Chelsea", country: "England"},
-// 	{season: "2012–13", team: "Bayern", country: "Germany"},
-// 	{season: "2013–14", team: "Real Madrid", country: "Spain"},
-// 	{season: "2014–15", team: "Barcelona", country: "Spain"},
-// 	{season: "2015–16", team: "Real Madrid", country: "Spain"}
-// ];
 // console.log(countWins(winnerList1, "Portugal")); //1
 // console.log(countWins(winnerList1, "FootLand")); //0
 // console.log(countWins(winnerList1, "Spain")); // 9
+
+
+function zipWith(fn, a0, a1) {
+	const result = [];
+	const length = Math.min(a0.length, a1.length);
+	
+	for (let i = 0; i < length; i++) {
+		result.push(fn(a0[i], a1[i]))
+	}
+	return result;
+}
+
+// const plus = (a, b) => a + b;
+// console.log(zipWith(plus, [0, 1, 2, 3, 4, 5], [6, 5, 4, 3, 2, 1]), [6, 6, 6, 6, 6, 6]);
+// console.log(zipWith(plus, [0, 1, 2, 3, 4], [6, 5, 4, 3, 2, 1]), [6, 6, 6, 6, 6]);
+// console.log(zipWith(plus, [0, 1, 2, 3, 4, 5], [6, 5, 4, 3, 2]), [6, 6, 6, 6, 6]);
+// console.log(zipWith(Math.pow, [10, 10, 10, 10], [0, 1, 2, 3]), [1, 10, 100, 1000]);
+// console.log(zipWith(Math.max, [1, 4, 7, 1, 4, 7], [4, 7, 1, 4, 7, 1]), [4, 7, 7, 4, 7, 7]);
+// console.log(zipWith(function (a, b) { return a + b; }, [0, 1, 2, 3], [0, 1, 2, 3]), [0, 2, 4, 6]);
+// console.log(zipWith((a, b) => a + b, [0, 1, 2, 3], [0, 1, 2, 3]), [0, 2, 4, 6]);
+
