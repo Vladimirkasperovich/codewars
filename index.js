@@ -3186,31 +3186,43 @@ function leastLarger(array, index) {
 
 export function containsDuplicate(nums) {
 	const seen = {};
-	nums.forEach((item) => {
-		seen[item] = (seen[item] || 0) + 1;
-	});
+	for (const item of nums) {
+		if (!seen[item]) seen[item] = 1;
+		else return true;
+	}
 	
-	return Object.values(seen).some(item => item >= 2)
+	return false;
 }
 
 // console.log(containsDuplicate([1, 2, 3, 1])); //true
 // console.log(containsDuplicate([1, 2, 3, 4])); //false
 
-const tree = {
-	value: 1,
-	children: [
-		{
-			value: 2,
-			children: [
-				{
-					value: 3,
-					children: [],
-				},
-			],
-		},
-		{
-			value: 4,
-			children: [],
-		},
-	],
-};
+// const tree = {
+// 	value: 1,
+// 	children: [
+// 		{
+// 			value: 2,
+// 			children: [
+// 				{
+// 					value: 3,
+// 					children: []
+// 				}
+// 			]
+// 		},
+// 		{
+// 			value: 4,
+// 			children: []
+// 		}
+// 	]
+// };
+
+function sumOfTree(tree) {
+	if (!tree) return 0;
+	let count = tree.value;
+	for (const treeElement of tree.children) {
+		count += sumOfTree(treeElement);
+	}
+	return count;
+}
+
+// console.log(sumOfTree(tree));
