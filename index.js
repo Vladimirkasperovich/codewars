@@ -3140,6 +3140,27 @@ Array.prototype.findUnique = function () {
 	
 	return arr.filter((item) => seenItem[item] === 1);
 };
-//
+
 // const arr = [10, 5, 10, 0, 6, 6, 7, 2, 9, 9];
 // console.log(arr.findUnique()); // [5, 0, 7, 2]
+
+function findMissing(arr1, arr2) {
+	const seen = {};
+	for (const num of arr2) {
+		seen[num] = (seen[num] || 0) + 1;
+	}
+	
+	for (const num of arr1){
+		if (!seen[num]){
+			return (num);
+		}else {
+			seen[num]--
+		}
+	}
+}
+
+// console.log(findMissing([1, 2, 3], [1, 3]), 2);
+// console.log(findMissing([6, 1, 3, 6, 8, 2], [3, 6, 6, 1, 2]), 8);
+// console.log(findMissing([7], []), 7);
+// console.log(findMissing([4, 3, 3, 61, 8, 8], [8, 61, 8, 3, 4]), 3);
+// console.log(findMissing([0, 0, 0, 0, 0], [0, 0, 0, 0]), 0);
