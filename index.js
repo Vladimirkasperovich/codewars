@@ -3240,3 +3240,20 @@ const splitInteger = (num, parts) => {
 // console.log(splitInteger(2, 2)); //[1,1]
 // console.log(splitInteger(20, 5)); //[4,4,4,4,4]
 // console.log(splitInteger(20, 6)); //[3,3,3,3,4,4]
+
+function firstNSmallest(array, n) {
+	if (n === 0) return [];
+	const indexedArray = array.map((value, idx) => ({value, idx}));
+	indexedArray.sort((a, b) => a.value - b.value || a.idx - b.idx);
+	const smallestElements = indexedArray.slice(0, n);
+	smallestElements.sort((a,b) => a.idx - b.idx)
+	return  smallestElements.map((item) => item.value)
+}
+
+// console.log(firstNSmallest([1, 2, 3, 4, 5], 3)); //[1, 2, 3]
+// console.log(firstNSmallest([5, 4, 3, 2, 1], 3)); //[3, 2, 1]
+// console.log(firstNSmallest([1, 2, 3, 1, 2], 3)); //[1, 2, 1]
+// console.log(firstNSmallest([1, 2, 3, -4, 0], 3)); //[1, -4, 0]
+// console.log(firstNSmallest([1, 2, 3, 4, 5], 0)); //[]
+// console.log(firstNSmallest([1, 2, 3, 4, 5], 5)); //[1, 2, 3, 4, 5]
+// console.log(firstNSmallest([1, 2, 3, 4, 2], 4)); //[1, 2, 3, 2]
