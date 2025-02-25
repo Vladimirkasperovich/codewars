@@ -3291,5 +3291,60 @@ function isOdd(num) {
 	return num % 2 !== 0;
 }
 
+
 // console.log(takeWhile([2, 6, 4, 10, 1, 5, 4, 3], isEven));
 
+
+class MinStackCustom {
+	constructor() {
+		this.stack = [];
+		this.min = [];
+		this.max = [];
+	}
+	
+	
+	
+	/**
+	 * @param {number} val
+	 * @return {void}
+	 */
+	
+	push(val) {
+		this.stack.push(val);
+		this.min.push(this.min.length === 0 ? val : Math.min(val, this.min[this.min.length - 1]));
+		this.max.push(this.max.length === 0 ? val : Math.max(val, this.max[this.max.length - 1]));
+		
+	}
+	
+	/**
+	 * @return {void}
+	 */
+	pop() {
+		this.stack.pop();
+		this.min.pop();
+		this.max.pop();
+	}
+	
+	/**
+	 * @return {number}
+	 */
+	top() {
+		return this.stack[this.stack.length - 1];
+	}
+	
+	/**
+	 * @return {number}
+	 */
+	getMin() {
+		return this.min[this.min.length - 1];
+	}
+}
+
+// const minStack = new MinStackCustom();
+// minStack.push(1);
+// minStack.push(2);
+// minStack.push(0);
+// minStack.getMin(); // return 0
+// minStack.pop();
+// minStack.top();    // return 2
+// minStack.getMin(); //return 1
