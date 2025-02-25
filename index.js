@@ -3243,11 +3243,11 @@ const splitInteger = (num, parts) => {
 
 function firstNSmallest(array, n) {
 	if (n === 0) return [];
-	const indexedArray = array.map((value, idx) => ({value, idx}));
-	indexedArray.sort((a, b) => a.value - b.value || a.idx - b.idx);
-	const smallestElements = indexedArray.slice(0, n);
-	smallestElements.sort((a,b) => a.idx - b.idx)
-	return  smallestElements.map((item) => item.value)
+	return array.map((item, index) => ({item, index}))
+		.sort((a, b) => a.item - b.item || a.index - b.index)
+		.slice(0, n)
+		.sort((a, b) => a.index - b.index)
+		.map((val) => val.item);
 }
 
 // console.log(firstNSmallest([1, 2, 3, 4, 5], 3)); //[1, 2, 3]
@@ -3257,3 +3257,13 @@ function firstNSmallest(array, n) {
 // console.log(firstNSmallest([1, 2, 3, 4, 5], 0)); //[]
 // console.log(firstNSmallest([1, 2, 3, 4, 5], 5)); //[1, 2, 3, 4, 5]
 // console.log(firstNSmallest([1, 2, 3, 4, 2], 4)); //[1, 2, 3, 2]
+
+function manhattanDistance(pointA, pointB) {
+  const firstDif = Math.abs(pointA[0] - pointB[0])
+	const secondDif = Math.abs(pointA[1] - pointB[1])
+	return firstDif + secondDif
+}
+
+// console.log(manhattanDistance([1, 1], [1, 1]), 0);
+// console.log(manhattanDistance([5, 4], [3, 2]), 4);
+// console.log(manhattanDistance([1, 1], [0, 3]), 3);
