@@ -3226,3 +3226,17 @@ function sumOfTree(tree) {
 }
 
 // console.log(sumOfTree(tree));
+
+const splitInteger = (num, parts) => {
+	const base = Math.floor(num / parts);
+	const remained = num % parts;
+	
+	return new Array(parts)
+		.fill(base)
+		.map((item, idx) => idx < remained ? item + 1 : item);
+};
+
+// console.log(splitInteger(10, 1)); //[10]
+// console.log(splitInteger(2, 2)); //[1,1]
+// console.log(splitInteger(20, 5)); //[4,4,4,4,4]
+// console.log(splitInteger(20, 6)); //[3,3,3,3,4,4]
