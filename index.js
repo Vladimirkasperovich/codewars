@@ -3259,11 +3259,37 @@ function firstNSmallest(array, n) {
 // console.log(firstNSmallest([1, 2, 3, 4, 2], 4)); //[1, 2, 3, 2]
 
 function manhattanDistance(pointA, pointB) {
-  const firstDif = Math.abs(pointA[0] - pointB[0])
-	const secondDif = Math.abs(pointA[1] - pointB[1])
-	return firstDif + secondDif
+	const firstDif = Math.abs(pointA[0] - pointB[0]);
+	const secondDif = Math.abs(pointA[1] - pointB[1]);
+	return firstDif + secondDif;
 }
 
 // console.log(manhattanDistance([1, 1], [1, 1]), 0);
 // console.log(manhattanDistance([5, 4], [3, 2]), 4);
 // console.log(manhattanDistance([1, 1], [0, 3]), 3);
+
+
+function takeWhile(arr, pred) {
+	let count = arr.length;
+	let i = 0;
+	const result = [];
+	
+	while (count > i) {
+		if (pred(arr[i])) result.push(arr[i]);
+		else break;
+		i++;
+	}
+	
+	return result;
+}
+
+function isEven(num) {
+	return num % 2 === 0;
+}
+
+function isOdd(num) {
+	return num % 2 !== 0;
+}
+
+// console.log(takeWhile([2, 6, 4, 10, 1, 5, 4, 3], isEven));
+
