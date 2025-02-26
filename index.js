@@ -3363,8 +3363,28 @@ function search12(nums, target) {
 			right = mid - 1;
 		}
 	}
-	return - 1
+	return -1;
 }
 
 // console.log(search12([0, 1, 2, 3, 5, 7], 3)); //3
 // console.log(search12([0, 1, 2, 3, 5, 7], 8)); //-1
+
+
+function threeSum(nums) {
+	const result = [];
+	
+	for (let i = 0; i < nums.length; i++) {
+		for (let j = i + 1; j < nums.length; j++) {
+			for (let k = j + 1; k < nums.length; k++) {
+				if ((nums[i] + nums[j] + nums[k]) === 0) {
+					result.push([nums[i], nums[j], nums[k]]);
+				}
+			}
+		}
+	}
+	return result;
+}
+
+// console.log(threeSum([-1, 0, 1, 2, -1, -4])); //[[-1,-1,2],[-1,0,1]]
+// console.log(threeSum([0, 1, 1])); //[]
+// console.log(threeSum([0, 0, 0])); //[[0,0,0]]
