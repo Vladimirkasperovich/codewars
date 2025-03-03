@@ -3388,3 +3388,26 @@ function threeSum(nums) {
 // console.log(threeSum([-1, 0, 1, 2, -1, -4])); //[[-1,-1,2],[-1,0,1]]
 // console.log(threeSum([0, 1, 1])); //[]
 // console.log(threeSum([0, 0, 0])); //[[0,0,0]]
+
+function solve125(arr) {
+	return arr.map(
+		(item) => {
+			return item
+				.toLowerCase()
+				.split("")
+				.reduce(
+					(acc, currentValue, index) => {
+						const charCode = currentValue.charCodeAt(0);
+						const charPos = charCode - 96;
+						if (charPos === index + 1) acc++;
+						return acc;
+					}, 0
+				);
+		}
+	);
+}
+
+// console.log(solve125(["abode", "ABc", "xyzD"]), [4, 3, 1]);
+// console.log(solve125(["abide", "ABc", "xyz"]), [4, 3, 0]);
+// console.log(solve125(["IAMDEFANDJKL", "thedefgh", "xyzDEFghijabc"]), [6, 5, 7]);
+// console.log(solve125(["encode", "abc", "xyzD", "ABmD"]), [1, 3, 1, 3]);
