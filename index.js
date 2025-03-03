@@ -3417,10 +3417,23 @@ function makeString(s) {
 		(item) => {
 			return item[0];
 		}
-	).join('');
+	).join("");
 }
 
 // console.log(makeString("sees eyes xray yoat"), "sexy");
 // console.log(makeString("brown eyes are nice"), "bean");
 // console.log(makeString("cars are very nice"), "cavn");
 // console.log(makeString("kaks de gan has a big head"), "kdghabh");
+
+function pattern(n) {
+	let result = "";
+	for (let i = 1; i <= n; i++) {
+		result += `${i}`.repeat(i);
+		if (i !== n) result += "\n";
+	}
+	return result;
+}
+
+// console.log(pattern(1)); //"1"
+// console.log(pattern(2)); //"1\n22"
+// console.log(pattern(5)); //"1\n22\n333\n4444\n55555"
