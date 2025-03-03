@@ -3411,3 +3411,16 @@ function solve125(arr) {
 // console.log(solve125(["abide", "ABc", "xyz"]), [4, 3, 0]);
 // console.log(solve125(["IAMDEFANDJKL", "thedefgh", "xyzDEFghijabc"]), [6, 5, 7]);
 // console.log(solve125(["encode", "abc", "xyzD", "ABmD"]), [1, 3, 1, 3]);
+
+function makeString(s) {
+	return s.split(" ").map(
+		(item) => {
+			return item[0];
+		}
+	).join('');
+}
+
+// console.log(makeString("sees eyes xray yoat"), "sexy");
+// console.log(makeString("brown eyes are nice"), "bean");
+// console.log(makeString("cars are very nice"), "cavn");
+// console.log(makeString("kaks de gan has a big head"), "kdghabh");
