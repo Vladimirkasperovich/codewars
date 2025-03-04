@@ -3437,3 +3437,17 @@ function pattern(n) {
 // console.log(pattern(1)); //"1"
 // console.log(pattern(2)); //"1\n22"
 // console.log(pattern(5)); //"1\n22\n333\n4444\n55555"
+
+function kebabize(str) {
+	return str
+		.replace(/\d/g, '')
+		.replace(/([A-Z])/g, '-$1')
+		.toLowerCase()
+		.replace(/^-/, '')
+	
+}
+
+// console.log(kebabize("MyCamelCasedString")); //'my-camel-cased-string'
+// console.log(kebabize("MyCamelHas3Humps")); //my-camel-has-humps
+// console.log(kebabize("myCamelHas3Humps")); //my-camel-has-humps
+
