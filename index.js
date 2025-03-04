@@ -3440,10 +3440,10 @@ function pattern(n) {
 
 function kebabize(str) {
 	return str
-		.replace(/\d/g, '')
-		.replace(/([A-Z])/g, '-$1')
+		.replace(/\d/g, "")
+		.replace(/([A-Z])/g, "-$1")
 		.toLowerCase()
-		.replace(/^-/, '')
+		.replace(/^-/, "");
 	
 }
 
@@ -3451,3 +3451,11 @@ function kebabize(str) {
 // console.log(kebabize("MyCamelHas3Humps")); //my-camel-has-humps
 // console.log(kebabize("myCamelHas3Humps")); //my-camel-has-humps
 
+function abbreviate(string) {
+	return string.replace(/\b(\w)(\w{2,})(\w)\b/g, (_, f, m, l) => f + m.length + l);
+}
+
+// console.log(abbreviate("internationalization"), "i18n");
+// console.log(abbreviate("accessibility"), "a11y");
+// console.log(abbreviate("Accessibility"), "A11y");
+// console.log(abbreviate("elephant-ride"), "e6t-r2e");
