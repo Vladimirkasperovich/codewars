@@ -3459,3 +3459,18 @@ function abbreviate(string) {
 // console.log(abbreviate("accessibility"), "a11y");
 // console.log(abbreviate("Accessibility"), "A11y");
 // console.log(abbreviate("elephant-ride"), "e6t-r2e");
+
+function containAllRots(strng, arr) {
+	if (!strng.length) return true;
+	
+	for (let i = 0; i < strng.length; i++) {
+		let rotation = strng.slice(i) + strng.slice(0, i);
+		if (!arr.includes(rotation)) return false;
+	}
+	return true
+}
+
+// console.log(containAllRots("", []), true);
+// console.log(containAllRots("", ["bsjq", "qbsj"]), true);
+// console.log(containAllRots("bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"]), true);
+// console.log(containAllRots("XjYABhR", ["TzYxlgfnhf", "yqVAuoLjMLy", "BhRXjYA", "YABhRXj", "hRXjYAB", "jYABhRX", "XjYABhR", "ABhRXjY"]), false);
