@@ -3495,3 +3495,20 @@ function minimumSteps(numbers, value) {
 // console.log(minimumSteps([19, 98, 69, 28, 75, 45, 17, 98, 67], 464), 8);
 // console.log(minimumSteps([4, 6, 3], 2), 0);
 
+function insertDash(num) {
+	const str = num.toString();
+	let output = "";
+	
+	for (let i = 0; i < str.length; i++) {
+		const currentChar = Number(str[i]);
+		const nextChar = Number(str[i + 1]);
+		
+		output += currentChar;
+		if (currentChar % 2 !== 0 && nextChar % 2 !== 0) output += "-";
+	}
+	return output.replace(/-$/, "");
+}
+
+// console.log(insertDash(454793), "4547-9-3");
+// console.log(insertDash(123456), "123456");
+// console.log(insertDash(1003567), "1003-567");
