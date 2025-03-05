@@ -3467,10 +3467,31 @@ function containAllRots(strng, arr) {
 		let rotation = strng.slice(i) + strng.slice(0, i);
 		if (!arr.includes(rotation)) return false;
 	}
-	return true
+	return true;
 }
 
 // console.log(containAllRots("", []), true);
 // console.log(containAllRots("", ["bsjq", "qbsj"]), true);
 // console.log(containAllRots("bsjq", ["bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"]), true);
 // console.log(containAllRots("XjYABhR", ["TzYxlgfnhf", "yqVAuoLjMLy", "BhRXjYA", "YABhRXj", "hRXjYAB", "jYABhRX", "XjYABhR", "ABhRXjY"]), false);
+
+function minimumSteps(numbers, value) {
+	numbers.sort((a, b) => a - b);
+	let sum = 0;
+	let count = 0;
+	for (let i = 0; i < numbers.length; i++) {
+		sum += numbers[i];
+		if (sum >= value) break;
+		count++;
+		
+	}
+	return count;
+}
+
+// console.log(minimumSteps([1, 10, 12, 9, 2, 3], 6), 2);
+// console.log(minimumSteps([4, 6, 3], 7), 1);
+// console.log(minimumSteps([10, 9, 9, 8], 17), 1);
+// console.log(minimumSteps([8, 9, 10, 4, 2], 23), 3);
+// console.log(minimumSteps([19, 98, 69, 28, 75, 45, 17, 98, 67], 464), 8);
+// console.log(minimumSteps([4, 6, 3], 2), 0);
+
