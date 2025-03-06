@@ -3540,3 +3540,11 @@ const divisibleByThree = (str) => {
 // console.log(divisibleByThree("19254"), true);
 // console.log(divisibleByThree("88"), false);
 // console.log(divisibleByThree("1"), false);
+
+
+const flatten = (array) => array.flat(1);
+// console.log(flatten([]), []);
+// console.log(flatten([1, 2, 3]), [1, 2, 3]);
+// console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]), [1, 2, 3, "a", "b", "c", 1, 2, 3]);
+// console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]), [3, 4, 5, [9, 9, 9], "a,b,c"]);
+// console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]), [[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
