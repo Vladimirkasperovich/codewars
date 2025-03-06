@@ -3548,3 +3548,16 @@ const flatten = (array) => array.flat(1);
 // console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]]), [1, 2, 3, "a", "b", "c", 1, 2, 3]);
 // console.log(flatten([[3, 4, 5], [[9, 9, 9]], ["a,b,c"]]), [3, 4, 5, [9, 9, 9], "a,b,c"]);
 // console.log(flatten([[[3], [4], [5]], [9], [9], [8], [[1, 2, 3]]]), [[3], [4], [5], 9, 9, 8, [1, 2, 3]]);
+
+
+const stantonMeasure = (array) => {
+	const seen = {};
+	
+	array.forEach((item) => {
+		seen[item] = (seen[item] || 0) + 1;
+	});
+	
+	const n = seen[1] || 0;
+	return seen[n] || 0;
+};
+// console.log(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]), 3);
