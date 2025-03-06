@@ -3531,3 +3531,12 @@ function arithmeticSequenceElements(a, d, n) {
 const fireFight = (str) => str.split(" ").map((item) => item === "Fire" ? "~~" : item).join(" ");
 // console.log(fireFight("Mast Deck Engine Water Fire"), "Mast Deck Engine Water ~~");
 // console.log(fireFight("Fire Deck Engine Sail Deck Fire Fire Fire Rudder Fire Boat Fire Fire Captain"), "~~ Deck Engine Sail Deck ~~ ~~ ~~ Rudder ~~ Boat ~~ ~~ Captain");
+
+const divisibleByThree = (str) => {
+	const sum = [...str].reduce((acc, currentValue) => acc + Number(currentValue), 0);
+	return sum % 3 === 0;
+};
+// console.log(divisibleByThree("123"), true);
+// console.log(divisibleByThree("19254"), true);
+// console.log(divisibleByThree("88"), false);
+// console.log(divisibleByThree("1"), false);
