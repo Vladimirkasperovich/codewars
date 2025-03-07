@@ -3560,4 +3560,22 @@ const stantonMeasure = (array) => {
 	const n = seen[1] || 0;
 	return seen[n] || 0;
 };
+
 // console.log(stantonMeasure([1, 4, 3, 2, 1, 2, 3, 2]), 3);
+
+function alternate(n, firstValue, secondValue) {
+	const array = [];
+	
+	for (let i = 0; i < n; i++) {
+		if (i % 2 === 0) array[i] = firstValue;
+		else array[i] = secondValue
+		
+	}
+	
+	return array;
+}
+
+// console.log(alternate(5, true, false), [true, false, true, false, true]);
+// console.log(alternate(20, "blue", "red"), ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]);
+// console.log(alternate(0, "lemons", "apples"), []);
+
