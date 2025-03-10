@@ -3597,13 +3597,37 @@ const beggars = (values, n) => {
 // console.log(beggars([1, 2, 3, 4, 5], 0), []);
 
 
-// function evenLast(numbers) {
-// 	if (!numbers.length) return 0
-// 	return numbers.reduce((acc, cur, index) => {
-// 		if (index % 2 === 0) acc += cur;
-// 		return acc;
-//
-// 	}, 0) * numbers[numbers.length - 1]
-// }
-//
+function evenLast(numbers) {
+	if (!numbers.length) return 0;
+	return numbers.reduce((acc, cur, index) => {
+		if (index % 2 === 0) acc += cur;
+		return acc;
+		
+	}, 0) * numbers[numbers.length - 1];
+}
+
 // console.log(evenLast([2, 3, 4, 5]), 30);
+
+function save(sizes, hd) {
+	let space = 0;
+	let count = 0;
+	
+	for (let i = 0; i < sizes.length; i++) {
+		if (space + sizes[i] <= hd){
+			space += sizes[i]
+			count++
+		}else{
+			break
+		}
+	}
+	return count
+}
+
+// console.log(save([4, 4, 4, 3, 3], 12), 3);
+// console.log(save([4, 4, 4, 3, 3], 11), 2);
+// console.log(save([4, 8, 15, 16, 23, 42], 108), 6);
+// console.log(save([13], 13), 1);
+// console.log(save([1, 2, 3, 4], 250), 4);
+// console.log(save([100], 500), 1);
+// console.log(save([11, 13, 15, 17, 19], 8), 0);
+// console.log(save([45], 12), 0);
