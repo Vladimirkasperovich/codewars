@@ -3584,7 +3584,7 @@ const beggars = (values, n) => {
 	const array = new Array(n).fill(0);
 	
 	values.forEach((item, index) => {
-		array[index % n] += item
+		array[index % n] += item;
 	});
 	
 	return array;
@@ -3595,3 +3595,15 @@ const beggars = (values, n) => {
 // console.log(beggars([1, 2, 3, 4, 5], 3), [5, 7, 3]);
 // console.log(beggars([1, 2, 3, 4, 5], 6), [1, 2, 3, 4, 5, 0]);
 // console.log(beggars([1, 2, 3, 4, 5], 0), []);
+
+
+// function evenLast(numbers) {
+// 	if (!numbers.length) return 0
+// 	return numbers.reduce((acc, cur, index) => {
+// 		if (index % 2 === 0) acc += cur;
+// 		return acc;
+//
+// 	}, 0) * numbers[numbers.length - 1]
+// }
+//
+// console.log(evenLast([2, 3, 4, 5]), 30);
