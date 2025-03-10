@@ -3568,7 +3568,7 @@ function alternate(n, firstValue, secondValue) {
 	
 	for (let i = 0; i < n; i++) {
 		if (i % 2 === 0) array[i] = firstValue;
-		else array[i] = secondValue
+		else array[i] = secondValue;
 		
 	}
 	
@@ -3579,3 +3579,19 @@ function alternate(n, firstValue, secondValue) {
 // console.log(alternate(20, "blue", "red"), ["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue", "red"]);
 // console.log(alternate(0, "lemons", "apples"), []);
 
+const beggars = (values, n) => {
+	if (n === 0) return [];
+	const array = new Array(n).fill(0);
+	
+	values.forEach((item, index) => {
+		array[index % n] += item
+	});
+	
+	return array;
+};
+
+// console.log(beggars([1, 2, 3, 4, 5], 1), [15]);
+// console.log(beggars([1, 2, 3, 4, 5], 2), [9, 6]);
+// console.log(beggars([1, 2, 3, 4, 5], 3), [5, 7, 3]);
+// console.log(beggars([1, 2, 3, 4, 5], 6), [1, 2, 3, 4, 5, 0]);
+// console.log(beggars([1, 2, 3, 4, 5], 0), []);
