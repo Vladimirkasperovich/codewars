@@ -3613,14 +3613,14 @@ function save(sizes, hd) {
 	let count = 0;
 	
 	for (let i = 0; i < sizes.length; i++) {
-		if (space + sizes[i] <= hd){
-			space += sizes[i]
-			count++
-		}else{
-			break
+		if (space + sizes[i] <= hd) {
+			space += sizes[i];
+			count++;
+		} else {
+			break;
 		}
 	}
-	return count
+	return count;
 }
 
 // console.log(save([4, 4, 4, 3, 3], 12), 3);
@@ -3631,3 +3631,15 @@ function save(sizes, hd) {
 // console.log(save([100], 500), 1);
 // console.log(save([11, 13, 15, 17, 19], 8), 0);
 // console.log(save([45], 12), 0);
+
+function moveTen(s) {
+	return s.split("").map((el) => {
+		let char = el.charCodeAt(0) + 10;
+		if (char > 122) char -= 26;
+		return String.fromCharCode(char)
+	}).join("");
+}
+
+// console.log(moveTen("testcase"), "docdmkco");
+// console.log(moveTen("codewars"), "mynogkbc");
+// console.log(moveTen("exampletesthere"), "ohkwzvodocdrobo");
