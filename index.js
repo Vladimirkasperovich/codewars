@@ -3636,10 +3636,14 @@ function moveTen(s) {
 	return s.split("").map((el) => {
 		let char = el.charCodeAt(0) + 10;
 		if (char > 122) char -= 26;
-		return String.fromCharCode(char)
+		return String.fromCharCode(char);
 	}).join("");
 }
 
 // console.log(moveTen("testcase"), "docdmkco");
 // console.log(moveTen("codewars"), "mynogkbc");
 // console.log(moveTen("exampletesthere"), "ohkwzvodocdrobo");
+
+const addQuestion = (questions) => {
+	return questions.map(el => el["usersAnswer"] = null);
+};
