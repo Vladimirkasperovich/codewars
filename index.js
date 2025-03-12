@@ -3668,3 +3668,10 @@ function gordon(a) {
 // console.log(gordon("What feck damn cake"), "WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!");
 // console.log(gordon("are you stu pid"), "@R*!!!! Y**!!!! ST*!!!! P*D!!!!");
 // console.log(gordon("i am a chef"), "*!!!! @M!!!! @!!!! CH*F!!!!");
+
+function nthChar(words){
+	return words.map((item, index) => item[index]).join('')
+}
+
+// console.log(nthChar([]),'');
+// console.log(nthChar(['yoda', 'best', 'has']), 'yes');
