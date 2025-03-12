@@ -3654,3 +3654,17 @@ const arrCheck = value => value.every((item) => Array.isArray(item));
 // console.log(arrCheck([[],{}]), false);
 // console.log(arrCheck([[1],[2],[3]]), true);
 // console.log(arrCheck(['A', 'R', 'R', 'A', 'Y']), false);
+
+
+function gordon(a) {
+	return a.split(" ").map((item) => {
+		return `${item.toUpperCase()
+			.replace(/A/g, "@")
+			.replace(/[EOUI]/g, "*")}!!!!`;
+		 
+	}).join(' ');
+}
+
+// console.log(gordon("What feck damn cake"), "WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!");
+// console.log(gordon("are you stu pid"), "@R*!!!! Y**!!!! ST*!!!! P*D!!!!");
+// console.log(gordon("i am a chef"), "*!!!! @M!!!! @!!!! CH*F!!!!");
