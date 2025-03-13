@@ -3661,17 +3661,50 @@ function gordon(a) {
 		return `${item.toUpperCase()
 			.replace(/A/g, "@")
 			.replace(/[EOUI]/g, "*")}!!!!`;
-		 
-	}).join(' ');
+		
+	}).join(" ");
 }
 
 // console.log(gordon("What feck damn cake"), "WH@T!!!! F*CK!!!! D@MN!!!! C@K*!!!!");
 // console.log(gordon("are you stu pid"), "@R*!!!! Y**!!!! ST*!!!! P*D!!!!");
 // console.log(gordon("i am a chef"), "*!!!! @M!!!! @!!!! CH*F!!!!");
 
-function nthChar(words){
-	return words.map((item, index) => item[index]).join('')
+function nthChar(words) {
+	return words.map((item, index) => item[index]).join("");
 }
 
 // console.log(nthChar([]),'');
 // console.log(nthChar(['yoda', 'best', 'has']), 'yes');
+
+
+const whosOnline = (friends) => {
+	if (!friends.length) return {};
+	
+	const result = friends.reduce((acc, { username, status, lastActivity }) => {
+		if (status === "offline") {
+			(acc.offline ??= []).push(username);
+		} else if (lastActivity > 10) {
+			(acc.away ??= []).push(username);
+		} else {
+			(acc.online ??= []).push(username);
+		}
+		return acc;
+	}, {});
+	
+	return result;
+};
+
+// const friends = [{
+// 	username: "David",
+// 	status: "online",
+// 	lastActivity: 10
+// }, {
+// 	username: "Lucy",
+// 	status: "offline",
+// 	lastActivity: 22
+// }, {
+// 	username: "Bob",
+// 	status: "online",
+// 	lastActivity: 104
+// }];
+// console.log(whosOnline(friends));
