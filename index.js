@@ -3764,3 +3764,14 @@ const reverse15 = function (array) {
 };
 // console.log(reverse15([1, 2, 3]), [3, 2, 1]);
 // console.log(reverse15([1, null, 14, "two"]), ["two", 14, null, 1]);
+
+const multiplyAll = (array) => {
+	return (n) => {
+		return array.map((elem) => elem * n)
+	}
+};
+//
+// console.log(multiplyAll([1, 2, 3])(2), [2, 4, 6]);
+// console.log(multiplyAll([1, 2, 3])(1), [1, 2, 3]);
+// console.log(multiplyAll([1, 2, 3])(0), [0, 0, 0]);
+// console.log(multiplyAll([])(10), []);
