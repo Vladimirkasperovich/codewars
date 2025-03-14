@@ -3728,11 +3728,30 @@ function withoutLast(arr) {
 function scrollingText(text) {
 	const result = [];
 	for (let i = 0; i < text.length; i++) {
-		const start = text.slice(i)
-		const finish = text.slice(0, i)
-		result.push(start.toUpperCase() + finish.toUpperCase())
+		const start = text.slice(i);
+		const finish = text.slice(0, i);
+		result.push(start.toUpperCase() + finish.toUpperCase());
 	}
-	return result
+	return result;
 }
 
 // console.log(scrollingText("abc"), ["ABC", "BCA", "CAB"]);
+
+const prefill = (n, v) => {
+	if (typeof n === "boolean" || n === "" || !isFinite(n)) {
+		throw new TypeError(`${n} is invalid`);
+	}
+	
+	const num = Number(n);
+	if (!Number.isInteger(num) || num < 0) {
+		throw new TypeError(`${n} is invalid`);
+	}
+	
+	return new Array(num).fill(v);
+};
+
+// console.log(prefill(3, 1), [1, 1, 1]);
+// console.log(prefill(2, "abc"), ["abc", "abc"]);
+// console.log(prefill("1", 1), [1]);
+// console.log(prefill(3, prefill(2, "2d")), [["2d", "2d"], ["2d", "2d"], ["2d", "2d"]]);
+
