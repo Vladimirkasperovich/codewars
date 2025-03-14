@@ -3724,3 +3724,15 @@ function withoutLast(arr) {
 }
 
 // console.log(withoutLast([1, 2, 3, 4]));
+
+function scrollingText(text) {
+	const result = [];
+	for (let i = 0; i < text.length; i++) {
+		const start = text.slice(i)
+		const finish = text.slice(0, i)
+		result.push(start.toUpperCase() + finish.toUpperCase())
+	}
+	return result
+}
+
+// console.log(scrollingText("abc"), ["ABC", "BCA", "CAB"]);
