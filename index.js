@@ -3785,3 +3785,17 @@ function wordSearch(query, seq) {
 // console.log(wordSearch("aB", ["za", "ab", "abc", "zab", "zbc"]), ["ab", "abc", "zab"]);
 // console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]), ["aB", "Abc", "zAB"]);
 // console.log(wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"]), ["Empty"]);
+
+
+function unusedDigits(...args) {
+	const array = args.sort((a, b) => a - b).join("");
+	let out = "";
+	for (let i = 0; i <= 9; i++) {
+		if (!array.includes(String([i]))) out += i;
+	}
+	
+	return out;
+}
+
+console.log(unusedDigits(12, 34, 56, 78), "09");
+console.log(unusedDigits(2015, 8, 26), "3479");
