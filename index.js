@@ -3809,4 +3809,22 @@ function liftoff(instructions) {
 
 
 const doubleEveryOther = (array) => array.map((item, index) => index % 2 !== 0 ? item * 2 : item);
-console.log(doubleEveryOther([1, 2, 3, 4]), [1, 4, 3, 8]);
+
+// console.log(doubleEveryOther([1, 2, 3, 4]), [1, 4, 3, 8]);
+
+
+function listToArray(list) {
+	const result = [];
+	
+	while (list) {
+		result.push(list.value);
+		list = list.next;
+	}
+	return result;
+}
+
+// const list1 = {value: 1, next: {value: 2, next: {value: 3, next: null}}};
+// const list2 = {value: "foo", next: {value: "bar", next: null}};
+//
+// console.log(listToArray(list1), [1, 2, 3]);
+// console.log(listToArray(list2), ["foo", "bar"]);
