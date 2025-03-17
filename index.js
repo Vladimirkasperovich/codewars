@@ -3801,8 +3801,12 @@ function unusedDigits(...args) {
 // console.log(unusedDigits(2015, 8, 26), "3479");
 
 
-function liftoff(instructions){
- return instructions.sort((a,b) => b - a).join(" ") + " " + "liftoff!"
+function liftoff(instructions) {
+	return instructions.sort((a, b) => b - a).join(" ") + " " + "liftoff!";
 }
 
 // console.log(liftoff([2, 8, 10, 9, 1, 3, 4, 7, 6, 5]),"10 9 8 7 6 5 4 3 2 1 liftoff!");
+
+
+const doubleEveryOther = (array) => array.map((item, index) => index % 2 !== 0 ? item * 2 : item);
+console.log(doubleEveryOther([1, 2, 3, 4]), [1, 4, 3, 8]);
