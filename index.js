@@ -3767,11 +3767,21 @@ const reverse15 = function (array) {
 
 const multiplyAll = (array) => {
 	return (n) => {
-		return array.map((elem) => elem * n)
-	}
+		return array.map((elem) => elem * n);
+	};
 };
 //
 // console.log(multiplyAll([1, 2, 3])(2), [2, 4, 6]);
 // console.log(multiplyAll([1, 2, 3])(1), [1, 2, 3]);
 // console.log(multiplyAll([1, 2, 3])(0), [0, 0, 0]);
 // console.log(multiplyAll([])(10), []);
+
+function wordSearch(query, seq) {
+	const returnItem = seq.filter((item) => item.toLowerCase().includes(query.toLowerCase()));
+	return !returnItem.length ? ["Empty"] : returnItem;
+}
+
+// console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"]), ["ab", "abc", "zab"]);
+// console.log(wordSearch("aB", ["za", "ab", "abc", "zab", "zbc"]), ["ab", "abc", "zab"]);
+// console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]), ["aB", "Abc", "zAB"]);
+// console.log(wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"]), ["Empty"]);
