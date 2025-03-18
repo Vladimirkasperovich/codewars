@@ -3849,3 +3849,18 @@ function maxGap(numbers) {
 // console.log(maxGap([130, 30, 50]), 80);
 // console.log(maxGap([1, 1, 1]), 0);
 // console.log(maxGap([-1, -1, -1]), 0);
+
+
+function bingo09(a) {
+	const result = [];
+	
+	a.forEach(
+		(item) => {
+			if (/[bingo]/.test(String.fromCharCode(item + 96))) result.push(String.fromCharCode(item + 96))
+		}
+	);
+	return [...new Set(result)].length === 5 ? "WIN" : "LOSE"
+}
+
+// console.log(bingo09([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), "LOSE");
+// console.log(bingo09([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]), "WIN");
