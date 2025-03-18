@@ -3856,11 +3856,26 @@ function bingo09(a) {
 	
 	a.forEach(
 		(item) => {
-			if (/[bingo]/.test(String.fromCharCode(item + 96))) result.push(String.fromCharCode(item + 96))
+			if (/[bingo]/.test(String.fromCharCode(item + 96))) result.push(String.fromCharCode(item + 96));
 		}
 	);
-	return [...new Set(result)].length === 5 ? "WIN" : "LOSE"
+	return [...new Set(result)].length === 5 ? "WIN" : "LOSE";
 }
 
 // console.log(bingo09([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), "LOSE");
 // console.log(bingo09([21, 13, 2, 7, 5, 14, 7, 15, 9, 10]), "WIN");
+
+
+function dbSort(a) {
+	const numbers = a.filter((item) => typeof item === "number").sort((a, b) => a - b);
+	const strings = a.filter((item) => typeof item === "string").sort();
+	return numbers.concat(strings);
+	
+}
+
+// console.log(dbSort([6, 2, 3, 4, 5]), [2, 3, 4, 5, 6]);
+// console.log(dbSort([14, 32, 3, 5, 5]), [3, 5, 5, 14, 32]);
+// console.log(dbSort([1, 2, 3, 4, 5]), [1, 2, 3, 4, 5]);
+// console.log(dbSort(["Banana", "Orange", "Apple", "Mango", 0, 2, 2]), [0, 2, 2, "Apple", "Banana", "Mango", "Orange"]);
+// console.log(dbSort(["C", "W", "W", "W", 1, 2, 0]), [0, 1, 2, "C", "W", "W", "W"]);
+// console.log(dbSort(["Apple", 46, "287", 574, "Peach", "3", "69", 78, "Grape", "423"]), [46, 78, 574, "287", "3", "423", "69", "Apple", "Grape", "Peach"]);
