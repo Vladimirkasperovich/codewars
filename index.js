@@ -3911,7 +3911,7 @@ function minMinMax(array) {
 // console.log(minMinMax([1, 3, -3, -2, 8, -1]), [-3, 0, 8]);
 // console.log(minMinMax([2, -4, 8, -5, 9, 7]), [-5, -3, 9]);
 
-function convertHashToArray(hash){
+function convertHashToArray(hash) {
 	return Object.entries(hash);
 }
 
@@ -3920,3 +3920,17 @@ function convertHashToArray(hash){
 // console.log(convertHashToArray({name: "Jeremy", age: 24, role: "Software Engineer"}),[["age", 24], ["name", "Jeremy"], ["role", "Software Engineer"]]);
 // console.log(convertHashToArray({product: "CodeWars", powerLevelOver: 9000}),[["powerLevelOver", 9000], ["product", "CodeWars"]]);
 // console.log(convertHashToArray({}),[]);
+
+function counterEffect(hitCount) {
+	const result = [];
+	for (let i = 0; i < hitCount.length; i++) {
+		const digit = Number(hitCount[i]);
+		const arr = Array.from({length: digit + 1}, (_, j) => j);
+		result.push(arr);
+	}
+	return result;
+}
+
+// console.log(counterEffect("1250"), [[0, 1], [0, 1, 2], [0, 1, 2, 3, 4, 5], [0]]);
+// console.log(counterEffect("0050"), [[0], [0], [0, 1, 2, 3, 4, 5], [0]]);
+// console.log(counterEffect("0000"), [[0], [0], [0], [0]]);
