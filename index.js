@@ -3895,10 +3895,10 @@ function minMinMax(array) {
 	const min = Math.min(...array);
 	const max = Math.max(...array);
 	const result = [];
-	result.push(min);
+	result.push(min, max);
 	for (let i = min; i <= max; i++) {
 		if (!array.includes(i)) {
-			result.push(i);
+			result[1] = i;
 			break;
 		}
 	}
@@ -3910,3 +3910,13 @@ function minMinMax(array) {
 // console.log(minMinMax([-1, 4, 5, -23, 24]), [-23, -22, 24]);
 // console.log(minMinMax([1, 3, -3, -2, 8, -1]), [-3, 0, 8]);
 // console.log(minMinMax([2, -4, 8, -5, 9, 7]), [-5, -3, 9]);
+
+function convertHashToArray(hash){
+	return Object.entries(hash);
+}
+
+// console.log(convertHashToArray({name: "Jeremy"}),[["name", "Jeremy"]]);
+// console.log(convertHashToArray({name: "Jeremy", age: 24}),[["age", 24], ["name", "Jeremy"]]);
+// console.log(convertHashToArray({name: "Jeremy", age: 24, role: "Software Engineer"}),[["age", 24], ["name", "Jeremy"], ["role", "Software Engineer"]]);
+// console.log(convertHashToArray({product: "CodeWars", powerLevelOver: 9000}),[["powerLevelOver", 9000], ["product", "CodeWars"]]);
+// console.log(convertHashToArray({}),[]);
