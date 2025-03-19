@@ -3879,3 +3879,34 @@ function dbSort(a) {
 // console.log(dbSort(["Banana", "Orange", "Apple", "Mango", 0, 2, 2]), [0, 2, 2, "Apple", "Banana", "Mango", "Orange"]);
 // console.log(dbSort(["C", "W", "W", "W", 1, 2, 0]), [0, 1, 2, "C", "W", "W", "W"]);
 // console.log(dbSort(["Apple", 46, "287", 574, "Peach", "3", "69", 78, "Grape", "423"]), [46, 78, 574, "287", "3", "423", "69", "Apple", "Grape", "Peach"]);
+
+function minimumNumber(numbers) {
+	const num = numbers.reduce((acc, cur) => acc + cur, 0);
+	return num % 1 === 0 && num % num === 0;
+}
+
+// console.log(minimumNumber([3, 1, 2]), 1);
+// console.log(minimumNumber([5, 2]), 0);
+// console.log(minimumNumber([1, 1, 1]), 0);
+// console.log(minimumNumber([2, 12, 8, 4, 6]), 5);
+// console.log(minimumNumber([50, 39, 49, 6, 17, 28]), 2);
+
+function minMinMax(array) {
+	const min = Math.min(...array);
+	const max = Math.max(...array);
+	const result = [];
+	result.push(min);
+	for (let i = min; i <= max; i++) {
+		if (!array.includes(i)) {
+			result.push(i);
+			break;
+		}
+	}
+	result.push(max);
+	return result;
+	
+}
+
+// console.log(minMinMax([-1, 4, 5, -23, 24]), [-23, -22, 24]);
+// console.log(minMinMax([1, 3, -3, -2, 8, -1]), [-3, 0, 8]);
+// console.log(minMinMax([2, -4, 8, -5, 9, 7]), [-5, -3, 9]);
