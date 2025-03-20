@@ -3986,3 +3986,20 @@ const lengthOfSequence = function (arr, n) {
 // console.log(lengthOfSequence([1, 2, 3, 1], 1), 4);
 // console.log(lengthOfSequence([-7, 5, 0, 2, 9, 5], 5), 5);
 // console.log(lengthOfSequence([-7, 6, 2, -7, 4], -7), 4);
+
+function howManyGifts(maxBudget, gifts) {
+	gifts.sort((a, b) => a - b);
+	let boughtGifts = 0;
+	let remainingBudget = maxBudget;
+	for (const elem of gifts) {
+		if (remainingBudget >= elem) {
+			remainingBudget -= elem;
+			boughtGifts++;
+		} else {
+			break;
+		}
+	}
+	return boughtGifts;
+}
+
+// console.log(howManyGifts(20, [13, 2, 4, 6, 1]), 4);
