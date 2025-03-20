@@ -3934,3 +3934,15 @@ function counterEffect(hitCount) {
 // console.log(counterEffect("1250"), [[0, 1], [0, 1, 2], [0, 1, 2, 3, 4, 5], [0]]);
 // console.log(counterEffect("0050"), [[0], [0], [0, 1, 2, 3, 4, 5], [0]]);
 // console.log(counterEffect("0000"), [[0], [0], [0], [0]]);
+
+const sumAverage = (arr) => {
+	let averageSum = 0;
+	for (const elem of arr) {
+		const sum = elem.reduce((acc, cur) => acc + cur, 0) / elem.length;
+		averageSum += sum
+	}
+	return Math.floor(averageSum)
+};
+
+// console.log(sumAverage([[3, 4, 1, 3, 5, 1, 4], [21, 54, 33, 21, 77]]), 44);
+// console.log(sumAverage([[-4, 3, -8, -2], [2, 9, 1, -5], [-7, -2, -6, -4]]), -6);
