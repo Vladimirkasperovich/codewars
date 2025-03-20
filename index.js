@@ -3939,10 +3939,21 @@ const sumAverage = (arr) => {
 	let averageSum = 0;
 	for (const elem of arr) {
 		const sum = elem.reduce((acc, cur) => acc + cur, 0) / elem.length;
-		averageSum += sum
+		averageSum += sum;
 	}
-	return Math.floor(averageSum)
+	return Math.floor(averageSum);
 };
 
 // console.log(sumAverage([[3, 4, 1, 3, 5, 1, 4], [21, 54, 33, 21, 77]]), 44);
 // console.log(sumAverage([[-4, 3, -8, -2], [2, 9, 1, -5], [-7, -2, -6, -4]]), -6);
+
+function multiplyAndFilter(array, multiplier) {
+	return array
+		.filter((item) => typeof item === "number")
+		.map((item) => item * multiplier);
+}
+
+// console.log(multiplyAndFilter([1, 2, 3, 4], 1.5), [1.5, 3, 4.5, 6]);
+// console.log(multiplyAndFilter([1, 2, 3], 0), [0, 0, 0]);
+// console.log(multiplyAndFilter([0, 0, 0], 2), [0, 0, 0]);
+// console.log(multiplyAndFilter([1, null, function () {}, 2.5, "string", 10, undefined, {}, []], 3), [3, 7.5, 30]);
