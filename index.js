@@ -3974,3 +3974,15 @@ function diff(a, b) {
 // console.log(diff(["a", "b"], ["a", "b"]), []);
 // console.log(diff(["a", "b", "z"], ["a", "b"]), ["z"]);
 // console.log(diff(["a", "b", "z", "d", "e", "d"], ["a", "b", "j", "j"]), ["d", "e", "j", "z"]);
+
+const lengthOfSequence = function (arr, n) {
+	const firstFoundIndex = arr.findIndex((item) => item === n);
+	const lastFoundIndex = arr.lastIndexOf(n);
+	const filtered = arr.filter((item) => item === n);
+	return filtered.length < 2 || filtered.length > 2 ? 0 : arr.slice(firstFoundIndex, lastFoundIndex + 1).length;
+};
+
+// console.log(lengthOfSequence([1], 1), 2);
+// console.log(lengthOfSequence([1, 2, 3, 1], 1), 4);
+// console.log(lengthOfSequence([-7, 5, 0, 2, 9, 5], 5), 5);
+// console.log(lengthOfSequence([-7, 6, 2, -7, 4], -7), 4);
