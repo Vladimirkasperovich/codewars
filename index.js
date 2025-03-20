@@ -3957,3 +3957,20 @@ function multiplyAndFilter(array, multiplier) {
 // console.log(multiplyAndFilter([1, 2, 3], 0), [0, 0, 0]);
 // console.log(multiplyAndFilter([0, 0, 0], 2), [0, 0, 0]);
 // console.log(multiplyAndFilter([1, null, function () {}, 2.5, "string", 10, undefined, {}, []], 3), [3, 7.5, 30]);
+
+function diff(a, b) {
+	const difference = [];
+	
+	for (let i = 0; i < a.length; i++) {
+		if (!b.includes(a[i])) difference.push(a[i]);
+	}
+	for (let i = 0; i < b.length; i++) {
+		if (!a.includes(b[i])) difference.push(b[i]);
+	}
+	
+	return [...new Set(difference)].sort();
+}
+
+// console.log(diff(["a", "b"], ["a", "b"]), []);
+// console.log(diff(["a", "b", "z"], ["a", "b"]), ["z"]);
+// console.log(diff(["a", "b", "z", "d", "e", "d"], ["a", "b", "j", "j"]), ["d", "e", "j", "z"]);
