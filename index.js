@@ -4003,3 +4003,20 @@ function howManyGifts(maxBudget, gifts) {
 }
 
 // console.log(howManyGifts(20, [13, 2, 4, 6, 1]), 4);
+
+function sortMyString(string) {
+	let evenChars = "";
+	let oddChars = "";
+	for (let i = 0; i < string.length; i++) {
+		const currentChar = string[i];
+		if (i % 2 === 0) {
+			evenChars += currentChar;
+		} else {
+			oddChars += currentChar;
+		}
+	}
+	return `${evenChars} ${oddChars}`;
+}
+
+// console.log(sortMyString("CodeWars"), "CdWr oeas");
+// console.log(sortMyString("YCOLUE'VREER"), "YOU'RE CLEVER");
