@@ -4020,3 +4020,20 @@ function sortMyString(string) {
 
 // console.log(sortMyString("CodeWars"), "CdWr oeas");
 // console.log(sortMyString("YCOLUE'VREER"), "YOU'RE CLEVER");
+
+const findMaxConsecutiveOnes = function (nums) {
+	let count = 0;
+	let maxCount = 0
+	for (let i = 0; i < nums.length; i++) {
+		const currentInt = nums[i];
+			if(currentInt === 1){
+				count += 1;
+			}else {
+				maxCount = Math.max(maxCount, count)
+				count = 0
+			}
+	}
+	return Math.max(maxCount, count);
+};
+// console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1])); //3
+// console.log(findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1])); //2
