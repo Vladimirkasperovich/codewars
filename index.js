@@ -4023,17 +4023,28 @@ function sortMyString(string) {
 
 const findMaxConsecutiveOnes = function (nums) {
 	let count = 0;
-	let maxCount = 0
+	let maxCount = 0;
 	for (let i = 0; i < nums.length; i++) {
 		const currentInt = nums[i];
-			if(currentInt === 1){
-				count += 1;
-			}else {
-				maxCount = Math.max(maxCount, count)
-				count = 0
-			}
+		if (currentInt === 1) {
+			count += 1;
+		} else {
+			maxCount = Math.max(maxCount, count);
+			count = 0;
+		}
 	}
 	return Math.max(maxCount, count);
 };
 // console.log(findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1])); //3
 // console.log(findMaxConsecutiveOnes([1, 0, 1, 1, 0, 1])); //2
+
+const findNumbers = function (nums) {
+	const res = [];
+	for (let i = 0; i < nums.length; i++) {
+		const str = String(nums[i]);
+		if (str.length % 2 === 0) res.push(str.length);
+	}
+	return res.length;
+};
+// console.log(findNumbers([12, 345, 2, 6, 7896])); //2
+// console.log(findNumbers([555, 901, 482, 1771])); //1
