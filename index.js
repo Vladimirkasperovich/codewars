@@ -4048,3 +4048,15 @@ const findNumbers = function (nums) {
 };
 // console.log(findNumbers([12, 345, 2, 6, 7896])); //2
 // console.log(findNumbers([555, 901, 482, 1771])); //1
+
+const sortedSquares = (nums) => {
+	const result = [];
+	for (let i = 0; i < nums.length; i++) {
+		const squareNum = nums[i] ** 2
+		result.push(squareNum);
+	}
+	return result.sort((a,b) => a - b);
+};
+
+// console.log(sortedSquares([-4, -1, 0, 3, 10])); //[0,1,9,16,100]
+// console.log(sortedSquares([-7, -3, 2, 3, 11])); //[4,9,9,49,121]
