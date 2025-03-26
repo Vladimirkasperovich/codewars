@@ -4052,11 +4052,33 @@ const findNumbers = function (nums) {
 const sortedSquares = (nums) => {
 	const result = [];
 	for (let i = 0; i < nums.length; i++) {
-		const squareNum = nums[i] ** 2
+		const squareNum = nums[i] ** 2;
 		result.push(squareNum);
 	}
-	return result.sort((a,b) => a - b);
+	return result.sort((a, b) => a - b);
 };
 
 // console.log(sortedSquares([-4, -1, 0, 3, 10])); //[0,1,9,16,100]
 // console.log(sortedSquares([-7, -3, 2, 3, 11])); //[4,9,9,49,121]
+
+
+const duplicateZeros = (arr) => {
+	let arrLength = arr.length;
+  let i = 0;
+	while (i < arrLength){
+	 if (arr[i] === 0)	arrLength--
+		i++
+	}
+	
+	for (let j = arr.length - 1, k = arrLength - 1; k >= 0; j--, k--) {
+		arr[j] = arr[k];
+		
+		if (arr[k] === 0 && j - 1 >= 0) {
+			j--;
+			arr[j] = 0;
+		}
+	}
+	return arr
+};
+// console.log(duplicateZeros([1, 0, 2, 3, 0, 4, 5, 0])); //[1,0,0,2,3,0,0,4]
+// console.log(duplicateZeros([1, 2, 3])); //[1,2,3]
