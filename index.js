@@ -4064,10 +4064,10 @@ const sortedSquares = (nums) => {
 
 const duplicateZeros = (arr) => {
 	let arrLength = arr.length;
-  let i = 0;
-	while (i < arrLength){
-	 if (arr[i] === 0)	arrLength--
-		i++
+	let i = 0;
+	while (i < arrLength) {
+		if (arr[i] === 0) arrLength--;
+		i++;
 	}
 	
 	for (let j = arr.length - 1, k = arrLength - 1; k >= 0; j--, k--) {
@@ -4078,7 +4078,32 @@ const duplicateZeros = (arr) => {
 			arr[j] = 0;
 		}
 	}
-	return arr
+	return arr;
 };
 // console.log(duplicateZeros([1, 0, 2, 3, 0, 4, 5, 0])); //[1,0,0,2,3,0,0,4]
 // console.log(duplicateZeros([1, 2, 3])); //[1,2,3]
+
+
+const myPromiseAll = (promises) => {
+	const result = [];
+	let count = 0;
+	
+	return new Promise((resolve, reject) => {
+		for (let i = 0; i < promises.length; i++) {
+			const pr = promises[i];
+			pr
+				.then((data) => {
+					result[i] = data;
+					count += 1;
+					if (count === promises.length) resolve(result);
+				})
+				.catch((error) => reject(error))
+			;
+		}
+	});
+};
+// const promises = [Promise.resolve("Resolve1"), Promise.resolve("reject2"), Promise.resolve("Resolve2")];
+//
+// myPromiseAll(promises)
+// 	.then(data => console.log("in then"))
+// 	.catch(() => console.log("in catch"));
