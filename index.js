@@ -4107,3 +4107,9 @@ const myPromiseAll = (promises) => {
 // myPromiseAll(promises)
 // 	.then(data => console.log("in then"))
 // 	.catch(() => console.log("in catch"));
+
+var createCounter = function(n) {
+	return function() {
+		return n++
+	};
+};
