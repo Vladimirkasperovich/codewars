@@ -4180,4 +4180,18 @@ const removeDuplicates = function (nums) {
 	return k;
 };
 
-console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
+// console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
+
+
+const removeDuplicates1 = function (nums) {
+	let k = 0;
+	for (let i = 0; i < nums.length; i++) {
+		if (k < 2 || nums[i] !== nums[k - 2]) {
+			nums[k] = nums[i];
+			k++;
+		}
+	}
+	return k;
+};
+
+console.log(removeDuplicates1([1, 1, 1, 2, 2, 3])); //5
