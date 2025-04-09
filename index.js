@@ -4202,8 +4202,10 @@ const majorityElement = function (nums) {
 		seenElems[num] = (seenElems[num] || 0) + 1;
 	}
 	const maxValue = Math.max(...Object.values(seenElems))
-	return +Object.entries(seenElems).find(([key, value]) => value === maxValue)[0]
+	return +Object.entries(seenElems).find(([_, value]) => value === maxValue)[0]
 };
 // console.log(majorityElement([3, 2, 3]));//3
 // console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));//2
 // console.log(majorityElement([3, 3, 4]));//3
+
+
