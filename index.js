@@ -4142,16 +4142,29 @@ const twoSum123 = (numbers, target) => {
 	let left = 0;
 	let right = numbers.length - 1;
 	while (left < right) {
-		const sum = numbers[left] + numbers[right]
+		const sum = numbers[left] + numbers[right];
 		if (sum === target) {
 			return [left + 1, right + 1];
-		}else if (sum < target){
-			left++
-		}else{
-			right--
+		} else if (sum < target) {
+			left++;
+		} else {
+			right--;
 		}
 	}
 };
-console.log(twoSum123([2, 7, 11, 15], 9)); //[1,2]
-console.log(twoSum123([2, 3, 4], 6)); //[1,3]
-console.log(twoSum123([-1, 0], -1)); //[1,2]
+// console.log(twoSum123([2, 7, 11, 15], 9)); //[1,2]
+// console.log(twoSum123([2, 3, 4], 6)); //[1,3]
+// console.log(twoSum123([-1, 0], -1)); //[1,2]
+
+const removeElement = function (nums, val) {
+	let k = 0;
+	for (let i = 0; i < nums.length; i++) {
+		if (nums[i] !== val) {
+			nums[k] = nums[i];
+			k++;
+		}
+	}
+	return k
+};
+
+// console.log(removeElement([3, 2, 2, 3], 3)); //2
