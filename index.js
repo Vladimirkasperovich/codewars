@@ -4241,3 +4241,13 @@ const containsNearbyDuplicate = function (nums, k) {
 // console.log(containsNearbyDuplicate([1, 2, 3, 1], 3)) //true
 // console.log(containsNearbyDuplicate([1, 0, 1, 1], 1)) //true
 // console.log(containsNearbyDuplicate([1, 2, 3, 1, 2, 3], 2)) //false
+
+
+const isAnagram12 = function (s, t) {
+    const firstStr = s.toLowerCase().split('').sort().join("")
+    const secondStr = t.toLowerCase().split('').sort().join("")
+    return firstStr === secondStr
+};
+
+// console.log(isAnagram12("anagram", "nagaram")) //true
+// console.log(isAnagram12("rat", "car")) //false
