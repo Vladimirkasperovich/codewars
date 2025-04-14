@@ -4281,3 +4281,11 @@ const strStr = function (haystack, needle) {
 
 // console.log(strStr("sadbutsad", "sad")) //0
 // console.log(strStr("leetcode", "leeto")) //-1
+
+const canConstruct = function (ransomNote, magazine) {
+    return ransomNote.indexOf(magazine)
+};
+
+console.log(canConstruct("a", "b"));//false
+console.log(canConstruct("aa", "ab"));//false
+console.log(canConstruct("aa", "aab"));//true
