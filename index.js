@@ -4265,3 +4265,12 @@ const doTwoSum = function (nums, target) {
 // console.log(doTwoSum([2, 7, 11, 15], 9)) //[0,1]
 // console.log(doTwoSum([3, 2, 4], 6)) //[1,2]
 // console.log(doTwoSum([3, 3], 6)) //[0,1]
+
+const lengthOfLastWord = function (s) {
+    const result = s.trim().split(' ')
+    return result[result.length - 1].length
+};
+
+// console.log(lengthOfLastWord("Hello World")) //5
+// console.log(lengthOfLastWord("   fly me   to   the moon  ")) //4
+// console.log(lengthOfLastWord("luffy is still joyboy")) //6
