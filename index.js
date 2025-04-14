@@ -4274,3 +4274,10 @@ const lengthOfLastWord = function (s) {
 // console.log(lengthOfLastWord("Hello World")) //5
 // console.log(lengthOfLastWord("   fly me   to   the moon  ")) //4
 // console.log(lengthOfLastWord("luffy is still joyboy")) //6
+
+const strStr = function (haystack, needle) {
+    return haystack.indexOf(needle);
+};
+
+// console.log(strStr("sadbutsad", "sad")) //0
+// console.log(strStr("leetcode", "leeto")) //-1
