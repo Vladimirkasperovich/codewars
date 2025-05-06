@@ -4320,5 +4320,8 @@ function areAnagrams(str1, str2) {
         str2.toLowerCase().split('').sort().join('')
 }
 
-console.log(areAnagrams("listen", "silent")); // true
-console.log(areAnagrams("hello", "world"));   // false
+// console.log(areAnagrams("listen", "silent")); // true
+// console.log(areAnagrams("hello", "world"));   // false
+
+
+
