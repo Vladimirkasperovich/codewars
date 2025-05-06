@@ -4308,5 +4308,17 @@ function uniqueArray(arr) {
     return Object.values(seen)
 }
 
-console.log(uniqueArray([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
-console.log(uniqueArray(["a", "b", "a", "c"]));  // ["a", "b", "c"]
+// console.log(uniqueArray([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+// console.log(uniqueArray(["a", "b", "a", "c"]));  // ["a", "b", "c"]
+
+// Задача: Напиши функцию, которая проверяет, являются ли две строки анаграммами друг друга
+// (т.е. содержат одинаковые буквы в разном порядке)
+
+function areAnagrams(str1, str2) {
+    return str1.toLowerCase().split('').sort().join('')
+        ===
+        str2.toLowerCase().split('').sort().join('')
+}
+
+console.log(areAnagrams("listen", "silent")); // true
+console.log(areAnagrams("hello", "world"));   // false
