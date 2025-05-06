@@ -4282,10 +4282,17 @@ const strStr = function (haystack, needle) {
 // console.log(strStr("sadbutsad", "sad")) //0
 // console.log(strStr("leetcode", "leeto")) //-1
 
-const canConstruct = function (ransomNote, magazine) {
-    return ransomNote.indexOf(magazine)
-};
 
-console.log(canConstruct("a", "b"));//false
-console.log(canConstruct("aa", "ab"));//false
-console.log(canConstruct("aa", "aab"));//true
+// Задача: Напиши функцию, которая проверяет, является ли строка палиндромом (читается одинаково с начала и с конца)
+// Игнорируй регистр и пробелы
+
+function isPalindrome999(str) {
+    const clearedStr = str.toLowerCase().replaceAll(' ', '')
+    const reversedStr = str.toLowerCase().replaceAll(' ', '').split('').reverse().join('');
+
+    return clearedStr === reversedStr;
+}
+
+// console.log(isPalindrome999("racecar")); // true
+// console.log(isPalindrome999("A man a plan a canal Panama")); // true
+// console.log(isPalindrome999("hello")); //false
