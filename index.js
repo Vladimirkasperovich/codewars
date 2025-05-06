@@ -4343,7 +4343,37 @@ function mostFrequentElement(arr) {
     return maxValue
 
 }
+
 //
 // console.log(mostFrequentElement([1, 3, 1, 3, 2, 1])); // 1
 // console.log(mostFrequentElement(["a", "b", "a", "c", "a", "b"])); // "a"
+
+
+// Задача: Напиши функцию `promisify`, которая преобразует функцию обратного вызова (callback-based)
+// в функцию, возвращающую Promise.
+// Пример: originalFunc((err, result) => { ... }) -> promisifiedFunc().then(result => ...)
+
+function promisify(fn) {
+    // твой код здесь
+    return function (...args) {
+        return new Promise((resolve, reject) => {
+            fn(...args, (err, result) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(result);
+            })
+        })
+    }
+}
+
+// пример использования:
+function getData(callback) {
+    setTimeout(() => callback(null, "data received"), 100);
+}
+
+// const getDataAsync = promisify(getData);
+
+// getDataAsync().then(console.log); // "data received"
+
 
