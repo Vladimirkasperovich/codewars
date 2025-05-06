@@ -4296,3 +4296,17 @@ function isPalindrome999(str) {
 // console.log(isPalindrome999("racecar")); // true
 // console.log(isPalindrome999("A man a plan a canal Panama")); // true
 // console.log(isPalindrome999("hello")); //false
+
+// Задача: Напиши функцию, которая возвращает новый массив только с уникальными значениями из исходного массива
+
+function uniqueArray(arr) {
+    const seen = {}
+    arr.forEach((item) => {
+        if (!seen[item]) seen[item] = item
+    })
+
+    return Object.values(seen)
+}
+
+console.log(uniqueArray([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+console.log(uniqueArray(["a", "b", "a", "c"]));  // ["a", "b", "c"]
