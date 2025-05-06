@@ -4324,4 +4324,26 @@ function areAnagrams(str1, str2) {
 // console.log(areAnagrams("hello", "world"));   // false
 
 
+// Задача: Напиши функцию, которая возвращает самый часто встречающийся элемент в массиве
+
+function mostFrequentElement(arr) {
+    const seen = {}
+    arr.forEach((item) => {
+        seen[item] = (seen[item] || 0) + 1;
+    })
+
+    const maxValue = Math.max(...Object.values(seen))
+    for (const key in seen) {
+        if (seen[key] === maxValue) {
+            return key >= 0 || key <= 9 ? Number(key) : key;
+        } else {
+            return null
+        }
+    }
+    return maxValue
+
+}
+//
+// console.log(mostFrequentElement([1, 3, 1, 3, 2, 1])); // 1
+// console.log(mostFrequentElement(["a", "b", "a", "c", "a", "b"])); // "a"
 
