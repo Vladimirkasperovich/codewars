@@ -4394,3 +4394,17 @@ function factorial(n) {
 // console.log(factorial(5)); // 120
 // console.log(factorial(0)); // 1
 
+function findMax(arr) {
+    let maxValue = arr[0];
+    for (let index = 1; index <= arr.length; index++) {
+        if (maxValue < arr[index]) {
+            maxValue = arr[index]
+        }
+    }
+
+    return maxValue
+}
+
+// console.log(findMax([1, 5, 7, 3])); // 7
+// console.log(findMax([-10, -5, -20])); // -5
+
