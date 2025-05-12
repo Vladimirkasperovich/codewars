@@ -4427,4 +4427,12 @@ function removeDuplicates8989(arr) {
 }
 
 // console.log(removeDuplicates8989([1, 2, 2, 3, 4, 4])); // [1, 2, 3, 4]
-K
+
+function areAnagrams1234(str1, str2) {
+    const firstStr = str1.toLowerCase().split('').sort().join('')
+    const secondStr = str2.toLowerCase().split('').sort().join('')
+    return firstStr === secondStr
+}
+
+console.log(areAnagrams1234("listen", "silent")); // true
+console.log(areAnagrams1234("hello", "world"));   // false
