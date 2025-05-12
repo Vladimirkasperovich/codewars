@@ -4434,5 +4434,17 @@ function areAnagrams1234(str1, str2) {
     return firstStr === secondStr
 }
 
-console.log(areAnagrams1234("listen", "silent")); // true
-console.log(areAnagrams1234("hello", "world"));   // false
+// console.log(areAnagrams1234("listen", "silent")); // true
+// console.log(areAnagrams1234("hello", "world"));   // false
+
+
+function charFrequency(str) {
+    const seen = {};
+    for (const elem of str) {
+        seen[elem] = (seen[elem] || 0) + 1
+    }
+    return seen
+}
+
+// console.log(charFrequency("aabccc"));
+// { a: 2, b: 1, c: 3 }
