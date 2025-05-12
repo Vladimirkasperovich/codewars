@@ -4419,7 +4419,7 @@ function removeDuplicates8989(arr) {
     const seen = {}
     for (let i = 0; i < arr.length; i++) {
         const current = arr[i];
-        if (!seen[current]){
+        if (!seen[current]) {
             seen[current] = current
         }
     }
@@ -4448,3 +4448,13 @@ function charFrequency(str) {
 
 // console.log(charFrequency("aabccc"));
 // { a: 2, b: 1, c: 3 }
+
+function firstUniqueChar(str) {
+    const seenChars = {};
+    for (const element of str) {
+        seenChars[element] = (seenChars[element] || 0) + 1
+    }
+    return Object.entries(seenChars).find((elem) => elem[1] === 1)[0]
+}
+
+// console.log(firstUniqueChar("aabccdeff")); // "b"
