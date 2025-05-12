@@ -4377,3 +4377,14 @@ function getData(callback) {
 // getDataAsync().then(console.log); // "data received"
 
 
+function isPalindrome11111(str) {
+    const reversedStr = str.toLowerCase().split('').reverse().join('')
+    return reversedStr === str
+}
+
+// console.log(isPalindrome11111("racecar")); // true
+// console.log(isPalindrome11111("hello"));   // false
+
+
+
+
