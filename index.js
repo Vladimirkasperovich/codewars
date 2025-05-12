@@ -4414,3 +4414,17 @@ function sumArray(arr) {
 
 // console.log(sumArray([1, 2, 3, 4])); // 10
 
+
+function removeDuplicates8989(arr) {
+    const seen = {}
+    for (let i = 0; i < arr.length; i++) {
+        const current = arr[i];
+        if (!seen[current]){
+            seen[current] = current
+        }
+    }
+    return Object.values(seen)
+}
+
+// console.log(removeDuplicates8989([1, 2, 2, 3, 4, 4])); // [1, 2, 3, 4]
+K
