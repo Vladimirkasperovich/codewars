@@ -4396,7 +4396,7 @@ function factorial(n) {
 
 function findMax(arr) {
     let maxValue = arr[0];
-    for (let index = 1; index <= arr.length; index++) {
+    for (let index = 1; index < arr.length; index++) {
         if (maxValue < arr[index]) {
             maxValue = arr[index]
         }
@@ -4458,3 +4458,12 @@ function firstUniqueChar(str) {
 }
 
 // console.log(firstUniqueChar("aabccdeff")); // "b"
+
+
+function wait(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms)
+    })
+}
+
+// wait(1000).then(() => console.log("1 second passed"));
