@@ -4408,3 +4408,9 @@ function findMax(arr) {
 // console.log(findMax([1, 5, 7, 3])); // 7
 // console.log(findMax([-10, -5, -20])); // -5
 
+function sumArray(arr) {
+    return arr.reduce((acc, cur) => acc + cur, 0)
+}
+
+// console.log(sumArray([1, 2, 3, 4])); // 10
+
