@@ -1,5 +1,5 @@
 const maxProfit = (prices) => {
-    let minPrice = Infinity; //7 6 4 3 1
+    let minPrice = Infinity;
     let maxProfit = 0;
 
     for (const price of prices) {
@@ -18,7 +18,7 @@ const maxProfit = (prices) => {
 // console.log(maxProfit([7, 6, 4, 3, 1])) //0
 
 const romanToInt = (s) => {
-    const arr = []
+    let sum = 0;
     const romanObj = {
         'I': 1,
         'V': 5,
@@ -30,29 +30,23 @@ const romanToInt = (s) => {
     }
 
     for (let i = 0; i < s.length; i++) {
-        const currentInt = s[i];
-        if (romanObj[currentInt]) {
-            arr.push(romanObj[currentInt])
-        }
+        const current = romanObj[s[i]];
+        const next = romanObj[s[i + 1]];
 
+        if (next && next > current) {
+            sum += (next - current)
+            i++
+        } else {
+            sum += current
+        }
     }
 
-    return arr.reduce((acc, cur, index, array) => {
-        let next = array[index + 1];
-        if (index > 0 && cur > array[index - 1]) {
-            return acc
-        }
-
-        if (next && cur < next) {
-            return acc + (next - cur)
-        } else {
-            return acc + cur
-        }
-    }, 0)
+    return sum
 }
-// console.log(romanToInt("III")) //3
-// console.log(romanToInt("LVIII")) //58
-// console.log(romanToInt("MCMXCIV")) //1994
+
+console.log(romanToInt("III")) //3
+console.log(romanToInt("LVIII")) //58
+console.log(romanToInt("MCMXCIV")) //1994
 
 
 
