@@ -59,8 +59,17 @@ const reverseWords = (s) => {
 
 
 const replaceSubstring = (str, search, replace) => {
-    return str.split(" ").map((word) => word === search ? replace : word ).join(" ")
+    const result = [];
+    const arr = str.split(" ")
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== search) {
+            result.push(arr[i])
+        } else {
+            result.push(replace)
+        }
+    }
+    return result.join(" ");
 }
 
-console.log(replaceSubstring("hello world", "world", "there")) // "hello there"
-console.log(replaceSubstring("abc abc abc", "abc", "123")) // "123 123 123"
+// console.log(replaceSubstring("hello world", "world", "there")) // "hello there"
+// console.log(replaceSubstring("abc abc abc", "abc", "123")) // "123 123 123"
