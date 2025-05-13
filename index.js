@@ -58,3 +58,9 @@ const reverseWords = (s) => {
 // console.log(reverseWords("a good   example")) //"example good a"
 
 
+const replaceSubstring = (str, search, replace) => {
+    return str.split(" ").map((word) => word === search ? replace : word ).join(" ")
+}
+
+console.log(replaceSubstring("hello world", "world", "there")) // "hello there"
+console.log(replaceSubstring("abc abc abc", "abc", "123")) // "123 123 123"
