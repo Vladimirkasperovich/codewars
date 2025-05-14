@@ -73,3 +73,11 @@ const replaceSubstring = (str, search, replace) => {
 
 // console.log(replaceSubstring("hello world", "world", "there")) // "hello there"
 // console.log(replaceSubstring("abc abc abc", "abc", "123")) // "123 123 123"
+
+
+const isPalindrome = (str) => {
+    const result = str.toLowerCase().replace(/[^a-z0-9]/g, '')
+    return result.split('').reverse().join('') === result
+}
+// console.log(isPalindrome("A man, a plan, a canal, Panama")) //true
+// console.log(isPalindrome("hello")) //false
