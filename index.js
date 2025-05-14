@@ -81,3 +81,15 @@ const isPalindrome = (str) => {
 }
 // console.log(isPalindrome("A man, a plan, a canal, Panama")) //true
 // console.log(isPalindrome("hello")) //false
+
+Array.prototype.myFilter = function (cb) {
+    const result = [];
+    for (let i = 0; i < this.length; i++) {
+        if (cb(this[i], i, this)) {
+            result.push(this[i])
+        }
+    }
+    return result
+}
+// const filteredArr = [1, 2, 3, 4, 5].myFilter((x) => x > 2)
+// console.log(filteredArr) //[3,4,5]
