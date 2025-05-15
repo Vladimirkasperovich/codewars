@@ -99,5 +99,15 @@ const myFruits = (fruits) => {
     fruits.forEach(fruit => seen[fruit] = (seen[fruit] || 0) + 1)
     return seen
 }
-
 // console.log(myFruits(['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple']))//{kiwi:3, apple:2,orange:1}
+
+const uniqueFruits = (fruits) => {
+    const unique = {};
+
+    fruits.forEach(fruit => {
+        unique[fruit] = true
+    })
+
+    return Object.keys(unique)
+}
+// console.log(uniqueFruits(['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple']))//[kiwi,apple,orange]
