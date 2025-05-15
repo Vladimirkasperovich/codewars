@@ -111,3 +111,24 @@ const uniqueFruits = (fruits) => {
     return Object.keys(unique)
 }
 // console.log(uniqueFruits(['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple']))//[kiwi,apple,orange]
+
+const groupStudents = (students) => {
+    const group = {};
+    students.forEach((student) => {
+       if (!group[student.age]){
+           group[student.age] = [student]
+       }else{
+           group[student.age].push(student)
+       }
+
+    })
+    return group
+}
+
+// const students = [
+//     {name: 'alex', age: 20},
+//     {name: 'mike', age: 24},
+//     {name: 'masha', age: 20},
+//     {name: 'stas', age: 18},
+// ]
+// console.log(groupStudents(students))
