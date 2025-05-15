@@ -134,14 +134,14 @@ const groupStudents = (students) => {
 // console.log(groupStudents(students))
 
 const twoSum = (arr, target) => {
-    const result = [];
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = arr.length - 1; j > i; j--) {
-            if ((arr[i] + arr[j]) === target) {
-                result.push(arr[i], arr[j])
-            }
+    const seen = new Set()
+    for (const num of arr) {
+        const diff = target - num
+        if (seen.has(diff)){
+            return [diff, num]
         }
+        seen.add(num)
     }
-    return result
+    return []
 }
-console.log(twoSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
+// console.log(twoSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
