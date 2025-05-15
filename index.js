@@ -160,3 +160,16 @@ const getFavoritePizzas = (friends) => {
 //     {name: 'anna', pizzas: ['fish']},
 // ]
 // console.log(getFavoritePizzas(friends))
+
+const isUnique = (str) => {
+    const seen = {};
+    for (const char of str) {
+        seen[char] = true
+    }
+
+    return Object.keys(seen).join('') === str
+}
+console.log(isUnique('abcdef')) //true
+console.log(isUnique('1234567')) //true
+console.log(isUnique('abcABC')) //true
+console.log(isUnique('abcadefg')) //false
