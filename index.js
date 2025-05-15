@@ -169,6 +169,8 @@ const isUnique = (str) => {
 // console.log(isUnique('abcABC')) //true
 // console.log(isUnique('abcadefg')) //false
 
+
+/// need to finish this function flutten
 const flatten = (array) => {
     if (array.length < 2) return []
     const result = [];
