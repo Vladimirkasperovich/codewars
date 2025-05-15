@@ -162,12 +162,7 @@ const getFavoritePizzas = (friends) => {
 // console.log(getFavoritePizzas(friends))
 
 const isUnique = (str) => {
-    const seen = {};
-    for (const char of str) {
-        seen[char] = true
-    }
-
-    return Object.keys(seen).join('') === str
+    return [...new Set(str)].join('') === str
 }
 console.log(isUnique('abcdef')) //true
 console.log(isUnique('1234567')) //true
