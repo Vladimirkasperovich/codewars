@@ -164,7 +164,21 @@ const getFavoritePizzas = (friends) => {
 const isUnique = (str) => {
     return [...new Set(str)].join('') === str
 }
-console.log(isUnique('abcdef')) //true
-console.log(isUnique('1234567')) //true
-console.log(isUnique('abcABC')) //true
-console.log(isUnique('abcadefg')) //false
+// console.log(isUnique('abcdef')) //true
+// console.log(isUnique('1234567')) //true
+// console.log(isUnique('abcABC')) //true
+// console.log(isUnique('abcadefg')) //false
+
+const flatten = (array) => {
+    if (array.length < 2) return []
+    const result = [];
+    for (let i = 0; i < array.length; i++) {
+        const current = array[i]
+        if (Array.isArray(current)) {
+            result.push(...flatten(...current))
+        }
+        result.push(current)
+    }
+    return result
+}
+console.log(flatten([[1], [[2, 3]], [[[4]]]])) // [1,2,3,4]
