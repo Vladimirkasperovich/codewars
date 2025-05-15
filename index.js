@@ -93,3 +93,11 @@ Array.prototype.myFilter = function (cb) {
 }
 // const filteredArr = [1, 2, 3, 4, 5].myFilter((x) => x > 2)
 // console.log(filteredArr) //[3,4,5]
+
+const myFruits = (fruits) => {
+    const seen = {};
+    fruits.forEach(fruit => seen[fruit] = (seen[fruit] || 0) + 1)
+    return seen
+}
+
+// console.log(myFruits(['kiwi', 'apple', 'kiwi', 'orange', 'kiwi', 'apple']))//{kiwi:3, apple:2,orange:1}
