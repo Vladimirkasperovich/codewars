@@ -137,7 +137,7 @@ const twoSum = (arr, target) => {
     const seen = new Set()
     for (const num of arr) {
         const diff = target - num
-        if (seen.has(diff)){
+        if (seen.has(diff)) {
             return [diff, num]
         }
         seen.add(num)
@@ -145,3 +145,18 @@ const twoSum = (arr, target) => {
     return []
 }
 // console.log(twoSum([3, 5, -4, 8, 11, 1, -1, 6], 10))
+
+const getFavoritePizzas = (friends) => {
+    const result = [];
+    friends.forEach((friend) => {
+        result.push(...friend.pizzas)
+    })
+    return result;
+}
+// const friends = [
+//     {name: 'alex', pizzas: ['cheese', 'pepperoni']},
+//     {name: 'mike', pizzas: ['salami', 'margarita']},
+//     {name: 'stas', pizzas: ['meat']},
+//     {name: 'anna', pizzas: ['fish']},
+// ]
+// console.log(getFavoritePizzas(friends))
