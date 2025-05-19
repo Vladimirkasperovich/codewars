@@ -242,3 +242,24 @@ const rotate = (array) => {
 //     [8, 5, 2],
 //     [9, 6, 3],
 // ]
+
+
+const binarySearch = (array, target) => {
+    let start = 0;
+    let end = array.length - 1;
+
+    while (start < end) {
+        const middle = Math.floor((start + end) / 2);
+        if (array[middle] === target) {
+            return middle;
+        } else if (target > array[middle]) {
+            start = middle + 1
+        } else {
+            end = middle - 1
+        }
+    }
+
+    return -1
+}
+// console.log(binarySearch([1, 3, 6, 13, 17], 13)) // 3
+// console.log(binarySearch([1, 3, 6, 13, 17], 12)) // -1
