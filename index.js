@@ -204,7 +204,18 @@ const arraySubset = (source, subset) => {
     }
     return true
 }
-console.log(arraySubset([2, 1, 3], [1, 2, 3])) //true
-console.log(arraySubset([2, 1, 1, 3], [1, 2, 3])) //true
-console.log(arraySubset([1, 1, 1, 3], [1, 3, 3])) //false
-console.log(arraySubset([1, 2], [1, 2, 3])) //false
+// console.log(arraySubset([2, 1, 3], [1, 2, 3])) //true
+// console.log(arraySubset([2, 1, 1, 3], [1, 2, 3])) //true
+// console.log(arraySubset([1, 1, 1, 3], [1, 3, 3])) //false
+// console.log(arraySubset([1, 2], [1, 2, 3])) //false
+
+const allAnagrams = (array) => {
+    const seen = {}
+    for (const elem of array) {
+        const sortedStr = elem.split('').sort().join('');
+        seen[sortedStr] = (seen[sortedStr] || 0) + 1
+    }
+    return Object.keys(seen).length === 1
+}
+// console.log(allAnagrams(['abcd', 'bdac', 'cabd'])) //true
+// console.log(allAnagrams(['abcd', 'bdXc', 'cabd'])) //false
