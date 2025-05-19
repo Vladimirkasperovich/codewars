@@ -170,17 +170,17 @@ const isUnique = (str) => {
 // console.log(isUnique('abcadefg')) //false
 
 
-/// need to finish this function flutten
 const flatten = (array) => {
-    if (array.length < 2) return []
     const result = [];
-    for (let i = 0; i < array.length; i++) {
-        const current = array[i]
-        if (Array.isArray(current)) {
-            result.push(...flatten(...current))
+    for (const item of array) {
+        if (Array.isArray(item)) {
+            result.push(...flatten(item))
+        } else {
+            result.push(item)
         }
-        result.push(current)
+
     }
+
     return result
 }
 console.log(flatten([[1], [[2, 3]], [[[4]]]])) // [1,2,3,4]
