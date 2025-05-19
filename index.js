@@ -171,18 +171,26 @@ const isUnique = (str) => {
 
 
 const flatten = (array) => {
-    // const result = [];
-    // for (const item of array) {
-    //     if (Array.isArray(item)) {
-    //         result.push(...flatten(item))
-    //     } else {
-    //         result.push(item)
-    //     }
-    //
-    // }
-    //
-    // return result
+    const result = [];
+    for (const item of array) {
+        if (Array.isArray(item)) {
+            result.push(...flatten(item))
+        } else {
+            result.push(item)
+        }
 
-    return array.flat(Infinity)
+    }
+
+    return result
+
+
 }
-console.log(flatten([[1], [[2, 3]], [[[4]]]])) // [1,2,3,4]
+// console.log(flatten([[1], [[2, 3]], [[[4]]]])) // [1,2,3,4]
+
+const isStringRotated = (source, test) => {
+    if (source.length !== test.length) return false;
+    return (source + source).includes(test)
+}
+// console.log(isStringRotated("javascript", "scriptjava")) //true
+// console.log(isStringRotated("javascript", "iptjavascr")) //true
+// console.log(isStringRotated("javascript", "java")) //false
