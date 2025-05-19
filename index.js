@@ -194,3 +194,17 @@ const isStringRotated = (source, test) => {
 // console.log(isStringRotated("javascript", "scriptjava")) //true
 // console.log(isStringRotated("javascript", "iptjavascr")) //true
 // console.log(isStringRotated("javascript", "java")) //false
+
+const arraySubset = (source, subset) => {
+    if (source.length < subset.length) return false;
+    for (const item of subset) {
+        const index = source.indexOf(item);
+        if (index === -1) return false;
+        delete source[index];
+    }
+    return true
+}
+console.log(arraySubset([2, 1, 3], [1, 2, 3])) //true
+console.log(arraySubset([2, 1, 1, 3], [1, 2, 3])) //true
+console.log(arraySubset([1, 1, 1, 3], [1, 3, 3])) //false
+console.log(arraySubset([1, 2], [1, 2, 3])) //false
