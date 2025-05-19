@@ -219,3 +219,26 @@ const allAnagrams = (array) => {
 }
 // console.log(allAnagrams(['abcd', 'bdac', 'cabd'])) //true
 // console.log(allAnagrams(['abcd', 'bdXc', 'cabd'])) //false
+
+
+const rotate = (array) => {
+    const result = array.map((_) => []);
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            result[j][array.length - 1 - i] = array[i][j]
+        }
+    }
+    return result
+}
+
+// const matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+// ]
+// console.log(rotate(matrix))
+//[
+//     [7, 4, 1],
+//     [8, 5, 2],
+//     [9, 6, 3],
+// ]
