@@ -171,16 +171,18 @@ const isUnique = (str) => {
 
 
 const flatten = (array) => {
-    const result = [];
-    for (const item of array) {
-        if (Array.isArray(item)) {
-            result.push(...flatten(item))
-        } else {
-            result.push(item)
-        }
+    // const result = [];
+    // for (const item of array) {
+    //     if (Array.isArray(item)) {
+    //         result.push(...flatten(item))
+    //     } else {
+    //         result.push(item)
+    //     }
+    //
+    // }
+    //
+    // return result
 
-    }
-
-    return result
+    return array.flat(Infinity)
 }
 console.log(flatten([[1], [[2, 3]], [[[4]]]])) // [1,2,3,4]
