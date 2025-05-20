@@ -285,3 +285,26 @@ const isBalanced = (str) => {
 // console.log(isBalanced('[{()}]')) //true
 // console.log(isBalanced('(50)(')) //false
 // console.log(isBalanced('[{]}')) //false
+
+class Queue {
+    #storage = {}
+    #last = 0
+    #first = 0
+
+    enqueue(item) {
+        this.#storage[this.#last] = item;
+        this.#last++
+    }
+
+    dequeue() {
+        const value = this.#storage[this.#first];
+        delete this.#storage[this.#first]
+        this.#first++
+        return value
+    }
+
+    get size() {
+        //return size
+        return this.#last - this.#first
+    }
+}
