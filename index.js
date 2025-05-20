@@ -263,3 +263,25 @@ const binarySearch = (array, target) => {
 }
 // console.log(binarySearch([1, 3, 6, 13, 17], 13)) // 3
 // console.log(binarySearch([1, 3, 6, 13, 17], 12)) // -1
+
+
+const isBalanced = (str) => {
+    const mapa = {'{': '}', '[': ']', '(': ')'}
+    const stack = []
+    for (const bracket of str) {
+        if (mapa[bracket]) {
+            stack.push(bracket)
+        } else if (Object.values(mapa).includes(bracket)) {
+            const lastSeen = stack.pop();
+            if (mapa[lastSeen] !== bracket) {
+                return false
+            }
+        }
+    }
+    return stack.length === 0;
+}
+// console.log(isBalanced('(x + y) - (4)')) //true
+// console.log(isBalanced('((()))')) //true
+// console.log(isBalanced('[{()}]')) //true
+// console.log(isBalanced('(50)(')) //false
+// console.log(isBalanced('[{]}')) //false
