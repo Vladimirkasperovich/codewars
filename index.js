@@ -308,3 +308,65 @@ class Queue {
         return this.#last - this.#first
     }
 }
+
+Array.prototype.findUnique = function () {
+    const arr = this;
+    const map = new Set();
+    for (const elem of arr) {
+        if (!map.has(elem)) {
+            map.add(elem)
+        } else {
+            map.delete(elem)
+        }
+    }
+
+    return [...map]
+}
+
+// const arr = [10, 5, 10, 0, 6, 6, 7, 2, 9, 9] //[5, 0, 7, 2]
+// console.log(arr.findUnique())
+
+const callLimit = (fn, limit, callback) => {
+    let maxLimit = limit
+
+    function limited(title, value) {
+        if (maxLimit <= 0) {
+            callback?.();
+            return;
+        }
+        maxLimit -= 1
+        fn(title, value)
+
+    }
+
+    limited.reset = () => {
+        console.log("Clear counter")
+        maxLimit = limit
+    }
+
+    return limited
+}
+
+// const log = (title, message) => {
+//     console.log(title + ": " + message)
+// }
+//
+// const logLimited = callLimit(log, 3)
+//
+// logLimited('title', 'desc');
+// //title:desc
+// logLimited('title2', 'desc');
+// //title2:desc
+// logLimited('title3', 'desc');
+// //title3:desc
+// logLimited('title4', 'desc');
+// //nothing
+// logLimited.reset()
+// //update counter, you again can call this function 3 times
+// logLimited('title5', 'desc');
+// ////title5:desc
+// logLimited('title6', 'desc');
+// ////title6:desc
+
+
+
