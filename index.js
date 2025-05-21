@@ -369,4 +369,41 @@ const callLimit = (fn, limit, callback) => {
 // ////title6:desc
 
 
+const myPromiseAll = (pr) => {
+    let count = 0;
+    const result = []
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < pr.length; i++) {
+            pr[i].then((data) => {
+                result[i] = data
+                count += 1;
+                if (count === pr.length) resolve(result)
+            })
+
+            pr[i].catch((err) => {
+                reject(err)
+                 throw err
+            })
+
+
+        }
+    })
+}
+
+
+// const promises1 = [
+//     Promise.resolve(1),
+//     Promise.resolve(2),
+//     Promise.resolve(3),
+// ];
+//
+// const promises2 = [
+//     Promise.reject(1),
+//     Promise.resolve(2),
+//     Promise.resolve(3),
+// ];
+//
+// myPromiseAll(promises1).then((data) => console.log(data))
+// myPromiseAll(promises2).catch((err) => console.log(err))
+
 
