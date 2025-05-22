@@ -382,7 +382,7 @@ const myPromiseAll = (pr) => {
 
             pr[i].catch((err) => {
                 reject(err)
-                 throw err
+                throw err
             })
 
 
@@ -407,3 +407,27 @@ const myPromiseAll = (pr) => {
 // myPromiseAll(promises2).catch((err) => console.log(err))
 
 
+const canCompleteCircuit = (gas, cost) => {
+    const gasSum = gas.reduce((accum, curr) => accum + curr, 0)
+    const total = cost.reduce((accum, curr) => accum + curr, 0)
+    let tank = 0;
+    let startIndex = 0;
+
+    if (gasSum < total) return -1
+
+    for (let i = 0; i < gas.length; i++) {
+        const currentGas = gas[i];
+        const currentCost = cost[i];
+        tank += currentGas - currentCost;
+
+        if (tank < 0) {
+            tank = 0;
+            startIndex = i + 1;
+        }
+    }
+
+    return startIndex
+}
+
+// console.log(canCompleteCircuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])) //3
+// console.log(canCompleteCircuit([2, 3, 4], [3, 4, 3])) //-1
