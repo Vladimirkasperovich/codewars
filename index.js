@@ -431,3 +431,16 @@ const canCompleteCircuit = (gas, cost) => {
 
 // console.log(canCompleteCircuit([1, 2, 3, 4, 5], [3, 4, 5, 1, 2])) //3
 // console.log(canCompleteCircuit([2, 3, 4], [3, 4, 3])) //-1
+
+const hIndex = (citations) => {
+    citations.sort((a, b) => b - a)
+
+    for (let i = 0; i < citations.length; i++) {
+        if (citations[i] < i + 1)
+            return i
+    }
+    return citations.length
+}
+
+// console.log(hIndex([3, 0, 6, 1, 5]))// 3
+// console.log(hIndex([1, 3, 1]))//1
