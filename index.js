@@ -444,3 +444,27 @@ const hIndex = (citations) => {
 
 // console.log(hIndex([3, 0, 6, 1, 5]))// 3
 // console.log(hIndex([1, 3, 1]))//1
+
+const checkBrackets = (str) => {
+    const seenBrackets = {'{': '}', '[': ']', '(': ')'}
+    const stack = [];
+
+    for (const bracket of str.replaceAll(' ', '')) {
+        if (seenBrackets[bracket]) {
+            stack.push(bracket)
+        } else {
+                const lastElem = stack.pop()
+                if (seenBrackets[lastElem] !== bracket) {
+                    return false
+                }
+
+        }
+    }
+
+    return !stack.length
+}
+
+// console.log(checkBrackets('{} [] ()')) // true
+// console.log(checkBrackets('{ [()] }')) //true
+// console.log(checkBrackets('{{ ][ ))')) //false
+
