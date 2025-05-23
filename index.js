@@ -506,3 +506,13 @@ const removeDuplicates = (arr) => {
 // console.log(removeDuplicates([1, 2, 3, 4, 4, 5, 1])) //[2, 3, 5]
 // console.log(removeDuplicates([1, 1, 1, 2])) //[2]
 // console.log(removeDuplicates([1, 1])) //[]
+
+const reverseWords2 = (str) => {
+    const arr = str.trim().split(' ')
+    return arr.reduceRight((accum, curr) => accum + curr + ' ', '').trim()
+}
+
+// console.log(reverseWords2('Hello world')) // world Hello
+// console.log(reverseWords2('The quick brown fox')) // fox brown quick The
+// console.log(reverseWords2('Hi! How are you?')) // you? are How Hi!
+// console.log(reverseWords2(' JavaScript is great  ')) //"great is JavaScript"
