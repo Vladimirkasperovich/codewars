@@ -453,10 +453,10 @@ const checkBrackets = (str) => {
         if (seenBrackets[bracket]) {
             stack.push(bracket)
         } else {
-                const lastElem = stack.pop()
-                if (seenBrackets[lastElem] !== bracket) {
-                    return false
-                }
+            const lastElem = stack.pop()
+            if (seenBrackets[lastElem] !== bracket) {
+                return false
+            }
 
         }
     }
@@ -468,3 +468,28 @@ const checkBrackets = (str) => {
 // console.log(checkBrackets('{ [()] }')) //true
 // console.log(checkBrackets('{{ ][ ))')) //false
 
+
+const promiseAll = (promises) => {
+    const result = [];
+    let resolvedPromisesCount = 0;
+
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < promises.length; i++) {
+            const promise = promises[i];
+
+            promise
+                .then((data) => {
+                    resolvedPromisesCount += 1;
+                    result[i] = data
+                    if (resolvedPromisesCount === promises.length) resolve(result)
+                })
+                .catch((err) => reject(err))
+
+        }
+    })
+}
+
+// promiseAll([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)])
+//     .then(data => console.log(data))//[]
+// promiseAll([Promise.reject('some error'), Promise.resolve(1), Promise.resolve(2)])
+//     .catch((err) => console.log(err)) //reason
