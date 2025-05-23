@@ -493,3 +493,16 @@ const promiseAll = (promises) => {
 //     .then(data => console.log(data))//[]
 // promiseAll([Promise.reject('some error'), Promise.resolve(1), Promise.resolve(2)])
 //     .catch((err) => console.log(err)) //reason
+
+const removeDuplicates = (arr) => {
+    const count = {};
+
+    for (const arrElement of arr) {
+        count[arrElement] = (count[arrElement] || 0) + 1;
+    }
+
+    return arr.filter((item) => count[item] === 1)
+}
+// console.log(removeDuplicates([1, 2, 3, 4, 4, 5, 1])) //[2, 3, 5]
+// console.log(removeDuplicates([1, 1, 1, 2])) //[2]
+// console.log(removeDuplicates([1, 1])) //[]
