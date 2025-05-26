@@ -551,9 +551,9 @@ const threeSum = (nums) => {
         for (let j = i + 1; j < nums.length; j++) {
             for (let k = j + 1; k < nums.length; k++) {
                 if (nums[i] + nums[j] + nums[k] === 0) {
-                    const triplet = [nums[i], nums[j], nums[k]].sort((a,b) => a - b)
+                    const triplet = [nums[i], nums[j], nums[k]].sort((a, b) => a - b)
                     const key = triplet.join(',')
-                    if (!seen.has(key)){
+                    if (!seen.has(key)) {
                         seen.add(key);
                         result.push(triplet)
                     }
@@ -567,3 +567,13 @@ const threeSum = (nums) => {
 // console.log(threeSum([-1, 0, 1, 2, -1, -4])) // [[-1,-1,2],[-1,0,1]]
 // console.log(threeSum([0, 1, 1])) // []
 // console.log(threeSum([0, 0, 0])) //[[0,0,0]]
+
+
+const _map = (arr, fn) => {
+    const result = [];
+    arr.forEach((item, index, initial) => {
+        result.push(fn(item, index, initial))
+    })
+    return result
+}
+// console.log(_map([1, 2, 3, 4, 5], (n) => n * 2)) //[2, 4, 6, 8, 10]
