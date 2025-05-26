@@ -516,3 +516,29 @@ const reverseWords2 = (str) => {
 // console.log(reverseWords2('The quick brown fox')) // fox brown quick The
 // console.log(reverseWords2('Hi! How are you?')) // you? are How Hi!
 // console.log(reverseWords2(' JavaScript is great  ')) //"great is JavaScript"
+
+const longestConsecutive = (nums) => {
+    if (!nums.length) return 0;
+
+    let count = 1;
+    let maxCount = 1
+    const arr = [...new Set(nums)].sort((a, b) => a - b);
+
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        const curr = arr[i];
+        const next = arr[i + 1];
+        if ((next - curr) === 1) {
+            count += 1;
+        } else {
+            count = 1
+        }
+        maxCount = Math.max(maxCount, count)
+
+    }
+
+    return maxCount;
+}
+
+// console.log(longestConsecutive([2, 20, 4, 10, 3, 4, 5])) // 4
+// console.log(longestConsecutive([0, 3, 2, 5, 4, 6, 1, 1])) //7
