@@ -596,3 +596,20 @@ const _binarySearch = (list, target) => {
 }
 // console.log(_binarySearch([1, 2, 3, 5, 7, 10], 7)) //4
 // console.log(_binarySearch([1, 2, 3, 4, 5, 6], 7)) //null
+
+
+const quickSort = (arr) => {
+    if (arr.length <= 1) return arr;
+    const less = [];
+    const great = [];
+    let pivot = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+        const current = arr[i];
+        if (current <= pivot) less.push(current)
+        else great.push(current)
+    }
+    return [...quickSort(less), pivot, ...quickSort(great)]
+}
+
+// console.log(quickSort([1, 5, 2, 3, 6, 4, 7, 0])) // [0, 1, 2, 3, 4, 5, 6, 7]
+// console.log(quickSort([1, 3, 2, 4, 6, 5])) //[1, 2, 3, 4, 5, 6]
