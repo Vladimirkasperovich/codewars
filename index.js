@@ -577,3 +577,22 @@ const _map = (arr, fn) => {
     return result
 }
 // console.log(_map([1, 2, 3, 4, 5], (n) => n * 2)) //[2, 4, 6, 8, 10]
+
+const _binarySearch = (list, target) => {
+    let start = 0;
+    let end = list.length - 1;
+
+    while (start <= end) {
+        const mid = Math.floor((start + end) / 2)
+        if (list[mid] === target) {
+            return mid;
+        } else if (target < list[mid]) {
+            end = mid - 1
+        } else {
+            start = mid + 1
+        }
+    }
+    return null
+}
+// console.log(_binarySearch([1, 2, 3, 5, 7, 10], 7)) //4
+// console.log(_binarySearch([1, 2, 3, 4, 5, 6], 7)) //null
