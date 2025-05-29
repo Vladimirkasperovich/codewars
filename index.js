@@ -615,18 +615,28 @@ const quickSort = (arr) => {
 // console.log(quickSort([1, 3, 2, 4, 6, 5])) //[1, 2, 3, 4, 5, 6]
 
 const mergeInterval = (intervals) => {
-   if (intervals.length < 2) return intervals;
-   intervals.sort((a, b) => a[0] - b[0]);
-   const result = [intervals[0]];
+    if (intervals.length < 2) return intervals;
+    intervals.sort((a, b) => a[0] - b[0]);
+    const result = [intervals[0]];
     for (const interval of intervals) {
         const recent = result[result.length - 1];
-        if (recent[1] >= interval[0]){
+        if (recent[1] >= interval[0]) {
             recent[1] = Math.max(recent[1], interval[1])
-        }else {
+        } else {
             result.push(interval)
         }
     }
-   return result;
+    return result;
 }
 // console.log(mergeInterval([[1, 3], [2, 6], [8, 10], [15, 18]])) //[[1,6], [8,10], [15,18]]
 // console.log(mergeInterval([[1, 4], [1, 5]])) //[[1,5]]
+
+const checkAlphabet = (str) => {
+   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+   const lowerStr = str.toLowerCase();
+
+   return [...alphabet].every((word) => lowerStr.includes(word))
+}
+
+// console.log(checkAlphabet('ABCDEFGHIJKLMNOPQRSTUVWXYZ')) //true
+// console.log(checkAlphabet('abcd')) //false
