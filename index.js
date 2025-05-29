@@ -632,11 +632,35 @@ const mergeInterval = (intervals) => {
 // console.log(mergeInterval([[1, 4], [1, 5]])) //[[1,5]]
 
 const checkAlphabet = (str) => {
-   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-   const lowerStr = str.toLowerCase();
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    const lowerStr = str.toLowerCase();
 
-   return [...alphabet].every((word) => lowerStr.includes(word))
+    return [...alphabet].every((word) => lowerStr.includes(word))
 }
 
 // console.log(checkAlphabet('ABCDEFGHIJKLMNOPQRSTUVWXYZ')) //true
 // console.log(checkAlphabet('abcd')) //false
+
+const isValidateBrackets = (str) => {
+    const mapa = {'{': '}', '[': ']', '(': ')'};
+    const stack = [];
+
+    for (const bracket of str) {
+        if (mapa[bracket]) {
+            stack.push(bracket)
+        } else if (Object.values(mapa).includes(bracket)) {
+            const last = stack.pop()
+            if (mapa[last] !== bracket) {
+                return false
+            }
+        }
+
+    }
+
+    return !stack.length
+}
+// console.log(isValidateBrackets('{}')) //true
+// console.log(isValidateBrackets('}')) //false
+// console.log(isValidateBrackets('{[}]')) //false
+// console.log(isValidateBrackets('[{[]}()]')) //true
+// console.log(isValidateBrackets('{qw}e')) //true
