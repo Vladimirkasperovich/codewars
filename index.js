@@ -665,21 +665,3 @@ const isValidateBrackets = (str) => {
 // console.log(isValidateBrackets('[{[]}()]')) //true
 // console.log(isValidateBrackets('{qw}e')) //true
 
-const longestCommonPrefix = (strs) => {
-    const prefix = strs[0]
-    for (let i = 1; i < strs.length; i++) {
-        const str = strs[i];
-        for (let j = 0; j < prefix.length; j++) {
-            if (str[j] === prefix[j]) {
-                console.log(prefix[j])
-            } else {
-                return ''
-            }
-        }
-    }
-
-    // return firstStr
-}
-
-// console.log(longestCommonPrefix(["flower", "flow", "flight"])) //"fl"
-// console.log(longestCommonPrefix(["dog", "racecar", "car"])) //""
