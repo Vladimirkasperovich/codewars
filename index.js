@@ -665,3 +665,12 @@ const isValidateBrackets = (str) => {
 // console.log(isValidateBrackets('[{[]}()]')) //true
 // console.log(isValidateBrackets('{qw}e')) //true
 
+
+// const wordPattern = (pattern, s) => {
+//     // return [...new Set(pattern)].length === [...new Set(s.split(' '))].length;
+//     return {'1': [...new Set(pattern)], '2': [...new Set(s.split(' '))]}
+// };
+//
+// console.log(wordPattern("abba", "dog cat cat dog")) //true
+// console.log(wordPattern("abba", "dog cat cat fish")) //false
+// console.log(wordPattern("aaaa", "dog cat cat dog")) //false
