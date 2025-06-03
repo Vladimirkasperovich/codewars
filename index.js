@@ -674,3 +674,18 @@ const isValidateBrackets = (str) => {
 // console.log(wordPattern("abba", "dog cat cat dog")) //true
 // console.log(wordPattern("abba", "dog cat cat fish")) //false
 // console.log(wordPattern("aaaa", "dog cat cat dog")) //false
+
+const multiply = (a, b) => a * b
+const sqr = (a) => a ** 2
+const plusThree = (a) => a + 3
+
+const currying = (...fns) => {
+    return (...args) => {
+        const restFns = fns.slice(0, -1)
+        const res = fns[fns.length - 1](...args)
+        return restFns.reduceRight((acc, cur) => cur(acc), res)
+
+    }
+}
+
+// console.log(currying(plusThree, sqr, multiply)(2, 5)) //plusThree(sqr(multiply(2,5)))
