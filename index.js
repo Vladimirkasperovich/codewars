@@ -697,3 +697,18 @@ const currying = (...fns) => {
 // b = c
 //
 // console.log(a, b)
+
+const reverseArr = (arr) => {
+    let start = 0; // индекс от нуля который растет
+    let end = arr.length - 1 // индекс длинна - 1 которая уменьшается
+
+    while (start < end){
+        const temp = arr[start] //элемент массива, который меняется на каждой итерации
+        arr[start] = arr[end] //в начало массива кладем элементы из конца
+        arr[end] = temp //в конец кладем элементы начала
+        start++ // инкремент
+        end-- // декремент
+    }
+    return arr // возвращаем мутированный массив
+}
+// console.log(reverseArr([9, 7, 6, 3, 5, 4, 2, 8, 1])) //[1, 8, 2, 4, 5, 3, 6, 7, 9
