@@ -689,3 +689,11 @@ const currying = (...fns) => {
 }
 
 // console.log(currying(plusThree, sqr, multiply)(2, 5)) //plusThree(sqr(multiply(2,5)))
+
+// let a = 1
+// let b = 15
+// let c = a;
+// a = b
+// b = c
+//
+// console.log(a, b)
