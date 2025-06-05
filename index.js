@@ -723,3 +723,17 @@ const isSubsequence = (s, t) => {
 // console.log(isSubsequence("abc", "ahbgdc")) //true
 // console.log(isSubsequence("axc", "ahbgdc")) //false
 // console.log(isSubsequence("ab", "baab")) //true
+
+const canJump = (nums) => {
+    let longestIndex = 0
+    for (let i = 0; i < nums.length; i++) {
+        const current = nums[i]
+        if (i > longestIndex) {
+            return false
+        }
+        longestIndex = Math.max(longestIndex, i + current)
+    }
+    return true
+}
+// console.log(canJump([2, 3, 1, 1, 4])) //true
+// console.log(canJump([3, 2, 1, 0, 4])) // false
