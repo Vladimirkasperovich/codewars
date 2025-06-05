@@ -737,3 +737,33 @@ const canJump = (nums) => {
 }
 // console.log(canJump([2, 3, 1, 1, 4])) //true
 // console.log(canJump([3, 2, 1, 0, 4])) // false
+
+
+const slowFn = (x) => {
+    console.log('called with', x);
+    return x * 2;
+};
+
+const memoize = (fn) => {
+    const cache = new Map()
+    return (arg) => {
+        if (!cache.has(arg)) {
+            const res = fn(arg)
+            cache.set(arg, res)
+        }
+        return cache.get(arg)
+
+    }
+}
+
+// // Создаём кешированную версию
+// const memoizedFn = memoize(slowFn);
+
+// // Тесты
+// console.log(memoizedFn(5)); // called with 5 → 10
+// console.log(memoizedFn(5)); // (ничего не выводится в консоль) → 10 (взято из кеша)
+//
+// console.log(memoizedFn(10)); // called with 10 → 20
+// console.log(memoizedFn(10)); // → 20 (взято из кеша)
+
+
