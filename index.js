@@ -702,7 +702,7 @@ const reverseArr = (arr) => {
     let start = 0; // индекс от нуля который растет
     let end = arr.length - 1 // индекс длинна - 1 которая уменьшается
 
-    while (start < end){
+    while (start < end) {
         const temp = arr[start] //элемент массива, который меняется на каждой итерации
         arr[start] = arr[end] //в начало массива кладем элементы из конца
         arr[end] = temp //в конец кладем элементы начала
@@ -712,3 +712,14 @@ const reverseArr = (arr) => {
     return arr // возвращаем мутированный массив
 }
 // console.log(reverseArr([9, 7, 6, 3, 5, 4, 2, 8, 1])) //[1, 8, 2, 4, 5, 3, 6, 7, 9
+
+const isSubsequence = (s, t) => {
+    let i = 0;
+    for (const tElement of t) {
+        if (tElement === s[i]) i++
+    }
+    return i === s.length
+}
+// console.log(isSubsequence("abc", "ahbgdc")) //true
+// console.log(isSubsequence("axc", "ahbgdc")) //false
+// console.log(isSubsequence("ab", "baab")) //true
