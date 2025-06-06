@@ -783,3 +783,23 @@ const rotateArray = (nums, k) => {
 
 // console.log(rotateArray([1, 2, 3, 4, 5, 6, 7], 3)) //[5,6,7,1,2,3,4]
 // console.log(rotateArray([-1, -100, 3, 99], 2)) //[3,99,-1,-100]
+
+
+const candy = (ratings) => {
+    const res = Array(ratings.length).fill(1);
+    for (let i = 0; i < ratings.length; i++) {
+        if (ratings[i] > ratings[i - 1]) {
+            res[i] = res[i - 1] + 1
+        }
+    }
+
+    for (let i = ratings.length; i >= 0; i--) {
+        if (ratings[i] > ratings[i + 1]) {
+            res[i] = Math.max(res[i], res[i + 1] + 1)
+        }
+    }
+
+    return res
+}
+// console.log(candy([1, 0, 2])) //5
+// console.log(candy([1, 2, 2])) //4
