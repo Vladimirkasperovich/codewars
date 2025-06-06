@@ -743,7 +743,6 @@ const slowFn = (x) => {
     console.log('called with', x);
     return x * 2;
 };
-
 const memoize = (fn) => {
     const cache = new Map()
     return (arg) => {
@@ -766,4 +765,21 @@ const memoize = (fn) => {
 // console.log(memoizedFn(10)); // called with 10 → 20
 // console.log(memoizedFn(10)); // → 20 (взято из кеша)
 
+const rotateArray = (nums, k) => {
+    k = k % nums.length
 
+    const reverse = (arr, start, end) => {
+        while (start < end) {
+            [arr[start], arr[end]] = [arr[end], arr[start]];
+            start++
+            end--
+        }
+    }
+    reverse(nums, 0, nums.length - 1)
+    reverse(nums, 0, k - 1)
+    reverse(nums, k, nums.length - 1)
+    return nums
+};
+
+// console.log(rotateArray([1, 2, 3, 4, 5, 6, 7], 3)) //[5,6,7,1,2,3,4]
+// console.log(rotateArray([-1, -100, 3, 99], 2)) //[3,99,-1,-100]
