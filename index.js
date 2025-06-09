@@ -803,3 +803,48 @@ const candy = (ratings) => {
 }
 // console.log(candy([1, 0, 2])) //5
 // console.log(candy([1, 2, 2])) //4
+
+
+// const groupByCity = (array) => {
+//     const seenCity = {};
+//     array.forEach(({name, city}) => {
+//         if (!seenCity[city]) {
+//             seenCity[city] = name;
+//         } else if (typeof seenCity[city] === 'string') {
+//             seenCity[city] = [seenCity[city], name]
+//         } else {
+//             seenCity[city].push(name)
+//         }
+//     })
+//
+//     return seenCity
+// }
+//
+// const peoples = [
+//     {
+//         name: 'Alex',
+//         city: 'Moscow',
+//     },
+//     {
+//         name: 'Ivan',
+//         city: 'Moscow',
+//     },
+//     {
+//         name: 'Joe',
+//         city: 'New York'
+//     },
+//     {
+//         name: 'Johan',
+//         city: 'Berlin'
+//     },
+// ]
+// console.log(groupByCity(peoples))
+// Данные на выход
+/*
+{
+  'Moscow': [ 'Alex', 'Ivan' ],
+  'New York': 'Joe',
+  'Berlin': 'Johan'
+}
+*/
+
