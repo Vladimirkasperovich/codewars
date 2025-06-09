@@ -848,21 +848,21 @@ const candy = (ratings) => {
 }
 */
 
-const object = {
-    a: {
-        d: {
-            h: 4
-        },
-        e: 2
-    },
-    b: 1,
-    c: {
-        f: {
-            g: 3,
-            k: {}
-        }
-    }
-};
+// const object = {
+//     a: {
+//         d: {
+//             h: 4
+//         },
+//         e: 2
+//     },
+//     b: 1,
+//     c: {
+//         f: {
+//             g: 3,
+//             k: {}
+//         }
+//     }
+// };
 
 const addLevels = (obj, level = 0) => {
     const res = {};
@@ -886,3 +886,33 @@ updatedObject {
   c: { f: { g: 3, k: [Object], level: 2 }, level: 1 },
   level: 0
 }*/
+
+// const obj = {
+//     a: {
+//         b: {
+//             c: 1,
+//             d: 2
+//         },
+//         e: 3
+//     },
+//     f: 4
+// };
+//
+// const flattenObject = (obj, prefix = '') => {
+//     const result = {};
+//
+//     for (const key in obj) {
+//         const fullKey = prefix ? `${prefix}.${key}` : key
+//         if (obj[key] && typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+//             const child = flattenObject(obj[key], fullKey)
+//             Object.assign(result, child)
+//         } else {
+//             result[fullKey] = obj[key]
+//         }
+//     }
+//     return result
+// }
+//
+// const flattenedObj = flattenObject(obj);
+// console.log(flattenedObj);
+// Ожидаемый результат: { 'a.b.c': 1, 'a.b.d': 2, 'a.e': 3, 'f': 4 } || { "f": 4, "a.e": 3, "a.b.c": 1, "a.b.d": 2 }
