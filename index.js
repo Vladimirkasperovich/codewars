@@ -848,3 +848,41 @@ const candy = (ratings) => {
 }
 */
 
+const object = {
+    a: {
+        d: {
+            h: 4
+        },
+        e: 2
+    },
+    b: 1,
+    c: {
+        f: {
+            g: 3,
+            k: {}
+        }
+    }
+};
+
+const addLevels = (obj, level = 0) => {
+    const res = {};
+    for (const key in obj) {
+        if (obj[key] && typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            res[key] = addLevels(obj[key], level + 1)
+        } else {
+            res[key] = obj[key]
+        }
+    }
+    res.level = level
+    return res;
+}
+
+// console.log(addLevels(object))
+// Данные на выход
+/*
+updatedObject {
+  a: { d: { h: 4, level: 2 }, e: 2, level: 1 },
+  b: 1,
+  c: { f: { g: 3, k: [Object], level: 2 }, level: 1 },
+  level: 0
+}*/
