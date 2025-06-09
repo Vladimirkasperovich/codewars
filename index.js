@@ -916,3 +916,15 @@ updatedObject {
 // const flattenedObj = flattenObject(obj);
 // console.log(flattenedObj);
 // Ожидаемый результат: { 'a.b.c': 1, 'a.b.d': 2, 'a.e': 3, 'f': 4 } || { "f": 4, "a.e": 3, "a.b.c": 1, "a.b.d": 2 }
+
+
+const palindrome = (str) => {
+    const res = str.toLowerCase().replace(/[^a-za-яё0-9]/g, '')
+    return res === str.toLowerCase().replace(/[^a-zа-яё0-9]/g, '').split('').reverse().join('')
+}
+
+// console.log(palindrome('Казак ')) //true
+// console.log(palindrome('Madam, I\'m Adam')) //true
+// console.log(palindrome('А в Енисее - синева')) //true
+// console.log(palindrome('О, духи, от уборки микробу-то и худо')) //true
+// console.log(palindrome('Не палиндром')) //false
