@@ -928,3 +928,35 @@ const palindrome = (str) => {
 // console.log(palindrome('А в Енисее - синева')) //true
 // console.log(palindrome('О, духи, от уборки микробу-то и худо')) //true
 // console.log(palindrome('Не палиндром')) //false
+
+
+const anagram = (strA, strB) => {
+    const a = strA.toLowerCase().replace(/[^a-zа-яё0-9]/g, '').split('').sort().join('');
+    const b = strB.toLowerCase().replace(/[^a-zа-яё0-9]/g, '').split('').sort().join('')
+    return a === b
+}
+
+// console.log(anagram('finder', 'Friend')) // true
+// console.log(anagram('hello', 'bye')) // false
+
+const transformStringToObject = (str) => {
+    const result = {};
+    let current = result;
+    for (const elem of str.split('.')) {
+        current[elem] = {}
+        current = current[elem]
+    }
+    return result;
+}
+// console.log(transformStringToObject('one.two.three.four.five'))
+/*{
+  one: {
+    two: {
+      three: {
+        four: {
+          five: }
+        }
+      }
+    }
+  }
+}*/
