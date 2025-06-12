@@ -970,3 +970,22 @@ const hasDuplicate = (nums) => {
 }
 // console.log(hasDuplicate([1, 2, 3, 3])) //true
 // console.log(hasDuplicate([1, 2, 3, 4])) //false
+
+
+const twoSumRep = (nums, target) => {
+    const result = []
+    const seenNums = new Map();
+    for (let i = 0; i < nums.length; i++) {
+         const num = nums[i];
+         const diff = target - num;
+         if (seenNums.has(diff)){
+             result.push(seenNums.get(diff), i)
+         }
+         seenNums.set(num, i)
+    }
+    return result
+}
+
+// console.log(twoSumRep([3, 4, 5, 6], 7)) //[0,1]
+// console.log(twoSumRep([4, 5, 6], 10)) //[0,2]
+// console.log(twoSumRep([5, 5], 10)) //[0,1]
