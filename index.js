@@ -960,3 +960,13 @@ const transformStringToObject = (str) => {
     }
   }
 }*/
+
+const hasDuplicate = (nums) => {
+    const seen = {};
+    for (const num of nums) {
+        seen[num] = num
+    }
+    return Object.values(seen).length !== nums.length
+}
+// console.log(hasDuplicate([1, 2, 3, 3])) //true
+// console.log(hasDuplicate([1, 2, 3, 4])) //false
