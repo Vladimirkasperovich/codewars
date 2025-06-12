@@ -976,12 +976,12 @@ const twoSumRep = (nums, target) => {
     const result = []
     const seenNums = new Map();
     for (let i = 0; i < nums.length; i++) {
-         const num = nums[i];
-         const diff = target - num;
-         if (seenNums.has(diff)){
-             result.push(seenNums.get(diff), i)
-         }
-         seenNums.set(num, i)
+        const num = nums[i];
+        const diff = target - num;
+        if (seenNums.has(diff)) {
+            result.push(seenNums.get(diff), i)
+        }
+        seenNums.set(num, i)
     }
     return result
 }
@@ -989,3 +989,12 @@ const twoSumRep = (nums, target) => {
 // console.log(twoSumRep([3, 4, 5, 6], 7)) //[0,1]
 // console.log(twoSumRep([4, 5, 6], 10)) //[0,2]
 // console.log(twoSumRep([5, 5], 10)) //[0,1]
+
+
+// for (var i = []; i.length < 3; i.push(1)) {
+//     // console.log('I', i)
+//     const j = [...i]
+//     setTimeout(() => {
+//         console.log(j)
+//     }, i.length * 1000)
+// }
