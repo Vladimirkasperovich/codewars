@@ -1048,3 +1048,30 @@ const sortEvenNumbers = (arr) => {
     return arr.map((el) => el % 2 !== 0 ? el : even[evenIndex++])
 }
 // console.log(sortEvenNumbers([3, 8, 2, 1, 5, 6, 4, 9, 7])) //[3, 2, 4, 1, 5, 6, 8, 9, 7]
+
+
+const ranges = (arr) => {
+    const sorted = [...arr].sort((a, b) => a - b);
+    let output = "";
+    let strRange = null
+    let flag = false;
+    for (let i = 0; i < sorted.length; i++) {
+        const current = sorted[i];
+        const next = sorted[i + 1];
+
+        if (current === next - 1) {
+            if (flag) continue
+            strRange = current
+            flag = true;
+        } else {
+            output += `${strRange ? strRange + "-" : ''}${current},`
+            strRange = null
+            flag = false;
+        }
+
+    }
+    return output.slice(0, -1)
+}
+// console.log(ranges([1, 4, 5, 2, 3, 9, 8, 11, 0])) // "0-5,8-9,11"
+// console.log(ranges([1, 4, 3, 2])) //"1-4"
+// console.log(ranges([1, 4])) //"1,4"
