@@ -1099,3 +1099,20 @@ const promiseAny = (promises) => {
 // promiseAny([Promise.resolve('1'), Promise.resolve('2'), Promise.resolve('3')]).then((data) => console.log(data)) //1
 // promiseAny([Promise.reject('1'), Promise.reject('2'), Promise.resolve('3')]).then((data) => console.log(data)) //3
 // promiseAny([Promise.reject('err1'), Promise.reject('err2'), Promise.reject('err3')]).catch(err => console.log(err)) //reject
+
+
+const tribonacci = (input) => {
+    let a = 0;
+    let b = 1;
+    let c = 1;
+
+    for (let i = 3; i <= input; i++) {
+      let sum = a + b + c;
+      a = b;
+      b = c;
+      c = sum
+    }
+    return c
+}
+// console.log(tribonacci(4)) //4
+// console.log(tribonacci(25)) //1389537
