@@ -998,3 +998,21 @@ const twoSumRep = (nums, target) => {
 //         console.log(j)
 //     }, i.length * 1000)
 // }
+
+
+const twoSumNow = (numbers, target) => {
+    const seen = new Map();
+    const arr = [];
+    numbers.forEach((number, index) => {
+        const diff = target - number;
+        if (seen.has(diff)) {
+            arr.push(seen.get(diff) + 1, index + 1)
+        }
+        seen.set(number, index)
+    })
+
+    return arr
+}
+
+// console.log(twoSumNow([1, 2, 3, 4], 3)) //[1, 2]
+// console.log(twoSumNow([2,3,4], 6)) //[1,3]
