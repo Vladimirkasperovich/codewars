@@ -1016,3 +1016,28 @@ const twoSumNow = (numbers, target) => {
 
 // console.log(twoSumNow([1, 2, 3, 4], 3)) //[1, 2]
 // console.log(twoSumNow([2,3,4], 6)) //[1,3]
+
+const obj = {
+    a: {
+        b: {
+            c: 'd'
+        },
+        e: 'f'
+    }
+}
+
+const getValueFromObject = (obj, path) => {
+    const arr = path.split('.')
+    let current = obj;
+    for (const key of arr) {
+        if (current && key in current) {
+            current = current[key]
+        } else {
+            return null
+        }
+    }
+    return current
+}
+// console.log(getValueFromObject(obj, 'a.b')) // {c: 'd'}
+// console.log(getValueFromObject(obj, 'a.b.c')) // d
+// console.log(getValueFromObject(obj, 'a.e')) //f
