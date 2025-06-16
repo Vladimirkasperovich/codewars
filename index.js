@@ -1041,3 +1041,10 @@ const getValueFromObject = (obj, path) => {
 // console.log(getValueFromObject(obj, 'a.b')) // {c: 'd'}
 // console.log(getValueFromObject(obj, 'a.b.c')) // d
 // console.log(getValueFromObject(obj, 'a.e')) //f
+
+const sortEvenNumbers = (arr) => {
+    let evenIndex = 0
+    const even = arr.filter((el) => el % 2 === 0).sort((a, b) => a - b)
+    return arr.map((el) => el % 2 !== 0 ? el : even[evenIndex++])
+}
+// console.log(sortEvenNumbers([3, 8, 2, 1, 5, 6, 4, 9, 7])) //[3, 2, 4, 1, 5, 6, 8, 9, 7]
