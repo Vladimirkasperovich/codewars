@@ -1072,6 +1072,30 @@ const ranges = (arr) => {
     }
     return output.slice(0, -1)
 }
+
 // console.log(ranges([1, 4, 5, 2, 3, 9, 8, 11, 0])) // "0-5,8-9,11"
 // console.log(ranges([1, 4, 3, 2])) //"1-4"
 // console.log(ranges([1, 4])) //"1,4"
+
+
+const promiseAny = (promises) => {
+    let count = 0;
+    const rejectErr = []
+    if (!promises.length) return Promise.reject(new AggregateError([], 'All promises were rejected'))
+    return new Promise((resolve, reject) => {
+        for (let index = 0; index < promises.length; index++) {
+            const promise = promises[index];
+            Promise.resolve(promise).then(resolve).catch((err) => {
+                count += 1
+                rejectErr[index] = err
+                if (count === promises.length) {
+                    reject(new AggregateError(rejectErr, 'All promises were rejected'))
+                }
+            })
+        }
+    })
+}
+
+// promiseAny([Promise.resolve('1'), Promise.resolve('2'), Promise.resolve('3')]).then((data) => console.log(data)) //1
+// promiseAny([Promise.reject('1'), Promise.reject('2'), Promise.resolve('3')]).then((data) => console.log(data)) //3
+// promiseAny([Promise.reject('err1'), Promise.reject('err2'), Promise.reject('err3')]).catch(err => console.log(err)) //reject
