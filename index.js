@@ -22,21 +22,7 @@ const groupByCity = (array) => {
 //     'New York': 'Joe',
 //     'Berlin': 'Johan'
 // }*/
-const object = {
-    a: {
-        d: {
-            h: 4
-        },
-        e: 2
-    },
-    b: 1,
-    c: {
-        f: {
-            g: 3,
-            k: {}
-        }
-    }
-};
+
 
 const addLevels = (obj, level = 0) => {
     const result = {};
@@ -60,3 +46,58 @@ updatedObject {
   level: 0
 }*/
 // console.log(addLevels(object))
+// const obj = {
+//     a: {
+//         b: {
+//             c: 1,
+//             d: 2
+//         },
+//         e: 3
+//     },
+//     f: 4
+// };
+
+const flattenObject = (obj, acc = '') => {
+    let result = {};
+    for (const key in obj) {
+        const path = acc ? `${acc}.${key}` : key
+        if (obj[key] && typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            result = {...result, ...flattenObject(obj[key], path)};
+        } else {
+            result[path] = obj[key];
+        }
+    }
+
+    return result
+}
+
+// const flattenedObj = flattenObject(obj);
+// console.log(flattenedObj);
+// Ожидаемый результат: { 'a.b.c': 1, 'a.b.d': 2, 'a.e': 3, 'f': 4 } || { "f": 4, "a.e": 3, "a.b.c": 1, "a.b.d": 2 }
+
+const str = 'one.two.three.four.five';
+
+const transformStrToObject = (str) => {
+    const arrFromInput = str.split('.');
+    const result = {}
+    let temp = result
+    for (const key of arrFromInput) {
+        if (!temp[key]) temp[key] = {}
+        temp = temp[key]
+    }
+
+    return result
+
+}
+// console.log(transformStrToObject(str))
+/*{
+  one: {
+    two: {
+      three: {
+        four: {
+          five: }
+        }
+      }
+    }
+  }
+}*/
