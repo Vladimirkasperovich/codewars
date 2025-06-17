@@ -110,3 +110,22 @@ const fibonacci = (n) => {
 }
 // console.log(fibonacci(8)) //21
 // console.log(fibonacci(10)) //55
+
+const twoSum = (arr, target) => {
+    let start = 0;
+    let end = arr.length
+
+    while (start < end) {
+        const sum = arr[start] + arr[end];
+        if (sum === target) {
+            return [start, end]
+        } else if (target > sum) {
+            start++
+        } else {
+            end--
+        }
+
+    }
+}
+// console.log(twoSum([2, 7, 11, 15], 9)) //[0,1]
+// console.log(twoSum([1, 3, 4, 5, 10], 5)) //[0,2]
