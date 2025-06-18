@@ -162,7 +162,7 @@ const removeElement = (nums, val) => {
 const removeDuplicates = (nums) => {
     let k = 0;
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== nums[i - 1]){
+        if (nums[i] !== nums[i - 1]) {
             nums[k] = nums[i]
             k++
         }
@@ -171,3 +171,21 @@ const removeDuplicates = (nums) => {
 }
 // console.log(removeDuplicates([1, 1, 2])) //2
 // console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])) //5
+
+const addTwoNumbers = (l1, l2) => {
+    let str1 = '';
+    let str2 = '';
+    for (let i = l2.length - 1; i >= 0; i--) {
+        str1 += l2[i]
+    }
+    for (let i = l1.length - 1; i >= 0; i--) {
+        str2 += l1[i]
+    }
+    let sum = String(BigInt(str1) + BigInt(str2)).split('').reverse().map(Number)
+    return sum;
+
+}
+
+// console.log(addTwoNumbers([2, 4, 3], [5, 6, 4])) //[7,0,8]
+// console.log(addTwoNumbers([0], [0])) //[0]
+// console.log(addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])) //[8,9,9,9,0,0,0,1]
