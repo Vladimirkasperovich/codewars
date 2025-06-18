@@ -189,3 +189,21 @@ const addTwoNumbers = (l1, l2) => {
 // console.log(addTwoNumbers([2, 4, 3], [5, 6, 4])) //[7,0,8]
 // console.log(addTwoNumbers([0], [0])) //[0]
 // console.log(addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])) //[8,9,9,9,0,0,0,1]
+
+const deepClone = (obj) => {
+    if (obj === null) return null
+    if (Array.isArray(obj)) return obj.map(deepClone)
+    if (obj instanceof Date) return new Date(obj)
+    if (typeof obj !== 'object') return obj
+
+    const result = {};
+    for (const key in obj) {
+        result[key] = deepClone(obj[key])
+    }
+    return result;
+}
+// const original1 = {a: 1, b: {c: 2}};
+// const copy1 = deepClone(original1);
+// console.log(copy1); // { a: 1, b: { c: 2 } }
+// console.log(copy1 !== original1); // true
+// console.log(copy1.b !== original1.b); // true
