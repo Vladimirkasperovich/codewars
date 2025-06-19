@@ -303,3 +303,16 @@ function memoize(fn) {
 // console.log(memoizedAdd(2, 3)); // Должно вывести: "Выполняется вычисление add", затем 5
 // console.log(memoizedAdd(2, 3)); // Должно вернуть 5 без вывода "Выполняется вычисление add" (результат закеширован)
 // console.log(memoizedAdd(4, 5)); // Должно вывести: "Выполняется вычисление add", затем 9
+
+
+const isEmpty = (obj) => {
+    if (obj && typeof obj === 'object' && !Array.isArray(obj)) {
+        return Object.values(obj).length === 0
+    } else if (Array.isArray(obj)) {
+        return obj.length === 0
+    }
+}
+
+// console.log(isEmpty({"x": 5, "y": 42})) //false
+// console.log(isEmpty({})) //true
+// console.log(isEmpty([null, false, 0])) //false
