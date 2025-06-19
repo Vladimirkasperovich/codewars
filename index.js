@@ -220,3 +220,18 @@ const mergeRepl = (nums1, m, nums2, n) => {
 // console.log(mergeRepl([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3)) //[1,2,2,3,5,6]
 // console.log(mergeRepl([1], 1, [], 0)) //[1]
 // console.log(mergeRepl([0], 0, [1], 1)) //[1]
+
+
+const removeEl = (nums, val) => {
+    let k = 0;
+    for (let i = 0; i < nums.length; i++) {
+        const current = nums[i];
+        if (current !== val) {
+            nums[k] = current
+            k++;
+        }
+    }
+    return k
+}
+// console.log(removeEl([3, 2, 2, 3], 3)) //2
+// console.log(removeEl([0, 1, 2, 2, 3, 0, 4, 2], 2)) //5
