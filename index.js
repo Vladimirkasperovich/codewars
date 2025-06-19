@@ -249,3 +249,16 @@ const removeDuple = (nums) => {
 
 // console.log(removeDuple([1, 1, 2])) //2
 // console.log(removeDuple([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])) //5
+
+const removeDupleMedium = (nums) => {
+    let k = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (k < 2 || nums[i] !== nums[k - 2]) {
+            nums[k] = nums[i]
+            k++;
+        }
+    }
+    return nums
+}
+// console.log(removeDupleMedium([1, 1, 1, 2, 2, 3])) // 5
+// console.log(removeDupleMedium([0, 0, 1, 1, 1, 1, 2, 3, 3])) // 7
