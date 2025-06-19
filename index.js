@@ -278,3 +278,28 @@ const majorityElement = (nums) => {
 
 // console.log(majorityElement([3, 2, 3])) //3
 // console.log(majorityElement([2, 2, 1, 1, 1, 2, 2])) //2
+
+function memoize(fn) {
+    const cash = new Map();
+
+    return function (...args) {
+        const key = args.length ? JSON.stringify(args) : 'no-args';
+        if (cash.has(key)) {
+            return cash.get(key)
+        }
+        const result = fn(...args);
+        cash.set(key, result)
+        return result;
+    }
+}
+
+// function add(a, b) {
+//     console.log('Выполняется вычисление add');
+//     return a + b;
+// }
+//
+// const memoizedAdd = memoize(add);
+//
+// console.log(memoizedAdd(2, 3)); // Должно вывести: "Выполняется вычисление add", затем 5
+// console.log(memoizedAdd(2, 3)); // Должно вернуть 5 без вывода "Выполняется вычисление add" (результат закеширован)
+// console.log(memoizedAdd(4, 5)); // Должно вывести: "Выполняется вычисление add", затем 9
