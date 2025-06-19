@@ -207,3 +207,16 @@ const deepClone = (obj) => {
 // console.log(copy1); // { a: 1, b: { c: 2 } }
 // console.log(copy1 !== original1); // true
 // console.log(copy1.b !== original1.b); // true
+
+
+const mergeRepl = (nums1, m, nums2, n) => {
+    nums1.splice(m, nums1.length - m)
+    nums2.splice(n, nums2.length - n)
+    for (let i = 0; i < n; i++) {
+        nums1.push(nums2[i]);
+    }
+    return nums1.sort((a, b) => a - b);
+}
+// console.log(mergeRepl([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3)) //[1,2,2,3,5,6]
+// console.log(mergeRepl([1], 1, [], 0)) //[1]
+// console.log(mergeRepl([0], 0, [1], 1)) //[1]
