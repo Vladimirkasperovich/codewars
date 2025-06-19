@@ -316,3 +316,30 @@ const isEmpty = (obj) => {
 // console.log(isEmpty({"x": 5, "y": 42})) //false
 // console.log(isEmpty({})) //true
 // console.log(isEmpty([null, false, 0])) //false
+
+
+const timeLimit = (fn, t) => {
+    return async function (...args) {
+        const timeout = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject('Time Limit Exceeded')
+            }, t)
+        })
+
+        try {
+            const result = await Promise.race([fn(...args), timeout])
+            return result;
+        } catch (e) {
+            return e
+        }
+    }
+};
+
+// const fn = async (n) => {
+//     await new Promise(res => setTimeout(res, 100));
+//     return n * 2;
+// };
+// const timeLimitedFn = timeLimit(fn, 200);
+//
+// timeLimitedFn(5).then(console.log).catch(console.error);
+// Ожидаемый вывод: 10 (функция выполнилась за 100 мс, что меньше 200 мс)
