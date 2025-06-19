@@ -262,3 +262,19 @@ const removeDupleMedium = (nums) => {
 }
 // console.log(removeDupleMedium([1, 1, 1, 2, 2, 3])) // 5
 // console.log(removeDupleMedium([0, 0, 1, 1, 1, 1, 2, 3, 3])) // 7
+
+
+const majorityElement = (nums) => {
+    const seen = {};
+
+    for (const num of nums) {
+        seen[num] = (seen[num] || 0) + 1
+
+    }
+
+    const maxValue = Math.max(...Object.values(seen));
+    return +Object.entries(seen).find((item) => item[1] === maxValue)[0]
+}
+
+// console.log(majorityElement([3, 2, 3])) //3
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2])) //2
