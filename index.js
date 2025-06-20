@@ -22,7 +22,7 @@ const removeElement = (nums, val) => {
             nums[removeCount] = nums[i]
             removeCount++
         } else {
-           nums[i] = '_'
+            nums[i] = '_'
         }
     }
     return nums;
@@ -30,3 +30,16 @@ const removeElement = (nums, val) => {
 
 // console.log(removeElement([3, 2, 2, 3], 3)) //2, nums = [2,2,_,_]
 // console.log(removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)) //5, nums = [0,1,4,0,3,_,_,_]
+
+
+const removeDuplicates = (nums) => {
+    const unique = [...new Set(nums)];
+    let k = unique.length
+    for (let i = 0; i < nums.length; i++) {
+        nums[i] = i < k ? unique[i] : nums[i];
+    }
+    return k;
+}
+// console.log(removeDuplicates([1, 1, 2])) //2, nums = [1,2,_]
+// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])) //5, nums = [0,1,2,3,4,_,_,_,_,_]
+// console.log(removeDuplicates([-3, -1, -1, 0, 0, 0, 0, 0, 2]))
