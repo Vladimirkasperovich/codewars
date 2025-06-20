@@ -91,3 +91,25 @@ const compose = (functions) => {
 
 // const fn = compose([x => x + 1, x => x * x, x => 2 * x])
 // console.log(fn(4)) // 65
+
+const timeLimit = (fn, t) => {
+
+    return async (...args) => {
+        const timeout = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject('Time Limit Exceeded')
+            }, t)
+        })
+
+        try {
+            const result = await Promise.race([fn(...args), timeout])
+            return Promise.resolve(result);
+        } catch (error) {
+            return Promise.reject(error)
+        }
+    }
+};
+
+
+// const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
+// limited(150).catch((err) => console.log(err)) // "Time Limit Exceeded" at t=100ms
