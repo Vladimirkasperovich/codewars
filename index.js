@@ -77,3 +77,17 @@ const memoize = (fn) => {
 // console.log(memoizedFn(2, 3)) // 5
 // console.log(memoizedFn(2, 3)) // 5
 // console.log(callCount) // 1
+
+
+const compose = (functions) => {
+    return function (x) {
+        return functions.reduceRight((acc, cur) => {
+            acc = cur(acc)
+            return acc
+        }, x)
+    }
+};
+
+
+// const fn = compose([x => x + 1, x => x * x, x => 2 * x])
+// console.log(fn(4)) // 65
