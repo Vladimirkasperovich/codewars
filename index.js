@@ -113,3 +113,68 @@ const timeLimit = (fn, t) => {
 
 // const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
 // limited(150).catch((err) => console.log(err)) // "Time Limit Exceeded" at t=100ms
+
+
+function TimeLimitedCache() {
+    this.obj = new Map()
+}
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @param {number} duration time until expiration in ms
+ * @return {boolean} if un-expired key already existed
+ */
+TimeLimitedCache.prototype.set = function (key, value, duration) {
+    const expired = this.obj.get(key);
+    const wasValid = expired?.expiredAt > Date.now();
+
+    if (expired?.timeoutId) {
+        clearTimeout(expired.timeoutId);
+    }
+
+    const timeoutId = setTimeout(() => {
+        this.obj.delete(key);
+    }, duration);
+
+    this.obj.set(key, {
+        value,
+        expiredAt: Date.now() + duration,
+        timeoutId
+    });
+
+    return wasValid;
+};
+
+/**
+ * @param {number} key
+ * @return {number} value associated with key
+ */
+TimeLimitedCache.prototype.get = function (key) {
+    const item = this.obj.get(key);
+    if (item?.expiredAt <= Date.now()) {
+        return -1
+    }
+    return item.value
+};
+
+/**
+ * @return {number} count of non-expired keys
+ */
+TimeLimitedCache.prototype.count = function () {
+    let count = 0;
+    const now = Date.now();
+
+    for (const value of this.obj.values()) {
+        if (value.expiredAt > now) {
+            count++
+        }
+    }
+    return count;
+};
+
+
+// const timeLimitedCache = new TimeLimitedCache()
+// console.log(timeLimitedCache.set(1, 42, 1000)); // false
+// console.log(timeLimitedCache.get(1)) // 42
+// console.log(timeLimitedCache.count()) // 1
