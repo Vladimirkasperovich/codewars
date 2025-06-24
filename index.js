@@ -178,3 +178,31 @@ TimeLimitedCache.prototype.count = function () {
 // console.log(timeLimitedCache.set(1, 42, 1000)); // false
 // console.log(timeLimitedCache.get(1)) // 42
 // console.log(timeLimitedCache.count()) // 1
+
+
+const chunk = (arr, size) => {
+    if (!arr.length) return [];
+
+    const result = [];
+    let currentChunk = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        currentChunk.push(arr[i]);
+
+        if (currentChunk.length === size) {
+            result.push(currentChunk);
+            currentChunk = [];
+        }
+    }
+
+    if (currentChunk.length > 0) {
+        result.push(currentChunk);
+    }
+
+    return result
+}
+
+// console.log(chunk([1, 2, 3, 4, 5], 1)) //[[1],[2],[3],[4],[5]]
+// console.log(chunk([1, 9, 6, 3, 2], 3)) //[[1,9,6],[3,2]]
+// console.log(chunk([8, 5, 3, 2, 6], 6)) //[[8,5,3,2,6]]
+// console.log(chunk([], 1)) //[]
