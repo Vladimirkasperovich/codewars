@@ -206,3 +206,11 @@ const chunk = (arr, size) => {
 // console.log(chunk([1, 9, 6, 3, 2], 3)) //[[1,9,6],[3,2]]
 // console.log(chunk([8, 5, 3, 2, 6], 6)) //[[8,5,3,2,6]]
 // console.log(chunk([], 1)) //[]
+
+Array.prototype.last = function () {
+    const arr = this;
+    return arr.length > 0 ? arr[arr.length - 1] : -1
+};
+
+// const arr = [];
+// console.log(arr.last())
