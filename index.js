@@ -207,10 +207,23 @@ const chunk = (arr, size) => {
 // console.log(chunk([8, 5, 3, 2, 6], 6)) //[[8,5,3,2,6]]
 // console.log(chunk([], 1)) //[]
 
-Array.prototype.last = function () {
-    const arr = this;
-    return arr.length > 0 ? arr[arr.length - 1] : -1
-};
+// Array.prototype.last = function () {
+//     const arr = this;
+//     return arr.length > 0 ? arr[arr.length - 1] : -1
+// };
 
 // const arr = [];
 // console.log(arr.last())
+
+
+const removeDuplicates3 = (arr) => {
+    const map = new Map();
+
+    for (const item of arr) {
+        map.set(item, item)
+    }
+
+    return [...map.values()]
+}
+
+// console.log(removeDuplicates3([1, 1, 1, 2, 2, 2, 3, 3, 3]))
