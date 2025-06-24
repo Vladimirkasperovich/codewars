@@ -227,3 +227,23 @@ const removeDuplicates3 = (arr) => {
 }
 
 // console.log(removeDuplicates3([1, 1, 1, 2, 2, 2, 3, 3, 3]))
+
+
+const myPromiseRace = (promises) => {
+    return new Promise((resolve, reject) => {
+        promises.forEach((item) => {
+            Promise.resolve(item)
+                .then(resolve)
+                .catch(reject)
+        })
+    })
+}
+
+
+// // 1. Первый resolve быстрее всех
+// myPromiseRace([
+//     new Promise(res => setTimeout(() => res("first"), 10)),
+//     new Promise(res => setTimeout(() => res("second"), 20))
+// ]).then(console.log); // "first"
+
+
