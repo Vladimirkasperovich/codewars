@@ -306,3 +306,31 @@ const flat = (arr, n) => {
 // console.log(flat([1, 2, 3, [4, 5, 6], [7, 8, [9, 10, 11], 12], [13, 14, 15]], 1)) //[1, 2, 3, 4, 5, 6, 7, 8, [9, 10, 11], 12, 13, 14, 15]
 // console.log(flat([[1, 2, 3], [4, 5, 6], [7, 8, [9, 10, 11], 12], [13, 14, 15]], 2)) //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
+const compactObject = (obj) => {
+    if (obj && obj instanceof Object && !Array.isArray(obj)) {
+        return notFalsyObj(obj)
+    }
+    if (Array.isArray(obj)) {
+        return notFalsyArray(obj)
+    }
+    return obj
+}
+
+function notFalsyObj(obj) {
+    let result = {}
+    for (const key in obj) {
+        const value = compactObject(obj[key]);
+        if (value) result[key] = value
+    }
+    return result;
+}
+
+function notFalsyArray(arr) {
+    return arr
+        .map(compactObject)
+        .filter(Boolean)
+}
+
+// console.log(compactObject([null, 0, false, 1])) //[1]
+// console.log(compactObject({"a": null, "b": [false, 1]})) //{"b": [1]}
+// console.log(compactObject([null, 0, 5, [0], [false, 16]])) //[5, [], [16]]
