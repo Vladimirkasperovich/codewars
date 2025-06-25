@@ -246,4 +246,48 @@ const myPromiseRace = (promises) => {
 //     new Promise(res => setTimeout(() => res("second"), 20))
 // ]).then(console.log); // "first"
 
+const join = (arr1, arr2) => {
+    const seen = new Map();
+    for (const arr1Element of arr1) {
+        if (!seen.has(arr1Element['id'])) {
+            seen.set(arr1Element['id'], arr1Element)
+        }
+    }
+
+    for (const arr2Element of arr2) {
+        if (seen.has(arr2Element['id'])) {
+            const obj = seen.get(arr2Element['id'])
+            seen.set(arr2Element['id'], {...obj, ...arr2Element})
+        } else {
+            seen.set(arr2Element['id'], arr2Element)
+        }
+
+    }
+    return [...seen.values()].sort((a, b) => a['id'] - b['id'])
+}
+
+console.log(join([{"id": 1, "x": 1}, {"id": 2, "x": 9}], [{"id": 3, "x": 5}]))
+/*[
+    {"id": 1, "x": 1},
+    {"id": 2, "x": 9},
+    {"id": 3, "x": 5}
+]*/
+console.log(join([{"id": 1, "x": 2, "y": 3}, {"id": 2, "x": 3, "y": 6}], [{"id": 2, "x": 10, "y": 20}, {
+    "id": 3,
+    "x": 0,
+    "y": 0
+}]))
+/*[
+    {"id": 1, "x": 2, "y": 3},
+    {"id": 2, "x": 10, "y": 20},
+    {"id": 3, "x": 0, "y": 0}
+]*/
+console.log(join([{"id": 1, "b": {"b": 94}, "v": [4, 3], "y": 48}], [{"id": 1, "b": {"c": 84}, "v": [1, 3]}]))
+/*[
+    {"id": 1, "b": {"c": 84}, "v": [1, 3], "y": 48}
+]*/
+
+
+
+
 
