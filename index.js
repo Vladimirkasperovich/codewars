@@ -334,3 +334,41 @@ function notFalsyArray(arr) {
 // console.log(compactObject([null, 0, false, 1])) //[1]
 // console.log(compactObject({"a": null, "b": [false, 1]})) //{"b": [1]}
 // console.log(compactObject([null, 0, 5, [0], [false, 16]])) //[5, [], [16]]
+
+Array.prototype.groupBy = function (fn) {
+    const array = [...this];
+    const result = {}
+
+    for (const item of array) {
+        const resultFromFn = fn(item)
+        if (!result[resultFromFn]) {
+            result[resultFromFn] = [item]
+        } else {
+            result[resultFromFn].push(item)
+        }
+    }
+    return result;
+};
+
+// const array1 = [{"id": "1"}, {"id": "1"}, {"id": "2"}];
+// const fn1 = (item) => item.id;
+// console.log(array1.groupBy(fn1))
+// /*{
+//   "1": [{"id": "1"}, {"id": "1"}],
+//   "2": [{"id": "2"}]
+// }*/
+// ////////////////////////////////////
+// const array2 = [[1, 2, 3], [1, 3, 5], [1, 5, 9]]
+// const fn2 = (list) => String(list[0]);
+// console.log(array2.groupBy(fn2))
+// /*{
+//     "1": [[1, 2, 3], [1, 3, 5], [1, 5, 9]]
+// }*/
+// /////////////////////////////////////
+// const array3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const fn3 = (n) => String(n > 5)
+// console.log(array3.groupBy(fn3))
+/*{
+  "true": [6, 7, 8, 9, 10],
+  "false": [1, 2, 3, 4, 5]
+}*/
