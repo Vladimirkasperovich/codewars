@@ -383,3 +383,14 @@ const sortBy = (arr, fn) => {
 // console.log(sortBy([5, 4, 1, 2, 3], (x) => x)) //[1, 2, 3, 4, 5]
 // console.log(sortBy([{"x": 1}, {"x": 0}, {"x": -1}], (d) => d['x'])) //[{"x": -1}, {"x": 0}, {"x": 1}]
 // console.log(sortBy([[3, 4], [5, 2], [10, 1]], (x) => x[1])) //[[10, 1], [5, 2], [3, 4]]
+
+
+const unique = (arr) => {
+    const seen = {}
+    for (const item of arr) {
+        seen[item] = item
+    }
+    return Object.values(seen)
+}
+// console.log(unique([1, 1, 1, 2, 2, 2, 3, 3, 3])) // [1, 2, 3];
+// console.log(unique(['a', 'a', 'b', 'b', 'c', 'c'])) // ['a', 'b', 'c'];
