@@ -394,3 +394,9 @@ const unique = (arr) => {
 }
 // console.log(unique([1, 1, 1, 2, 2, 2, 3, 3, 3])) // [1, 2, 3];
 // console.log(unique(['a', 'a', 'b', 'b', 'c', 'c'])) // ['a', 'b', 'c'];
+const isAnagram = (input1, input2) => {
+    const result1 = input1.toLowerCase().split('').sort().join('')
+    const result2 = input2.toLowerCase().split('').sort().join('')
+    return result1 === result2
+}
+// console.log(isAnagram('listen', 'silent')) // true
