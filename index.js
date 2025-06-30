@@ -47,7 +47,7 @@ const promiseAll = (functions) => {
 Function.prototype.myBind = function (context, ...bindArgs) {
     const currentFn = this;
     return (...args) => {
-      currentFn.apply(context, [...bindArgs, ...args])
+        currentFn.apply(context, [...bindArgs, ...args])
     }
 }
 
@@ -59,3 +59,34 @@ Function.prototype.myBind = function (context, ...bindArgs) {
 //
 // const greetUser = greet.myBind(user, 'Hello');
 // greetUser('!'); // Выведет: Hello, Alice!
+
+
+const deepCopy = (obj) => {
+    if (obj === null) return null;
+    if (typeof obj !== 'object') return obj;
+    if (Array.isArray(obj)) {
+        return obj.map(deepCopy)
+    }
+    let result = {};
+    for (const key in obj) {
+        result[key] = deepCopy(obj[key])
+    }
+    return result
+}
+
+// const obj1 = {a: 1, b: 2};
+// const copy1 = deepCopy(obj1);
+// console.log(copy1);             // { a: 1, b: 2 }
+// console.log(copy1 === obj1);    // false — разные объекты
+//
+// const obj2 = {a: {b: 2}};
+// const copy2 = deepCopy(obj2);
+// console.log(copy2);                // { a: { b: 2 } }
+// console.log(copy2.a === obj2.a);  // false — вложенный объект тоже новый
+//
+//
+// const arr = [1, [2, 3], {a: 4}];
+// const copyArr = deepCopy(arr);
+// console.log(copyArr);             // [1, [2, 3], { a: 4 }]
+// console.log(copyArr[1] === arr[1]); // false
+// console.log(copyArr[2] === arr[2]); // false
