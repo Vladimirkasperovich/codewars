@@ -1,12 +1,12 @@
 'use strict';
 
-const debounce = function (fn, t) {
+const debounce = function (fn, delay) {
     let timeOutId;
     return (...args) => {
         clearTimeout(timeOutId);
         timeOutId = setTimeout(() => {
             fn(...args)
-        }, t)
+        }, delay)
     }
 };
 
@@ -43,3 +43,19 @@ const promiseAll = (functions) => {
 //     () => new Promise(resolve => setTimeout(() => resolve(1), 200)),
 //     () => new Promise((resolve, reject) => setTimeout(() => reject("Error"), 100))
 // ]))
+
+Function.prototype.myBind = function (context, ...bindArgs) {
+    const currentFn = this;
+    return (...args) => {
+      currentFn.apply(context, [...bindArgs, ...args])
+    }
+}
+
+// function greet(greeting, punctuation) {
+//     console.log(greeting + ', ' + this.name + punctuation);
+// }
+//
+// const user = {name: 'Alice'};
+//
+// const greetUser = greet.myBind(user, 'Hello');
+// greetUser('!'); // Выведет: Hello, Alice!
