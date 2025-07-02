@@ -292,3 +292,25 @@ const mergeAlternately = (word1, word2) => {
 // console.log(mergeAlternately("abc", "pqr")) //"apbqcr"
 // console.log(mergeAlternately("ab", "pqrs")) //"apbqrs"
 // console.log(mergeAlternately("abcd", "pq")) //"apbqcd"
+
+/**
+ * @param {string} str1
+ * @param {string} str2
+ * @return {string}
+ */
+
+const gcdOfStrings = (str1, str2) => {
+    if (str1 + str2 !== str2 + str1) {
+        return ""
+    }
+
+    const gcd = (a, b) => b === 0 ? a : gcd(b, a % b)
+    const len = gcd(str1.length, str2.length);
+
+    return str1.substring(0, len)
+};
+
+// console.log(gcdOfStrings("ABCABC", "ABC")) //"ABC"
+// console.log(gcdOfStrings("ABABAB", "ABAB")) //"AB"
+// console.log(gcdOfStrings("LEET", "CODE")) //""
+
