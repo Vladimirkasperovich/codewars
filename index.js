@@ -269,3 +269,26 @@ class Calculator {
 // const calc6 = new Calculator(0);
 // console.log(calc6.add(10).multiply(0).getResult()); // Ожидается: 0
 
+
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {string}
+ */
+
+const mergeAlternately = (word1, word2) => {
+    let res = '';
+    for (let i = 0; i < word1.length + word2.length; i++) {
+        if (word1[i]) {
+            res += word1[i]
+        }
+        if (word2[i]) {
+            res += word2[i]
+        }
+    }
+    return res
+};
+
+// console.log(mergeAlternately("abc", "pqr")) //"apbqcr"
+// console.log(mergeAlternately("ab", "pqrs")) //"apbqrs"
+// console.log(mergeAlternately("abcd", "pq")) //"apbqcd"
