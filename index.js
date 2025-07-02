@@ -90,3 +90,64 @@ const deepCopy = (obj) => {
 // console.log(copyArr);             // [1, [2, 3], { a: 4 }]
 // console.log(copyArr[1] === arr[1]); // false
 // console.log(copyArr[2] === arr[2]); // false
+
+
+class EventEmitter {
+    constructor() {
+        this.events = new Map();
+    }
+
+    /**
+     * @param {string} eventName
+     * @param {Function} callback
+     * @return {Object}
+     */
+    subscribe(eventName, callback) {
+        const events = this.events;
+
+        if (!events.has(eventName)) {
+            events.set(eventName, [])
+        }
+
+        const callbacks = events.get(eventName)
+        callbacks.push(callback)
+
+        return {
+            unsubscribe: () => {
+                const index = callbacks.indexOf(callback)
+                if (index !== -1) {
+                    callbacks.splice(index, 1)
+                }
+                return undefined
+            }
+        };
+    }
+
+    /**
+     * @param {string} eventName
+     * @param {Array} args
+     * @return {Array}
+     */
+    emit(eventName, args = []) {
+        const events = this.events;
+        if (!events.has(eventName)) {
+            return []
+        }
+        return events.get(eventName).map((cb) => cb(...args))
+    }
+}
+
+
+// const emitter = new EventEmitter();
+//
+// // Subscribe to the onClick event with onClickCallback
+// function onClickCallback() {
+//     return 99
+// }
+//
+// const sub = emitter.subscribe('onClick', onClickCallback);
+//
+// console.log(emitter.emit('onClick')); // [99]
+// console.log(sub.unsubscribe()); // undefined
+// console.log(emitter.emit('onClick')); // []
+
