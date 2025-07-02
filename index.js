@@ -174,3 +174,98 @@ class ArrayWrapper {
 // console.log(String(obj2)); // "[3,4]"
 
 
+class Calculator {
+
+    /**
+     * @param {number} value
+     */
+    constructor(value) {
+        this.value = value;
+    }
+
+    /**
+     * @param {number} value
+     * @return {Calculator}
+     */
+
+    add(value) {
+        this.value += value
+        return this;
+    }
+
+    /**
+     * @param {number} value
+     * @return {Calculator}
+     */
+    subtract(value) {
+        this.value -= value
+        return this
+    }
+
+    /**
+     * @param {number} value
+     * @return {Calculator}
+     */
+    multiply(value) {
+        this.value *= value
+        return this
+    }
+
+    /**
+     * @param {number} value
+     * @return {Calculator}
+     */
+    divide(value) {
+        if (value === 0) {
+            throw new Error("Division by zero is not allowed");
+        }
+        this.value /= value
+        return this
+    }
+
+    /**
+     * @param {number} value
+     * @return {Calculator}
+     */
+    power(value) {
+        this.value = Math.pow(this.value, value)
+        return this;
+    }
+
+    /**
+     * @return {number}
+     */
+    getResult() {
+        return this.value
+    }
+}
+
+// // Тест 1: Последовательные операции (пример из условия)
+// const calc1 = new Calculator(10);
+//
+// console.log(calc1.add(5).subtract(7).getResult()); // Ожидается: 8 (10 + 5 - 7)
+//
+// // Тест 2: Умножение и возведение в степень (пример из условия)
+// const calc2 = new Calculator(2);
+// console.log(calc2.multiply(5).power(2).getResult()); // Ожидается: 100 ((2 * 5) ^ 2)
+//
+// // Тест 3: Деление на ноль (пример из условия)
+// const calc3 = new Calculator(20);
+// try {
+//     console.log(calc3.divide(0).getResult());
+// } catch (e) {
+//     console.log(e.message); // Ожидается: "Division by zero is not allowed"
+// }
+//
+// // Тест 4: Комбинированные операции
+// const calc4 = new Calculator(5);
+// console.log(calc4.add(3).multiply(2).divide(4).power(3).getResult()); // Ожидается: 64 (((5 + 3) * 2 / 4) ^ 3)
+//
+// // Тест 5: Проверка цепочки с одним действием
+// const calc5 = new Calculator(100);
+// console.log(calc5.subtract(50).getResult()); // Ожидается: 50
+//
+// // Тест 6: Начальное значение 0
+// const calc6 = new Calculator(0);
+// console.log(calc6.add(10).multiply(0).getResult()); // Ожидается: 0
+
