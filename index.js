@@ -271,29 +271,6 @@ class Calculator {
 
 
 /**
- * @param {string} word1
- * @param {string} word2
- * @return {string}
- */
-
-const mergeAlternately = (word1, word2) => {
-    let res = '';
-    for (let i = 0; i < word1.length + word2.length; i++) {
-        if (word1[i]) {
-            res += word1[i]
-        }
-        if (word2[i]) {
-            res += word2[i]
-        }
-    }
-    return res
-};
-
-// console.log(mergeAlternately("abc", "pqr")) //"apbqcr"
-// console.log(mergeAlternately("ab", "pqrs")) //"apbqrs"
-// console.log(mergeAlternately("abcd", "pq")) //"apbqcd"
-
-/**
  * @param {string} str1
  * @param {string} str2
  * @return {string}
@@ -314,3 +291,19 @@ const gcdOfStrings = (str1, str2) => {
 // console.log(gcdOfStrings("ABABAB", "ABAB")) //"AB"
 // console.log(gcdOfStrings("LEET", "CODE")) //""
 
+
+const mergeAlternately = (word1, word2) => {
+    let resultStr = '';
+    for (let i = 0; i < word1.length + word2.length; i++) {
+        if (word1[i]){
+            resultStr += `${word1[i]}`
+        }
+        if (word2[i]){
+            resultStr += `${word2[i]}`
+        }
+    }
+    return resultStr;
+}
+// console.log(mergeAlternately("abc", "pqr")) //"apbqcr"
+// console.log(mergeAlternately("ab", "pqrs")) //"apbqrs"
+// console.log(mergeAlternately("abcd", "pq")) //"apbqcd"
