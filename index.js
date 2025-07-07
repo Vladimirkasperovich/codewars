@@ -328,3 +328,27 @@ const kidsWithCandies = (candies, extraCandies) => {
 // console.log(kidsWithCandies([2, 3, 5, 1, 3], 3)) //[true,true,true,false,true]
 // console.log(kidsWithCandies([4, 2, 1, 1, 2], 1)) //[true,false,false,false,false]
 // console.log(kidsWithCandies([12, 1, 12], 10)) //[true,false,true]
+
+
+/**
+ * @param {number[]} flowerbed
+ * @param {number} n
+ * @return {boolean}
+ */
+const canPlaceFlowers = (flowerbed, n) => {
+    for (let i = 0; i < flowerbed.length; i++) {
+        if (n === 0) return true
+        if (flowerbed[i] === 0) {
+            const prev = i === 0 ? 0 : flowerbed[i - 1];
+            const next = i === flowerbed.length - 1 ? 0 : flowerbed[i + 1]
+            if (prev === 0 && next === 0) {
+                flowerbed[i] = 1
+                n--;
+            }
+
+        }
+    }
+    return  n === 0
+}
+// console.log(canPlaceFlowers([1, 0, 0, 0, 1], 1)) //true
+// console.log(canPlaceFlowers([1, 0, 0, 0, 1], 2)) //false
