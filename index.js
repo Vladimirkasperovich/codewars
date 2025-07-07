@@ -295,10 +295,10 @@ const gcdOfStrings = (str1, str2) => {
 const mergeAlternately = (word1, word2) => {
     let resultStr = '';
     for (let i = 0; i < word1.length + word2.length; i++) {
-        if (word1[i]){
+        if (word1[i]) {
             resultStr += `${word1[i]}`
         }
-        if (word2[i]){
+        if (word2[i]) {
             resultStr += `${word2[i]}`
         }
     }
@@ -307,3 +307,24 @@ const mergeAlternately = (word1, word2) => {
 // console.log(mergeAlternately("abc", "pqr")) //"apbqcr"
 // console.log(mergeAlternately("ab", "pqrs")) //"apbqrs"
 // console.log(mergeAlternately("abcd", "pq")) //"apbqcd"
+
+
+/**
+ * @param {number[]} candies
+ * @param {number} extraCandies
+ * @return {boolean[]}
+ */
+const kidsWithCandies = (candies, extraCandies) => {
+    const maxCandies = Math.max(...candies);
+    const result = [];
+
+    for (const candy of candies) {
+        result.push(candy + extraCandies >= maxCandies)
+    }
+
+    return result
+};
+
+// console.log(kidsWithCandies([2, 3, 5, 1, 3], 3)) //[true,true,true,false,true]
+// console.log(kidsWithCandies([4, 2, 1, 1, 2], 1)) //[true,false,false,false,false]
+// console.log(kidsWithCandies([12, 1, 12], 10)) //[true,false,true]
