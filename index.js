@@ -87,10 +87,10 @@ function debounce(fn, delay) {
     let timeoutID;
     // Ваша реализация
     return (param) => {
-       clearTimeout(timeoutID);
-       timeoutID = setTimeout(() => {
-           fn(...param)
-       }, delay)
+        clearTimeout(timeoutID);
+        timeoutID = setTimeout(() => {
+            fn(...param)
+        }, delay)
     }
 }
 
@@ -102,3 +102,50 @@ function debounce(fn, delay) {
 // setTimeout(() => debouncedConsoleLog('Третий вызов'), 1200);
 
 // Ожидается только один вывод в консоль: "Третий вызов"
+
+/**
+ * Реализуйте функцию deepClone, которая создает глубокую копию объекта,
+ * включая вложенные объекты и массивы.
+ */
+function deepClone(obj) {
+    if (obj === null) return obj;
+    if (Array.isArray(obj)) return obj.map(deepClone)
+    if (obj instanceof Date) return new Date(obj)
+    if (obj && typeof obj === 'object' && !Array.isArray(obj)) {
+        const res = {};
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                res[key] = deepClone(obj[key])
+            }
+        }
+        return res
+    }
+}
+
+// Тесты
+const original = {
+    a: 1,
+    b: {
+        c: 2,
+        d: [3, 4],
+        e: {
+            f: 5
+        }
+    },
+    g: null,
+    h: undefined,
+    i: new Date(),
+    j: /regex/,
+    k: function () {
+        return 'test';
+    }
+};
+
+// const cloned = deepClone(original);
+//
+// console.log(cloned !== original); // true
+// console.log(cloned.b !== original.b); // true
+// console.log(cloned.b.d !== original.b.d); // true
+// console.log(cloned.b.e !== original.b.e); // true
+// // console.log(cloned.k() === 'test'); // true
+// console.log(cloned.i.getTime() === original.i.getTime()); // true
