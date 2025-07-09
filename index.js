@@ -76,3 +76,29 @@ function promiseAll(promises) {
 // promiseAll([Promise.reject('error'), promise1]).catch((err) => {
 //     console.log(err); // Ожидается 'error'
 // });
+
+
+/**
+ * Реализуйте функцию debounce, которая "откладывает" вызов функции
+ * до тех пор, пока с момента последней попытки вызова не пройдет
+ * заданный промежуток времени.
+ */
+function debounce(fn, delay) {
+    let timeoutID;
+    // Ваша реализация
+    return (param) => {
+       clearTimeout(timeoutID);
+       timeoutID = setTimeout(() => {
+           fn(...param)
+       }, delay)
+    }
+}
+
+// Тесты
+// const debouncedConsoleLog = debounce(console.log, 1000);
+//
+// debouncedConsoleLog('Первый вызов');
+// setTimeout(() => debouncedConsoleLog('Второй вызов'), 500);
+// setTimeout(() => debouncedConsoleLog('Третий вызов'), 1200);
+
+// Ожидается только один вывод в консоль: "Третий вызов"
