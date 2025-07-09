@@ -149,3 +149,27 @@ const original = {
 // console.log(cloned.b.e !== original.b.e); // true
 // // console.log(cloned.k() === 'test'); // true
 // console.log(cloned.i.getTime() === original.i.getTime()); // true
+
+/**
+ * Реализуйте функцию compose, которая принимает несколько функций
+ * и возвращает новую функцию, применяющую их справа налево.
+ */
+function compose(...fns) {
+    // Ваша реализация
+    return (...args) => {
+        return fns.reduceRight((acc, cur) => {
+            acc = cur(acc)
+            return acc;
+        }, args)
+    }
+}
+
+// Тесты
+// const add5 = (x) => x + 5;
+// const multiplyBy2 = (x) => x * 2;
+// const square = (x) => x * x;
+//
+// const composedFn = compose(add5, multiplyBy2, square);
+//
+// console.log(composedFn(2)); // Ожидается (2^2)*2 + 5 = 13
+// console.log(composedFn(3)); // Ожидается (3^2)*2 + 5 = 23
