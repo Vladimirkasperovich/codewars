@@ -202,3 +202,14 @@ const user = {
 // user.name = "Bob"; // Не должно измениться
 // user.address.city = "Madrid"; // Не должно измениться
 // console.log(user); // Должен вывести оригинальный объект
+
+function intersaction(arr1, arr2) {
+    const set = new Set(arr2);
+    const arr = arr1.filter((item) => set.has(item))
+    return [...new Set(arr)]
+}
+
+// Тест-кейс
+// const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const array2 = [2, 4, 6, 8, 10, 12, 14];
+// console.log(intersaction(array1, array2)); // Должен вывести [2, 4, 6, 8, 10]
