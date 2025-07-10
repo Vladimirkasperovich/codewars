@@ -280,3 +280,33 @@ function debounce(func, delay) {
 // const log = debounce(() => console.log('called!'), 1000);
 // log();
 // log(); // должно быть выведено "called!" только один раз через 1 секунду
+
+
+/**
+ * 5. Группировка по ключу
+ * Функция groupBy(arr, key) должна сгруппировать массив объектов по значению указанного ключа.
+ */
+function groupBy(arr, key) {
+    const result = {};
+    arr.forEach((item) => {
+        const groupKey = item[key];
+        if (!result[groupKey]) {
+            result[groupKey] = [item];
+        } else {
+            result[groupKey].push(item)
+        }
+    })
+
+    return result
+}
+
+// console.log(groupBy([
+//     {type: 'fruit', name: 'apple'},
+//     {type: 'vegetable', name: 'carrot'},
+//     {type: 'fruit', name: 'banana'}
+// ], 'type'));
+
+// {
+//   fruit: [{ type: 'fruit', name: 'apple' }, { type: 'fruit', name: 'banana' }],
+//   vegetable: [{ type: 'vegetable', name: 'carrot' }]
+// }
