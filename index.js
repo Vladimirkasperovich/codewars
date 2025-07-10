@@ -258,3 +258,18 @@ function countWords(text) {
 // const text = "Hello, hello world! World is great, isn't it?";
 // console.log(countWords(text));
 // // Map { 'hello' => 2, 'world' => 2, 'is' => 1, 'great' => 1, "isn't" => 1, 'it' => 1 }
+
+
+/**
+ * 1. Уникальные элементы
+ * Напиши функцию unique, которая принимает массив и возвращает новый массив без повторяющихся элементов.
+ */
+function unique(arr) {
+   const seen = new Map()
+    arr.forEach((num) => {
+        seen.set(num, num)
+    })
+    return [...seen.values()]
+}
+
+// console.log(unique([1, 2, 2, 3, 4, 3])); // [1, 2, 3, 4]
