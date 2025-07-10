@@ -265,7 +265,7 @@ function countWords(text) {
  * Напиши функцию unique, которая принимает массив и возвращает новый массив без повторяющихся элементов.
  */
 function unique(arr) {
-   const seen = new Map()
+    const seen = new Map()
     arr.forEach((num) => {
         seen.set(num, num)
     })
@@ -273,3 +273,17 @@ function unique(arr) {
 }
 
 // console.log(unique([1, 2, 2, 3, 4, 3])); // [1, 2, 3, 4]
+
+/**
+ * 3. Похожа ли строка на анаграмму?
+ * Функция isAnagram(str1, str2) возвращает true, если одна строка является анаграммой другой.
+ */
+function isAnagram(str1, str2) {
+    // your code here
+    const A = str1.toLowerCase().split('').sort().join('')
+    const B = str2.toLowerCase().split('').sort().join('')
+    return A === B;
+}
+
+// console.log(isAnagram('listen', 'silent')); // true
+// console.log(isAnagram('hello', 'world'));   // false
