@@ -77,32 +77,6 @@ function promiseAll(promises) {
 //     console.log(err); // Ожидается 'error'
 // });
 
-
-/**
- * Реализуйте функцию debounce, которая "откладывает" вызов функции
- * до тех пор, пока с момента последней попытки вызова не пройдет
- * заданный промежуток времени.
- */
-function debounce(fn, delay) {
-    let timeoutID;
-    // Ваша реализация
-    return (param) => {
-        clearTimeout(timeoutID);
-        timeoutID = setTimeout(() => {
-            fn(...param)
-        }, delay)
-    }
-}
-
-// Тесты
-// const debouncedConsoleLog = debounce(console.log, 1000);
-//
-// debouncedConsoleLog('Первый вызов');
-// setTimeout(() => debouncedConsoleLog('Второй вызов'), 500);
-// setTimeout(() => debouncedConsoleLog('Третий вызов'), 1200);
-
-// Ожидается только один вывод в консоль: "Третий вызов"
-
 /**
  * Реализуйте функцию deepClone, которая создает глубокую копию объекта,
  * включая вложенные объекты и массивы.
@@ -287,3 +261,22 @@ function isAnagram(str1, str2) {
 
 // console.log(isAnagram('listen', 'silent')); // true
 // console.log(isAnagram('hello', 'world'));   // false
+
+
+/**
+ * 4. Debounce вручную
+ * Реализуй debounce(func, delay), возвращающую функцию, которая вызывает func не чаще, чем раз в delay мс.
+ */
+function debounce(func, delay) {
+    let timeoutID;
+    return () => {
+        clearTimeout(timeoutID)
+        timeoutID = setTimeout(() => {
+            func()
+        }, delay)
+    }
+}
+
+// const log = debounce(() => console.log('called!'), 1000);
+// log();
+// log(); // должно быть выведено "called!" только один раз через 1 секунду
