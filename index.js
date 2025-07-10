@@ -213,3 +213,33 @@ function intersaction(arr1, arr2) {
 // const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // const array2 = [2, 4, 6, 8, 10, 12, 14];
 // console.log(intersaction(array1, array2)); // Должен вывести [2, 4, 6, 8, 10]
+
+class AsyncCache {
+    constructor() {
+        this.cache = new Map();
+    }
+
+    set(key, value, ttl) {
+        const expires = Date.now() + ttl;
+        this.cache.set(key, {value, expires});
+    }
+
+    async get(key) {
+        const entry = this.cache.get(key);
+        if (!entry) {
+            return null
+        }
+        if (Date.now() > entry.expires) {
+            this.cache.delete(key);
+            return null
+        }
+        return entry.value
+    }
+}
+
+// Тест-кейс
+// const cache = new AsyncCache();
+// cache.set("user", {name: "Alice"}, 1000);
+// setTimeout(async () => {
+//     console.log(await cache.get("user")); // null (прошло > 1 сек)
+// }, 1500);
