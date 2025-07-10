@@ -243,3 +243,18 @@ class AsyncCache {
 // setTimeout(async () => {
 //     console.log(await cache.get("user")); // null (прошло > 1 сек)
 // }, 1500);
+
+function countWords(text) {
+    const map = new Map();
+    const filteredStr = text.toLowerCase().replace(/[^A-Z a-z]/g, '').split(' ')
+
+    for (const word of filteredStr) {
+        map.set(word, (map.get(word) || 0) + 1)
+    }
+    return map
+}
+
+// // Тест-кейс
+// const text = "Hello, hello world! World is great, isn't it?";
+// console.log(countWords(text));
+// // Map { 'hello' => 2, 'world' => 2, 'is' => 1, 'great' => 1, "isn't" => 1, 'it' => 1 }
