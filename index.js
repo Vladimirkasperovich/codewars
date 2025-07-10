@@ -173,3 +173,32 @@ function compose(...fns) {
 //
 // console.log(composedFn(2)); // Ожидается (2^2)*2 + 5 = 13
 // console.log(composedFn(3)); // Ожидается (3^2)*2 + 5 = 23
+
+
+function deepFreeze(obj) {
+    if (typeof obj !== 'object' || obj === null || Object.isFrozen(obj)) {
+        return obj;
+    }
+
+    Object.freeze(obj);
+
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            deepFreeze(obj[key])
+        }
+    }
+    return obj;
+}
+
+// Тест-кейс
+const user = {
+    name: "Alice",
+    address: {
+        city: "Wonderland",
+        zip: 12345
+    }
+};
+// deepFreeze(user);
+// user.name = "Bob"; // Не должно измениться
+// user.address.city = "Madrid"; // Не должно измениться
+// console.log(user); // Должен вывести оригинальный объект
