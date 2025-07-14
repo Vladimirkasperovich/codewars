@@ -120,4 +120,27 @@ const reverseWords = (str) => {
 // console.log(reverseWords("frontend developer")) // "dnetnorf repoleved"
 
 
+/**
+ * Task: Реализуй функцию countBy, которая считает количество элементов по ключу из колбэка.
+ * Пример: countBy([6.1, 4.2, 6.3], Math.floor) → { 6: 2, 4: 1 }
+ */
+const countBy = (array, callback) => {
+    const hash = {}
+    let count = 1
+    array.forEach((item) => {
+        const key = callback(item);
+        if (!hash[key]) {
+            hash[key] = count
+        } else {
+            count += 1;
+            hash[key] = count;
+        }
+    })
+
+    return hash;
+}
+
+// console.log(countBy([6.1, 4.2, 6.3], Math.floor)) // { 6: 2, 4: 1 }
+// console.log(countBy(['one', 'two', 'three'], val => val.length)) // { 3: 2, 5: 1 }
+
 
