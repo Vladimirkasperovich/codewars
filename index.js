@@ -55,3 +55,39 @@ const flatten = (array) => {
 // console.log(flatten([1, [2, [3, 4], 5]])) // [1, 2, 3, 4, 5]
 // console.log(flatten([[[1]], 2, [[3, [4]]]])) // [1, 2, 3, 4]
 
+
+/**
+ * Task: Реализуй функцию getUnique, которая возвращает массив уникальных значений.
+ * Пример: getUnique([1, 2, 2, 3, 4, 4]) → [1, 2, 3, 4]
+ */
+
+const getUnique = (array) => {
+    const seen = {};
+    array.forEach((item) => {
+        seen[item] = item
+    })
+
+    return Object.values(seen)
+}
+
+// console.log(getUnique([1, 2, 2, 3, 4, 4])) // [1, 2, 3, 4]
+// console.log(getUnique(['a', 'b', 'a', 'c'])) // ['a', 'b', 'c']
+
+/**
+ * Task: Напиши функцию intersection, которая возвращает пересечение двух массивов.
+ * Пример: intersection([1, 2, 3], [2, 3, 4]) → [2, 3]
+ */
+
+const intersection = (arr1, arr2) => {
+    const set = new Set(arr2);
+    return [...new Set(arr1.filter((item) => set.has(item)))]
+}
+
+// console.log(intersection([1, 2, 3], [2, 3, 4])) // [2, 3]
+// console.log(intersection(['a', 'b'], ['b', 'c'])) // ['b']
+// console.log(intersection([], ['b', 'c'])) // ['b']
+
+
+
+
+
