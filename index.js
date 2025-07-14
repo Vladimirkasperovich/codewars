@@ -165,13 +165,18 @@ const isPalindrome = (str) => {
  */
 const findMissingNumber = (arr) => {
     const array = arr.sort((a, b) => a - b);
-    for (let i = 1; i < array.length + 1; i++) {
-        if (i !== array[i - 1]) {
-            return i
+    const start = array[0];
+    const end = array[array.length - 1];
+
+    for (let index = start; index <= end; index++) {
+        if (!array.includes(index)) {
+            return index;
         }
     }
+
+    return null;
 }
 
-console.log(findMissingNumber([1, 2, 4, 5])) // 3
-console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])) // 6
+// console.log(findMissingNumber([1, 2, 4, 5])) // 3
+// console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])) // 6
 
