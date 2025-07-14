@@ -104,3 +104,20 @@ const isAnagram = (str1, str2) => {
 // console.log(isAnagram('hello', 'world')) // false
 
 
+/**
+ * Task: Напиши функцию reverseWords, которая переворачивает слова в строке, но не меняет порядок слов.
+ * Пример: reverseWords("hello world") → "olleh dlrow"
+ */
+
+const reverseWords = (str) => {
+    return str.split(' ').map((item) => {
+        const reversed = item.split('').reverse().join('')
+        return reversed
+    })
+}
+
+// console.log(reverseWords("hello world")) // "olleh dlrow"
+// console.log(reverseWords("frontend developer")) // "dnetnorf repoleved"
+
+
+
