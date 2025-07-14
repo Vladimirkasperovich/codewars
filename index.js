@@ -88,6 +88,19 @@ const intersection = (arr1, arr2) => {
 // console.log(intersection([], ['b', 'c'])) // ['b']
 
 
+/**
+ * Task: Реализуй функцию isAnagram, которая проверяет являются ли строки анаграммами.
+ * Пример: isAnagram('listen', 'silent') → true
+ */
 
+const isAnagram = (str1, str2) => {
+    const s1 = str1.toLowerCase().split('').sort().join('');
+    const s2 = str2.toLowerCase().split('').sort().join('');
+
+    return s1 === s2;
+}
+
+// console.log(isAnagram('listen', 'silent')) // true
+// console.log(isAnagram('hello', 'world')) // false
 
 
