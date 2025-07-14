@@ -198,3 +198,14 @@ function greet() {
 // const person = {name: 'Alice'};
 // const boundGreet = bind(greet, person);
 // console.log(boundGreet()); // "Hello, Alice"
+
+
+/**
+ * Task: Напиши функцию delay(ms), которая возвращает Promise и делает паузу в ms миллисекунд.
+ */
+
+const delay = (ms) => {
+ return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+// delay(1000).then(() => console.log('Waited 1 second'));
