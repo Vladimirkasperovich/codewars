@@ -144,3 +144,17 @@ const countBy = (array, callback) => {
 // console.log(countBy(['one', 'two', 'three'], val => val.length)) // { 3: 2, 5: 1 }
 
 
+/**
+ * Task: Напиши функцию isPalindrome, которая проверяет, является ли строка палиндромом (игнорируя регистр и пробелы).
+ * Пример: isPalindrome("A man a plan a canal Panama") → true
+ */
+const isPalindrome = (str) => {
+    const s1 = str.toLowerCase().replace(/[^A-Z a-z]/g, '').split(' ').join('')
+    const s2 = str.toLowerCase().replace(/[^A-Z a-z]/g, '').split('').reverse().join('').replaceAll(' ', '')
+    return s1 === s2
+
+
+}
+
+// console.log(isPalindrome("A man a plan a canal Panama")) // true
+// console.log(isPalindrome("Hello world")) // false
