@@ -180,3 +180,21 @@ const findMissingNumber = (arr) => {
 // console.log(findMissingNumber([1, 2, 4, 5])) // 3
 // console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])) // 6
 
+/**
+ * Task: Напиши функцию bind, которая аналогична Function.prototype.bind
+ * Пример: const bound = bind(fn, context), bound() вызывает fn с привязанным контекстом
+ */
+
+const bind = (fn, context) => {
+    return function () {
+     return fn.call(context)
+    }
+}
+
+function greet() {
+    return `Hello, ${this.name}`;
+}
+
+// const person = {name: 'Alice'};
+// const boundGreet = bind(greet, person);
+// console.log(boundGreet()); // "Hello, Alice"
