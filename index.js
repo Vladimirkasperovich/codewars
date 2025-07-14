@@ -158,3 +158,20 @@ const isPalindrome = (str) => {
 
 // console.log(isPalindrome("A man a plan a canal Panama")) // true
 // console.log(isPalindrome("Hello world")) // false
+
+/**
+ * Task: Реализуй функцию findMissingNumber, которая возвращает недостающее число в последовательности от 1 до n.
+ * Пример: findMissingNumber([1, 2, 4, 5]) → 3
+ */
+const findMissingNumber = (arr) => {
+    const array = arr.sort((a, b) => a - b);
+    for (let i = 1; i < array.length + 1; i++) {
+        if (i !== array[i - 1]) {
+            return i
+        }
+    }
+}
+
+console.log(findMissingNumber([1, 2, 4, 5])) // 3
+console.log(findMissingNumber([3, 7, 1, 2, 8, 4, 5])) // 6
+
