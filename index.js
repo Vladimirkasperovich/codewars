@@ -187,7 +187,7 @@ const findMissingNumber = (arr) => {
 
 const bind = (fn, context) => {
     return function () {
-     return fn.call(context)
+        return fn.call(context)
     }
 }
 
@@ -205,7 +205,32 @@ function greet() {
  */
 
 const delay = (ms) => {
- return new Promise((resolve) => setTimeout(resolve, ms))
+    return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 // delay(1000).then(() => console.log('Waited 1 second'));
+
+
+function arrOfK(nums, k) {
+    const res = []
+    const seen = {};
+    for (const num of nums) {
+        seen[num] = (seen[num] || 0) + 1;
+    }
+
+    return Object.keys(seen).map(Number).slice(0, k)
+}
+
+// console.log(arrOfK([1, 1, 1, 2, 2, 3], 2)) // [1, 2]
+// console.log(arrOfK([1, 2, 3, 4, 5], 2)) //[1, 2]
+
+
+
+
+
+
+
+
+
+
+
