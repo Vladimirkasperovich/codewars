@@ -228,6 +228,66 @@ function arrOfK(nums, k) {
 
 
 
+function getNodes(tree, type) {
+    const result = [];
+    for (const key in tree) {
+        if (tree[key] && typeof tree[key] === 'object'){
+            result.push(...getNodes(tree[key]))
+        }
+    }
+    return result
+}
+const tree1 = {
+    type: "nested",
+    children: [
+        { type: "added", value: 42 },
+        {
+            type: "nested",
+            children: [{ type: "added", value: 43 }],
+        },
+        { type: "added", value: 44 },
+    ],
+};
+
+console.log(getNodes(tree1, 'added'));
+// Ожидается:
+// [ { type: 'added', value: 42 }, { type: 'added', value: 43 }, { type: 'added', value: 44 } ]
+
+
+// const tree2 = {
+//     type: "nested",
+//     children: [
+//         {
+//             type: "nested",
+//             children: [{ type: "added", value: 50 }],
+//         },
+//         { type: "added", value: 51 },
+//     ],
+// };
+//
+// console.log(getNodes(tree2, 'added'));
+// // Ожидается:
+// // [ { type: 'added', value: 50 }, { type: 'added', value: 51 } ]
+//
+//
+// const tree3 = {
+//     type: "nested",
+//     children: [
+//         {
+//             type: "nested",
+//             children: [
+//                 {
+//                     type: "nested",
+//                     children: [{ type: "added", value: 60 }],
+//                 },
+//             ],
+//         },
+//     ],
+// };
+//
+// console.log(getNodes(tree3, 'added'));
+// // Ожидается:
+// // [ { type: 'added', value: 60 } ]
 
 
 
