@@ -267,8 +267,29 @@ function groupAnagrams(arr) {
     return [...Object.values(groups)]
 }
 
-console.log(groupAnagrams(["ab", "ba", "abc", "bca"])) //[["abc","bca"],["ab","ba"]]
-console.log(groupAnagrams(["listen", "silent", "enlist"])) //[["listen","silent","enlist"]]
+// console.log(groupAnagrams(["ab", "ba", "abc", "bca"])) //[["abc","bca"],["ab","ba"]]
+// console.log(groupAnagrams(["listen", "silent", "enlist"])) //[["listen","silent","enlist"]]
 
+function capitalize(input) {
+    return input.split(' ')
+        .map((item) => item[0].toUpperCase() + item.slice(1))
+        .join(' ')
+}
+
+// console.log(capitalize('что-то произошло')) //'Что-то Произошло'
+// console.log(capitalize('foo-bar baz')) //'Foo-bar Baz'
+
+function getConcated(arr) {
+    const order = arr.sort((a, b) => a.order - b.order)
+    const filtered = order.filter((item) => !item.expired)
+    let output = "";
+    for (const item of filtered) {
+        output += `${item.value.split('').reverse().join('')}`
+    }
+    return [...new Set(output)].join('')
+}
+
+// console.log(getConcated([{value: "hello", order: 1, expired: false}, {value: "world", order: 2, expired: false}])) //"olehdrw"
+// console.log(getConcated([{value: "aabb", order: 1, expired: false}, {value: "bbaa", order: 2, expired: false}])) //"ba"
 
 
