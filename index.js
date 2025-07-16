@@ -253,7 +253,22 @@ function getNodes(tree, type) {
 // console.log(getNodes(tree1, 'added'));
 
 
+function groupAnagrams(arr) {
 
+    const groups = {}
+    for (const item of arr) {
+        const anagram = item.toLowerCase().split('').sort().join('')
+        if (!groups[anagram]) {
+            groups[anagram] = [item]
+        } else {
+            groups[anagram].push(item)
+        }
+    }
+    return [...Object.values(groups)]
+}
+
+console.log(groupAnagrams(["ab", "ba", "abc", "bca"])) //[["abc","bca"],["ab","ba"]]
+console.log(groupAnagrams(["listen", "silent", "enlist"])) //[["listen","silent","enlist"]]
 
 
 
