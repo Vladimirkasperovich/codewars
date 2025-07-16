@@ -225,69 +225,32 @@ function arrOfK(nums, k) {
 // console.log(arrOfK([1, 2, 3, 4, 5], 2)) //[1, 2]
 
 
-
-
-
 function getNodes(tree, type) {
     const result = [];
-    for (const key in tree) {
-        if (tree[key] && typeof tree[key] === 'object'){
-            result.push(...getNodes(tree[key]))
+    if (tree.type === type) {
+        result.push(tree)
+    }
+    if (Array.isArray(tree.children)) {
+        for (const child of tree.children) {
+            result.push(...getNodes(child, type))
         }
     }
     return result
 }
-const tree1 = {
-    type: "nested",
-    children: [
-        { type: "added", value: 42 },
-        {
-            type: "nested",
-            children: [{ type: "added", value: 43 }],
-        },
-        { type: "added", value: 44 },
-    ],
-};
 
-console.log(getNodes(tree1, 'added'));
-// Ожидается:
-// [ { type: 'added', value: 42 }, { type: 'added', value: 43 }, { type: 'added', value: 44 } ]
-
-
-// const tree2 = {
-//     type: "nested",
+// const tree1 = {
+//     // type: "nested",
+//     type: 'added',
 //     children: [
+//         {type: "added", value: 42},
 //         {
 //             type: "nested",
-//             children: [{ type: "added", value: 50 }],
+//             children: [{type: "added", value: 43}],
 //         },
-//         { type: "added", value: 51 },
+//         {type: "added", value: 44},
 //     ],
 // };
-//
-// console.log(getNodes(tree2, 'added'));
-// // Ожидается:
-// // [ { type: 'added', value: 50 }, { type: 'added', value: 51 } ]
-//
-//
-// const tree3 = {
-//     type: "nested",
-//     children: [
-//         {
-//             type: "nested",
-//             children: [
-//                 {
-//                     type: "nested",
-//                     children: [{ type: "added", value: 60 }],
-//                 },
-//             ],
-//         },
-//     ],
-// };
-//
-// console.log(getNodes(tree3, 'added'));
-// // Ожидается:
-// // [ { type: 'added', value: 60 } ]
+// console.log(getNodes(tree1, 'added'));
 
 
 
