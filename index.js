@@ -16,3 +16,52 @@ const twoSum = (nums, target) => {
 // console.log(twoSum([2, 7, 11, 15], 9)) //[0, 1]
 // console.log(twoSum([3, 2, 4, 1], 5)) //[0, 1]
 // console.log(twoSum([1, 2, 3, 4], 10)) //null
+
+const getNodes = (tree, type) => {
+    const result = [];
+    if (tree.type === type) result.push(tree)
+
+    if (Array.isArray(tree.children)) {
+        tree.children.forEach((cur) => {
+            result.push(...getNodes(cur, type))
+        })
+    }
+
+    return result;
+
+};
+
+
+// const tree1 = {
+//     type: "nested",
+//     children: [
+//         {type: "removed", value: 10},
+//         {
+//             type: "nested", children: [
+//                 {type: "added", value: 20},
+//                 {type: "changed", oldValue: 30, newValue: 31}
+//             ]
+//         },
+//         {type: "added", value: 40}
+//     ]
+// }
+// console.log(getNodes(tree1, 'added'))
+//
+// const tree2 = {
+//     type: "nested",
+//     children: [
+//         {type: "nested", children: []}, // Пустой вложенный узел
+//         {type: "unchanged", value: 100},
+//         {
+//             type: "nested", children: [
+//                 {
+//                     type: "nested", children: [
+//                         {type: "unchanged", value: 200}
+//                     ]
+//                 }
+//             ]
+//         }
+//     ]
+// }
+//
+// console.log(getNodes(tree2, "unchanged"))
