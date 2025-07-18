@@ -82,3 +82,11 @@ const groupAnagrams = (arr) => {
 
 // console.log(groupAnagrams(["ab", "ba", "abc", "bca"])) //[["abc","bca"],["ab","ba"]]
 // console.log(groupAnagrams(["listen", "silent", "enlist"])) //[["listen","silent","enlist"]]
+
+
+const findSubstring = (substring, arr) => {
+  return arr.filter((word) => word.includes(substring))
+};
+
+// console.log(findSubstring("oo", ["food", "door", "moon"])) //["food", "door", "moon"]
+// console.log(findSubstring("xyz", ["apple", "banana", "cherry"])) //[]
