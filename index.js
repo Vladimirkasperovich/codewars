@@ -65,3 +65,20 @@ const getNodes = (tree, type) => {
 // }
 //
 // console.log(getNodes(tree2, "unchanged"))
+
+const groupAnagrams = (arr) => {
+    const groups = new Map();
+
+    arr.forEach((word) => {
+        const sortedWord = word.toLowerCase().split('').sort().join('');
+        if (!groups.has(sortedWord)) {
+            groups.set(sortedWord, [word])
+        } else {
+            groups.get(sortedWord).push(word)
+        }
+    })
+    return [...groups.values()]
+}
+
+// console.log(groupAnagrams(["ab", "ba", "abc", "bca"])) //[["abc","bca"],["ab","ba"]]
+// console.log(groupAnagrams(["listen", "silent", "enlist"])) //[["listen","silent","enlist"]]
