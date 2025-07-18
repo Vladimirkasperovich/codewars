@@ -85,8 +85,26 @@ const groupAnagrams = (arr) => {
 
 
 const findSubstring = (substring, arr) => {
-  return arr.filter((word) => word.includes(substring))
+    return arr.filter((word) => word.includes(substring))
 };
 
 // console.log(findSubstring("oo", ["food", "door", "moon"])) //["food", "door", "moon"]
 // console.log(findSubstring("xyz", ["apple", "banana", "cherry"])) //[]
+
+const checkBrackets = (str) => {
+    const map = {'(': ')', '{': '}', '[': ']'}
+    const stack = [];
+    for (const bracket of str) {
+        if (map[bracket]) {
+            stack.push(bracket)
+        } else if (Object.values(map).includes(bracket)) {
+            const lastRemoved = stack.pop();
+            if (map[lastRemoved] !== bracket){
+                return false
+            }
+        }
+    }
+    return stack.length === 0;
+}
+// console.log(checkBrackets("{Hi(good day)!}")) //true
+// console.log(checkBrackets("{nice[day}")) //false
