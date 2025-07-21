@@ -113,12 +113,13 @@ const checkBrackets = (str) => {
 const memoize = (fn) => {
     const cash = new Map();
     return (...args) => {
-        const key = JSON.stringify(args);
-        if (!cash.has(key)) {
-            cash.set(key, fn(...args))
+        const key = args.length === 1 ? args[0] : JSON.stringify(args);
+        if (cash.has(key)) {
+            return cash.get(key)
         }
-
-        return cash.get(key)
+        const result = fn(...args);
+        cash.set(key, result)
+        return result
     }
 }
 
@@ -147,5 +148,19 @@ const memoize = (fn) => {
 // console.log(memoizedSum(2, 3)); // Должно вернуть 5 без вычисления
 // console.log(memoizedSum(2, 4)); // Должно вычислить и вывести 6
 
+/**
+ * Возвращает n-ное число Фибоначчи.
+ * Оптимизируй для многократных вызовов.
+ * @param {number} n
+ * @returns {number}
+ */
+function fibonacci(n) {
+    if (n < 2) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2)
+}
 
+// // Тесты:
+// const fibMemoize = memoize(fibonacci)
+// console.log(fibMemoize(10)); // 55
+// console.log(fibMemoize(50)); // 12586269025 (должно работать быстро)
 
