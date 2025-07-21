@@ -99,7 +99,7 @@ const checkBrackets = (str) => {
             stack.push(bracket)
         } else if (Object.values(map).includes(bracket)) {
             const lastRemoved = stack.pop();
-            if (map[lastRemoved] !== bracket){
+            if (map[lastRemoved] !== bracket) {
                 return false
             }
         }
@@ -108,3 +108,44 @@ const checkBrackets = (str) => {
 }
 // console.log(checkBrackets("{Hi(good day)!}")) //true
 // console.log(checkBrackets("{nice[day}")) //false
+
+
+const memoize = (fn) => {
+    const cash = new Map();
+    return (...args) => {
+        const key = JSON.stringify(args);
+        if (!cash.has(key)) {
+            cash.set(key, fn(...args))
+        }
+
+        return cash.get(key)
+    }
+}
+
+// // Тест 1: Функция с одним числовым аргументом
+// function square(x) {
+//     console.log(`Вычисление square(${x})`);
+//     return x * x;
+// }
+//
+// const memoizedSquare = memoize(square);
+//
+// console.log(memoizedSquare(4)); // Должно вычислить и вывести 16
+// console.log(memoizedSquare(4)); // Должно вернуть 16 без вычисления
+// console.log(memoizedSquare(5)); // Должно вычислить и вывести 25
+// console.log(memoizedSquare(5)); // Должно вернуть 25 без вычисления
+//
+// // Тест 2: Функция с несколькими аргументами
+// function sum(a, b) {
+//     console.log(`Вычисление sum(${a}, ${b})`);
+//     return a + b;
+// }
+//
+// const memoizedSum = memoize(sum);
+//
+// console.log(memoizedSum(2, 3)); // Должно вычислить и вывести 5
+// console.log(memoizedSum(2, 3)); // Должно вернуть 5 без вычисления
+// console.log(memoizedSum(2, 4)); // Должно вычислить и вывести 6
+
+
+
