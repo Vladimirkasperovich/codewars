@@ -164,3 +164,21 @@ function fibonacci(n) {
 // console.log(fibMemoize(10)); // 55
 // console.log(fibMemoize(50)); // 12586269025 (должно работать быстро)
 
+/**
+ * Дан массив чисел от 1 до N с одним пропущенным числом.
+ * Найди пропущенное число.
+ * @param {number[]} nums
+ * @returns {number}
+ */
+function findMissingNumber(nums) {
+    const max = Math.max(...nums);
+    for (let i = 1; i <= max; i++) {
+       if (!nums.includes(i)){
+           return i
+       }
+    }
+}
+
+// Тесты:
+// console.log(findMissingNumber([3, 1, 4, 5])); // 2
+// console.log(findMissingNumber([9, 6, 4, 2, 3, 5, 7, 1])); // 8
