@@ -236,8 +236,8 @@ const increasingTriplet = (nums) => {
         const first = nums[i];
         const second = nums[i + 1];
         const third = nums[i + 2];
-        if (second && third){
-            if (first < second && second < third){
+        if (second && third) {
+            if (first < second && second < third) {
                 return true
             }
         }
@@ -248,3 +248,16 @@ const increasingTriplet = (nums) => {
 // console.log(increasingTriplet([1, 2, 3, 4, 5])) //true
 // console.log(increasingTriplet([5, 4, 3, 2, 1])) //false
 // console.log(increasingTriplet([2, 1, 5, 0, 4, 6])) //true
+
+
+const findDifference = (nums1, nums2) => {
+    const set1 = new Set(nums1);
+    const set2 = new Set(nums2);
+
+    const firstArray = [...set1].filter((item) => !set2.has(item))
+    const secondArray = [...set2].filter((item) => !set1.has(item))
+
+    return [firstArray, secondArray]
+};
+// console.log(findDifference([1, 2, 3], [2, 4, 6])) //[[1,3],[4,6]]
+// console.log(findDifference([1, 2, 3, 3], [1, 1, 2, 2])) //[[3],[]]
