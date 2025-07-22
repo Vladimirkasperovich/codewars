@@ -173,12 +173,35 @@ function fibonacci(n) {
 function findMissingNumber(nums) {
     const max = Math.max(...nums);
     for (let i = 1; i <= max; i++) {
-       if (!nums.includes(i)){
-           return i
-       }
+        if (!nums.includes(i)) {
+            return i
+        }
     }
 }
 
 // Тесты:
 // console.log(findMissingNumber([3, 1, 4, 5])); // 2
 // console.log(findMissingNumber([9, 6, 4, 2, 3, 5, 7, 1])); // 8
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+const isValid = (s) => {
+    const brackets = {'(': ')', '{': '}', '[': ']'}
+    const stack = [];
+    for (const bracket of s) {
+        if (brackets[bracket]) {
+            stack.push(bracket)
+        } else if (Object.values(brackets).includes(bracket)) {
+            const lastItem = stack.pop();
+            if (brackets[lastItem] !== bracket) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0
+}
+// console.log(isValid("()")) //true
+// console.log(isValid("()[]{}")) //true
+// console.log(isValid("([)]")) //false
