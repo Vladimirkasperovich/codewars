@@ -226,3 +226,25 @@ const lengthOfLongestSubstring = (s) => {
     }
     return maxLength;
 };
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+const increasingTriplet = (nums) => {
+    for (let i = 0; i < nums.length; i++) {
+        const first = nums[i];
+        const second = nums[i + 1];
+        const third = nums[i + 2];
+        if (second && third){
+            if (first < second && second < third){
+                return true
+            }
+        }
+    }
+    return false;
+};
+
+// console.log(increasingTriplet([1, 2, 3, 4, 5])) //true
+// console.log(increasingTriplet([5, 4, 3, 2, 1])) //false
+// console.log(increasingTriplet([2, 1, 5, 0, 4, 6])) //true
