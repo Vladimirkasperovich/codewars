@@ -205,3 +205,24 @@ const isValid = (s) => {
 // console.log(isValid("()")) //true
 // console.log(isValid("()[]{}")) //true
 // console.log(isValid("([)]")) //false
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+const lengthOfLongestSubstring = (s) => {
+    const set = new Set()
+    let left = 0;
+    let maxLength = 0
+
+    for (let right = 0; right < s.length; right++) {
+        const currentChar = s[right];
+        while (set.has(currentChar)) {
+            set.delete(s[left])
+            left++
+        }
+        set.add(currentChar)
+        maxLength = Math.max(maxLength, right - left + 1)
+    }
+    return maxLength;
+};
