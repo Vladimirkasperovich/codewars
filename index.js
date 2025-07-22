@@ -261,3 +261,22 @@ const findDifference = (nums1, nums2) => {
 };
 // console.log(findDifference([1, 2, 3], [2, 4, 6])) //[[1,3],[4,6]]
 // console.log(findDifference([1, 2, 3, 3], [1, 1, 2, 2])) //[[3],[]]
+
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+const uniqueOccurrences = (arr) => {
+    const map = new Map();
+    for (const number of arr) {
+        if (!map.has(number)) {
+            map.set(number, 1)
+        } else {
+            map.set(number, map.get(number) + 1)
+        }
+    }
+    return [...map.values()].length === new Set(map.values()).size
+};
+// console.log(uniqueOccurrences([1, 2, 2, 1, 1, 3])) //true
+// console.log(uniqueOccurrences([1, 2])) //false
+// console.log(uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0])) //true
