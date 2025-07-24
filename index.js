@@ -280,3 +280,17 @@ const uniqueOccurrences = (arr) => {
 // console.log(uniqueOccurrences([1, 2, 2, 1, 1, 3])) //true
 // console.log(uniqueOccurrences([1, 2])) //false
 // console.log(uniqueOccurrences([-3, 0, 1, -3, 1, 1, 1, -3, 10, 0])) //true
+
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+const delayedGreet = (name, cb) => {
+    setTimeout(() => {
+        console.log(`Привет ${name}`)
+        cb()
+    }, 100)
+}
+
+// delayedGreet("Макс", () => console.log("Приветствие завершено!"));
+
