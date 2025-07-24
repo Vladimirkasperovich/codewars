@@ -369,3 +369,24 @@ const promisify = (fn) => {
 // const promisedSum = promisify(asyncSum);
 // promisedSum(2, 3)
 //     .then((sum) => console.log("Сумма:", sum)); // Ожидаемый вывод (через 0.5 сек): "Сумма: 5"
+
+
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+const groupAnagrams1 = (strs) => {
+    const map = new Map()
+    strs.forEach((item) => {
+        const sortedItem = item.toLowerCase().split('').sort().join();
+        if (!map.has(sortedItem)) {
+            map.set(sortedItem, [item])
+        } else {
+            map.get(sortedItem).push(item)
+        }
+    })
+    return [...map.values()]
+};
+// console.log(groupAnagrams1(["eat", "tea", "tan", "ate", "nat", "bat"])) //[["bat"],["nat","tan"],["ate","eat","tea"]]
+// console.log(groupAnagrams1([""])) //[[""]]
+// console.log(groupAnagrams1(["a"])) //[["a"]]
