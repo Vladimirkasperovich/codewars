@@ -320,3 +320,52 @@ const asyncSquare = (x, cb) => {
 
 // Тест
 // asyncSquare(3, (res) => console.log(res)); // → 9 (через 1 сек)
+
+/**
+ * Асинхронная функция, которая принимает число и колбек в стиле Node.js (err, result)
+ * @param {number} x - Входное число
+ * @param {(err: Error | null, result?: number) => void} callback - Колбек
+ */
+
+const promisify = (fn) => {
+    return (...args) => {
+        return new Promise((resolve, reject) => {
+            fn(...args, (err, result) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(result)
+                }
+            })
+        })
+    }
+}
+
+// const asyncTask = (x, callback) => {
+//     setTimeout(() => {
+//         if (x < 0) {
+//             callback(new Error("Число должно быть положительным!"));
+//         } else {
+//             callback(null, x * 2);
+//         }
+//     }, 1000);
+// };
+//
+// // 1. Успешное выполнение
+// const promisedTask = promisify(asyncTask);
+// promisedTask(5)
+//     .then((result) => console.log("Результат:", result)) // Ожидаемый вывод (через 1 сек): "Результат: 10"
+//     .catch((err) => console.error("Ошибка:", err));
+//
+// // 2. Ошибка
+// promisedTask(-3)
+//     .then((result) => console.log("Результат:", result))
+//     .catch((err) => console.error("Ошибка:", err)); // Ожидаемый вывод: "Ошибка: Error: Число должно быть положительным!"
+//
+// // 3. Промисификация другой функции (дополнительно)
+// const asyncSum = (a, b, callback) => {
+//     setTimeout(() => callback(null, a + b), 500);
+// };
+// const promisedSum = promisify(asyncSum);
+// promisedSum(2, 3)
+//     .then((sum) => console.log("Сумма:", sum)); // Ожидаемый вывод (через 0.5 сек): "Сумма: 5"
