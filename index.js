@@ -294,3 +294,29 @@ const delayedGreet = (name, cb) => {
 
 // delayedGreet("Макс", () => console.log("Приветствие завершено!"));
 
+// /**
+//  * Проверяет, четное ли число, и вызывает колбек с результатом
+//  * @param {number} num - Число для проверки
+//  * @param {(isEven: boolean) => void} cb - Колбек, принимающий boolean
+//  */
+// const checkEven = (num, cb) => {
+//     cb(num % 2 === 0)
+// };
+//
+// // Тест
+// checkEven(4, (result) => console.log(`Четное? ${result}`)); // → "Четное? true"
+
+/**
+ * Возводит число в квадрат через 1 секунду и передает результат в колбек
+ * @param {number} x - Число
+ * @param {(result: number) => void} cb - Колбек с результатом
+ */
+const asyncSquare = (x, cb) => {
+    // Твой код здесь
+    setTimeout(() => {
+        cb(x * x)
+    }, 1000)
+};
+
+// Тест
+// asyncSquare(3, (res) => console.log(res)); // → 9 (через 1 сек)
