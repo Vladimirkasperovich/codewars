@@ -390,3 +390,27 @@ const groupAnagrams1 = (strs) => {
 // console.log(groupAnagrams1(["eat", "tea", "tan", "ate", "nat", "bat"])) //[["bat"],["nat","tan"],["ate","eat","tea"]]
 // console.log(groupAnagrams1([""])) //[[""]]
 // console.log(groupAnagrams1(["a"])) //[["a"]]
+
+/**
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
+ */
+const canConstruct = (ransomNote, magazine) => {
+    const hashMap = {};
+    for (const word of magazine) {
+        hashMap[word] = (hashMap[word] || 0) + 1;
+    }
+
+    for (const word of ransomNote) {
+        if (!hashMap[word]) {
+            return false
+        }
+
+        hashMap[word] -= 1;
+    }
+    return true;
+}
+// console.log(canConstruct("a", "b")) //false
+// console.log(canConstruct("aa", "ab")) //false
+// console.log(canConstruct("aa", "aab")) //true
