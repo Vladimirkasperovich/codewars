@@ -414,3 +414,46 @@ const canConstruct = (ransomNote, magazine) => {
 // console.log(canConstruct("a", "b")) //false
 // console.log(canConstruct("aa", "ab")) //false
 // console.log(canConstruct("aa", "aab")) //true
+
+// Необходимо обработать массив таким образом, чтобы распределить людей по группам городов
+
+// Данные на вход
+const people = [
+    {
+        name: 'Alex',
+        city: 'Moscow',
+    },
+    {
+        name: 'Ivan',
+        city: 'Moscow',
+    },
+    {
+        name: 'Joe',
+        city: 'New York'
+    },
+    {
+        name: 'Johan',
+        city: 'Berlin'
+    },
+]
+
+const groupByCity = (array) => {
+    const map = new Map();
+    array.forEach(({name, city}) => {
+        if (!map.has(city)) {
+            map.set(city, name)
+        } else if (map.has(city)) {
+            map.set(city, [map.get(city), name])
+        }
+    })
+    return map;
+}
+// console.log(groupByCity(people))
+// Данные на выход
+/*
+{
+  'Moscow': [ 'Alex', 'Ivan' ],
+  'New York': 'Joe',
+  'Berlin': 'Johan'
+}
+*/
