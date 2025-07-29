@@ -558,3 +558,29 @@ const flattenObject = (obj, str = '') => {
 // const flattenedObj = flattenObject(obj);
 // console.log(flattenedObj);
 // Ожидаемый результат: { 'a.b.c': 1, 'a.b.d': 2, 'a.e': 3, 'f': 4 } || { "f": 4, "a.e": 3, "a.b.c": 1, "a.b.d": 2 }
+
+function flattenArray(arr) {
+    const result = [];
+    for (const item of arr) {
+        if (Array.isArray(item)) {
+            result.push(...flattenArray(item))
+        } else {
+            result.push(item)
+        }
+    }
+    return result;
+}
+
+// const nestedArray = [1, [2, [3, 4], 5], 6];
+// console.log(flattenArray(nestedArray)); // [1, 2, 3, 4, 5, 6]
+
+
+const myMap = (arr, fn) => {
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(fn(arr[i], i, arr))
+    }
+    return result
+}
+
+console.log(myMap([1, 2, 3, 4, 5], (n) => n + 1))
