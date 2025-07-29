@@ -597,3 +597,12 @@ const myFilter = (arr, fn) => {
     return result;
 }
 // console.log(myFilter([0, 0, 0, 1, 2, 3,], (n) => n !== 0))
+
+const myReduce = (arr, fn, initialValue = 0) => {
+  let accumulator = initialValue;
+    for (let i = 0; i < arr.length; i++) {
+        accumulator = fn(accumulator, arr[i], i, arr)
+    }
+  return accumulator;
+}
+// console.log(myReduce([1, 2, 3], (acc, cur) => acc + cur, 0));
