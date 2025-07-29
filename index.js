@@ -520,3 +520,41 @@ updatedObject {
   c: { f: { g: 3, k: [Object], level: 2 }, level: 1 },
   level: 0
 }*/
+
+
+/*
+Задача: Напишите функцию flattenObject(obj), которая принимает в качестве
+аргумента вложенный объект obj и возвращает новый объект,
+в котором все свойства объекта obj "разглажены"
+(преобразованы в одноуровневую структуру), с использованием точечной нотации
+для представления иерархии свойств.
+*/
+
+const obj = {
+    a: {
+        b: {
+            c: 1,
+            d: 2
+        },
+        e: 3
+    },
+    f: 4
+};
+
+const flattenObject = (obj, str = '') => {
+    let result = {};
+
+    for (const key in obj) {
+        if (obj[key] && typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+            result = {...result, ...flattenObject(obj[key], str + key + '.')}
+        } else {
+            result[str + key] = obj[key]
+        }
+    }
+
+    return result;
+}
+
+// const flattenedObj = flattenObject(obj);
+// console.log(flattenedObj);
+// Ожидаемый результат: { 'a.b.c': 1, 'a.b.d': 2, 'a.e': 3, 'f': 4 } || { "f": 4, "a.e": 3, "a.b.c": 1, "a.b.d": 2 }
