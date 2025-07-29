@@ -583,4 +583,17 @@ const myMap = (arr, fn) => {
     return result
 }
 
-console.log(myMap([1, 2, 3, 4, 5], (n) => n + 1))
+// console.log(myMap([1, 2, 3, 4, 5], (n) => n + 1))
+
+
+const myFilter = (arr, fn) => {
+    const result = [];
+    for (let index = 0; index < arr.length; index++) {
+        const currentItem = arr[index];
+        if (fn(currentItem, index, arr)) {
+            result.push(currentItem)
+        }
+    }
+    return result;
+}
+// console.log(myFilter([0, 0, 0, 1, 2, 3,], (n) => n !== 0))
