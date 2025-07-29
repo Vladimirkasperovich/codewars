@@ -599,10 +599,32 @@ const myFilter = (arr, fn) => {
 // console.log(myFilter([0, 0, 0, 1, 2, 3,], (n) => n !== 0))
 
 const myReduce = (arr, fn, initialValue = 0) => {
-  let accumulator = initialValue;
+    let accumulator = initialValue;
     for (let i = 0; i < arr.length; i++) {
         accumulator = fn(accumulator, arr[i], i, arr)
     }
-  return accumulator;
+    return accumulator;
 }
 // console.log(myReduce([1, 2, 3], (acc, cur) => acc + cur, 0));
+
+const countKeysFromObject = (arr) => {
+    const countMap = {};
+    arr.forEach(item => {
+        Object.entries(item).forEach(([key, value]) => {
+            if (!countMap[key]) countMap[key] = {};
+            countMap[key][value] = (countMap[key][value] || 0) + 1;
+        })
+    })
+    return Object.entries(countMap).flatMap(([key, values]) =>
+        Object.entries(values).map(([value, count]) => ({[key]: value, count}))
+    )
+}
+const language = [
+    {language: 'JavaScript'}, {language: 'JavaScript'}, {language: 'TypeScript'}, {language: 'C++'}
+]
+// console.log(countKeysFromObject(language))
+/*[
+{ language: 'JavaScript', count: 2 },
+{ language: 'C++', count: 1 },
+{ language: 'TypeScript', count: 1 }
+]*/
