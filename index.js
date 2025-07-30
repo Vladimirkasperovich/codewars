@@ -76,7 +76,7 @@ const merge = (intervals) => {
     for (const interval of sortedArray) {
         const recent = result[result.length - 1];
         if (recent[1] >= interval[0]) {
-             recent[1] = Math.max(recent[1], interval[1])
+            recent[1] = Math.max(recent[1], interval[1])
         } else {
             result.push(interval);
         }
@@ -88,5 +88,35 @@ const merge = (intervals) => {
 // console.log(merge([[1, 3], [2, 6], [8, 10], [15, 18]]));// Ожидаемый вывод: [[1, 6], [8, 10], [15, 18]]
 // console.log(merge([[1, 4], [4, 5]]));// Ожидаемый вывод: [[1, 5]]
 // console.log(merge([[1, 4], [0, 2], [3, 5]]));// Ожидаемый вывод: [[0, 5]]
+
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+
+const isValid = (s) => {
+    const map = {"(": ")", "[": "]", "{": "}"}
+    const stack = [];
+
+    for (const bracket of s) {
+        if (map[bracket]) {
+            stack.push(bracket);
+        } else if (Object.values(map).includes(bracket)) {
+            const lastItem = stack.pop();
+            if (map[lastItem] !== bracket) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+};
+
+// console.log(isValid("()")); // true
+// console.log(isValid("()[]{}")); // true
+// console.log(isValid("(]")); // false
+// console.log(isValid("([)]")); // false
+// console.log(isValid("{[]}")); // true
 
 
