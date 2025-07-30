@@ -37,7 +37,6 @@ const threeSum = (nums) => {
             }
 
 
-
             if (sum < 0) {
                 j++
                 continue;
@@ -60,3 +59,34 @@ const threeSum = (nums) => {
 // console.log(threeSum([-2, 0, 1, 1, 2]));// Ожидаемый вывод: [[-2, 0, 2], [-2, 1, 1]]
 // console.log(threeSum([-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6]));// Ожидаемый вывод (частичный пример): [[-4, -2, 6], [-4, 0, 4], [-4, 1, 3], [-4, 2, 2], ...]
 // console.log(threeSum([-1, 0, 1, 0]));// Ожидаемый вывод: [[-1,0,1]]
+
+
+/**
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+
+const merge = (intervals) => {
+    if (intervals.length < 2) return intervals;
+
+
+    const sortedArray = [...intervals].sort((a, b) => a[0] - b[0])
+    const result = [sortedArray[0]];
+
+    for (const interval of sortedArray) {
+        const recent = result[result.length - 1];
+        if (recent[1] >= interval[0]) {
+             recent[1] = Math.max(recent[1], interval[1])
+        } else {
+            result.push(interval);
+        }
+    }
+
+    return result;
+};
+
+// console.log(merge([[1, 3], [2, 6], [8, 10], [15, 18]]));// Ожидаемый вывод: [[1, 6], [8, 10], [15, 18]]
+// console.log(merge([[1, 4], [4, 5]]));// Ожидаемый вывод: [[1, 5]]
+// console.log(merge([[1, 4], [0, 2], [3, 5]]));// Ожидаемый вывод: [[0, 5]]
+
+
