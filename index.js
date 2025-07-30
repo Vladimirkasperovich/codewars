@@ -146,9 +146,9 @@ const isAnagram = (s, t) => {
 const fizzBuzz = (n) => {
     const result = [];
     for (let i = 1; i <= n; i++) {
-       if(i % 3 === 0 && i % 5 === 0){
-           result.push('FizzBuzz')
-       } else if (i % 3 === 0) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            result.push('FizzBuzz')
+        } else if (i % 3 === 0) {
             result.push('Fizz')
         } else if (i % 5 === 0) {
             result.push('Buzz')
@@ -162,5 +162,27 @@ const fizzBuzz = (n) => {
 
 // console.log(fizzBuzz(5));
 // ["1", "2", "Fizz", "4", "Buzz"]
+
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+const groupAnagrams = (strs) => {
+    const map = new Map();
+    for (const str of strs) {
+        const key = str.split('').sort().join('');
+
+        if (!map.has(key)) {
+            map.set(key, [str]);
+        } else {
+            map.get(key).push(str)
+        }
+
+    }
+    return [...map.values()]
+};
+
+// console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+// [["eat","tea","ate"],["tan","nat"],["bat"]]
 
 
