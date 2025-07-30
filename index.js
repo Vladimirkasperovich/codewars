@@ -119,4 +119,23 @@ const isValid = (s) => {
 // console.log(isValid("([)]")); // false
 // console.log(isValid("{[]}")); // true
 
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+
+const isAnagram = (s, t) => {
+    const firstParam = s.toLowerCase().split('').sort().join("");
+    const secondParam = t.toLowerCase().split('').sort().join("");
+
+    return firstParam === secondParam
+
+};
+
+// console.log(isAnagram("anagram", "nagaram")); // true
+// console.log(isAnagram("rat", "car")); // false
+// console.log(isAnagram("", "")); // true
+
+
 
