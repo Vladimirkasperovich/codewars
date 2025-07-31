@@ -186,3 +186,38 @@ const groupAnagrams = (strs) => {
 // [["eat","tea","ate"],["tan","nat"],["bat"]]
 
 
+const timeLimit = (fn, t) => {
+    return async (...args) => {
+        const timeout = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject('Time Limit Exceeded')
+            }, t)
+        })
+
+        try {
+            const result = await Promise.race([fn(...args), timeout])
+            return Promise.resolve(result)
+        } catch (err) {
+            return Promise.reject(err)
+        }
+    }
+}
+
+// // ✅ 1. Функция успевает выполниться
+// const limited1 = timeLimit((t) => new Promise(res => setTimeout(() => res("OK"), t)), 1000);
+// limited1(500).then(console.log).catch(console.error); // 👉 "OK" (после 500ms)
+//
+//
+// // ✅ 3. Функция сразу возвращает
+// const limited3 = timeLimit(() => Promise.resolve("Instant"), 50);
+// limited3().then(console.log).catch(console.error); // 👉 "Instant"
+//
+//
+// // ✅ 4. Функция с ошибкой до лимита
+// const limited4 = timeLimit(() => Promise.reject("Oops"), 1000);
+// limited4().then(console.log).catch(console.error); // 👉 "Oops"
+//
+//
+// // ✅ 5. Функция превышает, но с небольшим запасом
+// const limited5 = timeLimit((t) => new Promise(res => setTimeout(() => res("Done"), t)), 200);
+// limited5(190).then(console.log).catch(console.error); // 👉 "Done"
