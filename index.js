@@ -206,18 +206,20 @@ const timeLimit = (fn, t) => {
 // // ✅ 1. Функция успевает выполниться
 // const limited1 = timeLimit((t) => new Promise(res => setTimeout(() => res("OK"), t)), 1000);
 // limited1(500).then(console.log).catch(console.error); // 👉 "OK" (после 500ms)
-//
-//
-// // ✅ 3. Функция сразу возвращает
-// const limited3 = timeLimit(() => Promise.resolve("Instant"), 50);
-// limited3().then(console.log).catch(console.error); // 👉 "Instant"
-//
-//
-// // ✅ 4. Функция с ошибкой до лимита
-// const limited4 = timeLimit(() => Promise.reject("Oops"), 1000);
-// limited4().then(console.log).catch(console.error); // 👉 "Oops"
-//
-//
-// // ✅ 5. Функция превышает, но с небольшим запасом
-// const limited5 = timeLimit((t) => new Promise(res => setTimeout(() => res("Done"), t)), 200);
-// limited5(190).then(console.log).catch(console.error); // 👉 "Done"
+
+
+const isPalindrome = (str) => {
+    const filteredStr = str.toLowerCase().replace(/[^a-z0-9]/g, '')
+    let start = 0;
+    let end = filteredStr.length - 1;
+    while (start < end) {
+        if (filteredStr[start] !== filteredStr[end]) {
+            return false;
+        }
+        start++;
+        end--;
+    }
+    return true;
+}
+
+// console.log(isPalindrome("A man a plan a canal Panama")) // true
