@@ -235,3 +235,22 @@ const maxChar = (str) => {
 
 }
 // console.log(maxChar("javascript")) // 'a'
+
+const isBalanced = (str) => {
+    const map = {'(': ')', '{': '}', '[': ']'};
+    const stack = [];
+    for (const bracket of str) {
+        if (map[bracket]) {
+            stack.push(bracket)
+        } else if (Object.values(map).includes(bracket)) {
+            const lastBracket = stack.pop();
+            if (map[lastBracket] !== bracket) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+}
+
+// console.log(isBalanced("([{}])")) // true
+// console.log(isBalanced("([)]"))   // false
