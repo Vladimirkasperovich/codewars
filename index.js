@@ -262,3 +262,24 @@ const secondMax = (arr) => {
     return array.find((element) => element < max)
 }
 // console.log(secondMax([2, 3, 1, 4, 5])) // 4
+
+
+const areEqual = (list1, list2) => {
+    if (list1.length !== list2.length) return false;
+
+    const map = new Map();
+
+    for (const item of list1) {
+        map.set(item, (map.get(item) || 0) + 1);
+    }
+
+    for (const item of list2) {
+        if (!map.has(item)) return false;
+        map.set(item, map.get(item) - 1);
+        if (map.get(item) === 0) map.delete(item)
+    }
+    return map.size === 0
+}
+// console.log(areEqual([1, 2, 3], [3, 2, 1])) // true
+// console.log(areEqual([1, 2, 2], [2, 1, 1])) // false
+
