@@ -223,3 +223,15 @@ const isPalindrome = (str) => {
 }
 
 // console.log(isPalindrome("A man a plan a canal Panama")) // true
+
+const maxChar = (str) => {
+    const seen = {};
+    for (const char of str) {
+        seen[char] = (seen[char] || 0) + 1;
+    }
+
+    const max = Math.max(...Object.values(seen))
+    return Object.entries(seen).find((item) => item[1] === max)[0]
+
+}
+// console.log(maxChar("javascript")) // 'a'
