@@ -254,3 +254,11 @@ const isBalanced = (str) => {
 
 // console.log(isBalanced("([{}])")) // true
 // console.log(isBalanced("([)]"))   // false
+
+
+const secondMax = (arr) => {
+    const array = [...arr].sort((a, b) => b - a)
+    const max = Math.max(...array);
+    return array.find((element) => element < max)
+}
+// console.log(secondMax([2, 3, 1, 4, 5])) // 4
