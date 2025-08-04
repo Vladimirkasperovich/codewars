@@ -298,19 +298,21 @@ function calculator(s, b, generation) {
         case '*':
             return num1 * num2;
         case "/":
-        case "%":
             if (num2 === 0) return 0;
-            return generation === '/' ? num1 / num2 : num1 % num2;
+            return  num1 / num2;
+        default :
+            return 'Неверная операция'
+
     }
 
 }
 
 // Примеры использования
-console.log(calculator(10, 5, '+')) //15
-console.log(calculator(10, '5', '*')) //50
-console.log(calculator('Hello', 'World', '+')) //Неверная операция
-console.log(calculator(10, 0, '/')) //0
-console.log(calculator(-10, 0, '/')) //0
-console.log(calculator('abc', 5, '+')) //NaN
-console.log(calculator(10, 5, '%')) //Неверная операция
+// console.log(calculator(10, 5, '+')) //15
+// console.log(calculator(10, '5', '*')) //50
+// console.log(calculator('Hello', 'World', '+')) //Неверная операция
+// console.log(calculator(10, 0, '/')) //0
+// console.log(calculator(-10, 0, '/')) //0
+// console.log(calculator('abc', 5, '+')) //NaN
+// console.log(calculator(10, 5, '%')) //Неверная операция
 
