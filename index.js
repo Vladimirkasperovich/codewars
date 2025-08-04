@@ -288,7 +288,7 @@ function calculator(s, b, generation) {
     const num1 = Number(s);
     const num2 = Number(b);
 
-    if (isNaN(num1) || isNaN(num2)) return 'Неверная операция'
+    if (isNaN(num1) || isNaN(num2)) return NaN
 
     switch (generation) {
         case '+':
@@ -299,7 +299,7 @@ function calculator(s, b, generation) {
             return num1 * num2;
         case "/":
             if (num2 === 0) return 0;
-            return  num1 / num2;
+            return num1 / num2;
         default :
             return 'Неверная операция'
 
@@ -316,3 +316,9 @@ function calculator(s, b, generation) {
 // console.log(calculator('abc', 5, '+')) //NaN
 // console.log(calculator(10, 5, '%')) //Неверная операция
 
+const replaceSubstring = (str, search, replace) => {
+    return str.replace(new RegExp(`${search}`, 'g'), replace)
+}
+
+// console.log(replaceSubstring('hello', 'world', 'there')) //hello there
+// console.log(replaceSubstring('abc abc abc', 'abc', '123')) //123 123 123
