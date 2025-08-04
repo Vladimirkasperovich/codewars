@@ -283,3 +283,34 @@ const areEqual = (list1, list2) => {
 // console.log(areEqual([1, 2, 3], [3, 2, 1])) // true
 // console.log(areEqual([1, 2, 2], [2, 1, 1])) // false
 
+
+function calculator(s, b, generation) {
+    const num1 = Number(s);
+    const num2 = Number(b);
+
+    if (isNaN(num1) || isNaN(num2)) return 'Неверная операция'
+
+    switch (generation) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        case "/":
+        case "%":
+            if (num2 === 0) return 0;
+            return generation === '/' ? num1 / num2 : num1 % num2;
+    }
+
+}
+
+// Примеры использования
+console.log(calculator(10, 5, '+')) //15
+console.log(calculator(10, '5', '*')) //50
+console.log(calculator('Hello', 'World', '+')) //Неверная операция
+console.log(calculator(10, 0, '/')) //0
+console.log(calculator(-10, 0, '/')) //0
+console.log(calculator('abc', 5, '+')) //NaN
+console.log(calculator(10, 5, '%')) //Неверная операция
+
