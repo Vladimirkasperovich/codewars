@@ -351,3 +351,30 @@ const map = (arr, fn) => {
 // console.log(map([10, 20, 30], function constant() {
 //     return 42;
 // })) //[42,42,42]
+
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+const filter = (arr, fn) => {
+    if (!arr.length) return arr;
+    const result = [];
+    for (let index = 0; index < arr.length; index++) {
+        const item = arr[index];
+        if (fn(item, index, arr)) {
+           result.push(item)
+        }
+    }
+    return result;
+};
+
+// console.log(filter([0, 10, 20, 30], function greaterThan10(n) {
+//     return n > 10;
+// })) //[20,30]
+// console.log(filter([1, 2, 3], function firstIndex(n, i) {
+//     return i === 0;
+// })) //[1]
+// console.log(filter([-2, -1, 0, 1, 2], function plusOne(n) {
+//     return n + 1
+// })) //[-2,0,1,2]
