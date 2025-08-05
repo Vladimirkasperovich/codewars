@@ -406,3 +406,21 @@ const reduce = (nums, fn, init) => {
 // console.log(reduce([], function sum(accum, curr) {
 //     return 0;
 // }, 25)) //25
+
+
+/**
+ * @param {Function[]} functions
+ * @return {Function}
+ */
+const compose = (functions) => {
+    return (...args) => {
+        return functions.reduceRight((acc, cur) => {
+            acc = cur(acc);
+            return acc;
+        }, ...args)
+    }
+};
+
+
+// const fn = compose([x => x + 1, x => 2 * x])
+// console.log(fn(4)) // 9
