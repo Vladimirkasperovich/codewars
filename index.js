@@ -446,4 +446,28 @@ const once = (fn) => {
 // console.log(onceFn(1, 2, 3)); // 6
 // console.log(onceFn(2, 3, 6)); // returns undefined without calling fn
 
+const memoize = (fn) => {
+    const cache = new Map();
+    return (...args) => {
+        const key = JSON.stringify(args);
+        if (cache.has(key)) {
+            return cache.get(key)
+        }
 
+        const result = fn(...args);
+        cache.set(key, result);
+        return result
+    }
+}
+
+// function sum(a, b) {
+//     console.log('Вычисляю сумму...');
+//     return a + b;
+// }
+//
+// const memoizedSum = memoize(sum);
+//
+// console.log(memoizedSum(2, 3)); // Вычисляю сумму... → 5
+// console.log(memoizedSum(2, 3)); // (из кэша) → 5
+// console.log(memoizedSum(5, 7)); // Вычисляю сумму... → 12
+// console.log(memoizedSum(5, 7)); // (из кэша) → 12
