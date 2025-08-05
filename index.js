@@ -322,3 +322,32 @@ const replaceSubstring = (str, search, replace) => {
 
 // console.log(replaceSubstring('hello', 'world', 'there')) //hello there
 // console.log(replaceSubstring('abc abc abc', 'abc', '123')) //123 123 123
+
+
+/**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+const map = (arr, fn) => {
+    if (!arr.length) return arr;
+
+    const result = [];
+    for (let index = 0; index < arr.length; index++) {
+        const item = arr[index];
+        result.push(fn(item, index, arr))
+    }
+    return result;
+};
+
+// console.log(map([1, 2, 3], function plusI(n, i) {
+//     return n + 1;
+// })) //[2,3,4]
+//
+// console.log(map([1, 2, 3], function plusI(n, i) {
+//     return n + i;
+// })) //[1,3,5]
+//
+// console.log(map([10, 20, 30], function constant() {
+//     return 42;
+// })) //[42,42,42]
